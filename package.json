@@ -4,7 +4,8 @@
   "description": "recruitment site",
   "main": "index.js",
   "scripts": {
-    "test": "node test/test.js",
+    "test": "node ./node_modules/.bin/istanbul cover test/* && ./node_modules/.bin/codecov",
+    "coverage": "node ./node_modules/.bin/istanbul cover test/*",
     "start": "nodemon start.js"
   },
   "repository": {
@@ -20,6 +21,8 @@
   "dependencies": {
     "bell": "^7.3.0",
     "blipp": "^2.3.0",
+    "codecov": "^1.0.1",
+    "codecov.io": "^0.1.6",
     "env": "0.0.2",
     "env2": "^2.0.7",
     "handlebars": "^4.0.5",
