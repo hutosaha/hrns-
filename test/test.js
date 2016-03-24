@@ -4,6 +4,7 @@ const server = require('../index.js');
 const test = require('tape');
 const Hapi = require('hapi');
 const shot = require('shot');
+const redis = require('../lib/db/client.js');
 
 test('Server is running', (t) => {
 
@@ -33,6 +34,6 @@ test('root endpoint serves home page ', (t) => {
 
 		});
 		server.stop(t.end)
-
+		redis.quit();
 	});
 });
