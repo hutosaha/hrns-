@@ -31,7 +31,6 @@ test('root endpoint serves home page ', (t) => {
 			actual = response.statusCode;
 			expected = 200;
 			t.equal(actual,expected, 'root takes us to home');
-			redis.quit();
 			server.stop(t.end);
 		});
 	});
