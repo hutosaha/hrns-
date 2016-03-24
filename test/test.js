@@ -16,7 +16,7 @@ test('Server is running', (t) => {
 	})
 });
 
-/*test('root endpoint serves home page ', (t) => {
+test('root endpoint serves home page ', (t) => {
 	let actual, expected;
 
 	let options = {
@@ -37,4 +37,3 @@ test('Server is running', (t) => {
 		redis.quit();
 	});
 });
-*/
