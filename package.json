@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/istanbul cover test/* && node test/*",
-    "coverage": "node ./node_modules/.bin/istanbul cover test/*",
+    "coverage": "node ./node_modules/.bin/istanbul cover test/* && ./node_modules/.bin/codecov",
     "start": "nodemon start.js"
   },
   "repository": {

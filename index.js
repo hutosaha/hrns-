@@ -9,10 +9,10 @@ const AuthCookie = require('hapi-auth-cookie');
 const Blipp = require('blipp');
 
 const Home = require('./lib/plugins/home.js');
-const ClientLogin = require('./lib/plugins/clientlogin.js');
+const Login = require('./lib/plugins/login.js');
 
 const Auth = [Bell,  AuthCookie];
-const Plugins = [Blipp, Inert, Vision, Home, ClientLogin];
+const Plugins = [Blipp, Inert, Vision, Home, Login];
 
 exports.init = (port, next)=> {
 
