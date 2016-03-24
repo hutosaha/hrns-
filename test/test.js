@@ -12,7 +12,7 @@ test('Server is running', (t) => {
 
 		t.equal(server instanceof Hapi.Server, true ,' Server is an instance of the Hapi Server');
 		server.stop(t.end);
-
+		redis.quit();
 	})
 });
 
