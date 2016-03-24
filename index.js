@@ -14,11 +14,11 @@ const ClientLogin = require('./lib/plugins/clientlogin.js');
 const Auth = [Bell,  AuthCookie];
 const Plugins = [Blipp, Inert, Vision, Home, ClientLogin];
 
-exports.init = (port,next)=> {
+exports.init = (port, next)=> {
 
 	const server = new Hapi.Server();
 
-	server.connection({port: port})
+	server.connection({ port: port })
 
 	server.register(Auth, (err) => {
 
@@ -43,9 +43,9 @@ exports.init = (port,next)=> {
     server.auth.default('hrns-cookie');
 	});
 
-	server.register(Plugins , (err) => {
+	server.register(Plugins, (err) => {
 
-		if(err) throw err ;
+		if (err) throw err ;
 
 		server.views({
 			engines: {
@@ -56,8 +56,8 @@ exports.init = (port,next)=> {
 			path:'public/views'
 		});
 
-		server.start( (err) => {
-			return next(err,server);
+		server.start((err) => {
+			return next(err, server);
 		});
 	});
 };
