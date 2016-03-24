@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+  - "4.0.0"
+before_install:
+  - pip install --user codecov
+after_success:
+- ./bin/codecov -e TRAVIS_NODE_VERSION
+services:
+  - redis-server
+notifications:
+  email: false
