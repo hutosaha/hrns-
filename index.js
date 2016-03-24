@@ -1,20 +1,23 @@
 'use strict'
 
 require('env2')('config.env');
-const Hapi = require('hapi');
-const Inert = require('inert');
-const Vision = require('vision');
-const Bell = require('bell');
 const AuthCookie = require('hapi-auth-cookie');
-const Blipp = require('blipp');
+const Vision		 = require('vision');
+const Blipp 		 = require('blipp');
+const Inert 		 = require('inert');
+const Hapi 			 = require('hapi');
+const Bell 			 = require('bell');
 
-const Home = require('./lib/plugins/home.js');
-const Login = require('./lib/plugins/login.js');
+const Candidate = require('./lib/plugins/candidate.js');
+const Login 		= require('./lib/plugins/login.js');
+const Client		= require('./lib/plugins/client.js');
+const ClientSignUp = require('./lib/plugins/clientSignup.js');
+const Home 			= require('./lib/plugins/home.js');
 
 const Auth = [Bell,  AuthCookie];
-const Plugins = [Blipp, Inert, Vision, Home, Login];
+const Plugins = [Blipp, Inert, Vision, Home, Login, Candidate, Client, ClientSignUp];
 
-exports.init = (port, next)=> {
+exports.init = (port, next) => {
 
 	const server = new Hapi.Server();
 
