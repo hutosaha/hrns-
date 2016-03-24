@@ -4,7 +4,7 @@
   "description": "recruitment site",
   "main": "index.js",
   "scripts": {
-    "test": "node ./node_modules/.bin/istanbul cover test/* && ./node_modules/.bin/codecov",
+    "test": "./node_modules/.bin/istanbul cover test/* && node test/*",
     "coverage": "node ./node_modules/.bin/istanbul cover test/*",
     "start": "nodemon start.js"
   },
