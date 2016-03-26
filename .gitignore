@@ -36,4 +36,4 @@ node_modules
 .travis.yml
 
 dump.rdb
-.eslintrc
+.eslintrc.json

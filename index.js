@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 require('env2')('config.env');
 const AuthCookie     = require('hapi-auth-cookie');
@@ -8,10 +8,10 @@ const Inert 		 = require('inert');
 const Hapi 			 = require('hapi');
 const Bell 			 = require('bell');
 
-const Candidate = require('./lib/plugins/candidate.js');
+const Candidate 	= require('./lib/plugins/candidate.js');
 const Login 		= require('./lib/plugins/login.js');
 const Client		= require('./lib/plugins/client.js');
-const ClientSignUp = require('./lib/plugins/clientSignup.js');
+const ClientSignUp  = require('./lib/plugins/clientSignup.js');
 const Home 			= require('./lib/plugins/home.js');
 
 const Auth = [Bell,  AuthCookie];
@@ -21,29 +21,31 @@ exports.init = (port, next) => {
 
 	const server = new Hapi.Server();
 
-	server.connection({ port: port })
+	server.connection({ port: port });
 
 	server.register(Auth, (err) => {
 
-  	let authCookieOptions = {
-      password: process.env.COOKIE_PASSWORD,
-      cookie: 'user',
-      isSecure: false
-  	};
+		if (err) throw err ;
 
-    server.auth.strategy('hrns-cookie', 'cookie', authCookieOptions);
+		let authCookieOptions = {
+			password: process.env.COOKIE_PASSWORD,
+			cookie: 'user',
+			isSecure: false
+		};
 
-    let bellAuthOptions = {
-      provider: 'linkedin',
-      password: process.env.LINKEDIN_PASSWORD,
-      clientId: process.env.CLIENT_ID,
-      clientSecret: process.env.CLIENT_SECRET,
-      isSecure: false
-    };
+		server.auth.strategy('hrns-cookie', 'cookie', authCookieOptions);
 
-    server.auth.strategy('linkedin-oauth', 'bell', bellAuthOptions);
+		let bellAuthOptions = {
+			provider: 'linkedin',
+			password: process.env.LINKEDIN_PASSWORD,
+			clientId: process.env.CLIENT_ID,
+			clientSecret: process.env.CLIENT_SECRET,
+			isSecure: false
+		};
 
-    server.auth.default('hrns-cookie');
+		server.auth.strategy('linkedin-oauth', 'bell', bellAuthOptions);
+
+		server.auth.default('hrns-cookie');
 	});
 
 	server.register(Plugins, (err) => {
