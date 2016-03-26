@@ -37,5 +37,9 @@
     "shot": "^3.0.1",
     "tape": "^4.5.1",
     "vision": "^4.0.1"
+  },
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "eslint": "^2.4.0"
   }
 }

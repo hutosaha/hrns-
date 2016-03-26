@@ -1,7 +1,7 @@
 'use strict'
 
 require('env2')('config.env');
-const AuthCookie = require('hapi-auth-cookie');
+const AuthCookie     = require('hapi-auth-cookie');
 const Vision		 = require('vision');
 const Blipp 		 = require('blipp');
 const Inert 		 = require('inert');

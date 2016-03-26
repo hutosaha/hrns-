@@ -6,6 +6,6 @@ Server.init(process.env.PORT , (err, server) =>{
      Hoek.assert(!err, err);
     console.log('The server is running on: ', server.info.uri);
 
-})
+});
 
 
