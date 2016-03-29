@@ -18,7 +18,7 @@ server.init(0, (err,server) => {
 			t.end();	
 	});
 
-	test('root endpoint serves home page for new user or expired users', (t) => {
+	test('new user or expired users root endpoint serves home page', (t) => {
 		let actual, expected;
 
 		let options = {
@@ -40,7 +40,8 @@ server.init(0, (err,server) => {
 	
 	});
 
-	test('root endpoint redirects approved clients to the right page', (t) => {
+
+	test('root endpoint redirects approved users (have scope) to respective dashboard', (t) => {
 		let actual, expected;
 
 		let options = {
@@ -56,10 +57,10 @@ server.init(0, (err,server) => {
 
 			actual = response.statusCode;
 			expected = 302;
-			t.equal(actual,expected,'approved client to / responds with status code 302');
+			t.equal(actual,expected,'approved client / responds with status code 302');
 
-			actual = '/client';
-			expected = response.headers.location;
+			actual = response.headers.location;
+			expected = '/client'; 
 			t.equal(actual, expected, 'approved client gets redirected to /client');
 
 		});
@@ -72,14 +73,22 @@ server.init(0, (err,server) => {
 			expected = 302;
 			t.equal(actual,expected,'approved candidate to / responds with status code 302');
 
-			actual = '/candidate';
-			expected = response.headers.location;
+			actual = response.headers.location;
+			expected = '/candidate';
 			t.equal(actual,expected , 'approved candidate gets redirected to /candidate');
 		
 		});
 
 		t.end();
 	});
+
+	test('root endpoint directs unapproved users to waiting for approval page', (t) => {
+			let actual, expected;
+			t.equal(actual, expected, 'takes to waitng for approval');
+			t.end();
+	});
+
+
 
 	server.stop();
 	redis.quit();
