@@ -13,15 +13,16 @@
         "sourceType": "module"
     },
     "rules": {
-       
+
         "quotes": [
-            "error",
+            2,
             "single"
         ],
         "semi": [
-            "warn",
+            1,
             "always"
         ],
+        "indent": [2, "tab"],
         "no-console": [2,
             {"allow":["log","warn","error"]}
         ]
