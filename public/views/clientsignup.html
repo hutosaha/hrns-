@@ -1,1 +1,23 @@
 <h1>This is the client sign up page</h1>
+
+<form action="/clientsignup" method="POST">
+  <input type="text" name="contactName" placeholder="Contact Name" required>
+  <input type="text" name="email" placeholder="Email address" required>
+  <input type="text" name="contactNumber" placeholder="Contact Number" required>
+  <input type="text" name="companyName" placeholder="Company Name" required>
+  <input type="text" name="companyDescription" placeholder="Company Description" required>
+  <label for="companySize"> Company Size
+    <select name="companySize" id="" required>
+      <option value="1-5">1-5</option>
+      <option value="5-50">5-50</option>
+      <option value="50-200">50-200</option>
+      <option value="200-500">200-500</option>
+      <option value="500+">500+</option>
+    </select>
+  </label>
+  <input type="text" name="website" placeholder="Company Website">
+  <input type="text" name="twitter" placeholder="Twitter">
+  <input type="text" name="facebook" placeholder="Facebook">
+  <input type="text" name="linkedin" placeholder="LinkedIn">
+  <input type="submit" value="Submit">
+</form>
