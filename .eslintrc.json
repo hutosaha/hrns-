@@ -15,11 +15,11 @@
     "rules": {
        
         "quotes": [
-            "error",
+            2,
             "single"
         ],
         "semi": [
-            "warn",
+            1,
             "always"
         ],
         "no-console": [2,
