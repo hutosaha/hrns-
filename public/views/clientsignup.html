@@ -7,7 +7,6 @@
   <input type="text" name="companyName" pattern="{{frontendInput}}" placeholder="Company Name" required>
   <input type="text" name="companyDescription" pattern="{{frontendInput}}" placeholder="Company Description" required>
   <label for="companySize"> Company Size
-
       <select name="companySize" id="" required>
       <option value="1-5">1-5</option>
       <option value="5-50">5-50</option>
@@ -16,10 +15,10 @@
       <option value="500+">500+</option>
     </select>
   </label>
-  <input type="text" name="website" placeholder="Company Website" pattern="{{url}}" title="Please enter a valid url">
-  <input type="text" name="twitter" placeholder="Twitter" pattern="{{url}}" title="Please enter a valid url">
-  <input type="text" name="facebook" placeholder="Facebook" pattern="{{url}}" title="Please enter a valid url">
-  <input type="text" name="linkedin" placeholder="LinkedIn" pattern="{{url}}" title="Please enter a valid url">
+  <input type="text" name="website" placeholder="Company Website" pattern="{{url}}" title="Please enter 'https://' or 'http://' before domain name">
+  <input type="text" name="twitter" placeholder="Twitter" pattern="{{frontendInput}}" title="Please enter a valid twitter handle, e.g. '@harness'">
+  <input type="text" name="facebook" placeholder="Facebook" pattern="{{url}}" title="Please enter 'https://' or 'http://' before domain name">
+  <input type="text" name="linkedin" placeholder="LinkedIn" pattern="{{url}}" title="Please enter 'https://' or 'http://' before domain name">
   <input type="submit" value="Submit">
 </form>
 
