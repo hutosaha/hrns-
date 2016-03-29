@@ -22,7 +22,6 @@
             1,
             "always"
         ],
-        "indent": [2, "tab"],
         "no-console": [2,
             {"allow":["log","warn","error"]}
         ]
