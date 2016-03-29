@@ -13,9 +13,10 @@ const Login 		= require('./lib/plugins/login.js');
 const Client		= require('./lib/plugins/client.js');
 const ClientSignUp  = require('./lib/plugins/clientSignup.js');
 const Home 			= require('./lib/plugins/home.js');
+const AdminDashboard= require('./lib/plugins/admindashboard.js');
 
 const Auth = [Bell,  AuthCookie];
-const Plugins = [Blipp, Inert, Vision, Home, Login, Candidate, Client, ClientSignUp];
+const Plugins = [Blipp, Inert, Vision, Home, Login, Candidate, Client, ClientSignUp, AdminDashboard];
 
 exports.init = (port, next) => {
 
