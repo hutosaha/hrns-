@@ -1,4 +1,4 @@
-var Server = require('./index.js');
+var Server = require('./lib/index.js');
 var Hoek = require('hoek');
 require('env2')('config.env');
 
@@ -7,5 +7,3 @@ Server.init(process.env.PORT , (err, server) =>{
     console.log('The server is running on: ', server.info.uri);
 
 });
-
-

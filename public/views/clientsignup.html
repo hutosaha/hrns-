@@ -1,1 +1,25 @@
 <h1>This is the client sign up page</h1>
+
+<form action="/clientsignup" method="POST">
+  <input type="text" name="contactName" pattern="{{frontendInput}}" placeholder="Contact Name" required>
+  <input type="email" name="email"   placeholder="Email address" required>
+  <input type="tel" name="contactNumber" placeholder="Contact Number" required>
+  <input type="text" name="companyName" pattern="{{frontendInput}}" placeholder="Company Name" required>
+  <input type="text" name="companyDescription" pattern="{{frontendInput}}" placeholder="Company Description" required>
+  <label for="companySize"> Company Size
+    <select name="companySize" id="" required>
+      <option value="1-5">1-5</option>
+      <option value="5-50">5-50</option>
+      <option value="50-200">50-200</option>
+      <option value="200-500">200-500</option>
+      <option value="500+">500+</option>
+    </select>
+  </label>
+  <input type="text" name="website" placeholder="Company Website" pattern="{{url}}" title="Please enter a valid url">
+  <input type="text" name="twitter" placeholder="Twitter" pattern="{{url}}" title="Please enter a valid url">
+  <input type="text" name="facebook" placeholder="Facebook" pattern="{{url}}" title="Please enter a valid url">
+  <input type="text" name="linkedin" placeholder="LinkedIn" pattern="{{url}}" title="Please enter a valid url">
+  <input type="submit" value="Submit">
+</form>
+
+{{{message}}}
