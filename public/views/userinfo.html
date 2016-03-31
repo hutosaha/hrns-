@@ -2,6 +2,11 @@
 
 <h2>{{message}}</h2>
 
+<a type="button" href="/userinfo/clients">Clients</a>
+<a type="button" href="/userinfo/agencies">Agency</a>
+
+
+<h2>Clients</h2>
 <ul>
     {{#each userData}}
     <li>{{contactName}}</li>
@@ -12,6 +17,8 @@
     <li>{{twitter}}</li>
     <li>{{facebook}}</li>
     <li>{{linkedin}}</li>
+    <li>{{type}}</li>
  	<input type="button" onclick="location.href=" value="View More">
     {{/each}}
 </ul>
+
