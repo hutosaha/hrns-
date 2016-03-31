@@ -11,11 +11,7 @@ const clientCookie = 'user=Fe26.2**2b6d0a38ebadc2ad33da3736dd9d0516bd57a1164e4bf
 const candidateCookie = 'user=Fe26.2**860857e13a2898bc95038bc0490afb784896998c6bceee9006358e5e9c548153*G_v2Q-x60pykghruWVX9Hw*ORYtic-tQ_0jl_IiLMtDZ8fp9wMAYEyWRlXeFcLfsahDoic2k4NaM0EdTw7ZJfX_v7N-Mdfs2hzyvEuXCAuD0ntQ7Fr6pCUAAI3FwRolUAnit1eD1pdUD3DxO8ZYndtfSTZXHLDK0tXwd9UPSSAXnO62yvhckHDUCsTYdFO7nXWI_Sy7QiIzQ7Y2tqNFPlPskvbSLeMu15RXel5Zv2SWGvOBmJPWYztXeOH4LsZHbO0Xcc3uHVs_ZUkNtjyEdOk8_Cx3D_63p1rJN4pG4hDnO2WRJPRrVRa8Q-fTfl612LJEKqy--BrsQ60NZB5VHD77XEWAZfwM0LssFDdE6jzCc-_A70meTapvoExFPY7DapFNWEGsX23RsgyEE_Jh3ClV0x4fjKG9H-cLhBfk9OPGiBVwYCmBkzgy1aAxYxza1H-SLsIVMH2HRFkC3AeWHWgCEuPqC9Xw0E5vCSZ3DsQVnxwpaonijUW3kgqKuVX39MXnZZRZV_LE3YzAh2j8qJr9Bfs8QChBrCR2zT15cd795jvKIxe7BosturHCrA1pWcARvc3xGJT4FZt1GVjggxJP7JWfAgDGtWurgVlpTipCFLrPFVmJD_Q68gf7Q-8P83TwJu519bv_-ONl3NY48ZgBA977Q5sUIH6tfxV61Fldytuw199xtw484Bp1WpDLa16TcuCoh7vvs57gTHBDyUdTiDKbtIpLKN2cT3BFssLM4tgjiouwhAnfP5RCBGt5HAfE40qy4zTHzNuOiEdillI-VW-TbUd6KBe3pmU7mAaVXy83-AhZ90ejaSI_5Ifk_goaYXAY2OAXN2b52UT44dAYlD-5XiKyxVBP4auSdhu1jnCD-50pJ-gesGE5cYR4gnhL62JeUarp69Uf99MqeC2FRf836c4fu8sngts9Gs2KF5sEenLi-3pmFODSz9gaoraBYzYC7iLu7M1BN4xbRRs3_S55pMeHHWU8368txwzLoA**693f06d904e4d52e8d2b6fa5be632d1c1a3338e9a14090c557bb850dcfdfa027*tIXG71gnHMRwRCW9MwQdbhjywrMG0f8rrwTCiDVFM50';
 const noScopeCookie = 'user=Fe26.2**edfd638eb3516578fd93d7003e1e6ea22d06d6b624c830d2f1695de69fc8a615*v7XNwMBMREnrqKM-h5Tixg*9HlmFnhIRs7YhQDgWv26STp4w0p7kBOmPTynI-ImTNXN7hJA8ElHW945FuxYVQBkSav-lVJvO26D7EGMu1sOdKZ6xoXMxqY3ux9aLkwjkrMkiR9ikMAPEOaX9J5oDLUU1-Yh3bjTI-7UtSeg-HGh6cC-uZ6O0y7fymsftw9xyqsNl56LNvPPdiggHMiY3EAYxjju4kNRdFmlXkAUn82dOGTtoLl0VnYHQCJTUZTGGat0zsbSqJDKay7GphrtWi8-XPPq2iQyBK_a8akiqdKeNAE55CKYZLPlBCmdGfCT2YrGx7MElrvwpVSIdia5_vNLKkAxbG9T_AOgVUm02HahrmS1HBt3kU_NFoXKayDzeaWPKWT6eUkRSyMWSWpfmCi4TYb9nLhUELuwsjWCaDovswfh9Y09BJ-cSyj2l68fR5nVl7WQxBcRBOMv3vZqjEhrNpPdZ7cEB7VLxJkxeJldwhSkx5mXUhhgLYPfrV4NbOYTwC0fsLR19LO6R-kuKxHP_VHa7yfx2uDkctUXs00j31E4cfTpsD61VASY6Yo8oLD6Ny7s4m-udT_Rx0ima8GWPbiNLPGR1zHrLGiDY9-ap1CM79sSwucY0Ucm5SY7ZFeiNpxqIqHh29Ef-YRT-1TGIqSPZdChoRaDEapq5Q7_zydivJPTk-oTn4XR5EDj6JZ_UtGEZlYTBi3in_YhDMNnBrs7huWlDPlsV_NfUcXETSxAN14-hYZ2wI6GX3NBPmt_3SbJTwDdrFmxm5-VXKVvvbFTTklsMsu-ZePc5SCpSJwIRHSXpcNq2JiFZZkHvVkQo_SWsCfrp5R8DyW8Sg3VcfW8A_HjiD1BiCdav3Z2iLol6e6RU5Lj8xYkYg_dI8GTEgqOsHUDwB1RhNKb6QVxAmmbBMMdwK6gflfXnN5afTpwoflha20x9_p0C4NdOkA**336837fbc8866841ab39d107927e2aa647457a210679e3b38fd53ed48a8df3d8*GcKjJXysdgQZ-8TrKfFmR1r7lhv9VNYQd3rXhXz4IWg';
 
-
 server.init(0, (err,server) => {
-
-
-
 
 	test('Server is running', (t) => {
 			t.equal(server instanceof Hapi.Server, true ,' Server is an instance of the Hapi Server');
@@ -43,7 +39,7 @@ server.init(0, (err,server) => {
 	testEndPoint('/','GET', 302, 'approved candidate redirected 302', candidateCookie);
 
 	testEndPoint('/','GET', 302, 'auth  unapproved no scope user', noScopeCookie );
-	
+
 	testEndPoint('/login/client', 'GET', 302, 'unauth user responds with redirect 302');
 	testEndPoint('/login/candidate', 'GET', 302, 'unauth user responds with redirect 302');
 
@@ -58,7 +54,7 @@ server.init(0, (err,server) => {
 
 
 	testEndPoint('/logout','GET', 200, 'auth user responds with response 200', clientCookie);
-	
+
 
 	const testHeaderLocation = (endpoint, method, expectedHeaders, message, COOKIE) => {
 		test( method + ' '+ endpoint+' '+ 'return status code', (t) => {
@@ -67,7 +63,7 @@ server.init(0, (err,server) => {
 				url: endpoint,
 				headers : { cookie : COOKIE }
 			};
-		
+
 
 			server.inject(options, (res) => {
 
@@ -82,7 +78,7 @@ server.init(0, (err,server) => {
 	testHeaderLocation('/','GET','/candidate','header location response', candidateCookie);
 
 	//testHeaderLocation('/logout','GET','/logout','header location response', clientCookie);
-	
+
 	const testPayload = (endpoint, method, expectedString , message, COOKIE) => {
 		test( method + ' '+ endpoint+' '+ 'return status code', (t) => {
 			var options = {
@@ -90,7 +86,7 @@ server.init(0, (err,server) => {
 				url: endpoint,
 				headers : { cookie : COOKIE }
 			};
-		
+
 
 			server.inject(options, (res) => {
 				let actual = res.payload.indexOf(expectedString) > -1;
@@ -134,7 +130,7 @@ server.init(0, (err,server) => {
 
 		client.quit(); // last test call redis.quit();
 	});
-	
+
 	*/
 
 
