@@ -100,7 +100,7 @@ server.init(0, (err,server) => {
 			});
 		});
 	};
-
+ 
 	testPayload('/logout','GET','<h1>You\'ve logged out!</h1>', 'payload has heading logged out');
 	testPayload('/','GET', '<h1>Home page!</h1>', 'unauth / payload has heading Home Page');
 
