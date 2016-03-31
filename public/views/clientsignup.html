@@ -1,4 +1,4 @@
-<h1>This is the client sign up page</h1>
+<h1>Client sign up page</h1>
 
 <form action="/clientsignup" method="POST">
   <input type="text" name="contactName" pattern="{{frontendInput}}" placeholder="Contact Name" value="{{name}}" required>
@@ -8,12 +8,12 @@
   <input type="text" name="companyDescription" pattern="{{frontendInput}}" placeholder="Company Description" required>
   <label for="companySize"> Company Size
       <select name="companySize" id="" required>
-      <option value="1-5">1-5</option>
-      <option value="5-50">5-50</option>
-      <option value="50-200">50-200</option>
-      <option value="200-500">200-500</option>
-      <option value="500+">500+</option>
-    </select>
+        <option value="1-5">1-5</option>
+        <option value="5-50">5-50</option>
+        <option value="50-200">50-200</option>
+        <option value="200-500">200-500</option>
+        <option value="500+">500+</option>
+      </select>
   </label>
   <input type="text" name="website" placeholder="Company Website" pattern="{{url}}" title="Please enter 'https://' or 'http://' before domain name">
   <input type="text" name="twitter" placeholder="Twitter" pattern="{{frontendInput}}" title="Please enter a valid twitter handle, e.g. '@harness'">
