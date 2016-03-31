@@ -13,14 +13,13 @@ const noScopeCookie = 'user=Fe26.2**edfd638eb3516578fd93d7003e1e6ea22d06d6b624c8
 server.init(0, (err,server) => {
 
 
-
 	test('Server is running', (t) => {
 			t.equal(server instanceof Hapi.Server, true ,' Server is an instance of the Hapi Server');
 			t.end();	
 	});
 
 	const testEndPoint = (endpoint, method, statusCode, message, COOKIE) => {
-		test( method + ' '+ endpoint+' '+ 'return status code', (t)=>{
+		test( method + ' '+ endpoint+' '+ 'return status code'+statusCode, (t)=>{
 			var options = {
 				method: method,
 				url: endpoint,
