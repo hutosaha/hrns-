@@ -1,19 +1,18 @@
 'use strict';
 module.exports = (array) => {
 	let out = '<div class="users">';
-
+	console.log('Array',array);
+	if(!array) return '<h1> Nobody waiting for approval </h1>' ;
 	array.forEach((elem) => {
-		console.log('foreach out', out);
 		out += '<ul id="' + elem['id'] + '">';
 		for(var key in elem) {
-			console.log('for in out', out);
-			out += '<li>' + elem[key] + '</li>';
+			console.log('keys', key);
+			out += '<li> <a href= "approveusers/'+elem[key]+'">' + elem[key] +' </a></li>';
+			
 		}
-		out += '</ul>' +
-		'<input type="checkbox" id="' + elem['id'] + '"> <label for="'+ elem['id'] + '">Approve this user</label>' +
-		'<br><br>';
+		out += '<button href="approveuser/'+elem['id'] +'>Approve </button> </ul></div>';
+	
+		
 	});
-	console.log('final out', out);
-	return out += '<button action="/approveusers" method="POST"> Save changes </button>' +
-	'</div>';
+	return out;
 };
