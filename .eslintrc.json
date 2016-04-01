@@ -1,0 +1,29 @@
+{
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es6": true,
+        "node": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "sourceType": "module"
+    },
+    "rules": {
+
+        "quotes": [
+            2,
+            "single"
+        ],
+        "semi": [
+            1,
+            "always"
+        ],
+        "no-console": [2,
+            {"allow":["log","warn","error"]}
+        ]
+    }
+}

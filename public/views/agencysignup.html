@@ -1,0 +1,43 @@
+<br>
+
+<h1>Agency sign up page</h1>
+
+{{{message}}}
+
+<form action="/agencysignup" method="POST">
+  <label for="contactName"> Contact Name
+    <input type="text" name="contactName" pattern="{{frontendInput}}" title="No 'greater than' or 'less than' symbols" placeholder="Contact Name" value="{{name}}" required>
+  </label>
+  <label for="companyName"> Company Name
+    <input type="text" name="companyName" pattern="{{frontendInput}}" title="No 'greater than' or 'less than' symbols" placeholder="Company Name" required>
+  </label>
+  <label for="contactNumber"> Contact Number
+    <input type="tel" name="contactNumber" placeholder="Contact Number" required>
+  </label>
+  <label for="email"> Email
+    <input type="email" name="email" placeholder="Email address" required>
+  </label>
+  <label for="companySize"> Company Size
+      <select name="companySize" id="" required>
+        <option value="1-5">1-5</option>
+        <option value="5-50">5-50</option>
+        <option value="50-200">50-200</option>
+        <option value="200-500">200-500</option>
+        <option value="500+">500+</option>
+      </select>
+  </label>
+  <label for="specialism"> Company Specialism
+      <select name="agencySpecialism" id="" required>
+        <option value="analytics">Analytics</option>
+        <option value="clientServices">Client Services</option>
+        <option value="Creative">Creative</option>
+        <option value="IT">IT</option>
+        <option value="ITSecurity">IT Security</option>
+        <option value="marketing">Marketing</option>
+        <option value="mobile">Mobile</option>
+        <option value="projectManagement">Project Management</option>
+        <option value="socialMedia">Social Media</option>
+      </select>
+  </label>
+  <input type="submit" value="Submit">
+</form>

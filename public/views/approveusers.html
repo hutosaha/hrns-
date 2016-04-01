@@ -1,0 +1,20 @@
+<h1>Approve Users</h1>
+
+{{message}}
+{{#each userData}}
+<ul>
+
+    <li>{{contactName}}</li>
+    <li>{{contactNumber}}</li>
+    <li>{{companySize}}</li>
+    <li>{{website}}</li>
+    <li>{{companySize}}</li>
+    <li>{{twitter}}</li>
+    <li>{{facebook}}</li>
+    <li>{{linkedin}}</li>
+    <li>{{type}}</li>
+ 	<input type="button" onclick="location.href='approveuser/{{id}}'" value="Approve">
+ 	<input type="button" onclick="location.href='rejectuser/{{id}}'" value="Reject">
+    {{/each}}
+</ul>
+

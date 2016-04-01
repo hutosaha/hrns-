@@ -1,0 +1,43 @@
+<h1>Approved User Info</h1>
+
+<a type="button" href="/userinfo/clients">Clients</a>
+<a type="button" href="/userinfo/agencies">Agency</a>
+
+<h2>{{message}}</h2>
+
+{{#if clients}}
+<h2>Clients</h2>
+<ul>
+    {{#each clients}}
+    <li>{{contactName}}</li>
+    <li>{{contactNumber}}</li>
+    <li>{{email}}</li>
+    <li>{{companySize}}</li>
+    <li>{{website}}</li>
+    <li>{{companySize}}</li>
+    <li>{{twitter}}</li>
+    <li>{{facebook}}</li>
+    <li>{{linkedin}}</li>
+    <li>{{type}}</li>
+    <!-- still need todo view more -->
+ 	<input type="button" onclick="location.href=" value="View More">
+    {{/each}}
+</ul>
+{{/if }}
+
+{{#if agencies}}
+<h2>Agencies</h2>
+<ul>
+    {{#each agencies}}
+    <li>{{companyName}}</li>
+    <li>{{contactName}}</li>
+    <li>{{contactNumber}}</li>
+    <li>{{email}}</li>
+    <li>{{companySize}}</li>
+    <li>{{companyDescription}}</li>
+    <li>{{type}}</li>
+    <!-- still need todo view more -->
+    <input type="button" onclick="location.href=" value="View More">
+    {{/each}}
+</ul>
+{{/if }}
