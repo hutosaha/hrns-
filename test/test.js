@@ -4,7 +4,7 @@ const server = require('../lib/index.js');
 const test = require('tape');
 const Hapi = require('hapi');
 
-// const redisApp = require('../lib/db/redis.js');
+const redisApp = require('../lib/db/redis.js');
 const client = require('../lib/db/client.js');
 
 const clientCookie = 'user=Fe26.2**2b6d0a38ebadc2ad33da3736dd9d0516bd57a1164e4bf5ac32f5f497584d5322*qVbbmJroXxn8noIRfh7Mpw*YrM9mMy7_7FltC8J8DZ4197-1HX3L90bGphzzSQDzYw4zCjDOFuz2m1Dkcn-iqIp2U0n7m008acfGoS1JmaPWoJ3rzzPkGVdERNeGL4eUQNpdubnhRVnCzzFRGxY_99NN0b60vpDv2QfE64ZuJEwoArngX6A9pQY5E5YuK7fQxos9xCizpnzSYwZrfi_elTkDyrlWmvumYoJpewMRqyZImc4VNqH5RSgCizp__kG1Q4bzdx2E5VU9GP6lhdiuJXdTYNXzDz7L4OKXM9qP8VHx83yepkIJsCuTI12donqAHftJSXCvOzoXsy-RXl-MhjmxJJOWdUjyM2Fan_q7M_odIbGUgE6fHiBtGL1QfsFEbSxjN2kgylP7v-kfqhFk9YjZ9ng5eoJnzjvncB5eOxLaU4L1pBbRnkWxVTMrIhHDt4BqO0xeDUQ3OduNT_F3jiskBjEHVHiyT3lSkzE2DtccIE47hUJQgBa_94RocNGdrjjb4o5Yc1RSoWU7sPkQGQOFkcRj9vBzm5LPmmfYS3Vrgh4Mzr7G_EF8Q8T6OiaHyLvoWqZqFnqdTzFKHQEDIpnSxqc2MJAMCz1XJcyubVLku0JJ0ciTpdyIRPUhpK6O3LlG-Le4ygZPXheLj_j9Ut4zqB5vMt03RV7zsH6Co-Bg2MpsYVgAPksrmyf85v_3j9677yRf4tUNg9c4x8VX2tqYpI4wcRujMgNwGqUf10Gcdtav_tqpyITTcgPzTlrceL0C4OqKnCM1SdZk4inzqeIezFsGui-jqEQ22-3GinNyxcE9wlH4dr4ecXIIkUTW_DbsuxUnO60BJ9gtT4zfiFRVbBu7DZSPgAxedOCmrqqjrNawt_PGsSbWaOXWlwn4xqA9nLGxAy1culeB0pMgJAHOLfbtWnq8ekN076fBO-_cxFEo-Fn9NAC0XWegHxgc78FjZcxgTCeQCW4pV3cg-es**9109ca17ef235bae6830d1c45e7187a2e0690a8be99f4d64415522c7bdfee0d6*0ib-C6ErVtKofE2S1nF-3kmyzgW6P9xD35jOBouQtZI';
@@ -108,19 +108,73 @@ server.init(0, (err,server) => {
 			t.end();
 		});
 		client.DEL(listName, (err,reply) => {
-			console.log('DEL', reply);
-			client.quit(); // last test call redis.quit();
+			console.log('cleaned DB', reply);
 		});
 	});
-/*
-	test('test addUserForApproval creates a list unapprovedUsers ', (t) => {
-		let testId
-		redisApp.addUserForApproval()
 
-		client.quit(); // last test call redis.quit();
+	test('checkUserType gets user type', (t) => {
+		let hash = 'test1';
+
+		client.hset(hash, 'type', 'client');
+		redisApp.checkUserType(hash, (type) => {
+			t.equal(type, 'client', 'types match');
+			t.end();
+		});
 	});
 
-	*/
+	test('approveUser adds to approvedUsers and removes from awaitingApproval', (t) => {
+		let hash = 'test2';
+
+		client.sadd('awaitingApproval', hash);
+		redisApp.approveUser(hash, () => {
+				client.sismember('approvedUsers', hash, (err, res) => {
+					t.equal(res, 1, 'hash added to approvedUsers');
+				});
+				client.sismember('awaitingApproval', hash, (err, res) => {
+					t.equal(res, 0, 'hash add to awaitingApproval');
+					t.end();
+				});
+		});
+	});
+
+	test('addUserForApproval add User to unapprovedUsers list', (t) => {
+		let hash = 'test3';
+
+		client.srem('unapprovedUsers', hash);
+		redisApp.addUserForApproval(hash, () => {
+			client.sismember('unapprovedUsers', hash, (err, res) => {
+				t.equal(res, 1, 'user added to list!');
+				t.end();
+			});
+		});
+
+	});
+
+	test('isApprovedClient correctly checks for approvedUser', (t) => {
+		let hash = 'test4';
+
+		client.sadd('approvedUsers', hash);
+		redisApp.isApprovedClient(hash, (res) => {
+			t.equal(res, 1, 'correctly identifies hash!');
+			t.end();
+		});
+	});
+
+	test('isExistingUser identifies user in DB', (t) => {
+		let hash = 'test5';
+
+		client.del(hash);
+		client.hset(hash, 'id', hash, (err, res) => {
+			if (res) {
+				redisApp.isExistingUser(hash, (res) => {
+					t.equal(res, 1, 'identifies hash exists!');
+					t.end();
+					client.quit(); // call in final test
+				});
+			}
+		});
+	});
+
 	server.stop();
 });
 
