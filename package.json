@@ -32,10 +32,16 @@
     "hoek": "^3.0.4",
     "inert": "^3.2.0",
     "istanbul": "^0.4.2",
+    "joi": "^8.0.5",
     "nodemon": "^1.9.1",
     "redis": "^2.5.3",
     "shot": "^3.0.1",
     "tape": "^4.5.1",
     "vision": "^4.0.1"
+  },
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "eslint": "^2.4.0",
+    "istanbul": "^0.4.2"
   }
 }

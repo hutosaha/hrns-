@@ -1,1 +1,44 @@
-<h1>This is the client sign up page</h1>
+<h1>Client sign up page</h1>
+
+<form action="/clientsignup" method="POST">
+  <label for="contactName"> Contact Name
+    <input type="text" name="contactName" pattern="{{frontendInput}}" title="No 'greater than' or 'less than' symbols" placeholder="Contact Name" value="{{name}}" required>
+  </label>
+  <label for="email"> Email
+    <input type="email" name="email" placeholder="Email address" required>
+  </label>
+  <label for="contactNumber"> Contact Number
+    <input type="tel" name="contactNumber" placeholder="Contact Number" required>
+  </label>
+  <label for="companyName"> Company Name
+    <input type="text" name="companyName" pattern="{{frontendInput}}" title="No 'greater than' or 'less than' symbols" placeholder="Company Name" required>
+  </label>
+  <label for="companyDescription"> Company Description (optional)
+    <textarea id="companyDescription" type="text" name="companyDescription" pattern="{{frontendInput}}" title="No 'greater than' or 'less than' symbols" placeholder="Company Description" maxlength="500"></textarea>
+  </label>
+  <div id="textarea_feedback"></div>
+  <label for="companySize"> Company Size
+      <select name="companySize" id="" required>
+        <option value="1-5">1-5</option>
+        <option value="5-50">5-50</option>
+        <option value="50-200">50-200</option>
+        <option value="200-500">200-500</option>
+        <option value="500+">500+</option>
+      </select>
+  </label>
+  <label for="website"> Company Website (optional)
+    <input type="text" name="website" placeholder="Company Website" pattern="{{url}}" title="Please enter 'https://' or 'http://' before domain name">
+  </label>
+  <label for="twitter"> Company Twitter (optional)
+    <input type="text" name="twitter" placeholder="Twitter" pattern="{{frontendInput}}" title="No 'greater than' or 'less than' symbols" title="Please enter a valid twitter handle, e.g. '@harness'">
+  </label>
+  <label for="facebook"> Company Facebook (optional)
+    <input type="text" name="facebook" placeholder="Facebook" pattern="{{url}}" title="Please enter 'https://' or 'http://' before domain name">
+  </label>
+  <label for="linkedin"> Company LinkedIn (optional)
+    <input type="text" name="linkedin" placeholder="LinkedIn" pattern="{{url}}" title="Please enter 'https://' or 'http://' before domain name">
+  </label>
+  <input type="submit" value="Submit">
+</form>
+
+<script type="text/javascript" src="public/js/clientsignup.js"></script>
