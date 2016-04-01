@@ -188,14 +188,31 @@ server.init(0, (err,server) => {
 					payload.type = 'client';
 					let expected = payload;
 					let actual   = reply;
-					t.deepEqual(actual, expected, 'correctly adds payload');
+					t.deepEqual(actual, expected, 'correctly adds client payload');
 					t.end();
-					client.quit(); // call in final test
 				});
 			});
 		});
 	});
 
+	test('addAgencySignUpDetails saves correct payload', (t) => {
+		let hash = 'test7';
+		let payload = {
+			firstName: 'Joe',
+			surname: 'Bloggs'
+		};
+		redisApp.addAgencySignUpDetails(payload, hash, () => {
+			client.hgetall(hash, (err, reply) => {
+				payload.id = hash;
+				payload.type = 'agency';
+				let expected = payload;
+				let actual = reply;
+				t.deepEqual(actual, expected, 'correctly saves agency payload');
+				t.end();
+				client.quit(); // call in final test
+			});
+		});
+	});
 	server.stop();
 });
 
