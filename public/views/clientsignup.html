@@ -14,8 +14,9 @@
     <input type="text" name="companyName" pattern="{{frontendInput}}" title="No 'greater than' or 'less than' symbols" placeholder="Company Name" required>
   </label>
   <label for="companyDescription"> Company Description (optional)
-    <textarea type="text" name="companyDescription" pattern="{{frontendInput}}" title="No 'greater than' or 'less than' symbols" placeholder="Company Description" maxlength="500"></textarea>
+    <textarea id="companyDescription" type="text" name="companyDescription" pattern="{{frontendInput}}" title="No 'greater than' or 'less than' symbols" placeholder="Company Description" maxlength="500"></textarea>
   </label>
+  <div id="textarea_feedback"></div>
   <label for="companySize"> Company Size
       <select name="companySize" id="" required>
         <option value="1-5">1-5</option>
@@ -39,3 +40,5 @@
   </label>
   <input type="submit" value="Submit">
 </form>
+
+<script type="text/javascript" src="public/js/clientsignup.js"></script>
