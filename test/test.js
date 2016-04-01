@@ -169,9 +169,30 @@ server.init(0, (err,server) => {
 				redisApp.isExistingUser(hash, (res) => {
 					t.equal(res, 1, 'identifies hash exists!');
 					t.end();
-					client.quit(); // call in final test
 				});
 			}
+		});
+	});
+
+	test('addClientSignUpDetails adds payload to hash and adds to awaitingApproval', (t) => {
+		let hash = 'test6';
+		let payload = {
+			firstName: 'Joe',
+			surname: 'Bloggs'
+		};
+		redisApp.addClientSignUpDetails(payload, hash, () => {
+			client.sismember('awaitingApproval', hash, (err, res) => {
+				t.equal(res, 1, 'client is added to awaitingApproval');
+				client.hgetall(hash, (err, reply) => {
+					payload.id = hash;
+					payload.type = 'client';
+					let expected = payload;
+					let actual   = reply;
+					t.deepEqual(actual, expected, 'correctly adds payload');
+					t.end();
+					client.quit(); // call in final test
+				});
+			});
 		});
 	});
 
