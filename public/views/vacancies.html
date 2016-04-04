@@ -1,4 +1,4 @@
-<h1>Admin Vacancies Page</h1>
+<h1>Vacancies Page</h1>
 
 {{message}}
 {{#each userData}}
@@ -15,7 +15,7 @@
     <li>{{salary}}</li>
     <li>{{searchProgress}}</li>
     <li>{{searchDeadline}}</li>
- 	<input type="button" onclick="location.href='vacancy/Accept/{{id}}/{{email}}'" value="acccept">
- 	<input type="button" onclick="location.href='vacancy/reject/{{id}}/{{email}}'" value="decline">
+ 	<input type="button" onclick="location.href='vacancy/accept/{{id}}/{{email}}'" value="acccept">
+ 	<input type="button" onclick="location.href='vacancy/decline/{{id}}/{{email}}'" value="decline">
 </ul>
 {{/each}}
