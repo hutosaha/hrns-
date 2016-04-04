@@ -16,7 +16,7 @@ server.init(0, (err,server) => {
 
 	const testEndPoint = (endpoint, method, statusCode, message, COOKIE) => {
 		test(method + ' ' + endpoint + ' ' + 'returns status code ' + statusCode, (t) => {
-			let options = {
+			options = {
 				method: method,
 				url: endpoint,
 				headers : { cookie : COOKIE }
@@ -31,7 +31,7 @@ server.init(0, (err,server) => {
 
 	const testHeaderLocation = (endpoint, method, expectedHeaders, message, COOKIE) => {
 		test(method + ' ' + endpoint + ' ' + 'returns status code', (t) => {
-			let options = {
+			options = {
 				method: method,
 				url: endpoint,
 				headers : { cookie : COOKIE }
@@ -47,7 +47,7 @@ server.init(0, (err,server) => {
 
 	const testPayload = (endpoint, method, expectedString , message, COOKIE) => {
 		test( method + ' ' + endpoint+' '+ 'returns status code', (t) => {
-			let options = {
+			options = {
 				method: method,
 				url: endpoint,
 				headers : { cookie : COOKIE }
@@ -55,7 +55,7 @@ server.init(0, (err,server) => {
 
 			server.inject(options, (res) => {
 				let actual = res.payload.indexOf(expectedString) > -1;
-				let expected =true;
+				let expected = true;
 				t.equal(actual, expected , message +' '+expectedString);
 				t.end();
 			});
@@ -114,7 +114,7 @@ server.init(0, (err,server) => {
 	});
 
 	test('checkUserType gets user type', (t) => {
-		let hash = 'test1';
+		hash = 'test1';
 
 		client.hset(hash, 'type', 'client');
 		redisApp.checkUserType(hash, (type) => {
@@ -124,7 +124,7 @@ server.init(0, (err,server) => {
 	});
 
 	test('approveUser adds to approvedUsers and removes from awaitingApproval', (t) => {
-		let hash = 'test2';
+		hash = 'test2';
 
 		client.sadd('awaitingApproval', hash);
 		redisApp.approveUser(hash, () => {
@@ -139,7 +139,7 @@ server.init(0, (err,server) => {
 	});
 
 	test('addUserForApproval add User to unapprovedUsers list', (t) => {
-		let hash = 'test3';
+		hash = 'test3';
 
 		client.srem('unapprovedUsers', hash);
 		redisApp.addUserForApproval(hash, () => {
@@ -152,7 +152,7 @@ server.init(0, (err,server) => {
 	});
 
 	test('isApprovedClient correctly checks for approvedUser', (t) => {
-		let hash = 'test4';
+		hash = 'test4';
 
 		client.sadd('approvedUsers', hash);
 		redisApp.isApprovedClient(hash, (res) => {
@@ -162,7 +162,7 @@ server.init(0, (err,server) => {
 	});
 
 	test('isExistingUser identifies user in DB', (t) => {
-		let hash = 'test5';
+		hash = 'test5';
 
 		client.del(hash);
 		client.hset(hash, 'id', hash, (err, res) => {
@@ -176,8 +176,8 @@ server.init(0, (err,server) => {
 	});
 
 	test('addClientSignUpDetails adds payload to hash and adds to awaitingApproval', (t) => {
-		let hash = 'test6';
-		let payload = {
+		hash = 'test6';
+		payload = {
 			firstName: 'Joe',
 			surname: 'Bloggs'
 		};
@@ -197,8 +197,8 @@ server.init(0, (err,server) => {
 	});
 
 	test('addAgencySignUpDetails saves correct payload', (t) => {
-		let hash = 'test7';
-		let payload = {
+		hash = 'test7';
+		payload = {
 			firstName: 'Joe',
 			surname: 'Bloggs'
 		};
@@ -210,11 +210,36 @@ server.init(0, (err,server) => {
 				let actual = reply;
 				t.deepEqual(actual, expected, 'correctly saves agency payload');
 				t.end();
+			});
+		});
+	});
+
+	test('getSetMembersInfo does exactly what it says on the tin', (t) => {
+		let hash2 = 'test9';
+		let hashObj = {
+			id: 'user123',
+			type: 'client',
+			email: 'google@gmail.com',
+			company: 'facebook'
+		};
+		hash = 'test8';
+		client.hmset(hash, hashObj);
+		client.sadd('testSet', hash);
+		client.hmset(hash2, hashObj);
+		client.sadd('testSet', hash2);
+
+		redisApp.getSetMembersInfo('testSet', (res) => {
+			let actual = res;
+			let expected = [ { company: 'facebook', email: 'google@gmail.com', id: 'user123', type: 'client' }, { company: 'facebook', email: 'google@gmail.com', id: 'user123', type: 'client' } ];
+
+			t.deepEqual(actual, expected, 'The correct data was returned!');
+			redisApp.getSetMembersInfo('testSet2', (res) => {
+				t.equal(res, false, 'empty set should return false');
+				t.end();
 				client.quit(); // call in final test
 			});
 		});
 	});
 	server.stop();
 });
-
 // last test call redis.quit();
