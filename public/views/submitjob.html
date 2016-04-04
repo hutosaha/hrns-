@@ -3,11 +3,11 @@
 
 <form action="/submitjob" method="POST">
 	<label for="jobTitle"> Job Title
-		<input type="text" name="jobTitle" pattern="{{frontendInput}}" title="Job Title, no ankle brackets"
+		<input type="text" name="jobTitle" pattern="{{frontendInput}}" title="No ankle brackets"
 		placeholder="Job title" required>
 	</label>
 	<label for="jobDescription"> Job Description
-		<textarea type="text" name="jobDescription" pattern="{{frontendInput}}" title="Job Title, no ankle brackets" placeholder="Job Description" required></textarea>
+		<textarea type="text" name="jobDescription" pattern="{{frontendInput}}" title="No ankle brackets" placeholder="Job Description" required></textarea>
 	</label>
 	<label for="jobCategory"> Job Category
 	      <select name="jobCategory" required>
@@ -21,7 +21,7 @@
 	        <option value="Sales & Business Development">Sales & Business Development</option>
 	      </select>
 	</label>
-	<label for="teamCulture"> Team Culture 
+	<label for="teamCulture"> Team Culture
 		<input type="text" name="teamCulture" pattern="{{frontendInput}}" title="no ankle brackets"
 		placeholder="Team Culture" required>
 	</label>
@@ -46,16 +46,16 @@
 			<input type="text" placeholder="3.">
 	</label>
 	<label for="personality"> Personality
-		<input type="text" name="personality"></input>		
+		<input type="text" name="personality"></input>
 	</label>
 	<label for="salary"> Salary And Package Details
-		<input type="text" name="salary"></input>		
+		<input type="text" name="salary"></input>
 	</label>
 	<label for="searchProgress"> What have you done so far in the search?
 	      <select name="searchProgress" >
-	        <option value="nothing">nothing</option>
+	        <option value="nothing">Nothing</option>
 	        <option value="Just started looking">Just started looking</option>
-	        <option value="Looked for ages,but failed "></option>
+	        <option value="Looked for ages,but failed ">Looked for ages, but failed</option>
 	      </select>
 	</label>
 	<label for="searchDeadline"> Deadline For Search
@@ -65,5 +65,7 @@
 		<input type="submit" value"submit">
 	</label>
 </form>
+
+{{message}}
 
  <script type="text/javascript" src="public/js/datepicker.js"></script>

@@ -1,8 +1,8 @@
  'use strict';
 
-let $ = window.$;
+var $ = window.$;
 
-let Modernizr =window.$;
+var Modernizr = window.Modernizr;
 
 $(function() {
   if (!Modernizr.inputtypes['date']) {

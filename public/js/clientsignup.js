@@ -1,14 +1,14 @@
 'use strict';
 
-let $ = window.$;
+var $ = window.$;
 
 $(document).ready(function() {
-    let text_max = 500;
+    var text_max = 500;
     $('#textarea_feedback').html(text_max + ' characters remaining');
 
     $('#companyDescription').keyup(function() {
-        let text_length = $('#companyDescription').val().length;
-        let text_remaining = text_max - text_length;
+        var text_length = $('#companyDescription').val().length;
+        var text_remaining = text_max - text_length;
 
         $('#textarea_feedback').html(text_remaining + ' characters remaining');
     });
