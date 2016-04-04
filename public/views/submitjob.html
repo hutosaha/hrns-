@@ -1,0 +1,69 @@
+
+<h1>Submit Job</h1>
+
+<form action="/submitjob" method="POST">
+	<label for="jobTitle"> Job Title
+		<input type="text" name="jobTitle" pattern="{{frontendInput}}" title="Job Title, no ankle brackets"
+		placeholder="Job title" required>
+	</label>
+	<label for="jobDescription"> Job Description
+		<textarea type="text" name="jobDescription" pattern="{{frontendInput}}" title="Job Title, no ankle brackets" placeholder="Job Description" required></textarea>
+	</label>
+	<label for="jobCategory"> Job Category
+	      <select name="jobCategory" required>
+	        <option value="Business Intelligence, Data Science & Analytics">Business Intelligence, Data Science & Analytics</option>
+	        <option value="User Experience & Design">User Experience & Design</option>
+	        <option value="Development">Development</option>
+	        <option value="IT Project & Programme Management">IT Project & Programme Management</option>
+	        <option value="Infrastructure & Service Delivery">Infastructure & Service Delivery</option>
+	        <option value="Change & Transformation">Change & Transformation</option>
+	        <option value="IT Leadership £100,000 +">IT Leadership £100,000 + </option>
+	        <option value="Sales & Business Development">Sales & Business Development</option>
+	      </select>
+	</label>
+	<label for="teamCulture"> Team Culture 
+		<input type="text" name="teamCulture" pattern="{{frontendInput}}" title="no ankle brackets"
+		placeholder="Team Culture" required>
+	</label>
+
+	<label for="typeOfProjects"> Type of Projects
+		<input type="text" name="typeOfProjects" pattern="{{frontendInput}}" title="no ankle brackets"
+		placeholder="Type of Projects" required>
+	</label>
+
+
+	<label for="teamAndTeamMembers"> Team & Team members
+	      <select name="teamAndTeamMembers" required>
+	        <option value="1-10">1-10</option>
+	        <option value="10-20">10-20</option>
+	        <option value="20-50">20-50</option>
+	        <option value="100+">100+</option>
+	      </select>
+	</label>
+	<label for="threeMostImportantSkills"> Three Most Important Skills
+			<input type="text" placeholder="1.">
+			<input type="text" placeholder="2.">
+			<input type="text" placeholder="3.">
+	</label>
+	<label for="personality"> Personality
+		<input type="text" name="personality"></input>		
+	</label>
+	<label for="salary"> Salary And Package Details
+		<input type="text" name="salary"></input>		
+	</label>
+	<label for="searchProgress"> What have you done so far in the search?
+	      <select name="searchProgress" >
+	        <option value="nothing">nothing</option>
+	        <option value="Just started looking">Just started looking</option>
+	        <option value="Looked for ages,but failed "></option>
+	      </select>
+	</label>
+	<label for="searchDeadline"> Deadline For Search
+		<input name="searchDeadline" type="date">
+	</label>
+	<label>
+		<input type="submit" value"submit">
+	</label>
+</form>
+
+ <script type="text/javascript" src="public/js/datepicker.js"></script>
