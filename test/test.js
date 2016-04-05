@@ -138,24 +138,11 @@ server.init(0, (err,server) => {
 		});
 	});
 
-	test('addUserForApproval add User to unapprovedUsers list', (t) => {
-		hash = 'test3';
-
-		client.srem('unapprovedUsers', hash);
-		redisApp.addUserForApproval(hash, () => {
-			client.sismember('unapprovedUsers', hash, (err, res) => {
-				t.equal(res, 1, 'user added to list!');
-				t.end();
-			});
-		});
-
-	});
-
-	test('isApprovedClient correctly checks for approvedUser', (t) => {
+	test('isAMemberOfSet correctly checks for a set member', (t) => {
 		hash = 'test4';
 
 		client.sadd('approvedUsers', hash);
-		redisApp.isApprovedClient(hash, (res) => {
+		redisApp.isAMemberOfSet(hash, 'approvedUsers', (res) => {
 			t.equal(res, 1, 'correctly identifies hash!');
 			t.end();
 		});

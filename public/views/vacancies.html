@@ -1,0 +1,21 @@
+<h1>Vacancies Page</h1>
+
+{{message}}
+{{#each userData}}
+<ul>
+    <li>{{jobTitle}}</li>
+    <li>{{jobDescription}}</li>
+    <li>{{teamCulture}}</li>
+    <li>{{typesOfProjects}}</li>
+    <li>{{teamSize}}</li>
+    <li>{{skillOne}}</li>
+    <li>{{skillTwo}}</li>
+    <li>{{skillThree}}</li>
+    <li>{{personality}}</li>
+    <li>{{salary}}</li>
+    <li>{{searchProgress}}</li>
+    <li>{{searchDeadline}}</li>
+ 	<input type="button" onclick="location.href='vacancy/view/{{id}}/{{email}}'" value="View">
+ 	<input type="button" onclick="location.href='vacancy/remove/{{id}}/{{email}}'" value="Remove">
+</ul>
+{{/each}}

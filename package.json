@@ -4,8 +4,8 @@
   "description": "recruitment site",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/istanbul cover test/* && node test/*",
-    "coverage": "node ./node_modules/.bin/istanbul cover test/* && ./node_modules/.bin/codecov",
+    "test": "node test/*",
+    "coverage": "node ./node_modules/.bin/istanbul cover test/*",
     "start": "nodemon start.js"
   },
   "repository": {
@@ -38,6 +38,7 @@
     "redis": "^2.5.3",
     "shot": "^3.0.1",
     "tape": "^4.5.1",
+    "uuid": "^2.0.1",
     "vision": "^4.0.1"
   },
   "devDependencies": {
