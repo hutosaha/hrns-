@@ -3,7 +3,7 @@
 var $ = window.$;
 
 $(document).ready(function() {
-    var text_max = 500;
+    var text_max = 500; // defined in joiSchema.js
     $('#textarea_feedback').html(text_max + ' characters remaining');
 
     $('#companyDescription').keyup(function() {
