@@ -19,9 +19,11 @@
   },
   "homepage": "https://github.com/hutosaha/hrns-#readme",
   "dependencies": {
+    "aws-sdk": "^2.3.0",
     "bell": "^7.3.0",
     "blipp": "^2.3.0",
     "bluebird": "^3.3.4",
+    "body-parser": "*",
     "codecov": "^1.0.1",
     "codecov.io": "^0.1.6",
     "env2": "^2.0.7",

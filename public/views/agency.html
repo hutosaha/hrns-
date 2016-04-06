@@ -3,9 +3,9 @@
 <h1>Agency Homepage</h1>
 {{#each userData}}
 <ul>
-	<li>{{jobTtitle}}</li>
+	<li>{{jobTitle}}</li>
 	<li>{{companyName}}</li>
 	<li>{{salary}}</li>
-	<input type="button" onclick="location.href='viewvacancy/{{vid}}" value="View Job and Submit CV">
+	<a href="/agency/job/{{vid}}" > View Job </a>
 </ul>
 {{/each}}
