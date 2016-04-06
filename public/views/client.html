@@ -1,0 +1,12 @@
+<h1>Vacancies Page</h1>
+
+{{message}}
+{{#each userData}}
+<ul>
+    <li>{{jobTitle}}</li>
+    <li>{{salary}}</li>
+    <li>{{searchDeadline}}</li>
+ 	<a href='/client/job/{{vid}}' >View</a>
+ 	<a href='/client/job/remove/{{vid}}' >Remove</a>
+</ul>
+{{/each}}
