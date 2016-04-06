@@ -1,5 +1,5 @@
 (function() {
-    document.getElementById("cv").onchange = function() {
+    document.getElementById('cv').onchange = function() {
         var files = document.getElementById("cv").files;
         var file = files[0];
         if (file == null) {
@@ -37,7 +37,6 @@ function upload_file(file, signed_request, url){
     xhr.onload = function() {
         if (xhr.status === 200) {
             console.log('URL', url);
-            // document.getElementById("cv").value = url;
         }
     };
     xhr.onerror = function() {
