@@ -36,6 +36,7 @@
     "joi": "^8.0.5",
     "mailcomposer": "^3.7.0",
     "mailgun-js": "^0.7.7",
+    "moment": "^2.12.0",
     "nodemon": "^1.9.1",
     "redis": "^2.5.3",
     "shot": "^3.0.1",
