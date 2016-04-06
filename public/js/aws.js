@@ -14,12 +14,14 @@
 // creates a request to make asign a signature. 
 function get_signed_request(file) {
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", "/sign_s3?file_name=" + file.name + "&file_type=" + file.type);
+   // var folder = 'boom';
+    console.log('FILE', file.name);
+    xhr.open("GET", "/sign_s3?folder_name=CVID&file_name=" + file.name + "&file_type=" + file.type);
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
                 var response = JSON.parse(xhr.responseText);
-                console.log('RESPNOSE', response.url , 'SIGNED' , response.signed_request);
+                console.log('RESPONSE', response)
                 upload_file(file, response.signed_request, response.url);
 
             } else {
@@ -42,5 +44,14 @@ function upload_file(file, signed_request, url){
     xhr.onerror = function() {
         alert("Could not upload file.");
     };
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+            var response = xhr.responseText;
+            console.log('RESPONSE', response);
+            }
+        }
+    };
+
     xhr.send(file);
 }
