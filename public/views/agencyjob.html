@@ -1,48 +1,80 @@
 <h1>Agency's job page</h1>
 
-   <li>{{jobTitle}}</li> 
-    <li>{{salary}}</li>
-    {{#if submittedDate}}
-    <li>{{submittedDate}}</li>
+<ul>
+    <li>{{data.jobTitle}}</li>
+    <li>{{data.salary}}</li>
+    {{#if data.submittedDate}}
+    <li>Date Submitted</li>
+    <li>{{data.submittedDate}}</li>
     {{/if}}
-    <li>{{searchDeadline}}</li>
-    <li>{{jobDescription}}</li>
-    <li>{{teamCulture}}</li>
-    {{#if jobCategory}}
-    <li>{{jobCategory}}</li>
-    {{/if}}  
-    <li>{{typesOfProjects}}</li>
-    {{#if teamSize}}
-    <li>{{teamSize}}</li>
-    {{/if}}
-    {{#if skillOne}}
-    <li>{{skillOne}}</li>
-    {{/if}}
-     {{#if skillTwo}}
-    <li>{{skillTwo}}</li>
-    {{/if}}
-     {{#if skillThree}}
-    <li>{{skillThree}}</li>
-    {{/if}}
-    {{#if personality}}
-    <li>{{personality}}</li>
-    {{/if}}
+    <li>Search Deadline</li>
+    <li>{{data.searchDeadline}}</li>
     {{#if searchProgress}}
-    <li>{{searchProgress}}</li>
+    <li>Search Progress</li>
+    <li>{{data.searchProgress}}</li>
     {{/if}}
-    <li>{{dateSubmitted}}</li>
+    <li>Job Description</li>
+    <li>{{data.jobDescription}}</li>
+    <li>Team Culture</li>
+    <li>{{data.teamCulture}}</li>
+    {{#if data.jobCategory}}
+    <li>Job Category</li>
+    <li>{{data.jobCategory}}</li>
+    {{/if}}
+    <li>Types Of Projects</li>
+    <li>{{data.typesOfProjects}}</li>
+    {{#if data.teamSize}}
+    <li>Team Size</li>
+    <li>{{data.teamSize}}</li>
+    {{/if}}
+    {{#if data.skillOne}}
+    <li>Most Important Skill(s)</li>
+    <li>{{data.skillOne}}</li>
+    {{/if}}
+     {{#if data.skillTwo}}
+    <li>{{data.skillTwo}}</li>
+    {{/if}}
+     {{#if data.skillThree}}
+    <li>{{data.skillThree}}</li>
+    {{/if}}
+    {{#if data.personality}}
+    <li>Personality</li>
+    <li>{{data.personality}}</li>
+    {{/if}}
+</ul>
 
+<h3>Submit new candidate</h3>
+>>>>>>> 6ecd220ce797ec04834945415aef8fe6d3fb848c
 
-
-
-
-<input type="file" name="cvid" value="cvtest" id="cv" />
-
-
-<form method="POST" action="/submitvacancycv">
-  <input type="text" name="candidateName"/>
-
-  <input type="submit" value="Upload CV">
+<form method="POST" action="/submitvacancycv/{{vid}}/{{cvid}}">
+  <label for="candidateName"> Candidate Name
+    <input type="text" name="candidateName" placeholder="Contact Name" pattern="{{frontendInput}}" title="No 'greater than' or 'less than' symbols"
+     maxlength="100" required>
+  </label>
+  <label for="jobTitle"> Job Title
+    <input type="text" name="jobTitle" placeholder="Job Title" pattern="{{frontendInput}}" title="No 'greater than' or 'less than' symbols"
+     maxlength="100" required>
+  </label>
+  <label for="email"> Email Address
+    <input type="email" name="email" placeholder="Email address" maxlength="100" required>
+  </label>
+  <label for="phoneNumber"> Phone Number
+    <input type="tel" name="phoneNumber" maxlength="20" pattern={{phoneNumber}} title="Please enter numbers only" required>
+  </label>
+  <label for="salary"> Current Salary
+    <input type="text" name="salary" placeholder="Current Salary" pattern="{{frontendInput}}" title="No 'greater than' or 'less than' symbols"
+     maxlength="100" required>
+  </label>
+  <label for="linkedInProfile"> LinkedIn Profile
+    <input type="text" name="linkedInProfile" placeholder="Linked In Profile " pattern="{{url}}" title="Please enter 'https://' or 'http://' before domain name"
+    maxlength="100">
+  </label>
+  <label for="cv"> Upload CV
+    <input type="file" name="cvid" id="cv"/>
+  </label>
+  <input type="submit" value="Submit Candidate!">
 </form>
+
+<!-- candidates previously put forward could go here -->
 
 <script type="text/javascript" src="/public/js/aws.js"></script>

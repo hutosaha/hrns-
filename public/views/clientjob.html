@@ -1,19 +1,17 @@
 <h1>Client's Job page</h1>
 
-
-
 <ul>
-    <li>{{jobTitle}}</li> 
+    <li>{{jobTitle}}</li>
     <li>{{salary}}</li>
-    {{#if submittedDate}}
-    <li>{{submittedDate}}</li>
+    {{#if dateSubmitted}}
+    <li>{{dateSubmitted}}</li>
     {{/if}}
     <li>{{searchDeadline}}</li>
     <li>{{jobDescription}}</li>
     <li>{{teamCulture}}</li>
     {{#if jobCategory}}
     <li>{{jobCategory}}</li>
-    {{/if}}  
+    {{/if}}
     <li>{{typesOfProjects}}</li>
     {{#if teamSize}}
     <li>{{teamSize}}</li>
@@ -30,10 +28,4 @@
     {{#if personality}}
     <li>{{personality}}</li>
     {{/if}}
-    {{#if searchProgress}}
-    <li>{{searchProgress}}</li>
-    {{/if}}
-    <li>{{dateSubmitted}}</li>
-  
 </ul>
-

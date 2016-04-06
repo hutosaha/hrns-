@@ -3,10 +3,12 @@
 
 <form action="/submitjob" method="POST">
 	<label for="jobTitle"> Job Title
-		<input type="text" name="jobTitle" pattern="{{frontendInput}}" title="No ankle brackets" placeholder="Job title"  maxlength="100" required>
+		<input type="text" name="jobTitle" pattern="{{frontendInput}}" title="No ankle brackets" placeholder="Job title"
+			maxlength="100" required>
 	</label>
 	<label for="jobDescription"> Job Description
-		<textarea id="jobDescription" type="text" name="jobDescription" pattern="{{frontendInput}}" title="No ankle brackets" placeholder="Job Description"  maxlength="3000" required></textarea>
+		<textarea id="jobDescription" type="text" name="jobDescription" pattern="{{frontendInput}}" title="No ankle brackets" placeholder="Job Description"
+			maxlength="3000" required></textarea>
 	</label>
 	<div id="textarea_feedback"></div>
 	<label for="jobCategory"> Job Category
@@ -22,10 +24,12 @@
     </select>
 	</label>
 	<label for="teamCulture"> Team Culture
-		<input type="text" name="teamCulture" pattern="{{frontendInput}}" title="no ankle brackets" placeholder="Team Culture"  maxlength="100" required>
+		<input type="text" name="teamCulture" pattern="{{frontendInput}}" title="no ankle brackets" placeholder="Team Culture"
+		maxlength="100" required>
 	</label>
 	<label for="typesOfProjects"> Types of Projects
-		<input type="text" name="typesOfProjects" pattern="{{frontendInput}}" title="no ankle brackets" placeholder="Types of Projects"  maxlength="100" required>
+		<input type="text" name="typesOfProjects" pattern="{{frontendInput}}" title="no ankle brackets" placeholder="Types of Projects"
+		maxlength="100" required>
 	</label>
 	<label for="teamSize"> Team Size
     <select name="teamSize" required>
@@ -41,13 +45,15 @@
 		<input name="skillThree" type="text" placeholder="3.">
 	</label>
 	<label for="personality"> Personality
-		<input type="text" name="personality"></input>
+		<input type="text" name="personality" pattern="{{frontendInput}}" title="No 'greater than' or 'less than' symbols"
+		maxlength="100">
 	</label>
 	<label for="salary"> Salary And Package Details
-		<input type="text" name="salary" pattern="{{frontendInput}}" required>
+		<input type="text" name="salary" pattern="{{frontendInput}}" title="No 'greater than' or 'less than' symbols"
+		maxlength="100" required>
 	</label>
 	<label for="searchProgress"> What have you done so far in the search?
-    <select name="searchProgress" >
+    <select name="searchProgress">
       <option value="nothing">Nothing</option>
       <option value="Just started looking">Just started looking</option>
       <option value="Looked for ages,but failed ">Looked for ages, but failed</option>
