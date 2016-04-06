@@ -14,9 +14,9 @@
 // creates a request to make asign a signature. 
 function get_signed_request(file) {
     var xhr = new XMLHttpRequest();
-   // var folder = 'boom';
-    console.log('FILE', file.name);
-    xhr.open("GET", "/sign_s3?folder_name=CVID&file_name=" + file.name + "&file_type=" + file.type);
+    var cvid = document.getElementById('cvid').innerHTML
+    console.log('FILE', cvid);
+    xhr.open("GET", "/sign_s3?cvid="+cvid+"&file_name="+ file.name + "&file_type=" + file.type);
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
