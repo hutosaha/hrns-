@@ -63,7 +63,7 @@ server.init(0, (err,server) => {
 			};
 			server.inject(options, (res) => {
 				let actual = res.payload.indexOf(expectedString) > -1;
-				console.log('res.payload', res.payload);
+				// console.log('res.payload', res.payload);
 				let expected = true;
 				t.equal(actual, expected, message + ' ' + expectedString);
 				t.end();
@@ -105,7 +105,10 @@ server.init(0, (err,server) => {
 
 	testPayload('/' + agencyLogin,'GET','Agency Login', 'correctly returns agency login view');
 
-	testEndPoint('/agencysignup', 'GET', 200, 'authed agency responds with 200', agencyCookie);
+	testEndPoint('/agencysignup', 'GET', 200, 'authed agency GET responds with 200', agencyCookie);
+	testEndPoint('/agencysignup', 'POST', 401, 'unauthed POST responds with 401');
+	// current test
+	// testEndPoint('/agencysignup', 'POST', 200, 'authed POST responds with 200', agencyCookie);
 
 	testEndPoint('/candidate', 'GET', 200, 'auth user responds with 200', candidateCookie);
 	testEndPoint('/candidate','GET', 401, 'unauth user responds with 401');
