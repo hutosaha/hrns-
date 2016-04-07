@@ -1,5 +1,5 @@
 <h1>Agency's job page</h1>
-
+<h3>{{message}}</h3>
 <ul>
     <li>{{data.jobTitle}}</li>
     <li>{{data.salary}}</li>
@@ -45,7 +45,7 @@
 
 <h3>Submit new candidate</h3>
 
-<form method="POST" action="/submitvacancycv/{{vid}}/">
+<form method="POST" action="/submitvacancycv/{{vid}}">
   <label for="candidateName"> Candidate Name
     <input type="text" name="candidateName" placeholder="Contact Name" pattern="{{frontendInput}}" title="No 'greater than' or 'less than' symbols"
      maxlength="100" required>
@@ -69,7 +69,7 @@
     maxlength="100">
   </label>
   <label for="cv"> Upload CV
-    <input type="file" name="cvid" id="cv"/>
+    <input type="file" name="file_name" id="cv"/>
     <input type="hidden" id="file_url" name="file_url" />
   </label>
   <input type="submit" value="Submit Candidate!">
