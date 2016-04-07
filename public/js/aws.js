@@ -44,14 +44,5 @@ function upload_file(file, signed_request, url){
     xhr.onerror = function() {
         alert("Could not upload file.");
     };
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4) {
-            if (xhr.status === 200) {
-            var response = xhr.responseText;
-            console.log('RESPONSE', response);
-            }
-        }
-    };
-
     xhr.send(file);
 }
