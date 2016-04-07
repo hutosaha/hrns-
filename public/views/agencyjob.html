@@ -45,7 +45,7 @@
 
 <h3>Submit new candidate</h3>
 
-<form method="POST" action="/submitvacancycv/{{vid}}/{{cvid}}">
+<form method="POST" action="/submitvacancycv/{{vid}}/">
   <label for="candidateName"> Candidate Name
     <input type="text" name="candidateName" placeholder="Contact Name" pattern="{{frontendInput}}" title="No 'greater than' or 'less than' symbols"
      maxlength="100" required>
@@ -70,8 +70,8 @@
   </label>
   <label for="cv"> Upload CV
     <input type="file" name="cvid" id="cv"/>
-    <p value="{{cvid}}" id="cvid" style="display: none;">{{cvid}}</p>
-  </label>
+    <input type="hidden" id="file_url" name="file_url" />
+   </label>
   <input type="submit" value="Submit Candidate!">
 </form>
 
