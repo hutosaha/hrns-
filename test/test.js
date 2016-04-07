@@ -7,6 +7,8 @@ const server = require('../lib/index.js');
 const client = require('../lib/db/client.js');
 // const redis  = require('../lib/db/redis.js');
 
+const agencyLogin = process.env.AGENCY_LOGIN_ENDPOINT;
+
 const cleanPayload = require('../lib/plugins/utils/app.js').cleanPayload;
 
 const adminCookie			= 'user=Fe26.2**55d530dcf02516745c8f48d776ec265c893e558b28321b7bbecd37edae1486a2*IgCzPs0w_wsHkvYt7zTmJQ*A8BQ21XGPkO3MW2ICp5ASeVBNdxdr9Xagw3Ar4zsqor1EfmOzQz2lQAQ_m5DigY1g3sAvGn8ZseYaUpfc-MYTckfZz5s9EJGds32CZbL7ixQA00mKT5QYCe4yEjXN2tlvpipobJz25tPsv-5sb4mTGKygyN4kgpJr-In2y-vbmivN-t-dJD3uElx_U5myKf-HF1sCpUc55KdlV7p-gzbEr8vZ_k1pYaGAOrFYRncfZCEmHxQwP8yvDeb1FJaIsebhpzGIXZhEqTnxDHcObifWayDRXWHW10vARs5PXO-UvnbtgN5TeM5PR2tdFX9X_cPOdkIIKQvrvgYcEgG4Yw4Qsnndty4eUJIAsrbQIpze7cjujszlVJOgMdTnzYSpsfCq1e1ckBdonj1qbfdQqhO8POet_Xc44ayEhl5f96tXNUTJ_dlvKNzKVhmbxg11tXAYpxuFEt0nQOXsDzXFK8kiiE6VF71WA_NTSnUWnLgKF6o_e1HCaPvMQ4sCAJO4T4hCydzzNOQ9UNJSWX8GK1W59xp0dxuZTx9WLdLJoI2sKf6N3bt_7S3OCcN5SqosjxuD6mmHQ72hLJudkTf4sY-ZfQry5-c_22mpKugiI05bDqt13hAcIAZVlKzeF2xUKOj1D1r1FB0r9vpyHTa8a3GR29mhfi8PY18xdttogKCeKg8IuMpPCHHi5tfChkABXlPk4RPLOHuIFsUeCb8-O8l3R3TBrPfAkCXcltLXF9_KSBkn3FNlYKvB3FfaAVVUdbq4EJzpPpCpLqozTc6Hw4PxiAMMytN4xwj69lMN_aIdHoRX4_IeJJ1K07_-dJ0AvavTM6XrWWeDSjxy9aMhkenwTRZ16gizJ_d3l6BmVzSzBXzPtyGdLjkp3NF42afHCXx0c0SqiyHU31aotIxNiFERN9K6iklSvIFG4hgBhJCRjE**378ddd94455fb2f3290b8fecbf38770dd24fe23719252658ff1b4a8f9f071123*uT_aDsgw2Dm8ke4rPk8_TK-ZR8--O2jRZ_w9D9p_AGY';
@@ -100,6 +102,10 @@ server.init(0, (err,server) => {
 	});
 
 	testPayload('/agency/job/wrong-vid','GET','Sorry, something went wrong', 'error handles incorrect vid', agencyCookie);
+
+	testPayload('/' + agencyLogin,'GET','Agency Login', 'correctly returns agency login view');
+
+	testEndPoint('/agencysignup', 'GET', 200, 'authed agency responds with 200', agencyCookie);
 
 	testEndPoint('/candidate', 'GET', 200, 'auth user responds with 200', candidateCookie);
 	testEndPoint('/candidate','GET', 401, 'unauth user responds with 401');
