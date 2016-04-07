@@ -5,7 +5,6 @@ const Hapi = require('hapi');
 
 const server = require('../lib/index.js');
 const client = require('../lib/db/client.js');
-// const redis  = require('../lib/db/redis.js');
 
 const agencyLogin = process.env.AGENCY_LOGIN_ENDPOINT;
 
@@ -18,6 +17,9 @@ const noScopeCookie   = 'user=Fe26.2**622733e4c21b742873bb056f797ce5609657139d8e
 const notAdminCookie  = 'user=Fe26.2**4b2de8ebe8b88339f18074afecda5a092355d16f15d5aa85809acef2b0f9dffa*hq0Wz1_Khdi8VZNcbt3xkA*RWl0rd6Ho5eA6SVZjhXmLUf3nMAnEiK3EcJhb882PEyesF6oVpIpx30Fnkg3FnpDw9xPcPZEZ26JQ4sY1uU7pKC4G9YqzhNIgNllY7UNdIKp5yKh3-hanAyV2HtIaDjK9Dc8cInXVEdskpOSCySKyuxj23S3mkh8E640nAIpIcQa5_LRpv9i7It-CM_CNnrrBXj6hnCPYEJJaoNDGF_pYIe_mkjdbAXPsKA_q9oIUzhzIHlj0ngwFYX1Oj1MZ8pvsRKSXzVdu_JofoNXTjDFxIyI5omX90NqRG83NxCmVqT8RouGetQrFo7oyth63dGmXtp2NK3XUGkccvR1cilZOqQC0CoRgcdNfSP4VCDO-5cqtDI29Wx0Cyro6rvAbUWBVwgMPzuZ2qke4V6g3WDzSfimHGTk9jY_Er7IyMj-8PiOhGE_VJHaIMhpB8HTGhKafoqBYO2dXXaSOs3ICm_qF5dohvDwqYOHstZ5mHH5FTjSIY1-yTXftplncXleJ5KwqFWVoivA2am3snSSXFiLsOKnYUdrglt2f6PncgCrybzyPG9M8xtquNZ9wC_IR_beIbgzm01xSf64yNkNk2RWqoN6pWV5IHwAMSWiXIoIje2GhZ0iBhzBaEOdExStv6qc_lTJSQ_65ycO7yInh5euhjoRBv7U70fpeI3rOdMfd7gLNCRWfqP_RtAEGbRcwXBueBGDKsAQ-KN3viRwVqkm-bZWjj4dLuTwyO4n4LSkmF2_JFK3viPY52JPldRbofwd_ocj3V7i2HeQkE4EYJa1qpYz2w6kWlnA4SpuUoyGUDzPPinU65xpblJk7MonnsNEaLJi3rYrp94KnlTfhLf2yhAe4jvDti4kBnLuHZDr5tw_JFPjE44YzueOISDwfRYlna1QaZ2TFSCICOgl2lvxXhYPpcn1xiCdz-pRMr-xaLY**47cf87ef8dcf760748a4d41aae8b882548c0293dbe30c2a648e398b32dfc8a44*IYtWcygT8kCxCtoHGZhXTwKEyvK7BMpp1X-8X8AoYxk';
 const agencyCookie		= 'user=Fe26.2**2f9bfa92d78c3aea2756bb7244cd0fa697f5fe80041c83ddb83e6ac0d5ceb807*qalsdmnPb1L3CcqkGsBy9w*q7ySwPNBUUj_ZfQ93ZQioe-Wd825_7Io9usc1qqjLcjIXmBReXgtHYsgJlcwzmtgEGJnPQ8UCf5uTB8kX0zScgLUn5vDc_ts6pJp9pirKgDfGMfvDMpfEBLREa1vcqsoqtUIxcrfpqWVaZg6O8sxD7JIVK_2oiW_jNASu1yp38QHP3IqEluRG6XSUZjVHTGRPjfBP3azBb6LKY6bvnr4bDIGyfuV_FYHicUqH0C8z9rOTex5aFf5ci2zGmu6S6B15Ei0Td86antu-8h0g1aUvapLXoTmEW6mFMR4k1Lv8yPcu9mK6T7dz66xFbVn15csX7QtQ37FxcXcg2pVsZN8lv36xSIw9fNUeQegqMyW7ayoUdiQ-NG9ai-q1zd-09vyzEcAnjcotZf58ZQoRQA4xPh1D-ygCG8IdE-6JcNaPHWmL2GUUSr7FeIsy2JcqmJu8m0HTSYV8iP1lMmoBac6_ulaMDaWpF0WHBm3WThLrh-ddfP98KRJKLsPXEcOFsMr1ZsD7VgJmV-L5ptq7dHGXNPbfCls6FkugPJb7hEen_EJkL6fB5KtzuYeqvDHG2OT3pw_ZyseQbDk21u1AeyELViYDkxh5lGTwk4Rth3lGj84ulpMFzP7xA-JSjuzUtylXPcujgPNpTeFlBM-rB1Z7U_8GY5X-twQZ9AExH7u8CbYpb0DDZNq-OKTpTJoj8do5eOcB4jtqWMxvOrOjwrdCOLV1AGmPnuwAcR4LcbgSzZEm4gPyD0GNc3VK4jItktyZAJAYamyqB25uOtDKczaIMgJkce_TuIPHzSLvR3Lh3xG3xQZqi2uqe3bLeQ6g3b-HpdKd0ulMMMWm8dzzbify7TXyWxq7PlKxEV0lyGKu6e5j8-sB3KyVc9QeV95ylHp7wKkBy6EUAxUExLnWgarz5AMnyA5ysIVD0aiiLDr4SB2JuDOTQdNxMQeS8itqfUB**c1f925a797b4a0fa3c64a9b9e513687b58cf40e888ea74694f788eaaeb264393*Fo3IsFp8deYH297vYIIyPprFlbTFuQ-suuj6hBru_xw';
 
+const agencySignupPayload = { contactName: 'Joe Bloggs', companyName: 'google', contactNumber: '0823748237', email: 'fac@hotmail.com', companySize: '50-200', agencySpecialism: 'Creative'};
+const incorrectAgencySignupPayload = { contactName: 2, companyName: 23, contactNumber: 'asdasd' };
+
 let options;
 
 server.init(0, (err,server) => {
@@ -26,12 +28,13 @@ server.init(0, (err,server) => {
 		console.log('connected to db3');
 	});
 
-	const testEndPoint = (endpoint, method, statusCode, message, COOKIE) => {
+	const testEndPoint = (endpoint, method, statusCode, message, COOKIE, payload) => {
 		test(method + ' ' + endpoint + ' ' + 'returns status code ' + statusCode, (t) => {
 			options = {
 				method: method,
 				url: endpoint,
-				headers : { cookie : COOKIE }
+				headers: { cookie : COOKIE },
+				payload: payload
 			};
 			server.inject(options, (res) => {
 				t.equal(res.statusCode, statusCode, message);
@@ -94,33 +97,47 @@ server.init(0, (err,server) => {
 	testEndPoint('/admin/job/123', 'GET', 200, 'admin gets 200 response', adminCookie);
 	testEndPoint('/admin/job/123', 'GET', 403, 'nonAdmin gets 403 response', notAdminCookie);
 
-	// tests that require a vid
-	client.hmset('test-vid-123', { jobTitle: 'developer'}, () => {
-		testPayload('/admin/job/test-vid-123', 'GET', 'developer', 'admin job page delivers vid info', adminCookie);
-		testEndPoint('/agency/job/test-vid-123', 'GET', 403, 'unauthorised user viewing agency job responds with 403', candidateCookie);
-		testEndPoint('/agency/job/test-vid-123', 'GET', 200, 'agency viewing agency job responds with 200', agencyCookie);
-	});
-
 	testPayload('/agency/job/wrong-vid','GET','Sorry, something went wrong', 'error handles incorrect vid', agencyCookie);
 
 	testPayload('/' + agencyLogin,'GET','Agency Login', 'correctly returns agency login view');
 
-	testEndPoint('/agencysignup', 'GET', 200, 'authed agency GET responds with 200', agencyCookie);
+	testEndPoint('/agencysignup', 'GET', 302, 'authed agency GET responds with 200', agencyCookie); // might require different cookie
 	testEndPoint('/agencysignup', 'POST', 401, 'unauthed POST responds with 401');
-	// current test
-	// testEndPoint('/agencysignup', 'POST', 200, 'authed POST responds with 200', agencyCookie);
+	testEndPoint('/agencysignup', 'POST', 400, 'POST without payload responds with 400 - bad request', agencyCookie);
+	testEndPoint('/agencysignup', 'POST', 400, 'POST with incorrect payload responds with 400', agencyCookie, incorrectAgencySignupPayload);
+	testEndPoint('/agencysignup', 'POST', 200, 'POST with correct payload responds with 200', agencyCookie, agencySignupPayload);
+
+	testEndPoint('/approveuser/approve/id/me@me.com', 'GET', 401, 'unauthed GET responds with 401');
+	testEndPoint('/approveuser/approve/id/fake@definitelyfake.com', 'GET', 302, 'authed GET responds with 302', adminCookie);
+	testHeaderLocation('/approveuser/approve/id/fake@definitelyfake.com', 'GET', '/approveusers', 'authed GET redirects to approval page', adminCookie);
+	testEndPoint('/approveuser/reject/id/fake@definitelyfake.com', 'GET', 302, 'authed GET responds with 302', adminCookie);
+	testHeaderLocation('/approveuser/reject/id/fake@definitelyfake.com', 'GET', '/approveusers', 'authed GET redirects to approval page', adminCookie);
+
+	testEndPoint('/approveusers', 'GET', 200, 'authed GET responds with 200', adminCookie);
 
 	testEndPoint('/candidate', 'GET', 200, 'auth user responds with 200', candidateCookie);
 	testEndPoint('/candidate','GET', 401, 'unauth user responds with 401');
 
+	testEndPoint('/client', 'GET', 200, 'authed GET responds with 200', clientCookie);
+
+	testEndPoint('/client/job/vid', 'GET', 200, 'authed GET responds with 200', clientCookie);
+
 	testEndPoint('/clientsignup', 'GET', 200, 'auth user responds with 200', clientCookie);
 	testEndPoint('/clientsignup', 'GET', 401, 'unauth user responds with 401');
+	testEndPoint('/clientsignup', 'POST', 400, 'POST without payload responds with 400 - bad request', clientCookie);
 
 	testEndPoint('/login/client', 'GET', 302, 'unauth user responds with redirect 302');
 	testEndPoint('/login/candidate', 'GET', 302, 'unauth user responds with redirect 302');
 
 	testPayload('/logout','GET','<h1>You\'ve logged out!</h1>', 'payload has heading logged out');
 	testEndPoint('/logout','GET', 200, 'auth user responds with response 200', clientCookie);
+
+	// tests that require a vid
+	client.hmset('test-vid-123', { jobTitle: 'developer'}, () => {
+		testPayload('/admin/job/test-vid-123', 'GET', 'developer', 'admin job page delivers vid info', adminCookie);
+		testEndPoint('/agency/job/test-vid-123', 'GET', 403, 'unauthorised user viewing agency job responds with 403', candidateCookie);
+		testEndPoint('/agency/job/test-vid-123', 'GET', 200, 'agency viewing agency job responds with 200', agencyCookie);
+	});
 
 	// tests that depends on liveJobs being empty
 	client.del('liveJobs', () => { // 2 callbacks required because a redis test was making 1 callback fail :(
