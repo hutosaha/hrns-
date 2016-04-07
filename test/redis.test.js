@@ -174,21 +174,6 @@ server.init(1, (err,server) => {
     });
   });
 
-  test('addIdToSet does what it says', (t) => {
-    let set = 'testSet3';
-    hash    = 'test10';
-    client.DEL(set);
-    redis.addIdToSet(hash, set, (res) => {
-      t.equal(res, 1, 'should callback 1');
-      client.sismember(set, hash, (err, reply) => {
-        t.equal(reply, 1, 'hash is now in set!');
-        t.end();
-        client.quit(); // call in last test
-      });
-    });
-  });
-});
-
   test('getSetMembers correctly retrieves set members', (t) => {
     hash = 'test12';
     let hash2 = 'test13';
@@ -203,7 +188,33 @@ server.init(1, (err,server) => {
     });
   });
 
+  test('getVacancydetails ', (t) => {
+    let vid = 'testVid2';
+    payload = {
+      jobTitle: 'UX designer',
+      salary: '£40,000'
+    };
+    client.hmset(vid, payload);
+    redis.getVacancyDetails(vid, (res) => {
+      t.deepEqual(res, payload, 'correct object is returned!');
+      t.end();
+    });
+  });
 
+  test('addIdToSet does what it says', (t) => {
+    let set = 'testSet3';
+    hash    = 'test10';
+    client.DEL(set);
+    redis.addIdToSet(hash, set, (res) => {
+      t.equal(res, 1, 'should callback 1');
+      client.sismember(set, hash, (err, reply) => {
+        t.equal(reply, 1, 'hash is now in set!');
+        t.end();
+        client.quit();
+      });
+    });
+  });
+});
   server.stop();
 });
 
