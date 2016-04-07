@@ -87,6 +87,13 @@ server.init(0, (err,server) => {
 		testPayload('/admin/job/test-vid-123', 'GET', 'developer', 'admin job page delivers vid info', adminCookie);
 	});
 
+	testEndPoint('/adminvacancies', 'GET', 200, 'admin viewing vacancies responds with 200', adminCookie);
+	client.del('liveJobs', () => { // 2 callbacks required because 1 redis function was making this fail :(
+		client.del('liveJobs', () => {
+			testPayload('/adminvacancies', 'GET', 'No live vacancies', 'correct message delivered for no vacancies', adminCookie);
+		});
+	});
+
 	testEndPoint('/candidate', 'GET', 200, 'auth user responds with 200', candidateCookie);
 	testEndPoint('/candidate','GET', 401, 'unauth user responds with 401');
 
