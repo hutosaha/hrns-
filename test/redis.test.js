@@ -1,6 +1,7 @@
 'use strict';
 
-const test = require('tape');
+const test   = require('tape');
+const moment = require('moment');
 
 const server = require('../lib/index.js');
 const redis  = require('../lib/db/redis.js');
@@ -140,20 +141,69 @@ server.init(1, (err,server) => {
       });
     });
 
-    test('addIdToSet does what it says', (t) => {
-      let set = 'testSet3';
-      hash    = 'test10';
-      client.DEL(set);
-      redis.addIdToSet(hash, set, (res) => {
-        t.equal(res, 1, 'should callback 1');
-        client.sismember(set, hash, (err, reply) => {
-          t.equal(reply, 1, 'hash is now in set!');
-          t.end();
-          client.quit();
-        });
+  test('addJob saves a job with the company name, adds to liveJobs and adds appropriate dates', (t) => {
+    let id  = 'test11';
+    let vid = 'testVid1';
+    payload = {
+      jobTitle: 'developer',
+      salary: '£30,000',
+      searchDate: 'Tue Aug 25 2009 00:00:00 GMT+0100 (BST)'
+    };
+    let expected = {
+      companyName: 'fac',
+      dateSubmitted: moment().format('MMMM Do YYYY'),
+      jobTitle: 'developer',
+      salary: '£30,000',
+      searchDate: 'August 25th 2009',
+      vid: 'testVid1'
+    };
+    client.del(id + 'jobs');
+    client.srem('liveJobs', vid);
+    client.hset(id, 'companyName', 'fac');
+    redis.addJob(payload, id, vid, () => {
+      client.hgetall(vid, (err, reply) => {
+        t.deepEqual(reply, expected, 'correctly formats job object!');
+      });
+      client.sismember(id + 'jobs', vid, (err, reply) => {
+        t.equal(reply, 1, 'correctly added to idjobs set!');
+      });
+      client.sismember('liveJobs', vid, (err, reply) => {
+        t.equal(reply, 1, 'correctly save to liveJobs set');
+        t.end();
       });
     });
   });
+
+  test('addIdToSet does what it says', (t) => {
+    let set = 'testSet3';
+    hash    = 'test10';
+    client.DEL(set);
+    redis.addIdToSet(hash, set, (res) => {
+      t.equal(res, 1, 'should callback 1');
+      client.sismember(set, hash, (err, reply) => {
+        t.equal(reply, 1, 'hash is now in set!');
+        t.end();
+        client.quit(); // call in last test
+      });
+    });
+  });
+});
+
+  test('getSetMembers correctly retrieves set members', (t) => {
+    hash = 'test12';
+    let hash2 = 'test13';
+    let hash3 = 'test14';
+    let set = 'testSet4';
+
+    client.sadd(set, hash, hash2, hash3);
+    redis.getSetMembers(set, (res) => {
+      let expected = [hash, hash2, hash3];
+      t.deepEqual(res, expected, 'correct set members have been returned!');
+      t.end();
+    });
+  });
+
+
   server.stop();
 });
 
