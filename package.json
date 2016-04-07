@@ -4,8 +4,8 @@
   "description": "recruitment site",
   "main": "index.js",
   "scripts": {
-    "test": "node test/*",
-    "coverage": "node ./node_modules/.bin/istanbul cover test/*",
+    "test": "node test/index.js",
+    "coverage": "node ./node_modules/.bin/istanbul cover test/index.js",
     "start": "nodemon start.js"
   },
   "repository": {
