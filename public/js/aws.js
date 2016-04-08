@@ -1,5 +1,5 @@
 (function() {
-    document.getElementById("cv").onchange = function() {
+    document.getElementById('cv').onchange = function() {
         var files = document.getElementById("cv").files;
         var file = files[0];
         if (file == null) {
@@ -10,18 +10,16 @@
     };
 })();
 
-
-// creates a request to make asign a signature. 
+// creates a request to make asign a signature.
 function get_signed_request(file) {
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", "/sign_s3?file_name=" + file.name + "&file_type=" + file.type);
+    xhr.open("GET", "/sign_s3?file_name="+ file.name + "&file_type=" + file.type);
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
                 var response = JSON.parse(xhr.responseText);
-                console.log('RESPNOSE', response.url , 'SIGNED' , response.signed_request);
+                console.log('RESPONSE', response.cvid);
                 upload_file(file, response.signed_request, response.url);
-
             } else {
                 alert("Could not get signed URL.");
             }
@@ -37,7 +35,7 @@ function upload_file(file, signed_request, url){
     xhr.onload = function() {
         if (xhr.status === 200) {
             console.log('URL', url);
-            // document.getElementById("cv").value = url;
+            document.getElementById('file_url').value = url;
         }
     };
     xhr.onerror = function() {
