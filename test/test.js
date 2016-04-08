@@ -19,6 +19,7 @@ const agencyCookie		= 'user=Fe26.2**2f9bfa92d78c3aea2756bb7244cd0fa697f5fe80041c
 
 const agencySignupPayload = { contactName: 'Joe Bloggs', companyName: 'google', contactNumber: '0823748237', email: 'fac@hotmail.com', companySize: '50-200', agencySpecialism: 'Creative'};
 const incorrectAgencySignupPayload = { contactName: 2, companyName: 23, contactNumber: 'asdasd' };
+const clientSignupPayload = { contactName: 'Huw Davies', email: 'me@me.com', contactNumber: '08372974723', companyName: 'Facebook Ltd.', companyDescription: 'Social media application', companySize: '500+', website: 'http://facebook.com', twitter: '@facebook' };
 
 let options;
 
@@ -57,12 +58,13 @@ server.init(0, (err,server) => {
 		});
 	};
 
-	const testPayload = (endpoint, method, expectedString , message, COOKIE) => {
+	const testPayload = (endpoint, method, expectedString , message, COOKIE, payload) => {
 		test( method + ' ' + endpoint+' '+ 'returns status code', (t) => {
 			options = {
 				method: method,
 				url: endpoint,
-				headers : { cookie : COOKIE }
+				headers : { cookie : COOKIE },
+				payload: payload
 			};
 			server.inject(options, (res) => {
 				let actual = res.payload.indexOf(expectedString) > -1;
@@ -101,7 +103,7 @@ server.init(0, (err,server) => {
 
 	testPayload('/' + agencyLogin,'GET','Agency Login', 'correctly returns agency login view');
 
-	testEndPoint('/agencysignup', 'GET', 302, 'authed agency GET responds with 200', agencyCookie); // might require different cookie
+	testEndPoint('/agencysignup', 'GET', 200, 'authed agency GET responds with 200', agencyCookie); // might require different cookie
 	testEndPoint('/agencysignup', 'POST', 401, 'unauthed POST responds with 401');
 	testEndPoint('/agencysignup', 'POST', 400, 'POST without payload responds with 400 - bad request', agencyCookie);
 	testEndPoint('/agencysignup', 'POST', 400, 'POST with incorrect payload responds with 400', agencyCookie, incorrectAgencySignupPayload);
@@ -125,6 +127,11 @@ server.init(0, (err,server) => {
 	testEndPoint('/clientsignup', 'GET', 200, 'auth user responds with 200', clientCookie);
 	testEndPoint('/clientsignup', 'GET', 401, 'unauth user responds with 401');
 	testEndPoint('/clientsignup', 'POST', 400, 'POST without payload responds with 400 - bad request', clientCookie);
+	testEndPoint('/clientsignup', 'POST', 200, 'POST with correct payload responds with 200', clientCookie, clientSignupPayload);
+	testPayload('/clientsignup', 'POST', 'We will let you know by email', 'correct client signup responds with correct message', clientCookie, clientSignupPayload);
+
+	// current test, redirecting to linkedin at the moment
+	// testHeaderLocation('/login/candidate', 'GET', '/candidate', 'candidate is redirected to /candidate', candidateCookie);
 
 	testEndPoint('/login/client', 'GET', 302, 'unauth user responds with redirect 302');
 	testEndPoint('/login/candidate', 'GET', 302, 'unauth user responds with redirect 302');
