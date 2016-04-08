@@ -67,6 +67,7 @@ server.init(0, (err,server) => {
 				payload: payload
 			};
 			server.inject(options, (res) => {
+				console.log('res', res.payload);
 				let actual = res.payload.indexOf(expectedString) > -1;
 				// console.log('res.payload', res.payload);
 				let expected = true;
@@ -87,7 +88,7 @@ server.init(0, (err,server) => {
 	testEndPoint('/','GET', 200, 'no scope user gets 200 home page', noScopeCookie);
 	testHeaderLocation('/','GET','/client','header location response', clientCookie);
 	testHeaderLocation('/','GET','/candidate','header location response', candidateCookie);
-	testPayload('/','GET', '<h1>Home page!</h1>', 'unauth / payload has heading Home Page');
+	testPayload('/','GET', '<title>Harness</title>', 'unauth / payload has heading Home Page');
 
 	testEndPoint('/admindashboard', 'GET', 200, 'auth user responds with response 200', clientCookie);
 	testEndPoint('/admindashboard', 'GET', 200, 'nonAdmin responds with 200', notAdminCookie);
@@ -128,7 +129,7 @@ server.init(0, (err,server) => {
 	testEndPoint('/clientsignup', 'GET', 401, 'unauth user responds with 401');
 	testEndPoint('/clientsignup', 'POST', 400, 'POST without payload responds with 400 - bad request', clientCookie);
 	testEndPoint('/clientsignup', 'POST', 200, 'POST with correct payload responds with 200', clientCookie, clientSignupPayload);
-	testPayload('/clientsignup', 'POST', 'We will let you know by email', 'correct client signup responds with correct message', clientCookie, clientSignupPayload);
+	testPayload('/clientsignup', 'POST', 'we will let you know by email', 'correct client signup responds with correct message', clientCookie, clientSignupPayload);
 
 	// current test, redirecting to linkedin at the moment
 	// testHeaderLocation('/login/candidate', 'GET', '/candidate', 'candidate is redirected to /candidate', candidateCookie);
@@ -136,7 +137,7 @@ server.init(0, (err,server) => {
 	testEndPoint('/login/client', 'GET', 302, 'unauth user responds with redirect 302');
 	testEndPoint('/login/candidate', 'GET', 302, 'unauth user responds with redirect 302');
 
-	testPayload('/logout','GET','<h1>You\'ve logged out!</h1>', 'payload has heading logged out');
+	testPayload('/logout','GET','You\'ve logged out!', 'payload has heading logged out');
 	testEndPoint('/logout','GET', 200, 'auth user responds with response 200', clientCookie);
 
 	// tests that require a vid

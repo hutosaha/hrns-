@@ -15,7 +15,7 @@
     "rules": {
 
         "quotes": [
-            2,
+            0,
             "single"
         ],
         "semi": [
