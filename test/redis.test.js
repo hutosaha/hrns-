@@ -147,7 +147,7 @@ server.init(1, (err,server) => {
     payload = {
       jobTitle: 'developer',
       salary: '£30,000',
-      searchDate: 'Tue Aug 25 2009 00:00:00 GMT+0100 (BST)'
+      searchDate: 'Tue Aug 25 2009'
     };
     let expected = {
       companyName: 'fac',
@@ -176,14 +176,11 @@ server.init(1, (err,server) => {
 
   test('getSetMembers correctly retrieves set members', (t) => {
     hash = 'test12';
-    let hash2 = 'test13';
-    let hash3 = 'test14';
-    let set = 'testSet4';
+    let hash2 = 'test13', hash3 = 'test14', set = 'testSet4';
 
     client.sadd(set, hash, hash2, hash3);
     redis.getSetMembers(set, (res) => {
-      let expected = [hash, hash2, hash3];
-      t.deepEqual(res, expected, 'correct set members have been returned!');
+      t.deepEqual(res.length, 3, 'correct set has been returned!');
       t.end();
     });
   });
