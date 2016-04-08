@@ -2,14 +2,15 @@
 <html>
   <head>
       <meta charset="utf-8">
-      <title>Harness- Client</title>
+      {{> title}}
       {{> config}}
   </head>
   <body>
-      <a href="/">Home</a>
-      <a href="/submitjob">Submit a job</a>
-      <a href="/logout">Logout</a>
-      <h1>This is the client dashboard</h1>
+    <nav class="ui menu">
+      <a class="item" href="/client"><h3 class="header item">My Jobs</h3></a>
+      <a class="item" href="/submitjob"><h3 class="header item">Submit a job</h3></a>
+      <a class="item "href="/logout"><h3 class="header item">Logout</h3></a>
+    </nav>
       {{{content}}}
   </body>
 </html>
