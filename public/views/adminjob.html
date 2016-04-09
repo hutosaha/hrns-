@@ -1,32 +1,32 @@
 <h1>Admin's Job Page</h1>
-   <li>{{jobTitle}}</li> 
-    <li>{{salary}}</li>
-    {{#if submittedDate}}
-    <li>{{submittedDate}}</li>
+   <li>{{data.jobTitle}}</li>
+    <li>{{data.salary}}</li>
+    {{#if data.submittedDate}}
+    <li>{{data.submittedDate}}</li>
     {{/if}}
-    <li>{{searchDeadline}}</li>
-    <li>{{jobDescription}}</li>
-    <li>{{teamCulture}}</li>
-    {{#if jobCategory}}
-    <li>{{jobCategory}}</li>
-    {{/if}}  
-    <li>{{typesOfProjects}}</li>
-    {{#if teamSize}}
-    <li>{{teamSize}}</li>
+    <li>{{data.searchDeadline}}</li>
+    <li>{{data.jobDescription}}</li>
+    <li>{{data.teamCulture}}</li>
+    {{#if data.jobCategory}}
+    <li>{{data.jobCategory}}</li>
     {{/if}}
-    {{#if skillOne}}
-    <li>{{skillOne}}</li>
+    <li>{{data.typesOfProjects}}</li>
+    {{#if data.teamSize}}
+    <li>{{data.teamSize}}</li>
     {{/if}}
-     {{#if skillTwo}}
-    <li>{{skillTwo}}</li>
+    {{#if data.skillOne}}
+    <li>{{data.skillOne}}</li>
     {{/if}}
-     {{#if skillThree}}
-    <li>{{skillThree}}</li>
+     {{#if data.skillTwo}}
+    <li>{{data.skillTwo}}</li>
     {{/if}}
-    {{#if personality}}
-    <li>{{personality}}</li>
+     {{#if data.skillThree}}
+    <li>{{data.skillThree}}</li>
     {{/if}}
-    {{#if searchProgress}}
-    <li>{{searchProgress}}</li>
+    {{#if data.personality}}
+    <li>{{data.personality}}</li>
     {{/if}}
-    <li>{{dateSubmitted}}</li>
+    {{#if data.searchProgress}}
+    <li>{{data.searchProgress}}</li>
+    {{/if}}
+    <li>{{data.dateSubmitted}}</li>
