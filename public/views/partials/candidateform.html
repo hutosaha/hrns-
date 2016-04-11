@@ -1,26 +1,33 @@
-<label for="candidateName"> Name
-  <input type="text" name="candidateName" placeholder="Name" pattern="{{frontendInput}}" title="No 'greater than' or 'less than' symbols"
-   maxlength="100" required>
-</label>
-<label for="jobTitle"> Job Title
-  <input type="text" name="jobTitle" placeholder="Job Title" pattern="{{frontendInput}}" title="No 'greater than' or 'less than' symbols"
-   maxlength="100" required>
-</label>
-<label for="email"> Email Address
-  <input type="email" name="email" placeholder="Email address" maxlength="100" required>
-</label>
-<label for='contactNumber'> Phone Number
-  <input type="tel" name='contactNumber' placeholder="Phone Number" maxlength="20" pattern={{phoneNumber}} title="Please enter numbers only" required>
-</label>
-<label for="salary"> Current Salary
-  <input type="text" name="salary" placeholder="Current Salary" pattern="{{frontendInput}}" title="No 'greater than' or 'less than' symbols"
-   maxlength="100" required>
-</label>
-<label for="linkedInProfile"> LinkedIn Profile
-  <input type="text" name="linkedInProfile" placeholder="LinkedIn Profile " pattern="{{url}}" title="Please enter 'https://' or 'http://' before domain name"
-  maxlength="100">
-</label>
-<label for="cv"> Upload CV
-  <input type="file" name="file_name" id="cv"/>
-  <input type="hidden" id="file_url" name="file_url" />
-</label>
+<div class="two fields">
+    <div class="required field">
+        <label for="candidateName"> Name </label>
+        <input type="text" name="candidateName" placeholder="Name" pattern="{{frontendInput}}" title="No 'greater than' or 'less than' symbols" maxlength="100" required>
+    </div>
+    <div class="required field">
+        <label for="jobTitle"> Job Title </label>
+        <input type="text" name="jobTitle" placeholder="Job Title" pattern="{{frontendInput}}" title="No 'greater than' or 'less than' symbols" maxlength="100" required>
+    </div>
+</div>
+<div class="two fields">
+    <div class="required field">
+        <label for="email"> Email Address </label>
+        <input type="email" name="email" placeholder="Email address" maxlength="100" required>
+    </div>
+    <div class="required field">
+        <label for='contactNumber'> Phone Number </label>
+        <input type="tel" name='contactNumber' placeholder="Phone Number" maxlength="20" pattern={{phoneNumber}} title="Please enter numbers only" required>
+    </div>
+</div>
+<div class="seven wide field">
+    <label for="salary"> Current Salary </label>
+    <input type="text" name="salary" placeholder="Current Salary" pattern="{{frontendInput}}" title="No 'greater than' or 'less than' symbols" maxlength="100" required>
+</div>
+<div class="seven wide field">
+    <label for="linkedInProfile"> LinkedIn </label>
+    <input type="text" name="linkedInProfile" placeholder="LinkedIn Profile " pattern="{{url}}" title="Please enter 'https://' or 'http://' before domain name" maxlength="100">
+</div>
+<div class="field">
+    <label for="cv"> Upload CV </label>
+    <input type="file" name="file_name" id="cv" class="ui button" />
+    <input type="hidden" id="file_url" name="file_url" />
+</div>
