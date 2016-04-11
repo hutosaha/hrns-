@@ -16,11 +16,12 @@ function get_signed_request(file) {
     xhr.open("GET", "/sign_s3?file_name="+ file.name + "&file_type=" + file.type);
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4) {
+            console.log('xhr.status', xhr.status);
             if (xhr.status === 200) {
                 var response = JSON.parse(xhr.responseText);
                 upload_file(file, response.signed_request, response.url);
             } else {
-                alert("Could not get signed URL.");
+                alert("Error. Try uploading the file again");
             }
         }
     };
@@ -37,7 +38,7 @@ function upload_file(file, signed_request, url){
         }
     };
     xhr.onerror = function() {
-        alert("Could not upload file.");
+        alert("Could not upload file. Please try again");
     };
     xhr.send(file);
 }
