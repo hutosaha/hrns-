@@ -16,12 +16,12 @@ function get_signed_request(file) {
     xhr.open("GET", "/sign_s3?file_name="+ file.name + "&file_type=" + file.type);
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4) {
+            console.log('xhr.status', xhr.status);
             if (xhr.status === 200) {
                 var response = JSON.parse(xhr.responseText);
-                console.log('RESPONSE', response.cvid);
                 upload_file(file, response.signed_request, response.url);
             } else {
-                alert("Could not get signed URL.");
+                alert("Error. Try uploading the file again");
             }
         }
     };
@@ -34,12 +34,11 @@ function upload_file(file, signed_request, url){
     xhr.setRequestHeader('x-amz-acl', 'public-read');
     xhr.onload = function() {
         if (xhr.status === 200) {
-            console.log('URL', url);
-            document.getElementById('file_url').value = url;
+            document.getElementById('file_url').value = url; // where cvid is being saved & submitted with form
         }
     };
     xhr.onerror = function() {
-        alert("Could not upload file.");
+        alert("Could not upload file. Please try again");
     };
     xhr.send(file);
 }

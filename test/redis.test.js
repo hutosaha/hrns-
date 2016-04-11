@@ -28,11 +28,11 @@ server.init(1, (err,server) => {
     });
   });
 
-  test('checkUserType gets user type', (t) => {
+  test('getHashKeyValue gets a hash\'s key value', (t) => {
     hash = 'test1';
 
     client.hset(hash, 'type', 'client');
-    redis.checkUserType(hash, (type) => {
+    redis.getHashKeyValue(hash, 'type', (type) => {
       t.equal(type, 'client', 'types match');
       t.end();
     });
