@@ -1,31 +1,31 @@
-<h1>Client's Job page</h1>
+<h1>Client's Job Page</h1>
 
 <ul>
-    <li>{{jobTitle}}</li>
-    <li>{{salary}}</li>
-    {{#if dateSubmitted}}
-    <li>{{dateSubmitted}}</li>
+    <li>{{data.jobTitle}}</li>
+    <li>{{data.salary}}</li>
+    {{#if data.dateSubmitted}}
+    <li>{{data.dateSubmitted}}</li>
     {{/if}}
-    <li>{{searchDeadline}}</li>
-    <li>{{jobDescription}}</li>
-    <li>{{teamCulture}}</li>
-    {{#if jobCategory}}
-    <li>{{jobCategory}}</li>
+    <li>{{data.searchDeadline}}</li>
+    <li>{{data.jobDescription}}</li>
+    <li>{{data.teamCulture}}</li>
+    {{#if data.jobCategory}}
+    <li>{{data.jobCategory}}</li>
     {{/if}}
-    <li>{{typesOfProjects}}</li>
-    {{#if teamSize}}
-    <li>{{teamSize}}</li>
+    <li>{{data.typesOfProjects}}</li>
+    {{#if data.teamSize}}
+    <li>{{data.teamSize}}</li>
     {{/if}}
-    {{#if skillOne}}
-    <li>{{skillOne}}</li>
+    {{#if data.skillOne}}
+    <li>{{data.skillOne}}</li>
     {{/if}}
-     {{#if skillTwo}}
-    <li>{{skillTwo}}</li>
+     {{#if data.skillTwo}}
+    <li>{{data.skillTwo}}</li>
     {{/if}}
-     {{#if skillThree}}
-    <li>{{skillThree}}</li>
+     {{#if data.skillThree}}
+    <li>{{data.skillThree}}</li>
     {{/if}}
-    {{#if personality}}
-    <li>{{personality}}</li>
+    {{#if data.personality}}
+    <li>{{data.personality}}</li>
     {{/if}}
 </ul>

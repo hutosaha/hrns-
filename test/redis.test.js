@@ -207,11 +207,13 @@ server.init(1, (err,server) => {
       client.sismember(set, hash, (err, reply) => {
         t.equal(reply, 1, 'hash is now in set!');
         t.end();
+        client.flushdb();
         client.quit();
       });
     });
   });
 });
+
   server.stop();
 });
 
