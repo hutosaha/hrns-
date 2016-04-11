@@ -1,44 +1,47 @@
 <h1>User Info</h1>
-
 <div class="ui top attached tabular menu">
-<a class="item active" type="button" href="/userinfo/clients">Clients</a>
-<a type="button" href="/userinfo/agencies">Agency</a>
+    <a class="item active" data-tab="clients">Clients</a>
+    <a class="item" data-tab="agencies">Agency</a>
+</div>
 
-<h2>{{message}}</h2>
-
-{{#if clients}}
-<h2>Clients</h2>
-<ul>
-    {{#each clients}}
-    <li>{{contactName}}</li>
-    <li>{{contactNumber}}</li>
-    <li>{{email}}</li>
-    <li>{{companySize}}</li>
-    <li>{{website}}</li>
-    <li>{{companySize}}</li>
-    <li>{{twitter}}</li>
-    <li>{{facebook}}</li>
-    <li>{{linkedin}}</li>
-    <li>{{type}}</li>
-    <!-- still need todo view more -->
- 	<input type="button" onclick="location.href=" value="View More">
-    {{/each}}
-</ul>
-{{/if }}
-
-{{#if agencies}}
-<h2>Agencies</h2>
-<ul>
-    {{#each agencies}}
-    <li>{{companyName}}</li>
-    <li>{{contactName}}</li>
-    <li>{{contactNumber}}</li>
-    <li>{{email}}</li>
-    <li>{{companySize}}</li>
-    <li>{{companyDescription}}</li>
-    <li>{{type}}</li>
-    <!-- still need todo view more -->
-    <input type="button" onclick="location.href=" value="View More">
-    {{/each}}
-</ul>
-{{/if }}
+<div class="ui bottom attached tab segmnet active" data-tab="clients">
+     
+    <ul>
+        {{#unless clients}}
+                <h3>{{message}}</h3>
+        {{/unless}}
+        {{#each clients}}
+        <li>{{contactName}}</li>
+        <li>{{contactNumber}}</li>
+        <li>{{email}}</li>
+        <li>{{companySize}}</li>
+        <li>{{website}}</li>
+        <li>{{companySize}}</li>
+        <li>{{twitter}}</li>
+        <li>{{facebook}}</li>
+        <li>{{linkedin}}</li>
+        <li>{{type}}</li>
+     
+        <!-- still need todo view more -->
+        <input type="button" onclick="location.href=" value="View More"> {{/each}}
+    </ul>
+</div>
+<div class="ui bottom attached tab segment" data-tab="agencies">
+    <ul>
+        {{#unless agencies}}
+                <h3>{{message}}</h3>
+        {{/unless}}
+        {{#each agencies}}
+        <li>{{companyName}}</li>
+        <li>{{contactName}}</li>
+        <li>{{contactNumber}}</li>
+        <li>{{email}}</li>
+        <li>{{companySize}}</li>
+        <li>{{companyDescription}}</li>
+        <li>{{type}}</li>
+    
+        <!-- still need todo view more -->
+        <input type="button" onclick="location.href=" value="View More"> {{/each}}
+    </ul>
+</div>
+<script type="text/javascript" src="../public/js/tab.js"></script>
