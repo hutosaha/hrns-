@@ -18,7 +18,6 @@ function get_signed_request(file) {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
                 var response = JSON.parse(xhr.responseText);
-                console.log('RESPONSE', response.cvid);
                 upload_file(file, response.signed_request, response.url);
             } else {
                 alert("Could not get signed URL.");
@@ -34,8 +33,7 @@ function upload_file(file, signed_request, url){
     xhr.setRequestHeader('x-amz-acl', 'public-read');
     xhr.onload = function() {
         if (xhr.status === 200) {
-            console.log('URL', url);
-            document.getElementById('file_url').value = url;
+            document.getElementById('file_url').value = url; // where cvid is being saved & submitted with form
         }
     };
     xhr.onerror = function() {
