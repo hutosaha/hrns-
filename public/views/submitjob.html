@@ -1,73 +1,80 @@
-
-<h1>Submit Job</h1>
-
-<form action="/submitjob" method="POST">
-	<label for="jobTitle"> Job Title
-		<input type="text" name="jobTitle" pattern="{{frontendInput}}" title="No ankle brackets" placeholder="Job title"
-			maxlength="100" required>
-	</label>
-	<label for="jobDescription"> Job Description
-		<textarea id="jobDescription" type="text" name="jobDescription" pattern="{{frontendInput}}" title="No ankle brackets" placeholder="Job Description"
-			maxlength="3000" required></textarea>
-	</label>
-	<div id="textarea_feedback"></div>
-	<label for="jobCategory"> Job Category
-    <select name="jobCategory" required>
-      <option value="Business Intelligence, Data Science & Analytics">Business Intelligence, Data Science & Analytics</option>
-      <option value="User Experience & Design">User Experience & Design</option>
-      <option value="Development">Development</option>
-      <option value="IT Project & Programme Management">IT Project & Programme Management</option>
-      <option value="Infrastructure & Service Delivery">Infastructure & Service Delivery</option>
-      <option value="Change & Transformation">Change & Transformation</option>
-      <option value="IT Leadership £100,000 +">IT Leadership £100,000 + </option>
-      <option value="Sales & Business Development">Sales & Business Development</option>
-    </select>
-	</label>
-	<label for="teamCulture"> Team Culture
-		<input type="text" name="teamCulture" pattern="{{frontendInput}}" title="no ankle brackets" placeholder="Team Culture"
-		maxlength="100" required>
-	</label>
-	<label for="typesOfProjects"> Types of Projects
-		<input type="text" name="typesOfProjects" pattern="{{frontendInput}}" title="no ankle brackets" placeholder="Types of Projects"
-		maxlength="100" required>
-	</label>
-	<label for="teamSize"> Team Size
-    <select name="teamSize" required>
-      <option value="1-10">1-10</option>
-      <option value="10-20">10-20</option>
-      <option value="20-50">20-50</option>
-      <option value="100+">100+</option>
-    </select>
-	</label>
-	<label for="threeMostImportantSkills"> Three Most Important Skills
-		<input name="skillOne" type="text" placeholder="1.">
-		<input name="skillTwo" type="text" placeholder="2.">
-		<input name="skillThree" type="text" placeholder="3.">
-	</label>
-	<label for="personality"> Personality
-		<input type="text" name="personality" pattern="{{frontendInput}}" title="No 'greater than' or 'less than' symbols"
-		maxlength="100">
-	</label>
-	<label for="salary"> Salary And Package Details
-		<input type="text" name="salary" pattern="{{frontendInput}}" title="No 'greater than' or 'less than' symbols"
-		maxlength="100" required>
-	</label>
-	<label for="searchProgress"> What have you done so far in the search?
-    <select name="searchProgress">
-      <option value="nothing">Nothing</option>
-      <option value="Just started looking">Just started looking</option>
-      <option value="Looked for ages,but failed ">Looked for ages, but failed</option>
-    </select>
-	</label>
-	<label for="searchDeadline"> Deadline For Search
-		<input name="searchDeadline" type="date">
-	</label>
-	<label>
-		<input type="submit" value"submit">
-	</label>
-</form>
-
+<div class="textCenter">
+    <h1 class="header">Submit Job</h1>
+    <form action="/submitjob" method="POST" class="ui form">
+        <div class="required field">
+            <label for="jobTitle"> Job Title </label>
+            <input type="text" name="jobTitle" pattern="{{frontendInput}}" title="No ankle brackets" placeholder="Job title" maxlength="100" required>
+        </div>
+        <div class="required field">
+            <label for="jobDescription"> Job Description </label>
+            <textarea id="jobDescription" type="text" name="jobDescription" pattern="{{frontendInput}}" title="No ankle brackets" placeholder="Job Description" maxlength="3000" required></textarea>
+        </div>
+        <div id="textarea_feedback"></div>
+        <div class="two fields">
+            <div class="required field">
+                <label for="jobCategory"> Job Category </label>
+                <select name="jobCategory" required>
+                    <option value="Business Intelligence, Data Science & Analytics">Business Intelligence, Data Science & Analytics</option>
+                    <option value="User Experience & Design">User Experience & Design</option>
+                    <option value="Development">Development</option>
+                    <option value="IT Project & Programme Management">IT Project & Programme Management</option>
+                    <option value="Infrastructure & Service Delivery">Infastructure & Service Delivery</option>
+                    <option value="Change & Transformation">Change & Transformation</option>
+                    <option value="IT Leadership £100,000 +">IT Leadership £100,000 + </option>
+                    <option value="Sales & Business Development">Sales & Business Development</option>
+                </select>
+            </div>
+            <div class="reuired field">
+                <label for="teamCulture"> Team Culture </label>
+                <input type="text" name="teamCulture" pattern="{{frontendInput}}" title="no ankle brackets" placeholder="Team Culture" maxlength="100" required>
+            </div>
+        </div>
+        <div class="two fields">
+            <div class="field">
+                <label for="typesOfProjects"> Types of Projects </label>
+                <input type="text" name="typesOfProjects" pattern="{{frontendInput}}" title="no ankle brackets" placeholder="Types of Projects" maxlength="100" required>
+            </div>
+            <div class="field">
+                <label for="teamSize"> Team Size </label>
+                <select name="teamSize" required>
+                    <option value="1-10">1-10</option>
+                    <option value="10-20">10-20</option>
+                    <option value="20-50">20-50</option>
+                    <option value="100+">100+</option>
+                </select>
+            </div>
+        </div>
+        <div class="two fields">
+            <div class="field">
+                <label for="threeMostImportantSkills"> Three Most Important Skills </label>
+                <input name="skillOne" type="text" placeholder="1.">
+                <input name="skillTwo" type="text" placeholder="2.">
+                <input name="skillThree" type="text" placeholder="3.">
+            </div>
+            <div class="field">
+                <label for="personality"> Personality </label>
+                <input type="text" name="personality" pattern="{{frontendInput}}" title="No 'greater than' or 'less than' symbols" maxlength="100">
+            </div>
+        </div>
+        <div class="required field">
+            <label for="salary"> Salary And Package Details </label>
+            <input type="text" name="salary" pattern="{{frontendInput}}" title="No 'greater than' or 'less than' symbols" maxlength="100" required>
+        </div>
+        <div class="field">
+            <label for="searchProgress"> What have you done so far in the search? </label>
+            <select name="searchProgress">
+                <option value="nothing">Nothing</option>
+                <option value="Just started looking">Just started looking</option>
+                <option value="Looked for ages,but failed ">Looked for ages, but failed</option>
+            </select>
+        </div>
+        <div class="field">
+            <label for="searchDeadline"> Deadline For Search </label>
+            <input name="searchDeadline" type="date">
+        </div>
+        <input type="submit" value="submit" class="ui button">
+    </form>
+</div>
 {{message}}
-
 <script type="text/javascript" src="public/js/jobCharacterCounter.js"></script>
 <script type="text/javascript" src="public/js/datepicker.js"></script>
