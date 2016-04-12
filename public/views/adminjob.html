@@ -1,6 +1,6 @@
 <h1>Admin's Job Page</h1>
 
-  {{message}}
+
 
    <li>{{data.jobTitle}}</li>
     <li>{{data.salary}}</li>
@@ -33,3 +33,55 @@
     <li>{{data.searchProgress}}</li>
     {{/if}}
     <li>{{data.dateSubmitted}}</li>
+  
+{{#if message}}
+    {{message}}
+{{/if}}
+
+
+<div class="ui horizontal segments">
+  <div class="ui segment">
+    <p>Boom</p>
+  </div>
+  <div class="ui segment">
+    <p>Byee</p>
+  </div>
+  <div class="ui segment">
+    <p>Bye</p>
+  </div>
+</div>
+
+{{#each cvs}}
+<div class="ui horizontal segments">
+    <div class="ui segment">
+        <label for=""></label>
+        <h4>{{candidateName}}</h4>
+    </div>
+    <div class="ui segment">
+        <label for=""></label>
+        <h4>{{jobTitle}}</h4>
+    </div>
+</div>
+    <div class="ui segment">
+        <label for=""></label>
+        <h4>{{phoneNumber}}</h4>
+    </div>
+    <div class="ui segment">
+        <a href="{{file_url}}" type="text" download>Download CV</a>
+    </div>
+    <div class="ui segment">
+        <button>Reject</button>
+    </div>
+    <div class="ui segment">
+        <div class="ui dropdown">
+            <div class="text">Accept</div>
+                 <i class="dropdown icon"></i>
+                 <div class="menu">
+                     <div class="item">Gold</div>
+                     <div class="item">Silver</div>
+                 <div class="item">Bronze</div>
+            </div>
+        </div>
+    </div>
+</div>
+{{/each}}
