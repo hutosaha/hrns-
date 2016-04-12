@@ -6,13 +6,12 @@ const moment = require('moment');
 const server = require('../lib/index.js');
 const redis  = require('../lib/db/redis.js');
 const client = require('../lib/db/client.js');
+
 let hash, payload;
 
 server.init(1, (err,server) => {
 
-  client.select(3, function(){
-    console.log('connected to db3');
-  });
+  client.select(2, function(){}); // select different one to other test files
 
   test('test can write list to db', (t) => {
     const array = ['1', '2', '3', '4', '5'];

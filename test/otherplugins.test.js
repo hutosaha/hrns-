@@ -1,5 +1,8 @@
 'use strict';
 
+const test   = require('tape');
+const Hapi   = require('hapi');
+
 const server = require('../lib/index.js');
 const client = require('../lib/db/client.js');
 
@@ -9,15 +12,21 @@ const testHeaderLocation = require('./utils/utils.js').testHeaderLocation;
 const testEndPoint       = require('./utils/utils.js').testEndPoint;
 const testPayload        = require('./utils/utils.js').testPayload;
 
-const clientCookie = require('./utils/utils.js').clientCookie;
-const candidateCookie = require('./utils/utils.js').candidateCookie;
-const noScopeCookie = require('./utils/utils.js').noScopeCookie;
 const nonExistingUserCookie = require('./utils/utils.js').nonExistingUserCookie;
-const adminCookie = require('./utils/utils.js').adminCookie;
+const candidateCookie       = require('./utils/utils.js').candidateCookie;
+const noScopeCookie         = require('./utils/utils.js').noScopeCookie;
+const agencyCookie          = require('./utils/utils.js').agencyCookie;
+const clientCookie          = require('./utils/utils.js').clientCookie;
+const adminCookie           = require('./utils/utils.js').adminCookie;
 
 server.init(0, (err, server) => {
 
     client.select(3, () => {});
+
+    test('Server is running', (t) => {
+        t.equal(server instanceof Hapi.Server, true, ' Server is an instance of the Hapi Server');
+        t.end();
+    });
 
     testEndPoint(server, '/', 'GET', 200, 'responds with response 200');
     testEndPoint(server, '/', 'GET', 302, 'approved client redirected 302', clientCookie);
@@ -49,6 +58,8 @@ server.init(0, (err, server) => {
             testHeaderLocation(server, '/login/client', 'GET', '/client', 'auth user redirects to', clientCookie, 'testid');
         });
     });
+
+    testEndPoint(server, '/sign_s3', 'GET', 200, 'endpoint responds with:', agencyCookie);
 
     server.stop();
 
