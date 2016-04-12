@@ -16,7 +16,7 @@
 - Jquery 
 
 ### Key for Users 
-Clients,Agents, Candidates, Admin  id = id 
+id = id for users (Clients,Agents, Candidates, Admin)
 vid = vacancy id 
 
 
