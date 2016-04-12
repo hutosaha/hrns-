@@ -150,6 +150,8 @@ server.init(1, (err,server) => {
       searchDate: 'Tue Aug 25 2009'
     };
     let expected = {
+      clientEmail: 'zuckerberg@fb.com',
+      clientId: 'test11',
       companyName: 'fac',
       dateSubmitted: moment().format('MMMM Do YYYY'),
       jobTitle: 'developer',
@@ -160,6 +162,7 @@ server.init(1, (err,server) => {
     client.del(id + 'jobs');
     client.srem('liveJobs', vid);
     client.hset(id, 'companyName', 'fac');
+    client.hset(id, 'email', 'zuckerberg@fb.com');
     redis.addJob(payload, id, vid, () => {
       client.hgetall(vid, (err, reply) => {
         t.deepEqual(reply, expected, 'correctly formats job object!');

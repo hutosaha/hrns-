@@ -212,5 +212,5 @@ server.init(0, (err, server) => {
         testEndPoint('/userinfo/client','GET', 200, 'endpoint responds with:', adminCookie );
     });
 
-    server.stop(); // has to be here to prevent other tests from hanging
+    server.stop();  // has to be here to prevent other tests from hanging
 });
