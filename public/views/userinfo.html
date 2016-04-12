@@ -1,43 +1,47 @@
 <h1>User Info</h1>
-
-<a type="button" href="/userinfo/clients">Clients</a>
-<a type="button" href="/userinfo/agencies">Agency</a>
-
-<h2>{{message}}</h2>
-
-{{#if clients}}
-<h2>Clients</h2>
-<ul>
-    {{#each clients}}
-    <li>{{contactName}}</li>
-    <li>{{contactNumber}}</li>
-    <li>{{email}}</li>
-    <li>{{companySize}}</li>
-    <li>{{website}}</li>
-    <li>{{companySize}}</li>
-    <li>{{twitter}}</li>
-    <li>{{facebook}}</li>
-    <li>{{linkedin}}</li>
-    <li>{{type}}</li>
-    <!-- still need todo view more -->
- 	<input type="button" onclick="location.href=" value="View More">
-    {{/each}}
-</ul>
-{{/if }}
-
-{{#if agencies}}
-<h2>Agencies</h2>
-<ul>
-    {{#each agencies}}
-    <li>{{companyName}}</li>
-    <li>{{contactName}}</li>
-    <li>{{contactNumber}}</li>
-    <li>{{email}}</li>
-    <li>{{companySize}}</li>
-    <li>{{companyDescription}}</li>
-    <li>{{type}}</li>
-    <!-- still need todo view more -->
-    <input type="button" onclick="location.href=" value="View More">
-    {{/each}}
-</ul>
-{{/if }}
+<div class="ui top attached tabular menu">
+    <a class="item active" data-tab="clients">Clients</a>
+    <a class="item" data-tab="agencies">Agency</a>
+</div>
+<div class="ui bottom attached tab segment active" data-tab="clients">
+    {{#unless clients}}
+    <br>
+    <h3 class="">{{message}}</h3> {{/unless}} {{#each clients}}
+    <div class="field">
+        <label for="">Contact Name</label>{{contactName}}</div>
+    <div class="field">
+        <label for="">Contact Number</label>{{contactNumber}}</div>
+    <div class="field">
+        <label for="">Company Description</label>{{companyDescription}}</div>
+    <div class="field">
+        <label for="">Email</label>{{email}}</div>
+    <div class="field">
+        <label for="">Company Size</label>{{companySize}}</div>
+    <div class="field">
+        <label for="">Website</label>{{website}}</div>
+    <div class="field">
+        <label for="">Twitter</label>{{twitter}}</div>
+    <div class="field">
+        <label for="">Facebook</label>{{facebook}}</div>
+    <div class="field">
+        <label for="">Linkedin</label>{{linkedin}}</div>
+    <!--    // onclick needs attention -->
+    <input type="button" onclick="location.href=" value="View More"> {{/each}}
+</div>
+<div class="ui bottom attached tab segment" data-tab="agencies">
+    {{#unless agencies}}
+    <br>
+    <h3 class="">{{message}}</h3> {{/unless}} {{#each clients}}
+    <div class="field">
+        <label for="">Company Name</label>{{companyName}}</div>
+    <div class="field">
+        <label for="">Contact Name</label>{{contactName}}</div>
+    <div class="field">
+        <label for="">Contact Number</label>{{contactNumber}}</div>
+    <div class="field">
+        <label for="">Email</label>{{email}}</div>
+    <div class="field">
+        <label for="">Company Size</label>{{companySize}}</div>
+    <input type="button" onclick="location.href=" value="View More"> {{/each}} {{#unless agencies}}
+</div>
+<script type="text/javascript" src="../public/js/tab.js"></script>

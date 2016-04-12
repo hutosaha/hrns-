@@ -1,12 +1,12 @@
-<br><br>
 
-<h1>Agency Homepage</h1>
-{{message}}
-{{#each data}}
-<ul>
-	<li>{{jobTitle}}</li>
-	<li>{{companyName}}</li>
-	<li>{{salary}}</li>
-	<a href="/agency/job/{{vid}}"> View Job </a>
-</ul>
-{{/each}}
+    <h1 class="ui dividing header">Agency Homepage</h1> 
+    <h3>{{message}}</h3>
+    {{#each data}}
+    <ul>
+        <li>{{jobTitle}}</li>
+        <li>{{companyName}}</li>
+        <li>{{salary}}</li>
+        <a href="/agency/job/{{vid}}"> View Job </a>
+    </ul>
+    {{/each}}
+
