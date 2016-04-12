@@ -58,7 +58,6 @@ app.testPayload = (server, endpoint, method, expectedString, message, COOKIE, pa
             payload: payload
         };
         server.inject(options, (res) => {
-            console.log('res.payload', res.payload);
             let actual = res.payload.indexOf(expectedString) > -1;
             let expected = true;
             t.equal(actual, expected, 'TEST PAYLOAD:- ' + message + ' ' + expectedString);

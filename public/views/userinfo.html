@@ -6,42 +6,63 @@
 <div class="ui bottom attached tab segment active" data-tab="clients">
     {{#unless clients}}
     <br>
-    <h3 class="">{{message}}</h3> {{/unless}} {{#each clients}}
+    <h3 class="">{{message}}</h3>
+    {{/unless}}
+    {{#each clients}}
     <div class="field">
-        <label for="">Contact Name</label>{{contactName}}</div>
+        <label for="">Contact Name</label>
+        <p>{{contactName}}</p>
+    </div>
     <div class="field">
-        <label for="">Contact Number</label>{{contactNumber}}</div>
+        <label for="">Contact Number</label>
+        <p>{{contactNumber}}</p>
+    </div>
     <div class="field">
-        <label for="">Company Description</label>{{companyDescription}}</div>
+        <label for="">Company Description</label>{{companyDescription}}
+    </div>
     <div class="field">
-        <label for="">Email</label>{{email}}</div>
+        <label for="">Email</label>{{email}}
+    </div>
     <div class="field">
-        <label for="">Company Size</label>{{companySize}}</div>
+        <label for="">Company Size</label>{{companySize}}
+    </div>
     <div class="field">
-        <label for="">Website</label>{{website}}</div>
+        <label for="">Website</label>{{website}}
+    </div>
     <div class="field">
-        <label for="">Twitter</label>{{twitter}}</div>
+        <label for="">Twitter</label>{{twitter}}
+    </div>
     <div class="field">
-        <label for="">Facebook</label>{{facebook}}</div>
+        <label for="">Facebook</label>{{facebook}}
+    </div>
     <div class="field">
-        <label for="">Linkedin</label>{{linkedin}}</div>
+        <label for="">Linkedin</label>{{linkedin}}
+    </div>
     <!--    // onclick needs attention -->
     <input type="button" onclick="location.href=" value="View More"> {{/each}}
 </div>
 <div class="ui bottom attached tab segment" data-tab="agencies">
     {{#unless agencies}}
     <br>
-    <h3 class="">{{message}}</h3> {{/unless}} {{#each clients}}
+    <h3 class="">{{message}}</h3>
+    {{/unless}}
+    {{#each agencies}}
     <div class="field">
-        <label for="">Company Name</label>{{companyName}}</div>
+        <label for="">Company Name</label>{{companyName}}
+    </div>
     <div class="field">
-        <label for="">Contact Name</label>{{contactName}}</div>
+        <label for="">Contact Name</label>{{contactName}}
+    </div>
     <div class="field">
-        <label for="">Contact Number</label>{{contactNumber}}</div>
+        <label for="">Contact Number</label>{{contactNumber}}
+    </div>
     <div class="field">
-        <label for="">Email</label>{{email}}</div>
+        <label for="">Email</label>{{email}}
+    </div>
     <div class="field">
-        <label for="">Company Size</label>{{companySize}}</div>
-    <input type="button" onclick="location.href=" value="View More"> {{/each}} {{#unless agencies}}
+        <label for="">Company Size</label>{{companySize}}
+    </div>
+    <input type="button" onclick="location.href=" value="View More">
+    {{/each}}
 </div>
 <script type="text/javascript" src="../public/js/tab.js"></script>
