@@ -1,13 +1,30 @@
 <div class="textCenter">
-    <h1>Vacancies Page</h1> 
+    <h1>My Jobs</h1>
     <h3>{{{message}}} </h3>
-    {{#each data}}
-    <ul>
-        <li>{{jobTitle}}</li>
-        <li>{{salary}}</li>
-        <li>{{searchDeadline}}</li>
-        <a href='/client/job/{{vid}}'>View</a>
-        <a href='/client/job/remove/{{vid}}'>Remove</a>
-    </ul>
-    {{/each}}
+    <div class="ui form user">
+        {{#each data}}
+        <div class="ui inline fields">
+            <div class="ui field">
+                <label for="">Job Title</label>
+                <p>{{jobTitle}}</p>
+            </div>
+            <div class="ui field">
+                <label for="">Search Deadline</label>
+                <p>{{searchDeadline}}</p>
+            </div>
+            {{#if linkedin}}
+            <div class="ui field">
+                <label for="">Salary</label>
+                <p>{{salary}}</p>
+            </div>
+            {{/if }}
+              <a href='/client/job/{{vid}}'>
+                <button class="ui inverted blue button">View</button>
+              </a>
+              <a href='/client/job/remove/{{vid}}'>
+                <button class="ui inverted blue button">Remove</button>
+              </a>
+        </div>
+        {{/each}}
+    </div>
 </div>
