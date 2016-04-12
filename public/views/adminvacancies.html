@@ -1,13 +1,13 @@
-<h1>Admin Vacancies Page</h1>
 
-{{message}}
-{{#each data}}
-<ul>
-    <li>{{jobTitle}}</li>
-    <li>{{salary}}</li>
-    <li>{{searchDeadline}}</li>
-    <li>{{dateSubmitted}}</li>
- 	<a href='/admin/job/{{vid}}' >View</a>
- 	<a href='/admin/job/remove/{{vid}}'>Remove</a>
-</ul>
-{{/each}}
+    <h1 class="ui dividing header">Admin Vacancies Page</h1> 
+    <h3>{{message}}</h3>
+     {{#each data}}
+    <ul>
+        <li>{{jobTitle}}</li>
+        <li>{{salary}}</li>
+        <li>{{searchDeadline}}</li>
+        <li>{{dateSubmitted}}</li>
+        <a href='/admin/job/{{vid}}'>View</a>
+        <a href='/admin/job/remove/{{vid}}'>Remove</a>
+    </ul>
+    {{/each}}
