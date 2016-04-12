@@ -1,15 +1,15 @@
 <h1>User Info</h1>
+
 <div class="ui top attached tabular menu">
     <a class="item active" data-tab="clients">Clients</a>
     <a class="item" data-tab="agencies">Agency</a>
 </div>
-
-<div class="ui bottom attached tab segmnet active" data-tab="clients">
-     
+<div class="ui bottom attached tab segment active" data-tab="clients">
+    {{#unless clients}}
+    <br>
+    <h3 class="">{{message}}</h3> 
+    {{/unless}}
     <ul>
-        {{#unless clients}}
-                <h3>{{message}}</h3>
-        {{/unless}}
         {{#each clients}}
         <li>{{contactName}}</li>
         <li>{{contactNumber}}</li>
@@ -21,16 +21,16 @@
         <li>{{facebook}}</li>
         <li>{{linkedin}}</li>
         <li>{{type}}</li>
-     
         <!-- still need todo view more -->
         <input type="button" onclick="location.href=" value="View More"> {{/each}}
     </ul>
 </div>
 <div class="ui bottom attached tab segment" data-tab="agencies">
+    {{#unless agencies}}
+    <br>
+    <h3>{{message}}</h3>
+     {{/unless}}
     <ul>
-        {{#unless agencies}}
-                <h3>{{message}}</h3>
-        {{/unless}}
         {{#each agencies}}
         <li>{{companyName}}</li>
         <li>{{contactName}}</li>
@@ -39,7 +39,6 @@
         <li>{{companySize}}</li>
         <li>{{companyDescription}}</li>
         <li>{{type}}</li>
-    
         <!-- still need todo view more -->
         <input type="button" onclick="location.href=" value="View More"> {{/each}}
     </ul>

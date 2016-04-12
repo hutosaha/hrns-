@@ -18,7 +18,7 @@
         <input type="tel" name='contactNumber' placeholder="Phone Number" maxlength="20" pattern={{phoneNumber}} title="Please enter numbers only" required>
     </div>
 </div>
-<div class="seven wide field">
+<div class="required seven wide field">
     <label for="salary"> Current Salary </label>
     <input type="text" name="salary" placeholder="Current Salary" pattern="{{frontendInput}}" title="No 'greater than' or 'less than' symbols" maxlength="100" required>
 </div>
@@ -28,6 +28,9 @@
 </div>
 <div class="field">
     <label for="cv"> Upload CV </label>
-    <input type="file" name="file_name" id="cv" class="ui button" />
+    <input type="file" name="file_name" id="cv" />
     <input type="hidden" id="file_url" name="file_url" />
+</div>
+<div class="field">
+    <input type="submit" value="Submit Candidate!"class="ui blue button" >
 </div>
