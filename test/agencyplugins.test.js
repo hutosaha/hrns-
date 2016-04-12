@@ -2,18 +2,20 @@ const server = require('../lib/index.js');
 const client = require('../lib/db/client.js');
 
 const testEndPoint = require('./utils/utils.js').testEndPoint;
-const testPayload = require('./utils/utils.js').testPayload;
+const testPayload  = require('./utils/utils.js').testPayload;
 
-const agencyCookie = require('./utils/utils.js').agencyCookie;
+const agencyCookie    = require('./utils/utils.js').agencyCookie;
 const candidateCookie = require('./utils/utils.js').candidateCookie;
 
 const agencyLoginEndPoint = process.env.AGENCY_LOGIN_ENDPOINT;
 
 const incorrectAgencySignupPayload = { contactName: 2, companyName: 23, contactNumber: 'asdasd' };
-const agencySignupPayload = { contactName: 'Joe Bloggs', companyName: 'google', contactNumber: '0823748237', email: 'fac@hotmail.com', companySize: '50-200', agencySpecialism: 'Creative' };
-const cvPayload = { candidateName: 'Johnny Rotten', jobTitle: 'muppet', email: 'test@test.com', contactNumber: '0823748237', salary: '30000', linkedInProfile: 'https://linkedin', file_name: 'testcv.doc', file_url: 'https://torhuw-hrns.s3.amazonaws.com/testcv.doc'};
+const agencySignupPayload          = { contactName: 'Joe Bloggs', companyName: 'google', contactNumber: '0823748237', email: 'fac@hotmail.com', companySize: '50-200', agencySpecialism: 'Creative' };
+const cvPayload                    = { candidateName: 'Johnny Rotten', jobTitle: 'muppet', email: 'test@test.com', contactNumber: '0823748237', salary: '30000', linkedInProfile: 'https://linkedin', file_name: 'testcv.doc', file_url: 'https://torhuw-hrns.s3.amazonaws.com/testcv.doc'};
 
 server.init(0, (err, server) => {
+
+    client.select(3, function(){}); 
 
     testPayload(server, '/agency/job/wrong-vid', 'GET', 'Sorry, something went wrong', 'error handles incorrect vid', agencyCookie);
 
@@ -38,7 +40,5 @@ server.init(0, (err, server) => {
             testPayload(server, '/agency', 'GET', 'There are no vacancies', 'agency homepage apologies with no vacancies', agencyCookie);
           });
      });
-
     server.stop();
-
 });
