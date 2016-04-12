@@ -3,7 +3,6 @@
 const test = require('tape');
 const Hapi = require('hapi');
 
-
 const server = require('../lib/index.js');
 const client = require('../lib/db/client.js');
 
@@ -20,21 +19,17 @@ const agencyCookie = 'user=Fe26.2**2f9bfa92d78c3aea2756bb7244cd0fa697f5fe80041c8
 //const approvedAgencyCookie ='user=Fe26.2**3db2e6c901be1f70149f459af1279ab5e302777081f5b52cd69189e28b8ad206*MWA6_INFGWSt4pP3VPWnLA*Hh35_4S0vg12pjn9wn-K-qNCEcyO_jRPW-1wihZbXoJ0BAvUUq_Ww7ZSDtK7ium2_HgU-BoJ536BJfHMES865-hUz-8cbcae4f3aef3f0255983b06277f6262d5bcb3c5a9d5ff966ea595684d599a72-Yrx8n8EYezautYx0XVLI6dGvGISJ6wZewxmp3RYKBnOQtQ1ptaqJwTyOwYJZ10Xs6SEmuMg8n6kMIwosw0jy6UnVOGVCyQFoIiGU9OuN_kxnMkbL6D7qj9xA9BX0vmicEQuSuRdP-TaN5iUbfTALkFnDaM4xQpaZsOUAYppM8uPambOTAhUXkJQasMyPbg30LNW1BYq005tpkZHa3qvzzLpcy4e5RN5PuRdXmCpi4LCY5XbuJ0u6Wp-Eqn1TLLAe8fLQwbFGvg4mdD33Dgrr3btX1BMGMzyme8bBYZHaJ6nj_1apTcFqWGZfcF_WB9MMoNud7_qDtAFeCSXG2biLHRBca25C6JhtM91RP9DL4g-lUwTiNSU9F_CaRbhZiUu7nNVBnloDrgbId0GuTk9bmYyiHlbuPQdyeZXGAnRFXErBW14cH**d270cd1db70e2b409dbf305cd91c7b71332b66d4636756ae5ef71d0cb8895163*EwfpjvrX1m37J5UYJzx5Ey_bk-HU-TqQ0V0lX3KnZEM';
 const nonExistingUserCookie = 'user=Fe26.2**e4145d6d76cc73ecb11c24227601aa2a0a0ce95391a315d935586962a256c683*v4b4bmmaO0zDkqoV5C3d-w*vockqifTNv0xt2Ie-Xba-2jcz3_0kOpffVaxZtUngfbUu0ij8dNA2A0RvHoEt-3qn2oZ-SSyLfpW4bL2_GgcPllzkBZaAxoMNDrTdp13-WbT8Rd7yhLm6FpdUpczmSss7EfxdS5KqDH1RP7cQIy7tHw9doDhfi5Rap3cQjt4hAuTAR1-kh2wDLul-uvno0tV5_RsgUzvHPMGzd0Yri4wvonsyosJDhvuV5JlOvSImG7DDTR-riHcQeZkURQlq9Vt75ylr7ue3ex8wYWZdrC2Z5jFm9md6BI0w_U5Orcbm4hZGngjdOBWP-1igGO7J_HcKpE16EprW_VzvDPpu978lJQFIuj1BWHFT49Klqlz-v1H5g9Ss1n5GEsJE81SbD3bp3hZakuzsj67nZg83uK9iqyCpycmWKxTemp_IcFYfiAMsZmy3t7loU60tSwurMIaFqu0PLeBZLrjmHxPiBt4bvbY2CVcBwm4UC7Nv8cx2TxgAMp10tYFAaLylXdZK54-wgg-wroVnXTA0VJbVeHaczDLYXUg4Z95SFi5YtMy8X5PvujI36fRwTmlQJkQsXE5GKfgzgpyISFBXET9HWqQFU-Q24VYvGQiZw9nuakJQdB1vA6Tjg6thjZ35wEZwqF0lt6hqvJAwy6QY5lemxvqLhf8qGTRb88i-3xAwN7-fcIE2n20DwsZMwVnk774K9QBgngvmKnAai6fqyvno0cNCLl88eozuIwOTinHJ4PpRjna2lpOBUUlH5asIfovSfcr6dFl1TIU96wqd0lJ8HYjOLgyQxVCLIFnNzLj3iGK6bjTAMWf4uQkcYdWAb0WeKTfcYKlA8eQJ388UGsKzVKAooizp8zRsdKD4ZdmN0G4xcX58bOJjzUNkI_4pjkq-i0b**0e0f3a0c5aef2fbced0fcbac5e33a65b895a6893b5174dd876e43edacef3377f*Mb1DlanKlAKYzA7ECEIsoUWTJRlwjbtaUXlaxjlK0p4';
 
-
 const agencySignupPayload = { contactName: 'Joe Bloggs', companyName: 'google', contactNumber: '0823748237', email: 'fac@hotmail.com', companySize: '50-200', agencySpecialism: 'Creative' };
 const incorrectAgencySignupPayload = { contactName: 2, companyName: 23, contactNumber: 'asdasd' };
 const clientSignupPayload = { contactName: 'Huw Davies', email: 'me@me.com', contactNumber: '08372974723', companyName: 'Facebook Ltd.', companyDescription: 'Social media application', companySize: '500+', website: 'http://facebook.com', twitter: '@facebook' };
 const jobPayload = { jobTitle: 'Tester', jobDescription: 'testing everything', jobCategory: 'test', teamCulture: 'anal', typesOfProjects: 'tests', teamSize: 5, skillOne: 'test', skillTwo: 'test again', skillThree: 'test more', personality: 'persistant', salary: 100000, searchProgress: 'slow', searchDeadline: '12\/12\/2016' };
 const cvPayload = { candidateName: 'Johnny Rotten', jobTitle: 'muppet', email: 'test@test.com', contactNumber: '0823748237', salary: '30000', linkedInProfile: 'https://linkedin', file_name: 'testcv.doc', file_url: 'https://torhuw-hrns.s3.amazonaws.com/testcv.doc'};
 
-
 let options;
 
 server.init(0, (err, server) => {
 
-    client.select(3, function() {
-        //console.log('connected to db3');
-    });
+    client.select(3, () => {});
 
     const testEndPoint = (endpoint, method, statusCode, message, COOKIE, payload, credentialsid) => {
         test(method + ' ' + endpoint + ' ' + 'returns status code ' + statusCode, (t) => {
@@ -46,18 +41,12 @@ server.init(0, (err, server) => {
                 payload: payload
             };
             if (credentialsid) {
-                options.credentials = {
-                    profile: {
-                        id: credentialsid
-                    }
-                };
+                options.credentials = { profile: { id: credentialsid } };
             }
             server.inject(options, (res) => {
-
                 t.equal(res.statusCode, statusCode, message);
                 t.end();
             });
-
         });
     };
 
@@ -69,11 +58,7 @@ server.init(0, (err, server) => {
                 headers: { cookie: COOKIE }
             };
             if (credentialsid) {
-                options.credentials = {
-                    profile: {
-                        id: credentialsid
-                    }
-                };
+                options.credentials = { profile: { id: credentialsid } };
             }
             server.inject(options, (res) => {
                 t.equal(res.headers.location, expectedHeaders, message + ' ' + expectedHeaders);
@@ -91,12 +76,10 @@ server.init(0, (err, server) => {
                 url: endpoint,
                 headers: { cookie: COOKIE },
                 payload: payload
-
             };
             server.inject(options, (res) => {
                 let actual = res.payload.indexOf(expectedString) > -1;
                 let expected = true;
-                //console.log('PAYLOAD', res.payload);
                 t.equal(actual, expected, message + ' ' + expectedString);
                 t.end();
             });
@@ -107,7 +90,6 @@ server.init(0, (err, server) => {
         t.equal(server instanceof Hapi.Server, true, ' Server is an instance of the Hapi Server');
         t.end();
     });
-
 
     testEndPoint('/', 'GET', 200, 'responds with response 200');
     testEndPoint('/', 'GET', 302, 'approved client redirected 302', clientCookie);
@@ -152,14 +134,11 @@ server.init(0, (err, server) => {
 
     testEndPoint('/client/job/vid', 'GET', 200, 'authed GET responds with 200', clientCookie);
 
-    //curent test 
-
     testPayload('/client/job/randomvid', 'GET', 'Sorry, something went wrong', 'payload contains view with:', clientCookie);
 
     client.hset('vid', 'jobTitle', 'tester', () => {
         testPayload('/client/job/vid', 'GET', 'Client\'s Job Page', 'payload contains view with:', clientCookie);
     });
-
 
     testEndPoint('/clientsignup', 'GET', 200, 'auth user responds with 200', clientCookie);
     testPayload('/clientsignup', 'GET', 'Client Sign Up Page', 'payload response is:', nonExistingUserCookie);
@@ -181,9 +160,7 @@ server.init(0, (err, server) => {
     testEndPoint('/login/admin', 'GET', 302, 'auth admin user redirects:', adminCookie);
     testHeaderLocation('/login/admin', 'GET', '/admindashboard', 'auth admin redirects to', adminCookie);
 
-    testEndPoint('/login/' + agencyLoginEndPoint, 'GET', 302, 'endpoint redirects with:'); // sends to linked in 
-
-    //testEndPoint('/login/random','GET', 401 , 'unauth user responds with :' );
+    testEndPoint('/login/' + agencyLoginEndPoint, 'GET', 302, 'endpoint redirects with:'); // sends to linked in
 
     testPayload('/logout', 'GET', 'You\'ve logged out!', 'payload has heading logged out');
     testEndPoint('/logout', 'GET', 200, 'auth user responds with response 200', clientCookie);
@@ -195,16 +172,12 @@ server.init(0, (err, server) => {
         });
     });
 
-
-
     // tests that require a vid
     client.hmset('test-vid-123', { jobTitle: 'developer' }, () => {
         testPayload('/admin/job/test-vid-123', 'GET', 'developer', 'admin job page delivers vid info', adminCookie);
         testEndPoint('/agency/job/test-vid-123', 'GET', 403, 'unauthorised user viewing agency job responds with 403', candidateCookie);
         testEndPoint('/agency/job/test-vid-123', 'GET', 200, 'agency viewing agency job responds with 200', agencyCookie);
     });
-
-
 
     test('clean payload deletes empty strings in an object', (t) => {
         let payload = { name: 'Joe Bloggs', age: 10, food: '', sport: '' };
@@ -215,42 +188,29 @@ server.init(0, (err, server) => {
     });
 
     testEndPoint('/sign_s3', 'GET', 200, 'enpoint responds with:', agencyCookie);
-
     testEndPoint('/submitjob', 'GET', 200, 'endpoint responds with:', clientCookie);
 
-
-    // tests that depends on liveJobs being empty and send multiple emails to agencies. 
-
+    // tests that depends on liveJobs being empty and send multiple emails to agencies.
     client.del('liveJobs', () => { // 2 callbacks required because a redis test was making 1 callback fail :(
         client.del('liveJobs', () => {
             testPayload('/adminvacancies', 'GET', 'No live vacancies', 'correct message delivered for no vacancies', adminCookie);
             testPayload('/agency', 'GET', 'There are no vacancies', 'agency homepage apologies with no vacancies', agencyCookie);
             testEndPoint('/submitjob', 'POST', 200, 'endpoint responds with:', clientCookie, jobPayload, 'testid');
-     
           });
      });
 
     testEndPoint('/submitvacancycv/vid','POST', 200, 'endpoint responds with:', agencyCookie, cvPayload );
 
-    client.hset('id', 'type', 'agency', () => {  
+    client.hset('id', 'type', 'agency', () => {
         client.sadd('approvedUsers', 'id', () => {
         testEndPoint('/userinfo/client','GET', 200, 'endpoint responds with:', adminCookie );
         testEndPoint('/userinfo/agencies','GET', 200, 'endpoint responds with:', adminCookie );
         });
     });
-  
 
     client.del('approvedUsers', () => {
         testEndPoint('/userinfo/client','GET', 200, 'endpoint responds with:', adminCookie );
     });
-    
- 
-  
 
-
- 
-    //client.flushdb();
-    server.stop();
-
-    // has to be here to prevent other tests from hanging
+    server.stop(); // has to be here to prevent other tests from hanging
 });
