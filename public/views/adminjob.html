@@ -39,18 +39,6 @@
 {{/if}}
 
 
-<div class="ui horizontal segments">
-  <div class="ui segment">
-    <p>Boom</p>
-  </div>
-  <div class="ui segment">
-    <p>Byee</p>
-  </div>
-  <div class="ui segment">
-    <p>Bye</p>
-  </div>
-</div>
-
 {{#each cvs}}
 <div class="ui horizontal segments">
     <div class="ui segment">
@@ -61,27 +49,27 @@
         <label for=""></label>
         <h4>{{jobTitle}}</h4>
     </div>
-</div>
     <div class="ui segment">
         <label for=""></label>
-        <h4>{{phoneNumber}}</h4>
+        <h4>{{contactNumber}}</h4>
     </div>
     <div class="ui segment">
-        <a href="{{file_url}}" type="text" download>Download CV</a>
+          <a href="{{file_url}}" type="text" download>  <label for=""></label>
+      <h4>Download CV</h4></a>
     </div>
     <div class="ui segment">
-        <button>Reject</button>
+        <button class="ui red button">Reject</button>
     </div>
     <div class="ui segment">
-        <div class="ui dropdown">
-            <div class="text">Accept</div>
-                 <i class="dropdown icon"></i>
-                 <div class="menu">
-                     <div class="item">Gold</div>
-                     <div class="item">Silver</div>
-                 <div class="item">Bronze</div>
-            </div>
-        </div>
+        <select class="ui dropdown">
+            <option value=""> Accept</div>
+            <option value=""> Gold</div>
+            <option value=""> Silver</div>
+            <option value=""> Silver</div>
+        </select>
     </div>
 </div>
 {{/each}}
+
+
+<!--  // add to cv object agency id -->
