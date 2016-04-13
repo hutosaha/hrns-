@@ -1,7 +1,5 @@
 <h1>Admin's Job Page</h1>
 
-
-
    <li>{{data.jobTitle}}</li>
     <li>{{data.salary}}</li>
     {{#if data.submittedDate}}
@@ -33,11 +31,10 @@
     <li>{{data.searchProgress}}</li>
     {{/if}}
     <li>{{data.dateSubmitted}}</li>
-  
+
 {{#if message}}
     {{message}}
 {{/if}}
-
 
 {{#each cvs}}
 <div class="field">
@@ -65,7 +62,7 @@
     <div class="ui segment">
         <button class="ui inverted red button">Reject</button>
     </div>
- 
+
     <div class="ui segment">
             <div class="ui compact menu">
               <div class="ui simple dropdown item">
@@ -80,10 +77,4 @@
             </div>
     </div>
 </div>
-
-
-
 {{/each}}
-
-
-<!--  // add to cv object agency id -->
