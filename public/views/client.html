@@ -8,14 +8,16 @@
                 <label for="">Job Title</label>
                 <p>{{jobTitle}}</p>
             </div>
-            <div class="ui field">
-                <label for="">Search Deadline</label>
-                <p>{{searchDeadline}}</p>
-            </div>
-            {{#if linkedin}}
+            {{#if salary}}
             <div class="ui field">
                 <label for="">Salary</label>
                 <p>{{salary}}</p>
+            </div>
+            {{/if }}
+            {{#if searchDeadline}}
+            <div class="ui field">
+                <label for="">Search Deadline</label>
+                <p>{{searchDeadline}}</p>
             </div>
             {{/if }}
               <a href='/client/job/{{vid}}'>
