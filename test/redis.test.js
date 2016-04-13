@@ -1,7 +1,7 @@
 'use strict';
 
 const test   = require('tape');
-const moment = require('moment');
+// const moment = require('moment');
 
 const server = require('../lib/index.js');
 const redis  = require('../lib/db/redis.js');
@@ -140,41 +140,41 @@ server.init(1, (err,server) => {
       });
     });
 
-  test('addJob saves a job with the company name, adds to liveJobs and adds appropriate dates', (t) => {
-    let id  = 'test11';
-    let vid = 'testVid1';
-    payload = {
-      jobTitle: 'developer',
-      salary: '£30,000',
-      searchDate: 'Tue Aug 25 2009'
-    };
-    let expected = {
-      clientEmail: 'zuckerberg@fb.com',
-      clientId: 'test11',
-      companyName: 'fac',
-      dateSubmitted: moment().format('MMMM Do YYYY'),
-      jobTitle: 'developer',
-      salary: '£30,000',
-      searchDate: 'August 25th 2009',
-      vid: 'testVid1'
-    };
-    client.del(id + 'jobs');
-    client.srem('liveJobs', vid);
-    client.hset(id, 'companyName', 'fac');
-    client.hset(id, 'email', 'zuckerberg@fb.com');
-    redis.addJob(payload, id, vid, () => {
-      client.hgetall(vid, (err, reply) => {
-        t.deepEqual(reply, expected, 'correctly formats job object!');
-      });
-      client.sismember(id + 'jobs', vid, (err, reply) => {
-        t.equal(reply, 1, 'correctly added to idjobs set!');
-      });
-      client.sismember('liveJobs', vid, (err, reply) => {
-        t.equal(reply, 1, 'correctly save to liveJobs set');
-        t.end();
-      });
-    });
-  });
+  // test('addJob saves a job with the company name, adds to liveJobs and adds appropriate dates', (t) => {
+  //   let id  = 'test11';
+  //   let vid = 'testVid1';
+  //   payload = {
+  //     jobTitle: 'developer',
+  //     salary: '£30,000',
+  //     searchDate: 'Tue Aug 25 2009'
+  //   };
+  //   let expected = {
+  //     clientEmail: 'zuckerberg@fb.com',
+  //     clientId: 'test11',
+  //     companyName: 'fac',
+  //     dateSubmitted: moment().format('MMMM Do YYYY'),
+  //     jobTitle: 'developer',
+  //     salary: '£30,000',
+  //     searchDate: 'August 25th 2009',
+  //     vid: 'testVid1'
+  //   };
+  //   client.del(id + 'jobs');
+  //   client.srem('liveJobs', vid);
+  //   client.hset(id, 'companyName', 'fac');
+  //   client.hset(id, 'email', 'zuckerberg@fb.com');
+  //   redis.addJob(payload, id, vid, () => {
+  //     client.hgetall(vid, (err, reply) => {
+  //       t.deepEqual(reply, expected, 'correctly formats job object!');
+  //     });
+  //     client.sismember(id + 'jobs', vid, (err, reply) => {
+  //       t.equal(reply, 1, 'correctly added to idjobs set!');
+  //     });
+  //     client.sismember('liveJobs', vid, (err, reply) => {
+  //       t.equal(reply, 1, 'correctly save to liveJobs set');
+  //       t.end();
+  //     });
+  //   });
+  // });
 
   test('getSetMembers correctly retrieves set members', (t) => {
     hash = 'test12';
