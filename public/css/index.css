@@ -1,7 +1,3 @@
-.home-container {
-		postion: relative;
-}
-
 /*==============================
   Container for every page - see content partial
 ================================*/
@@ -14,8 +10,8 @@
   HOMEPAGE (/home)
 ================================*/
 
-h1.ui.huge.header {
-    text-align: center;
+.home-container {
+		postion: relative;
 }
 
 .home-content {
@@ -23,6 +19,10 @@ h1.ui.huge.header {
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
+}
+
+h1.ui.huge.header {
+    text-align: center;
 }
 
 /*==============================
