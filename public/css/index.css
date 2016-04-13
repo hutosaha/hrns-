@@ -1,8 +1,51 @@
-.centerHome {
-	width: 35em;
-	margin: 15em auto;
+/*==============================
+  Container for every page - see content partial
+================================*/
+
+.section-container {
+		margin: 5em 5em;
 }
 
-.textCenter {
-	margin:5em 5em;
+/*==============================
+  HOMEPAGE (/home)
+================================*/
+
+.home-container {
+		postion: relative;
+}
+
+.home-content {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+}
+
+h1.ui.huge.header {
+    text-align: center;
+}
+
+/*==============================
+  CLIENT HOMEPAGE (/client)
+================================*/
+
+.ui.grid.clientJobs {
+    margin-top: 20px;
+}
+
+/*==============================
+  More than standard laptop size
+================================*/
+
+@media only screen
+and (min-width : 1224px) {
+
+	.section-container {
+		margin: 5em auto;
+	}
+
+	.section-container {
+		max-width: 1224px;
+	}
+
 }

@@ -2,7 +2,4 @@
 
 var $ = window.$;
 
- $('.menu .item')
-  .tab()
-;
-    
+ $('.menu .item').tab();

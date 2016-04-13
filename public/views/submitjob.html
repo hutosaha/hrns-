@@ -1,4 +1,3 @@
-<div class="textCenter">
     <h1 class="header">Submit Job</h1>
     <form action="/submitjob" method="POST" class="ui form">
         <div class="required field">
@@ -20,17 +19,18 @@
                     <option value="IT Project & Programme Management">IT Project & Programme Management</option>
                     <option value="Infrastructure & Service Delivery">Infastructure & Service Delivery</option>
                     <option value="Change & Transformation">Change & Transformation</option>
-                    <option value="IT Leadership £100,000 +">IT Leadership £100,000 + </option>
+                    <option value="IT Leadership">IT Leadership</option>
                     <option value="Sales & Business Development">Sales & Business Development</option>
+                    <option value="Other">Other</option>
                 </select>
             </div>
-            <div class="reuired field">
+            <div class="required field">
                 <label for="teamCulture"> Team Culture </label>
                 <input type="text" name="teamCulture" pattern="{{frontendInput}}" title="no ankle brackets" placeholder="Team Culture" maxlength="100" required>
             </div>
         </div>
         <div class="two fields">
-            <div class="field">
+            <div class="required field">
                 <label for="typesOfProjects"> Types of Projects </label>
                 <input type="text" name="typesOfProjects" pattern="{{frontendInput}}" title="no ankle brackets" placeholder="Types of Projects" maxlength="100" required>
             </div>
@@ -74,7 +74,6 @@
         </div>
         <input type="submit" value="submit" class="ui blue button">
     </form>
-</div>
 {{message}}
 <script type="text/javascript" src="public/js/jobCharacterCounter.js"></script>
 <script type="text/javascript" src="public/js/datepicker.js"></script>

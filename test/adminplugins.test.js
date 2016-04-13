@@ -49,13 +49,6 @@ server.init(0, (err, server) => {
         testEndPoint(server, '/userinfo/client','GET', 200, 'endpoint responds with:', adminCookie );
     });
 
-    // tests that depends on liveJobs being empty and send multiple emails to agencies.
-    client.del('liveJobs', () => { // 2 callbacks required because a redis test was making 1 callback fail :(
-        client.del('liveJobs', () => {
-            testPayload(server, '/adminvacancies', 'GET', 'No live vacancies', 'correct message delivered for no vacancies', adminCookie);
-          });
-     });
-
     server.stop();
 
 });
