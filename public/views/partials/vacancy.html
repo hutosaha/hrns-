@@ -1,0 +1,68 @@
+{{#if message}}
+<h3>{{message}}</h3> 
+{{/if}}
+<h1>{{data.jobTitle}} Vacancy</h1>
+<table class="ui very basic table">
+    <tbody>
+        <tr>
+            <td>
+                <h3 class="header">{{data.salary}}</h3>       
+                <p class="vacancy-lineHeight"><strong>Submitted: {{data.dateSubmitted}}</strong></p>
+                <p class="vacancy-lineHeight"><strong>Deadline: {{data.searchDeadline}}</strong></p>
+                <br>
+            </td>
+        </tr>
+        <tr>
+            <th>Job Description:</th>
+        </tr>
+        <td>
+            <p class="container">  {{data.jobDescription}}</p>
+        </td>
+        </tr>
+        <tr>
+            <td>
+           <p>{{data.skillOne}}</p>
+           <p>{{data.skillTwo}}</p>
+           <p>{{data.skillThree}}</p>
+           </td>
+        </tr>
+        <tr>
+            <th class="eight wide">Job Category:</th>
+            <th class="eight wide">Team Culture: </th>
+        </tr>
+        <tr>
+            <td>        
+                <p > {{data.jobCategory}}</p>
+            </td>
+            <td>
+                <p>{{data.teamCulture}}</p>                
+            </td>
+        </tr>
+          <tr>
+            <th class="eight wide"> Types of Projects: </th>
+            <th class="eight wide"> Team Size: </th>
+        </tr>
+        <tr>
+            <td>        
+                <p>{{data.typesOfProjects}}</p>
+            </td>
+            <td>
+                <p> {{data.teamSize}}</p>                
+            </td>
+        </tr>
+         <tr>
+            <th class="eight wide"> Personality: </th>
+            <th class="eight wide"> Search Progress: </th>
+        </tr>
+        <tr>
+            <td>        
+                <p> {{data.personality}}</p>
+            </td>
+            <td>
+                <p>{{data.searchProgress}}</p>                
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<br>
