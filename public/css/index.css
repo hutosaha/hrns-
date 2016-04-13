@@ -1,6 +1,5 @@
 .home-container {
-	width: 35em;
-	margin: 15em auto;
+		postion: relative;
 }
 
 /*==============================
@@ -8,11 +7,26 @@
 ================================*/
 
 .section-container {
-	margin: 5em 5em;
+		margin: 5em 5em;
 }
 
 /*==============================
-  Client homepage
+  HOMEPAGE (/home)
+================================*/
+
+h1.ui.huge.header {
+    text-align: center;
+}
+
+.home-content {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+}
+
+/*==============================
+  CLIENT HOMEPAGE (/client)
 ================================*/
 
 .ui.grid.clientJobs {
