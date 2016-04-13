@@ -2,11 +2,11 @@
     <form action="/submitjob" method="POST" class="ui form">
         <div class="required field">
             <label for="jobTitle"> Job Title </label>
-            <input type="text" name="jobTitle" pattern="{{frontendInput}}" title="No ankle brackets" placeholder="Job title" maxlength="100" required>
+            <input type="text" name="jobTitle" pattern="{{frontendInput}}" title="no ankle brackets, square brackets or slashes" placeholder="Job title" maxlength="100" required>
         </div>
         <div class="required field">
             <label for="jobDescription"> Job Description </label>
-            <textarea id="jobDescription" type="text" name="jobDescription" pattern="{{frontendInput}}" title="No ankle brackets" placeholder="Job Description" maxlength="3000" required></textarea>
+            <textarea id="jobDescription" type="text" name="jobDescription" pattern="{{frontendInput}}" title="no ankle brackets, square brackets or slashes" placeholder="Job Description" maxlength="3000" required></textarea>
         </div>
         <div id="textarea_feedback"></div>
         <div class="two fields">
@@ -26,13 +26,13 @@
             </div>
             <div class="required field">
                 <label for="teamCulture"> Team Culture </label>
-                <input type="text" name="teamCulture" pattern="{{frontendInput}}" title="no ankle brackets" placeholder="Team Culture" maxlength="100" required>
+                <input type="text" name="teamCulture" pattern="{{frontendInput}}" title="no ankle brackets, square brackets or slashes" placeholder="Team Culture" maxlength="100" required>
             </div>
         </div>
         <div class="two fields">
             <div class="required field">
                 <label for="typesOfProjects"> Types of Projects </label>
-                <input type="text" name="typesOfProjects" pattern="{{frontendInput}}" title="no ankle brackets" placeholder="Types of Projects" maxlength="100" required>
+                <input type="text" name="typesOfProjects" pattern="{{frontendInput}}" title="no ankle brackets, square brackets or slashes" placeholder="Types of Projects" maxlength="100" required>
             </div>
             <div class="field">
                 <label for="teamSize"> Team Size </label>
