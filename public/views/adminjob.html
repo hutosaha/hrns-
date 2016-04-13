@@ -1,6 +1,6 @@
 <h1>Admin's Job Page</h1>
 
-  {{message}}
+
 
    <li>{{data.jobTitle}}</li>
     <li>{{data.salary}}</li>
@@ -33,3 +33,57 @@
     <li>{{data.searchProgress}}</li>
     {{/if}}
     <li>{{data.dateSubmitted}}</li>
+  
+{{#if message}}
+    {{message}}
+{{/if}}
+
+
+{{#each cvs}}
+<div class="field">
+<div class="ui horizontal segments">
+    <div class="ui threww wide segment">
+       <label for="">Agency:</label>
+        <h4>{{agencyName}}</h4>
+    </div>
+    <div class="ui segment">
+        <label for=""></label>
+        <h4>{{candidateName}}</h4>
+    </div>
+    <div class="ui segment">
+        <label for=""></label>
+        <h4>{{jobTitle}}</h4>
+    </div>
+    <div class="ui segment">
+        <label for=""></label>
+        <h4>{{contactNumber}}</h4>
+    </div>
+    <div class="ui segment">
+          <a href="{{file_url}}" type="text" download>  <label for=""></label>
+      <h4>Download CV</h4></a>
+    </div>
+    <div class="ui segment">
+        <button class="ui inverted red button">Reject</button>
+    </div>
+ 
+    <div class="ui segment">
+            <div class="ui compact menu">
+              <div class="ui simple dropdown item">
+               Accept
+                <i class="dropdown icon"></i>
+                <div class="menu">
+                  <div class="item"><i class="trophy yellow icon"></i>Gold</div>
+                  <div class="item"><i class="trophy grey icon"></i>Silver</div>
+                  <div class="item"><i class="trophy brown icon"></i>Bronze</div>
+                </div>
+              </div>
+            </div>
+    </div>
+</div>
+
+
+
+{{/each}}
+
+
+<!--  // add to cv object agency id -->
