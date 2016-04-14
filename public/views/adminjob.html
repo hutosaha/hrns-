@@ -1,73 +1,19 @@
-<h1>Admin's Job Page</h1>
+{{> vacancy}}
+<table class="ui basic table">
+    <tbody>
+      {{#each cvs}}
+        <tr>
+            <td>
+                <h4>{{agencyName}}</h4>
+            </td>
+            <td> <h4>{{candidateName}}</h4></td>
+            <td> <h4>{{jobTitle}}</h4></td>
+            <td> <h4>{{contactNumber}}</h4></td>
 
-
-
-   <li>{{data.jobTitle}}</li>
-    <li>{{data.salary}}</li>
-    {{#if data.submittedDate}}
-    <li>{{data.submittedDate}}</li>
-    {{/if}}
-    <li>{{data.searchDeadline}}</li>
-    <li>{{data.jobDescription}}</li>
-    <li>{{data.teamCulture}}</li>
-    {{#if data.jobCategory}}
-    <li>{{data.jobCategory}}</li>
-    {{/if}}
-    <li>{{data.typesOfProjects}}</li>
-    {{#if data.teamSize}}
-    <li>{{data.teamSize}}</li>
-    {{/if}}
-    {{#if data.skillOne}}
-    <li>{{data.skillOne}}</li>
-    {{/if}}
-     {{#if data.skillTwo}}
-    <li>{{data.skillTwo}}</li>
-    {{/if}}
-     {{#if data.skillThree}}
-    <li>{{data.skillThree}}</li>
-    {{/if}}
-    {{#if data.personality}}
-    <li>{{data.personality}}</li>
-    {{/if}}
-    {{#if data.searchProgress}}
-    <li>{{data.searchProgress}}</li>
-    {{/if}}
-    <li>{{data.dateSubmitted}}</li>
-  
-{{#if message}}
-    {{message}}
-{{/if}}
-
-
-{{#each cvs}}
-<div class="field">
-<div class="ui horizontal segments">
-    <div class="ui threww wide segment">
-       <label for="">Agency:</label>
-        <h4>{{agencyName}}</h4>
-    </div>
-    <div class="ui segment">
-        <label for=""></label>
-        <h4>{{candidateName}}</h4>
-    </div>
-    <div class="ui segment">
-        <label for=""></label>
-        <h4>{{jobTitle}}</h4>
-    </div>
-    <div class="ui segment">
-        <label for=""></label>
-        <h4>{{contactNumber}}</h4>
-    </div>
-    <div class="ui segment">
-          <a href="{{file_url}}" type="text" download>  <label for=""></label>
-      <h4>Download CV</h4></a>
-    </div>
-    <div class="ui segment">
-        <button class="ui inverted red button">Reject</button>
-    </div>
- 
-    <div class="ui segment">
-            <div class="ui compact menu">
+            <td>  <a href="{{file_url}}" type="text" download>   <h4>Download CV</h4></a></td>
+            <td><button class="ui inverted red button">Reject</button></td>
+            <td>
+              <div class="ui compact menu">
               <div class="ui simple dropdown item">
                Accept
                 <i class="dropdown icon"></i>
@@ -78,12 +24,8 @@
                 </div>
               </div>
             </div>
-    </div>
-</div>
-
-
-
-{{/each}}
-
-
-<!--  // add to cv object agency id -->
+             </td>
+        </tr>
+    {{/each}}
+    </tbody>
+</table>

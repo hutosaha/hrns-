@@ -32,6 +32,12 @@ h1.ui.huge.header {
 .ui.grid.clientJobs {
     margin-top: 20px;
 }
+/*===========================
+  Vacancy
+  ===========================*/
+.vacancy-lineHeight {
+	line-height: 0.5em;
+ }
 
 /*==============================
   More than standard laptop size
@@ -41,7 +47,7 @@ h1.ui.huge.header {
 and (min-width : 1224px) {
 
 	.section-container {
-		margin: 5em auto;
+		margin: 5em 15em;
 	}
 
 	.section-container {
