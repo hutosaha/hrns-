@@ -1,12 +1,27 @@
-
-    <h1 class="ui dividing header">Agency Homepage</h1> 
-    <h3>{{message}}</h3>
+<h1 class="ui block header">Live Jobs</h1>
+<div class="ui divider"></div>
+{{#if message}}
+<h3>{{{message}}} </h3>
+{{/if }}
+<div class="ui grid jobsList">
     {{#each data}}
-    <ul>
-        <li>{{jobTitle}}</li>
-        <li>{{companyName}}</li>
-        <li>{{salary}}</li>
-        <a href="/agency/job/{{vid}}"> View Job </a>
-    </ul>
+    <!-- an image might go in here....  -->
+    <div class="ui four column row">
+        <div class="ui column">
+            <p>{{companyName}}</p>
+        </div>
+        <div class="ui column">
+            <p>{{jobTitle}}</p>
+        </div>
+        <div class="ui column">
+            <p>{{salary}}</p>
+        </div>
+        <div class="ui column">
+            <a href="/agency/job/{{vid}}">
+                <button class="ui inverted blue button">View Job</button>
+            </a>
+        </div>
+    </div>
+    <div class="ui divider"></div>
     {{/each}}
-
+</div>

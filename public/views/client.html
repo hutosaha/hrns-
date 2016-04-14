@@ -1,36 +1,36 @@
-    <h1>My Jobs</h1>
-    <div class="ui divider"></div>
-    {{#if message}}
-    <h3>{{{message}}} </h3>
-    {{/if }}
-    <div class="ui grid clientJobs">
-        {{#each data}}
-        <div class="ui five column row">
-            <div class="ui column">
-                <p>{{jobTitle}}</p>
-            </div>
-            {{#if salary}}
-            <div class="ui column">
-                <p>{{salary}}</p>
-            </div>
-            {{/if }}
-            <div class="ui column">
-                {{#if searchDeadline}}  <!-- positioned inside div so button alignment works -->
-                <label for="">Search Deadline:</label>
-                <p>{{searchDeadline}}</p>
-                {{/if }}
-            </div>
-            <div class="right floated column">
-              <a href='/client/job/{{vid}}'>
-                <button class="ui inverted blue button">View</button>
-              </a>
-            </div>
-            <div class="right floated column">
-              <a href='/client/job/remove/{{vid}}'>
-                <button class="ui inverted blue button">Remove</button>
-              </a>
-            </div>
+<h1 class="ui block header">My Jobs</h1>
+<div class="ui divider"></div>
+{{#if message}}
+<h3>{{{message}}} </h3>
+{{/if }}
+<div class="ui grid jobsList">
+    {{#each data}}
+    <div class="ui five column row">
+        <div class="ui column">
+            <p>{{jobTitle}}</p>
         </div>
-        <div class="ui divider"></div>
-        {{/each}}
+        {{#if salary}}
+        <div class="ui column">
+            <p>{{salary}}</p>
+        </div>
+        {{/if }}
+        <div class="ui column">
+            {{#if searchDeadline}}  <!-- positioned inside div so button alignment works -->
+            <label for="">Search Deadline:</label>
+            <p>{{searchDeadline}}</p>
+            {{/if }}
+        </div>
+        <div class="right floated column">
+          <a href='/client/job/{{vid}}'>
+            <button class="ui inverted blue button">View</button>
+          </a>
+        </div>
+        <div class="right floated column">
+          <a href='/client/job/remove/{{vid}}'>
+            <button class="ui inverted blue button">Remove</button>
+          </a>
+        </div>
     </div>
+    <div class="ui divider"></div>
+    {{/each}}
+</div>
