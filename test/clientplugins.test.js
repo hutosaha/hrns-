@@ -28,8 +28,8 @@ server.init(0, (err, server) => {
     testEndPoint(server, '/clientsignup', 'GET', 401, 'unauth user responds with 401');
     testEndPoint(server, '/clientsignup', 'POST', 400, 'POST without payload responds with 400 - bad request', clientCookie);
     testEndPoint(server, '/clientsignup', 'POST', 200, 'POST with correct payload responds with 200', clientCookie, clientSignupPayload);
-    testPayload(server, '/clientsignup', 'GET', 'Client Sign Up Page', 'payload response is:', nonExistingUserCookie);
-    testPayload(server, '/clientsignup', 'POST', 'we will let you know by email', 'correct client signup responds with correct message', clientCookie, clientSignupPayload);
+    testPayload(server, '/clientsignup', 'GET', 'Sign Up', 'payload response is:', nonExistingUserCookie);
+    testPayload(server, '/clientsignup', 'POST', 'We will let you know by email', 'correct client signup responds with correct message', clientCookie, clientSignupPayload);
 
     testEndPoint(server, '/submitjob', 'GET', 200, 'endpoint responds with:', clientCookie);
     // testEndPoint(server, '/submitjob', 'POST', 200, 'endpoint responds with:', clientCookie, jobPayload, 'testid');
