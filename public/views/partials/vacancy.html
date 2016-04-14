@@ -1,11 +1,12 @@
-<h1>{{data.jobTitle}} Vacancy</h1>
+<h1 class="ui block header">{{data.jobTitle}} Vacancy</h1>
+<div class="ui divider"></div>
 <table class="ui very basic table">
     <tbody>
         <tr>
             <td>
                 <h3 class="header">{{data.salary}}</h3>
-                <p class="vacancy-lineHeight"><strong>Submitted: {{data.dateSubmitted}}</strong></p>
-                <p class="vacancy-lineHeight"><strong>Deadline: {{data.searchDeadline}}</strong></p>
+                <p class="vacancy-dates"><strong>Submitted: {{data.dateSubmitted}}</strong></p>
+                <p class="vacancy-dates"><strong>Deadline: {{data.searchDeadline}}</strong></p>
                 <br>
             </td>
         </tr>
@@ -13,31 +14,31 @@
             <th>Job Description:</th>
         </tr>
         <td>
-            <p class="container">  {{data.jobDescription}}</p>
+            <p class="container">{{data.jobDescription}}</p>
         </td>
         </tr>
         <tr>
             <td>
-           <p>{{data.skillOne}}</p>
-           <p>{{data.skillTwo}}</p>
-           <p>{{data.skillThree}}</p>
+               <p>{{data.skillOne}}</p>
+               <p>{{data.skillTwo}}</p>
+               <p>{{data.skillThree}}</p>
            </td>
         </tr>
         <tr>
             <th class="eight wide">Job Category:</th>
-            <th class="eight wide">Team Culture: </th>
+            <th class="eight wide">Team Culture:</th>
         </tr>
         <tr>
             <td>
-                <p > {{data.jobCategory}}</p>
+                <p>{{data.jobCategory}}</p>
             </td>
             <td>
                 <p>{{data.teamCulture}}</p>
             </td>
         </tr>
           <tr>
-            <th class="eight wide"> Types of Projects: </th>
-            <th class="eight wide"> Team Size: </th>
+            <th class="eight wide">Types of Projects:</th>
+            <th class="eight wide">Team Size:</th>
         </tr>
         <tr>
             <td>
