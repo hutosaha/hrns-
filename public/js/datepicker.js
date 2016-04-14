@@ -3,6 +3,6 @@
 var $ = window.$;
 
  $(function() {
-    $( "#datepicker" ).datepicker();
+    $( "#datepicker" ).datepicker({dateFormat: 'mm-dd-yy'});
  });
 
