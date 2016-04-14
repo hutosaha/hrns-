@@ -1,20 +1,74 @@
-<h1>Approve Users</h1>
-
+<h1 class="ui block header">Approve Users</h1>
+<div class="ui divider"></div>
+{{#if message}}
 <h3>{{message}}</h3>
-{{#each data}}
-<ul>
-
-    <li>{{contactName}}</li>
-    <li>{{contactNumber}}</li>
-    <li>{{email}}</li>
-    <li>{{companySize}}</li>
-    <li>{{website}}</li>
-    <li>{{companySize}}</li>
-    <li>{{twitter}}</li>
-    <li>{{facebook}}</li>
-    <li>{{linkedin}}</li>
-    <li>{{type}}</li>
- 	<input type="button" onclick="location.href='approveuser/approve/{{id}}/{{email}}'" value="Approve">
- 	<input type="button" onclick="location.href='approveuser/reject/{{email}}'" value="Reject">
-</ul>
-{{/each}}
+{{/if }}
+<div class="ui grid listView">
+  {{#each data}}
+    <div class="ui seven column row">
+          <div class="ui column">
+              <p>{{companyName}}</p>
+          </div>
+          <div class="ui column">
+              <p>{{contactName}}</p>
+          </div>
+          <div class="ui column">
+              <p>{{contactNumber}}</p>
+          </div>
+          <div class="ui column">
+              <p>{{email}}</p>
+          </div>
+          <div class="ui column">
+              <a href="approveuser/approve/{{id}}/{{email}}">
+                  <button class="ui inverted blue button">Approve</button>
+              </a>
+          </div>
+          <div class="ui column">
+              <a href="approveuser/reject/{{email}}">
+                  <button class="ui inverted blue button">Reject</button>
+              </a>
+          </div>
+          <div class="ui column">
+              <!-- TODO VIEW MORE BUTTON -->
+              <button class="ui inverted blue button">View More</button>
+          </div>
+      </div>
+      <!-- everything below should probably go in 'view more' -->
+      <div class="ui three column row">
+          <div class="ui column">
+              <p>{{companySector}}</p>
+          </div>
+          <div class="ui column">
+              <p>{{companySize}}</p>
+          </div>
+          <div class="ui column">
+              {{#if companyDescription}}
+              <p>{{companyDescription}}</p>
+              {{/if }}
+          </div>
+      </div>
+      <div class="ui four column row">
+        <div class="ui column">
+            {{#if website}}
+            <p>{{website}}</p>
+            {{/if }}
+        </div>
+        <div class="ui column">
+            {{#if twitter}}
+            <p>{{twitter}}</p>
+            {{/if }}
+        </div>
+        <div class="ui column">
+            {{#if facebook}}
+            <p>{{facebook}}</p>
+            {{/if }}
+        </div>
+        <div class="ui column">
+            {{#if linkedin}}
+            <p>{{linkedin}}</p>
+            {{/if }}
+        </div>
+      </div>
+  <div class="ui divider"></div>
+  {{/each}}
+</div>
