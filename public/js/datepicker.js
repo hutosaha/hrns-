@@ -2,13 +2,7 @@
 
 var $ = window.$;
 
-var Modernizr = window.Modernizr;
+ $(function() {
+    $( "#datepicker" ).datepicker({dateFormat: 'mm-dd-yy'});
+ });
 
-$(function() {
-  if (!Modernizr.inputtypes['date']) {
-    console.log('i\'m in the if');
-    $('input[type=date]').datepicker({
-      dateFormat: 'yy-mm-dd'
-    });
-  }
-});

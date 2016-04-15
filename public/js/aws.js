@@ -31,7 +31,7 @@ function get_signed_request(file) {
 function upload_file(file, signed_request, url){
     var xhr = new XMLHttpRequest();
     xhr.open("PUT", signed_request);
-    xhr.setRequestHeader('x-amz-acl', 'public-read');
+    xhr.setRequestHeader('x-amz-acl', 'public-read-write');
     xhr.onload = function() {
         if (xhr.status === 200) {
             document.getElementById('file_url').value = url; // where cvid is being saved & submitted with form
