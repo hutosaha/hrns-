@@ -29,14 +29,14 @@ h1.ui.huge.header {
   CLIENT HOMEPAGE (/client)
 ================================*/
 
-.ui.grid.clientJobs {
+.ui.grid.listView {
     margin-top: 20px;
 }
 /*===========================
   Vacancy
   ===========================*/
-.vacancy-lineHeight {
-	line-height: 0.5em;
+.vacancy-dates {
+		line-height: 0.5em;
  }
 
 /*==============================

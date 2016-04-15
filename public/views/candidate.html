@@ -1,6 +1,9 @@
-	<h1 class="ui dividing header" >Sign up!</h1>
+{{#if message}}
+    <h3>{{message}}</h3>
+{{/if }}
+<h1 class="ui block header">Sign Up</h1>
+<div class="ui divider"></div>
     <form method="POST" action="/candidate" class="ui form">
         {{> candidateform}}
-        <input type="submit" value="Sign Up!" class="ui green button">
     </form>
 <script type="text/javascript" src="/public/js/aws.js"></script>

@@ -1,83 +1,82 @@
-    <h1 class="ui dividing header">Client Sign Up Page</h1>
-    <div class="row">
+<h1 class="ui block header">Sign Up</h1>
+<div class="ui divider"></div>
 
-        <form action="/clientsignup" method="POST" class="ui  form">
-            <div class="two fields">
-                <div class="required field">
-                    <label for="contactName"> Contact Name </label>
-                    <input type="text" name="contactName" pattern="{{frontendInput}}" title="no ankle brackets, square brackets or slashes" placeholder="Contact Name" value="{{name}}" required>
-                </div>
-                <div class="required field">
-                    <label for="email"> Email </label>
-                    <input type="email" name="email" placeholder="Email address" required>
-                </div>
-            </div>
-            <div class="two fields">
-                <div class="required field">
-                    <label for="contactNumber"> Contact Number </label>
-                    <input type="tel" name="contactNumber" placeholder="Contact Number" required>
-                </div>
-                <div class="required field">
-                    <label for="companyName"> Company Name </label>
-                    <input type="text" name="companyName" pattern="{{frontendInput}}" title="no ankle brackets, square brackets or slashes" placeholder="Company Name" required>
-                </div>
-            </div>
-            <div class="field">
-                <label for="companyDescription"> Company Description (optional) </label>
-                <textarea rows="4" id="companyDescription" type="text" name="companyDescription" pattern="{{frontendInput}}" title="no ankle brackets, square brackets or slashes" placeholder="Company Description" maxlength="500"></textarea>
-            </div>
-            <div id="textarea_feedback"></div>
-            <div class="two fields">
-                <div class="required field">
-                    <label for="companySector"> Company Sector </label>
-                    <select name="companySector" class="ui dropdown" required>
-                        <option value="analytics">Analytics</option>
-                        <option value="clientServices">Client Services</option>
-                        <option value="Creative">Creative</option>
-                        <option value="IT">IT</option>
-                        <option value="ITSecurity">IT Security</option>
-                        <option value="marketing">Marketing</option>
-                        <option value="mobile">Mobile</option>
-                        <option value="projectManagement">Project Management</option>
-                        <option value="socialMedia">Social Media</option>
-                    </select>
-                </div>
-                <div class="required field">
-                    <label for="companySize"> Company Size </label>
-                    <select name="companySize" id="" class="ui dropdown" required>
-                        <option value="1-5">1-5</option>
-                        <option value="5-50">5-50</option>
-                        <option value="50-200">50-200</option>
-                        <option value="200-500">200-500</option>
-                        <option value="500+">500+</option>
-                    </select>
-                </div>
-            </div>
-            <div class="two fields">
-                <div class="field">
-                    <label for="website"> Company Website (optional)
-                        <input type="text" name="website" placeholder="Company Website" pattern="{{url}}" title="Please enter 'https://' or 'http://' before domain name">
-                    </label>
-                </div>
-                <div class="field">
-                    <label for="twitter"> Company Twitter (optional)
-                        <input type="text" name="twitter" placeholder="Twitter" pattern="{{frontendInput}}" title="no ankle brackets, square brackets or slashes" title="Please enter a valid twitter handle, e.g. '@harness'">
-                    </label>
-                </div>
-            </div>
-            <div class="two field">
-                <div class="field">
-                    <label for="facebook"> Company Facebook (optional)
-                        <input type="text" name="facebook" placeholder="Facebook" pattern="{{url}}" title="Please enter 'https://' or 'http://' before domain name">
-                    </label>
-                </div>
-                <div class="field">
-                    <label for="linkedin"> Company LinkedIn (optional)
-                        <input type="text" name="linkedin" placeholder="LinkedIn" pattern="{{url}}" title="Please enter 'https://' or 'http://' before domain name">
-                    </label>
-                </div>
-            </div>
-            <input type="submit" value="Submit" class="ui green button">
-        </form>
+<form action="/clientsignup" method="POST" class="ui form">
+    <div class="two fields">
+        <div class="required field">
+            <label for="contactName"> Contact Name </label>
+            <input type="text" name="contactName" pattern="{{frontendInput}}" title="no ankle brackets, square brackets or slashes" placeholder="Contact Name" value="{{name}}" required>
+        </div>
+        <div class="required field">
+            <label for="email"> Email </label>
+            <input type="email" name="email" placeholder="Email address" required>
+        </div>
     </div>
+    <div class="two fields">
+        <div class="required field">
+            <label for="contactNumber"> Contact Number </label>
+            <input type="tel" name="contactNumber" placeholder="Contact Number" required>
+        </div>
+        <div class="required field">
+            <label for="companyName"> Company Name </label>
+            <input type="text" name="companyName" pattern="{{frontendInput}}" title="no ankle brackets, square brackets or slashes" placeholder="Company Name" required>
+        </div>
+    </div>
+    <div class="field">
+        <label for="companyDescription"> Company Description (optional) </label>
+        <textarea rows="4" id="companyDescription" type="text" name="companyDescription" pattern="{{frontendInput}}" title="no ankle brackets, square brackets or slashes" placeholder="Company Description" maxlength="500"></textarea>
+    </div>
+    <div id="textarea_feedback"></div>
+    <div class="two fields">
+        <div class="required field">
+            <label for="companySector"> Company Sector </label>
+            <select name="companySector" class="ui dropdown" required>
+                <option value="analytics">Analytics</option>
+                <option value="clientServices">Client Services</option>
+                <option value="Creative">Creative</option>
+                <option value="IT">IT</option>
+                <option value="ITSecurity">IT Security</option>
+                <option value="marketing">Marketing</option>
+                <option value="mobile">Mobile</option>
+                <option value="projectManagement">Project Management</option>
+                <option value="socialMedia">Social Media</option>
+            </select>
+        </div>
+        <div class="required field">
+            <label for="companySize"> Company Size </label>
+            <select name="companySize" id="" class="ui dropdown" required>
+                <option value="1-5">1-5</option>
+                <option value="5-50">5-50</option>
+                <option value="50-200">50-200</option>
+                <option value="200-500">200-500</option>
+                <option value="500+">500+</option>
+            </select>
+        </div>
+    </div>
+    <div class="two fields">
+        <div class="field">
+            <label for="website"> Company Website (optional)
+                <input type="text" name="website" placeholder="Company Website" pattern="{{url}}" title="Please enter 'https://' or 'http://' before domain name">
+            </label>
+        </div>
+        <div class="field">
+            <label for="twitter"> Company Twitter (optional)
+                <input type="text" name="twitter" placeholder="Twitter" pattern="{{frontendInput}}" title="no ankle brackets, square brackets or slashes" title="Please enter a valid twitter handle, e.g. '@harness'">
+            </label>
+        </div>
+    </div>
+    <div class="two fields">
+        <div class="field">
+            <label for="facebook"> Company Facebook (optional)
+                <input type="text" name="facebook" placeholder="Facebook" pattern="{{url}}" title="Please enter 'https://' or 'http://' before domain name">
+            </label>
+        </div>
+        <div class="field">
+            <label for="linkedin"> Company LinkedIn (optional)
+                <input type="text" name="linkedin" placeholder="LinkedIn" pattern="{{url}}" title="Please enter 'https://' or 'http://' before domain name">
+            </label>
+        </div>
+    </div>
+    <input type="submit" value="Sign Up" class="ui blue button">
+</form>
 <script type="text/javascript" src="public/js/clientCharacterCounter.js"></script>

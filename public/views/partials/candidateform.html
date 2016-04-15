@@ -18,19 +18,23 @@
         <input type="tel" name='contactNumber' placeholder="Phone Number" maxlength="20" pattern={{phoneNumber}} title="Please enter numbers only" required>
     </div>
 </div>
-<div class="required eight wide field">
-    <label for="salary"> Current Salary </label>
-    <input type="text" name="salary" placeholder="Current Salary" pattern="{{frontendInput}}" title="no ankle brackets, square brackets or slashes" maxlength="100" required>
+<div class="two fields">
+    <div class="required field">
+        <label for="salary"> Current Salary </label>
+        <input type="text" name="salary" placeholder="Current Salary" pattern="{{frontendInput}}" title="no ankle brackets, square brackets or slashes" maxlength="100" required>
+    </div>
+    <div class="field">
+        <label for="linkedInProfile"> LinkedIn </label>
+        <input type="text" name="linkedInProfile" placeholder="LinkedIn Profile " pattern="{{url}}" title="Please enter 'https://' or 'http://' before domain name" maxlength="100">
+    </div>
 </div>
-<div class="eight wide field">
-    <label for="linkedInProfile"> LinkedIn </label>
-    <input type="text" name="linkedInProfile" placeholder="LinkedIn Profile " pattern="{{url}}" title="Please enter 'https://' or 'http://' before domain name" maxlength="100">
-</div>
-<div class="field">
-    <label for="cv"> Upload CV </label>
-    <input type="file" name="file_name" id="cv" />
-    <input type="hidden" id="file_url" name="file_url" />
-</div>
-<div class="field">
-    <input type="submit" value="Submit Candidate!"class="ui blue button" >
+<div class="two fields">
+    <div class="required field">
+        <label for="cv"> Upload CV </label>
+        <input type="file" name="file_name" id="cv" />
+        <input type="hidden" id="file_url" name="file_url" />
+    </div>
+    <div class="field">
+        <input type="submit" value="Submit"class="ui blue button" >
+    </div>
 </div>

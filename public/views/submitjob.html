@@ -58,14 +58,14 @@
           <div class="field">
             <label for="searchProgress"> What have you done so far in the search? </label>
             <select name="searchProgress">
-              <option value="nothing">Nothing</option>
+              <option value="Nothing so far">Nothing so far</option>
               <option value="Just started looking">Just started looking</option>
-              <option value="Looked for ages,but failed ">Looked for ages, but failed</option>
+              <option value="Been looking for a while">Been looking for a while</option>
             </select>
           </div>
           <div class="field">
             <label for="searchDeadline"> Deadline For Search </label>
-            <input name="searchDeadline"  type="date">
+            <input name="searchDeadline" id="datepicker">
           </div>
         </div>
         <div class="eight wide field">
@@ -74,7 +74,7 @@
             <input name="skillTwo" type="text" placeholder="2.">
             <input name="skillThree" type="text" placeholder="3.">
         </div>
-        <input type="submit" value="submit" class="ui blue button">
+        <input type="submit" value="Submit" class="ui blue button">
     </form>
 {{message}}
 <script type="text/javascript" src="public/js/jobCharacterCounter.js"></script>

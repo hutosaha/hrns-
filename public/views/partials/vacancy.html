@@ -1,66 +1,76 @@
-<h1>{{data.jobTitle}} Vacancy</h1>
-<table class="ui very basic table">
-    <tbody>
-        <tr>
-            <td>
-                <h3 class="header">{{data.salary}}</h3>
-                <p class="vacancy-lineHeight"><strong>Submitted: {{data.dateSubmitted}}</strong></p>
-                <p class="vacancy-lineHeight"><strong>Deadline: {{data.searchDeadline}}</strong></p>
-                <br>
-            </td>
-        </tr>
-        <tr>
-            <th>Job Description:</th>
-        </tr>
-        <td>
-            <p class="container">  {{data.jobDescription}}</p>
-        </td>
-        </tr>
-        <tr>
-            <td>
-           <p>{{data.skillOne}}</p>
-           <p>{{data.skillTwo}}</p>
-           <p>{{data.skillThree}}</p>
-           </td>
-        </tr>
-        <tr>
-            <th class="eight wide">Job Category:</th>
-            <th class="eight wide">Team Culture: </th>
-        </tr>
-        <tr>
-            <td>
-                <p > {{data.jobCategory}}</p>
-            </td>
-            <td>
-                <p>{{data.teamCulture}}</p>
-            </td>
-        </tr>
-          <tr>
-            <th class="eight wide"> Types of Projects: </th>
-            <th class="eight wide"> Team Size: </th>
-        </tr>
-        <tr>
-            <td>
-                <p>{{data.typesOfProjects}}</p>
-            </td>
-            <td>
-                <p> {{data.teamSize}}</p>
-            </td>
-        </tr>
-         <tr>
-            <th class="eight wide"> Personality: </th>
-            <th class="eight wide"> Search Progress: </th>
-        </tr>
-        <tr>
-            <td>
-                <p> {{data.personality}}</p>
-            </td>
-            <td>
-                <p>{{data.searchProgress}}</p>
-            </td>
-        </tr>
-    </tbody>
-</table>
+<h1 class="ui block header">{{data.jobTitle}} Vacancy</h1>
+<div class="ui divider"></div>
+
+<h1 class="header">{{data.companyName}}</h1>
+<h3 class="header">Salary: {{data.salary}}</h3>
+<h4 class="header vacancy-dates">Submitted: {{data.dateSubmitted}}</h4>
+{{#if data.searchDeadline}}
+<h4 class="header vacancy-dates">Deadline:  {{data.searchDeadline}}</h4>
+{{/if }}
+
+<br>
+
+<div class="ui stackable grid">
+
+      <div class="ui one column row">
+          <div class="column">
+              <h5>Job Description:</h5>
+              <p>{{data.jobDescription}}</p>
+          </div>
+      </div>
+
+      <div class="ui four column row">
+          <div class="column">
+              <h5>Job Category:</h5>
+              <p>{{data.jobCategory}}</p>
+          </div>
+          <div class="column">
+              <h5>Team Culture:</h5>
+              <p>{{data.teamCulture}}</p>
+          </div>
+          <div class="column">
+              <h5>Types of Projects:</h5>
+              <p>{{data.typesOfProjects}}</p>
+          </div>
+          <div class="column">
+              <h5>Team Size:</h5>
+              <p>{{data.teamSize}}</p>
+          </div>
+      </div>
+
+      <div class="ui four column row">
+
+          {{#if data.skillOne}}
+          <div class="column">
+              <h5>Important Skill(s):</h5>
+              {{#if data.skillOne}}
+              <p>{{data.skillOne}}</p>
+              {{/if }}
+              {{#if data.skillTwo}}
+              <p>{{data.skillTwo}}</p>
+              {{/if }}
+              {{#if data.skillThree}}
+              <p>{{data.skillThree}}</p>
+              {{/if }}
+          </div>
+          {{/if}}
+
+          {{#if data.personality}}
+          <div class="column">
+              <h5>Personality:</h5>
+              <p>{{data.personality}}</p>
+          </div>
+          {{/if }}
+
+          {{#if data.searchProgress}}
+          <div class="column">
+              <h5>Search Progress:</h5>
+              <p>{{data.searchProgress}}</p>
+          </div>
+          {{/if }}
+          <div class="column"></div> <!-- Leave this empty div here so page renders properly -->
+      </div>
+</div>
 
 <br>
 {{#if message}}
