@@ -14,19 +14,19 @@
             {{#if linkedInProfile}}
             <td><h4>{{linkedInProfile}}</h4></td>
             {{/if }}
-            <td><h4 style="display: hidden;">{{agencyId}}</h4></td>  <!-- for proper rendering purposes-->
-            <td><h4 style="display: hidden;">{{cvid}}</h4></td>  <!-- for proper rendering purposes-->
+            <td></td>  <!-- for proper rendering purposes-->
+            <td></td>  <!-- for proper rendering purposes-->
             <td> <a href="{{file_url}}" type="text" download><h4>Download CV</h4></a></td>
-            <td><button class="ui inverted red button">Reject</button></td>
+            <td><a href="/admin/job/{{vid}}/reject/{{agencyId}}/{{cvid}}"><button class="ui inverted red button">Reject</button></a></td>
             <td>
               <div class="ui compact menu">
                   <div class="ui simple dropdown item">
                     Accept
                     <i class="dropdown icon"></i>
                     <div class="menu">
-                      <div class="item"><i class="trophy yellow icon"></i>Gold</div>
-                      <div class="item"><i class="trophy grey icon"></i>Silver</div>
-                      <div class="item"><i class="trophy brown icon"></i>Bronze</div>
+                      <a href="/admin/job/{{vid}}/accept/gold/{{agencyId}}/{{cvid}}"><div class="item"><i class="trophy yellow icon"></i>Gold</div></a>
+                      <a href="/admin/job/{{vid}}/accept/silver/{{agencyId}}/{{cvid}}"><div class="item"><i class="trophy grey icon"></i>Silver</div></a>
+                      <a href="/admin/job/{{vid}}/accept/bronze/{{agencyId}}/{{cvid}}"><div class="item"><i class="trophy brown icon"></i>Bronze</div></a>
                     </div>
                   </div>
               </div>
