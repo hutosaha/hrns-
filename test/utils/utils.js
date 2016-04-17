@@ -1,6 +1,11 @@
 'use strict';
 
 const test = require('tape');
+const client = require('../../lib/db/client.js');
+
+client.select(3, () => {
+    console.log('db 3');
+});
 
 let app = module.exports = {};
 
@@ -27,6 +32,7 @@ app.testEndPoint = (server, endpoint, method, statusCode, message, COOKIE, paylo
         }
         server.inject(options, (res) => {
             t.equal(res.statusCode, statusCode, 'TEST ENDPOINT:- ' + message);
+            client.flushdb();
             t.end();
         });
     });
@@ -44,6 +50,7 @@ app.testHeaderLocation = (server, endpoint, method, expectedHeaders, message, CO
         }
         server.inject(options, (res) => {
             t.equal(res.headers.location, expectedHeaders, 'TEST HEADER LOCATION:- ' + message + ' ' + expectedHeaders);
+            client.flushdb();
             t.end();
         });
     });
@@ -61,6 +68,7 @@ app.testPayload = (server, endpoint, method, expectedString, message, COOKIE, pa
             let actual = res.payload.indexOf(expectedString) > -1;
             let expected = true;
             t.equal(actual, expected, 'TEST PAYLOAD:- ' + message + ' ' + expectedString);
+            client.flushdb();
             t.end();
         });
     });
