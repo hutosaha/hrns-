@@ -21,9 +21,8 @@ app.adminCookie = 'user=Fe26.2**55d530dcf02516745c8f48d776ec265c893e558b28321b7b
 
 
 
-app.testEndPoint = (endpoint, method, statusCode, message, COOKIE, payload, credentialsid) => {
-    const server = require('../../lib/index.js');
-    server.init(0, (err, server) => {
+app.testEndPoint = (server, endpoint, method, statusCode, message, COOKIE, payload, credentialsid) => {
+
         test(method + ' ' + endpoint + ' ' + 'returns status code ' + statusCode, (t) => {
             options = {
                 method: method,
@@ -41,16 +40,12 @@ app.testEndPoint = (endpoint, method, statusCode, message, COOKIE, payload, cred
             });
         });
         client.flushdb();
-        server.stop();
-    });
-
-};
+ };
 
 
 
-app.testHeaderLocation = (endpoint, method, expectedHeaders, message, COOKIE, credentialsid) => {
-    const server = require('../../lib/index.js');
-    server.init(0, (err, server) => {
+app.testHeaderLocation = (server, endpoint, method, expectedHeaders, message, COOKIE, credentialsid) => {
+ 
         test(method + ' ' + endpoint + ' ' + 'returns status code', (t) => {
             options = {
                 method: method,
@@ -66,15 +61,9 @@ app.testHeaderLocation = (endpoint, method, expectedHeaders, message, COOKIE, cr
                 t.end();
             });
         });
-    client.flushdb();
-    server.stop();
-    });
 };
 
-app.testPayload = (endpoint, method, expectedString, message, COOKIE, payload) => {
-    const server = require('../../lib/index.js');
-    server.init(0, (err, server) => {
-
+app.testPayload = (server, endpoint, method, expectedString, message, COOKIE, payload) => {
         test(method + ' ' + endpoint + ' ' + 'returns status code', (t) => {
             options = {
                 method: method,
@@ -91,6 +80,4 @@ app.testPayload = (endpoint, method, expectedString, message, COOKIE, payload) =
             });
         });
     client.flushdb();
-    server.stop();
-    });
 };
