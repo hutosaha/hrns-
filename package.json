@@ -32,7 +32,6 @@
     "hapi-auth-cookie": "^6.1.1",
     "hoek": "^3.0.4",
     "inert": "^3.2.0",
-    "istanbul": "^0.4.2",
     "joi": "^8.0.5",
     "mailcomposer": "^3.7.0",
     "mailgun-js": "^0.7.7",
