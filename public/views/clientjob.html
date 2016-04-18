@@ -1,3 +1,35 @@
 {{> vacancy}}
+<table class="ui basic table">
+    <tbody>
+      {{#each cvs}}
+        <tr>
+        	<td><h4>{{candidateName}}</h4><h4>{{agencyName}}</h4></td>
+            <td><h4>{{jobTitle}}</h4><h4>{{salary}}</h4></td>
+            <td><a href="mailto:{{email}}"><h4>{{email}}</h4></a><br><a href="tel:{{contactNumber}}"><h4>{{contactNumber}}</h4></a></td>
+     
+            {{#if linkedInProfile}}
+            <td><h4>{{linkedInProfile}}</h4></td>
+            {{/if }}
+            <td></td>  <!-- for proper rendering purposes-->
+            <td></td>  <!-- for proper rendering purposes-->
+            <td> <a href="{{file_url}}" type="text" download><h4>Download CV</h4></a></td>
+            <td><a href="/admin/job/{{vid}}/reject/{{agencyEmail}}/{{cvid}}"><button class="ui inverted red button">Reject</button></a></td>
+            <td>
+              <div class="ui compact menu">
+                  <div class="ui simple dropdown item">
+                  	Progress
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                      <a href="/admin/job/{{vid}}/accept/gold/{{agencyEmail}}/{{cvid}}"><div class="item">Stage 1</div></a>
+                      <a href="/admin/job/{{vid}}/accept/silver/{{agencyEmail}}/{{cvid}}"><div class="item"> Stage 2</div></a>
+                      <a href="/admin/job/{{vid}}/accept/bronze/{{agencyEmail}}/{{cvid}}"><div class="item">Stage 3</div></a>
+                    </div>
+                  </div>
+              </div>
+             </td>
+        </tr>
+     {{/each}}
+    </tbody>
+</table>
 
 <!-- Their client shortlist will appear here  -->
