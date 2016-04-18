@@ -11,8 +11,6 @@ const adminCookie    = require('./utils/utils.js').adminCookie;
 const clientCookie   = require('./utils/utils.js').clientCookie;
 const notAdminCookie = require('./utils/utils.js').notAdminCookie;
 
-const test = require('tape');
-
 server.init(0, (err, server) => {
     
 

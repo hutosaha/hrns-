@@ -1,0 +1,1640 @@
+[33mcommit 161a4c9915370835bc90479897d61ededcee0931[m
+Merge: a67a3e6 2621000
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Mon Apr 18 15:29:08 2016 +0100
+
+    fixing tests
+
+[33mcommit 2621000c116b46932091dac0b1ca0f2c371391a6[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Mon Apr 18 14:13:25 2016 +0100
+
+    accepting and rating candidates now working #21
+
+[33mcommit 4c7d7529d4b55d35e0bb1ccc982c22b9ea925fcb[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Mon Apr 18 13:41:19 2016 +0100
+
+    client now being notified of new CVs #16
+
+[33mcommit dfec8dab776fe13135541f42a5cf339f7f35bb93[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Mon Apr 18 13:32:21 2016 +0100
+
+    rejection email working #21 #42
+
+[33mcommit a67a3e6c5ba261352e2b87a912af6fd8f42c1d9a[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Mon Apr 18 12:56:15 2016 +0100
+
+    added client vacancy shortlist #17
+
+[33mcommit 202293049081398b4c439bde7ce868bb9fca400d[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Mon Apr 18 10:15:05 2016 +0100
+
+    changed date format in tests
+
+[33mcommit 33f236f29c98abc4ff4153f44eca363f2e57786f[m
+Merge: e7eb2f5 58426d7
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Mon Apr 18 10:10:58 2016 +0100
+
+    fixed merge conflicts in testing
+
+[33mcommit e7eb2f5eb11f372f18fd3d2c9b701463d8fde60e[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Sun Apr 17 11:41:49 2016 +0100
+
+    updating tests
+
+[33mcommit 58426d7818d55a76c126eb70fb1327965387d83f[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Fri Apr 15 19:31:08 2016 +0100
+
+    fixed a variable definition problem but still errors...
+
+[33mcommit d18a8de8851a051176f809d0a5a5fdb01cc378d7[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Fri Apr 15 19:26:33 2016 +0100
+
+    added rated candidates to db #21
+
+[33mcommit 0eb848c786c5719b2267791b1579e65a2ca1f63f[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Fri Apr 15 18:55:58 2016 +0100
+
+    added agencyemailforcandidaterejection email #21 #42
+
+[33mcommit c5c9642bb310c13ffead20ab157a2d1b261a7e42[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Fri Apr 15 18:41:09 2016 +0100
+
+    setup notifying clients of new candidates #16
+
+[33mcommit 9a92dda89e7790569d785dc02c8c47418348dc12[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Fri Apr 15 18:24:16 2016 +0100
+
+    added rejecting a candidate and notifying agency #42 #21
+
+[33mcommit 49266e5b1d72f08bc3688e702772fe14a61ca869[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Fri Apr 15 17:29:44 2016 +0100
+
+    set up skeleton backend for #21
+
+[33mcommit 91216f06e6d19d2d91427d8ccc86b1bad87bb9c8[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Fri Apr 15 16:51:00 2016 +0100
+
+    setting up html for admin shortlist functionality #21
+
+[33mcommit 7a45221ed0c867736398a645662cbc212e025905[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Fri Apr 15 15:20:38 2016 +0100
+
+    building admin approval of cvs and adjusted date format #21
+
+[33mcommit 1ce1773ca36361219de6a1de238fb7ef69ccf6e7[m
+Merge: 6ee739b deaf112
+Author: Tormod Smith <tormodsmith@gmail.com>
+Date:   Fri Apr 15 11:33:50 2016 +0100
+
+    Merge pull request #73 from hutosaha/heroku
+    
+    more front end semantic ui aws upload #71 #64
+
+[33mcommit deaf112e9d1922ccb2bb74cc8050fdea15df94ac[m
+Merge: 14a68fa ea085b3
+Author: Huw <hdrdavies@gmail.com>
+Date:   Fri Apr 15 11:07:37 2016 +0100
+
+    completed merge
+
+[33mcommit 14a68fa84488a9346e8d9a4851c9eb4d26070930[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Fri Apr 15 11:04:10 2016 +0100
+
+    formatted forceHttps for local development
+
+[33mcommit ea2269b36ba28f568bc7f82f1bba96570240e6a9[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Fri Apr 15 11:02:37 2016 +0100
+
+    merged two branches from Thursday
+
+[33mcommit 27902abddf6e6a792993b8efeb6588f1be7860ad[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Fri Apr 15 10:56:16 2016 +0100
+
+    corrected login flow to avoid errors
+
+[33mcommit 3d980bdb7261786d26483e1b6f242d9251e2a94e[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Thu Apr 14 17:37:04 2016 +0100
+
+    modified vacancy partial #56
+
+[33mcommit ea085b34fbe68652863b2ab4f31f66cb489b3b12[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Thu Apr 14 16:36:58 2016 +0100
+
+    https
+
+[33mcommit 5ad76a7cd2af7e5bb0cc2e9c17a60255b7c8aa87[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Thu Apr 14 16:32:14 2016 +0100
+
+    addig console.log to sign_3
+
+[33mcommit 902f2702727b075a8912f7f41c8374d117f3a790[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Thu Apr 14 16:11:37 2016 +0100
+
+    check candidate has already submitted cv #72
+
+[33mcommit 331bf005c5c5414833c1fa4c283ee43bd5097364[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Thu Apr 14 15:51:14 2016 +0100
+
+    removed $ from backend regex #68
+
+[33mcommit 06f0d603c7438ea3436ea0715ab8c1110cfb734a[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Thu Apr 14 15:17:46 2016 +0100
+
+    changed deadline date to searchDeadline#54
+
+[33mcommit 31ad11b30d7bafa9d3a7dede4765b3c50f11a300[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Thu Apr 14 14:56:09 2016 +0100
+
+    added them link to jquery-ui  datepicker #54
+
+[33mcommit 925e33b3a215fc1faba2d8841d2d7cde2646491f[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Thu Apr 14 13:16:15 2016 +0100
+
+    modified client sign up and admin approve users #56
+
+[33mcommit b6e42ed7f977a518dd6609b5625bd72009f7e055[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Thu Apr 14 12:37:26 2016 +0100
+
+    improved admin vacancies page #56
+
+[33mcommit 329ce0240d96976a46096721e51ad4465b74a970[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Thu Apr 14 12:09:02 2016 +0100
+
+    add writing
+
+[33mcommit 97396d351795866758debe71a82250c159e6ce61[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Thu Apr 14 11:47:50 2016 +0100
+
+    fixing upload bug
+
+[33mcommit aed3645e53edc3414162ddedb5edd6d03f562a26[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Thu Apr 14 11:17:19 2016 +0100
+
+    modified submit candidate form #56
+
+[33mcommit 1cd73a1d6add29fc744117da31b6eb79dd29f5a6[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Thu Apr 14 11:14:58 2016 +0100
+
+    modified heading for agency submit candidate page #56
+
+[33mcommit 6a2a0d75f587216c1c16244ebaf7f6653054fdbe[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Thu Apr 14 11:12:16 2016 +0100
+
+    improved agency live jobs list view #56
+
+[33mcommit f848fddda974efbfeb60032a94320ca4c33c8314[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Thu Apr 14 10:48:51 2016 +0100
+
+    modified agency login page #56
+
+[33mcommit 5a777b7bec0a4ace9aa7cc6aad31a4152b1b7ba9[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Thu Apr 14 10:47:08 2016 +0100
+
+    bug fixing heroku
+
+[33mcommit 419a35ec3e4a33961dda488557fe7030ce9d453d[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Thu Apr 14 10:43:56 2016 +0100
+
+    https
+
+[33mcommit 1f7e586380bbe5b40d4ec86dc4e6b02cf25d33eb[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Thu Apr 14 10:36:21 2016 +0100
+
+    https
+
+[33mcommit 6ee739b9ed720ba072943263dc6106d647b49098[m
+Merge: dec076f 75c0ef3
+Author: Tormod Smith <tormodsmith@gmail.com>
+Date:   Thu Apr 14 10:16:25 2016 +0100
+
+    Merge pull request #67 from hutosaha/adminvacancy
+    
+    Admin vacancy restructured tests, created vacancy partial
+
+[33mcommit 75c0ef3d91751d10a8b192cf499477cd04f396bd[m
+Merge: 9a6da4f cd3d2f6
+Author: Huw <hdrdavies@gmail.com>
+Date:   Wed Apr 13 17:50:44 2016 +0100
+
+    merged branches
+
+[33mcommit 9a6da4fe501f494cecc09a82898cee63be053b43[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Wed Apr 13 17:37:27 2016 +0100
+
+    sorted myjobs messages and box alignment #56
+
+[33mcommit cd3d2f688fc93b22e8520fb31ea21cf4f02aa028[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Wed Apr 13 17:35:34 2016 +0100
+
+    vacancy partial #63
+
+[33mcommit cf8240bcdf1c1dd6c390f830f6d848f6ba81554d[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Wed Apr 13 17:34:01 2016 +0100
+
+    tidied up submitjob page #64
+
+[33mcommit 7ff9b10b94cd464622957aa86c37903bacabc7e1[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Wed Apr 13 15:01:25 2016 +0100
+
+    adjusted title attribute in forms to fit with new schema
+
+[33mcommit 476aa6475d6e1aed69054ec5c124feb2e90eca1b[m
+Merge: 03fd422 dec076f
+Author: Huw <hdrdavies@gmail.com>
+Date:   Wed Apr 13 14:55:49 2016 +0100
+
+    Merge branch 'master' into datepicker
+
+[33mcommit 03fd422e5816554adba9e5d34c229a2b412e56e2[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Wed Apr 13 14:55:05 2016 +0100
+
+    merged branches
+
+[33mcommit dec076f99818041819bd6e2c9d6044aaf96a07b6[m
+Merge: ad7cfae 84eb309
+Author: Tormod Smith <tormodsmith@gmail.com>
+Date:   Wed Apr 13 14:25:16 2016 +0100
+
+    Merge pull request #65 from hutosaha/frontend-semantic
+    
+    Frontend semantic
+
+[33mcommit 84eb309e1b3040e83ed1a97657ec71945bd1d393[m
+Merge: e87c1d8 55e792f
+Author: Huw <hdrdavies@gmail.com>
+Date:   Wed Apr 13 13:44:46 2016 +0100
+
+    Merge branch 'adminvacancy' of github.com:hutosaha/hrns- into adminvacancy
+
+[33mcommit e87c1d815ae3dec82160bb37f59d88b7809aa2d3[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Wed Apr 13 13:43:03 2016 +0100
+
+    adjusting tests
+
+[33mcommit 55e792fe894ba5f08baa1a2407b03066a1e74f11[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Wed Apr 13 13:37:56 2016 +0100
+
+    adding agencyName to cv obj
+
+[33mcommit bfaf2316ffc7f60a6ef0d2ed8b80af74187a648c[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Wed Apr 13 13:37:20 2016 +0100
+
+    tidied up css file
+
+[33mcommit b0478248870135429664ac2e0aec991d81ef2521[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Wed Apr 13 13:26:17 2016 +0100
+
+    home page looking better #56
+
+[33mcommit 3784434fad2ca71a51bcf4159dcc1803190ff9c1[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Wed Apr 13 12:18:03 2016 +0100
+
+    refactored section containers with a partial #56
+
+[33mcommit 5cd086cbff6cea2a7b2fece1f1daf7e0db5d389f[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Wed Apr 13 11:26:34 2016 +0100
+
+    corrected client page
+
+[33mcommit b5cd899621a845e46fb7268492dc9406b9a389ca[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Wed Apr 13 11:16:21 2016 +0100
+
+    corrected whitelist
+
+[33mcommit b89bbbed20e08b8229e78aa00903bcae106f3fd8[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Wed Apr 13 10:37:19 2016 +0100
+
+    adjust joi regex whitelist
+
+[33mcommit 9927cd03fa759820cf86503bf6b5132565e71166[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Wed Apr 13 09:27:48 2016 +0100
+
+    made https
+
+[33mcommit 4d3ec23c8f20db4cecdf31406223bbc20495362a[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Tue Apr 12 17:38:29 2016 +0100
+
+    modified jobs #61
+
+[33mcommit 7c4723f5032309b04ac9667a700dd92e8c4670e2[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Tue Apr 12 17:22:11 2016 +0100
+
+    horizontal segments
+
+[33mcommit 9fa96c995d5faf2538ddaabf1fb2bac1279fd886[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Tue Apr 12 16:50:57 2016 +0100
+
+    user info page for clients formatted, but without view more #56
+
+[33mcommit 420dacfa5ba76203f9e0132d02bc0ef92ccc0882[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Tue Apr 12 16:01:31 2016 +0100
+
+    modified html view for userinfo #56
+
+[33mcommit ad7cfae722aa375458301b2066a61908490f0ae9[m
+Merge: 6fe4986 0d0dbae
+Author: Tormod Smith <tormodsmith@gmail.com>
+Date:   Tue Apr 12 15:42:33 2016 +0100
+
+    Merge pull request #62 from hutosaha/semanticforms
+    
+    Semantic forms
+
+[33mcommit 0d0dbaef3aca513fc6b60d9385f776ccfa4f31b9[m
+Merge: d872ebc 6fe4986
+Author: Huw <hdrdavies@gmail.com>
+Date:   Tue Apr 12 15:33:00 2016 +0100
+
+    Merge branch 'master' into semanticforms
+
+[33mcommit d872ebce7d71413245a9599812c556f483f77369[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Tue Apr 12 15:31:07 2016 +0100
+
+    merged branches
+
+[33mcommit b0d30e02108667d770c04fdfdbfc0b6b0380c5df[m
+Merge: 7e2278a c7a319a
+Author: Huw <hdrdavies@gmail.com>
+Date:   Tue Apr 12 15:22:16 2016 +0100
+
+    Merge branch 'semanticforms' of github.com:hutosaha/hrns- into semanticforms
+
+[33mcommit c7a319a2ce8e0e3e446258024b067fa4fef3b0f7[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Tue Apr 12 15:19:06 2016 +0100
+
+    config http
+
+[33mcommit 6f32423a7391301e2288473251a55557f2af98f9[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Tue Apr 12 15:17:15 2016 +0100
+
+    changed userinfo to divs
+
+[33mcommit 7e2278a2b083c16e8660e4e966fd95e09823686b[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Tue Apr 12 15:10:01 2016 +0100
+
+    adjusted tests to pass #61
+
+[33mcommit 75523890a325e037dac32c6ea0f97ce2ab3eec9f[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Tue Apr 12 14:19:59 2016 +0100
+
+    increased margin
+
+[33mcommit d1b3d5c7130238364f0fc10ff228be1f8665b8bc[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Tue Apr 12 14:15:34 2016 +0100
+
+    semantic forms
+
+[33mcommit f9c939eea48784eb232ade3efd0c993d2493bf0b[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Tue Apr 12 12:39:23 2016 +0100
+
+    added semantic tab  ui
+
+[33mcommit 7a488d3c64a24233f3ef257c9d80ca91c45fdba5[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Tue Apr 12 11:47:39 2016 +0100
+
+    test refactored but need passing #61
+
+[33mcommit b64193556b8db49ca0d5f0b023ea4bc75209347e[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Tue Apr 12 11:18:57 2016 +0100
+
+    starting refactor of test files #61
+
+[33mcommit 6fe4986fc518481c292d17e497ef5926c60b97df[m
+Author: Tormod Smith <tormodsmith@gmail.com>
+Date:   Tue Apr 12 10:48:16 2016 +0100
+
+    Update README.md
+
+[33mcommit 733150d0d6c2988a7b33804133c7ef65ea9aa694[m
+Author: Tormod Smith <tormodsmith@gmail.com>
+Date:   Tue Apr 12 10:48:04 2016 +0100
+
+    Update README.md
+
+[33mcommit 07645ce9c893458a5ea5e931ded6d0dcf42ae002[m
+Author: Tormod Smith <tormodsmith@gmail.com>
+Date:   Tue Apr 12 10:47:30 2016 +0100
+
+    Update README.md
+
+[33mcommit e93b67b475a550ceee6527eef2454c9865e4e8a7[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Tue Apr 12 10:26:20 2016 +0100
+
+    passing test! :boom: #15 #61
+
+[33mcommit 669ce26bf35d3fd11a97bd2c16f3465e1c024d73[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Tue Apr 12 10:15:44 2016 +0100
+
+    tidying up testing file #61
+
+[33mcommit 99efc2ee6a95d8d90b0b2e3c3dd4a5c2673a7ea1[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Mon Apr 11 18:29:12 2016 +0100
+
+    addded tab feature admin
+
+[33mcommit 182df42b57f14418a8c0861a99339abd63888ec1[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Mon Apr 11 18:02:06 2016 +0100
+
+    admin can remove active vacancies and client is notified #15, but one failing test.....
+
+[33mcommit 9658b98b454b86d880e304c643d5669e8db0ad50[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Mon Apr 11 17:45:06 2016 +0100
+
+    complete forms in semantic ui #56
+
+[33mcommit 35facf84ce810d87f2f4f339301c91552139c373[m
+Merge: 152dadf 2381e2d
+Author: Tormod Smith <tormodsmith@gmail.com>
+Date:   Mon Apr 11 16:03:15 2016 +0100
+
+    Merge pull request #60 from hutosaha/clientremovejob
+    
+    Client remove job #14 #6 #13 #12
+
+[33mcommit 2381e2dff7f36455a0901c011f0a2e546f5566f5[m
+Merge: 5520fb4 953544f
+Author: Huw <hdrdavies@gmail.com>
+Date:   Mon Apr 11 15:56:07 2016 +0100
+
+    merged branches
+
+[33mcommit 953544f647833c552760f23c1b518ce049c73a42[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Mon Apr 11 15:51:26 2016 +0100
+
+    added semantic ui to submit job form
+
+[33mcommit 5520fb4c3aaf5379b9fa004b9ab319790935574b[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Mon Apr 11 15:51:13 2016 +0100
+
+    refactored plugins file and folder structure
+
+[33mcommit 5ab06b91edd3445d55090ac72b47b5b8c4f525fc[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Mon Apr 11 15:33:12 2016 +0100
+
+    correct layout given to admindashboard
+
+[33mcommit 25f80acb500053769ec6e063a82d027c20c53015[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Mon Apr 11 15:31:08 2016 +0100
+
+    refactored index file
+
+[33mcommit 0103a04bff689def5cf4491107f9ad9b99fb0209[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Mon Apr 11 15:17:09 2016 +0100
+
+    agency can now submit generic candidate #13
+
+[33mcommit d77f8c6b5dc580de5e5ee5d7082d544e404c67c9[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Mon Apr 11 14:43:25 2016 +0100
+
+    added redis remove vacancy and semantic to forms#12
+
+[33mcommit 3e53356c453f73cf906fe8cb8bd53b86bea3d980[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Mon Apr 11 13:24:52 2016 +0100
+
+    completed email to admin on candidate signup #14
+
+[33mcommit 5b047c9c8a42d3ba39f4fdd7fee3d28875041b58[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Mon Apr 11 12:54:19 2016 +0100
+
+    added remove vacancy#6
+
+[33mcommit a2677e0e85634054832a811b7c86f9a02a870e1f[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Mon Apr 11 12:48:43 2016 +0100
+
+    refactoring cleanPayload usages
+
+[33mcommit d797356fd9217dd62f6d938aa564a4cd0581cac2[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Mon Apr 11 12:18:57 2016 +0100
+
+    added candidate cv submission skeleton #14
+
+[33mcommit 152dadf066963ea1254a23b75afc22ae953baf2c[m
+Merge: 1dcfbf4 be5a0a5
+Author: Huw Davies <dear.huw@hdrdavi.es>
+Date:   Mon Apr 11 11:35:00 2016 +0100
+
+    Merge pull request #58 from hutosaha/tests
+    
+    Tests merged with frontend branch #12
+
+[33mcommit be5a0a5f221646c6f9cb4bbae903036961e662c1[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Mon Apr 11 10:50:22 2016 +0100
+
+    added endpoint tests and merged branches
+
+[33mcommit 16e34761c28957c7396cbd1eafd5cd062c440fe8[m
+Merge: 7370f73 ed450fa
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Sat Apr 9 20:48:48 2016 +0100
+
+    Merge branch 'frontend' of https://github.com/hutosaha/hrns- into frontend
+
+[33mcommit 7370f73c34cd412c74648720305105ccdf63967f[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Sat Apr 9 14:06:43 2016 +0100
+
+    testing plugins
+
+[33mcommit 7cfcbf4ed6cdd09ba9c0c0f0ff3b08c4d5da3c98[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Fri Apr 8 18:34:48 2016 +0100
+
+    adding test for login
+
+[33mcommit ed450fafed23ad32101c54075fab42c09cb7900f[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Fri Apr 8 17:46:23 2016 +0100
+
+    finished giving correct layouts and titles to each enpoint #56
+
+[33mcommit c20d66e08f69ba8392595a8313a1d9c1981216b5[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Fri Apr 8 15:26:01 2016 +0100
+
+    giving correct layouts and titles to enpoints #56
+
+[33mcommit 7dd9c71d3159be89667800a59efbbd99567d2291[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Fri Apr 8 13:57:07 2016 +0100
+
+    used partials to seperate out head config #56
+
+[33mcommit bc422fe332ace5300613b7ee47848e6cb8ed4abc[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Fri Apr 8 11:04:25 2016 +0100
+
+    changed https
+
+[33mcommit 1dcfbf4a15a1b6c97807044ff90011ce0eec79a2[m
+Merge: ede70f3 d8816a2
+Author: Tormod Smith <tormodsmith@gmail.com>
+Date:   Fri Apr 8 10:55:19 2016 +0100
+
+    Merge pull request #55 from hutosaha/email
+    
+    2nd half week 3 #8 #12 #49 #51 Added more redis tests and  test index file, Added upload cv functionality to agency. started semantic UI .
+
+[33mcommit d8816a233822c09535d5010e8b5760ed44a1aa3b[m
+Merge: 6c669ec 9892312
+Author: Huw <hdrdavies@gmail.com>
+Date:   Fri Apr 8 10:40:14 2016 +0100
+
+    merged Thursday branches and all tests passing :boom: :sparkles:
+
+[33mcommit 6c669ec7d43303cbb1395c42f42494352e8b851c[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Fri Apr 8 10:22:48 2016 +0100
+
+    adjusting tests for travis to pass
+
+[33mcommit 9892312c06276a6ee3bf1f9fa79cce50e53a0a11[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Fri Apr 8 10:15:30 2016 +0100
+
+    added semantiui and upload#12
+
+[33mcommit 5b4b746490a801253c299ef6a2e3dfc60d05d22c[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Fri Apr 8 10:12:09 2016 +0100
+
+    merged testing and email branches
+
+[33mcommit b67fecfd02ffc0839ef37fff8f4467c619b41215[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Fri Apr 8 10:09:36 2016 +0100
+
+    super close to 80% :+1:
+
+[33mcommit 01af10d0e3ce50634a9a7e00ec7f0e47cf2ce585[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Thu Apr 7 18:04:23 2016 +0100
+
+    got to 76% coverage :boom:
+
+[33mcommit fba15b9cb26f09a44cb31bfa47256da3e2d12459[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Thu Apr 7 17:19:58 2016 +0100
+
+    cleaned up console.logs
+
+[33mcommit 1d517d7f3c89a32998dc49bc3d25d6e3f999233e[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Thu Apr 7 17:08:38 2016 +0100
+
+    51 tests :dollar:
+
+[33mcommit c4bcaac7ea3826c8aaf1eefb9b17de3a59a1122f[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Thu Apr 7 16:45:21 2016 +0100
+
+    tested agencyjob.js :sparkles:
+
+[33mcommit f42c11f55b0648ae890f8cafcc90370855d80a26[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Thu Apr 7 16:09:30 2016 +0100
+
+    corrected res logic in admin vacancies and client.js
+
+[33mcommit 90b5ea5da0070312a8280d90cb5fb6050ee7ca1a[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Thu Apr 7 15:43:38 2016 +0100
+
+    100% on adminjob.js :tada:
+
+[33mcommit 577735f8e7dfddbf350573ce682d14dee25aa830[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Thu Apr 7 15:03:38 2016 +0100
+
+    tested block of admindashboard :boom:
+
+[33mcommit 222575b8ba594df2a70125db86a9f055b72db8cb[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Thu Apr 7 14:41:38 2016 +0100
+
+    added cv to db function #12
+
+[33mcommit 058822864fbcb55778bbcd09749d5b8d48755b0f[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Thu Apr 7 14:41:30 2016 +0100
+
+    all redis functions tested apart from catch blocks :rage:
+
+[33mcommit 51ff1d60f9d526b8baeae951108696caa535ca67[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Thu Apr 7 12:46:14 2016 +0100
+
+    added more tests for addJob and getsetmembers :sparkles:
+
+[33mcommit db3651b9b12dff3562e95b16299430eb719bffae[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Thu Apr 7 12:12:34 2016 +0100
+
+    restructured testing files :memo:
+
+[33mcommit ca6a85e6993f7601924c42ce52005f3d6559483c[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Thu Apr 7 11:25:03 2016 +0100
+
+    added redis tests
+
+[33mcommit e86afe70f7143eb59007476dc997b5efa23b49cd[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Thu Apr 7 10:41:30 2016 +0100
+
+    adding upload url
+
+[33mcommit fe570acf4d3d5b1db02df2a9ed408258073a3fe5[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Thu Apr 7 10:30:22 2016 +0100
+
+    refactored cvid
+
+[33mcommit 58688fe96cc06bc8ef2b5a1bf57f86fe484639df[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Wed Apr 6 17:57:22 2016 +0100
+
+    added unique file names3 #12
+
+[33mcommit 0e2233481a3beb24dcdba32988f602e1f089821a[m
+Merge: d880b3c 6ecd220
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Wed Apr 6 17:07:13 2016 +0100
+
+    cleaned up htm merge conflicts
+
+[33mcommit d880b3cb999b8b5291f9cc5d17e5e95ef16a294f[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Wed Apr 6 16:59:58 2016 +0100
+
+    retrieving from aws
+
+[33mcommit 6ecd220ce797ec04834945415aef8fe6d3fb848c[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Wed Apr 6 16:46:42 2016 +0100
+
+    displaying vacancy for agency #9 and cv submission form #12
+
+[33mcommit 3632bd98302bc827f19d6e02a3f17494fc0020e6[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Wed Apr 6 15:09:55 2016 +0100
+
+     added dates
+
+[33mcommit a7d69fc31f4913135f0ee68e8b8b3f9550641425[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Wed Apr 6 14:07:51 2016 +0100
+
+    refactored Joi Schema
+
+[33mcommit c1cf1d2154e320811185a4c626f1f1683365d950[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Wed Apr 6 13:15:36 2016 +0100
+
+    added formated dates #51 #49
+
+[33mcommit 82dd052ab89f6f43b8fdcaecf20c900e3d4e8019[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Wed Apr 6 12:58:32 2016 +0100
+
+    email notification working and regex edited for hyphens #8
+
+[33mcommit ede70f3e40e4c58567da78002324d899091254f1[m
+Merge: fc67df8 ed346dd
+Author: Tormod Smith <tormodsmith@gmail.com>
+Date:   Wed Apr 6 12:15:22 2016 +0100
+
+    Merge pull request #50 from hutosaha/agencyEmail
+    
+    added vacancy pages for all users added job overview and cv upload. Look into multi email.
+
+[33mcommit ed346dd1accc18b8505eb0cd33c1cdce7949a478[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Wed Apr 6 12:11:01 2016 +0100
+
+    take out unnecessary console logs
+
+[33mcommit b87639e1ba574035bac577bef329fda05b6f2e92[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Wed Apr 6 12:09:57 2016 +0100
+
+    merged branches #4 #5 #8
+
+[33mcommit 7a39c5e5d12084963bd8d5f6e60593a14c60753a[m
+Merge: 8e316bc 9353f32
+Author: Huw <hdrdavies@gmail.com>
+Date:   Wed Apr 6 11:39:37 2016 +0100
+
+    Merge branch 'agencyvacancies' of github.com:hutosaha/hrns- into agencyvacancies
+
+[33mcommit 9353f321689b73599820143d4c4f0e4f1c7fb5a4[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Wed Apr 6 11:38:42 2016 +0100
+
+    adding clientjobs.html  #5
+
+[33mcommit fddf4421a36108236db84a66750a8f9f2fb817c6[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Wed Apr 6 10:29:03 2016 +0100
+
+    created aws.js
+
+[33mcommit 8e316bcd86f2973dbd82e95da462245f5941956a[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Tue Apr 5 17:46:16 2016 +0100
+
+    attempted to make mailgun work with multiple emails #8
+
+[33mcommit 1b11802db274a7669a7f75092fb20e576d6d9eb9[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Tue Apr 5 17:44:25 2016 +0100
+
+    uploading CV against job vacancy #4
+
+[33mcommit fc67df8393041298b74ca44fb89b65544a27c24d[m
+Merge: b23984a d064074
+Author: Huw Davies <dear.huw@hdrdavi.es>
+Date:   Tue Apr 5 12:45:08 2016 +0100
+
+    Merge pull request #48 from hutosaha/agencyvacancies
+    
+    Agency vacancies and save jobs #8 #7 #5
+
+[33mcommit d064074e677096886dff5f450b7b2438cbb9a78b[m
+Author: Huw Davies <dear.huw@hdrdavi.es>
+Date:   Tue Apr 5 12:43:40 2016 +0100
+
+    Fix signup success message
+
+[33mcommit f9d5c697c52ad9cfaebf69ee663aafa0c02e73e3[m
+Merge: 82a4b7e 5cd5934
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Tue Apr 5 12:36:34 2016 +0100
+
+    merged agencey vc and refactor redis #5 #7 #8
+
+[33mcommit 82a4b7e11e1cbaf6285b4742324519e3bbf6b4ed[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Tue Apr 5 12:18:27 2016 +0100
+
+     added vacancies to agency #7
+
+[33mcommit 5cd593467084f6d9de53e30224962a5140a5cce8[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Tue Apr 5 12:12:36 2016 +0100
+
+    vacancy now available for each user #5
+
+[33mcommit 85e2ff1c745bb6c5bbf59aa855a0d94e2a395889[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Tue Apr 5 12:04:49 2016 +0100
+
+    added max input on submitjob form #47
+
+[33mcommit 365be3f1ce171ac5cb5f1b76836b6f2776b73da7[m
+Merge: 3dfa9a2 6baa801
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Tue Apr 5 11:25:51 2016 +0100
+
+    Merge branch 'saveJob' into adminvacancies
+
+[33mcommit 3dfa9a2d533cfd8b3a8711e0c74fabdbfb10e3b6[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Tue Apr 5 11:24:09 2016 +0100
+
+    added client name to vacancy
+
+[33mcommit 7c366f51933db7e57195cc57e18bc494272fe2e3[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Tue Apr 5 11:20:51 2016 +0100
+
+    tidy up
+
+[33mcommit 5e176a25372fb5586e726c5fb623bfcdee4f3188[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Tue Apr 5 11:19:32 2016 +0100
+
+    refactored redis functions :bomb:
+
+[33mcommit 6baa801da680988f08d73363b731c23b3f3c77b0[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Tue Apr 5 10:48:31 2016 +0100
+
+    merged branches for displaying vacacnies
+
+[33mcommit 16b7935209381aac03abc9fc5abd6fbf31a4676f[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Tue Apr 5 10:04:55 2016 +0100
+
+    moved admin scope order
+
+[33mcommit f54f35bd467a3b2cef13c8eb126d87ca20c41bd1[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Mon Apr 4 23:21:47 2016 +0100
+
+    vacancies added
+
+[33mcommit bc1226c96ae339d7f00f1a6fa10f1faba97cad03[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Mon Apr 4 18:11:24 2016 +0100
+
+    added vacancies to #15
+
+[33mcommit 44e881d6c04dad4b899bfac76c853a3fc92fc876[m
+Merge: 497e53e e1bd36e
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Mon Apr 4 17:46:08 2016 +0100
+
+    added joi schema
+
+[33mcommit e1bd36e9fac03d7fbf09a438dee649ee667e02fc[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Mon Apr 4 17:42:31 2016 +0100
+
+    added select options to joy
+
+[33mcommit 497e53e9d3b53fed5ff16e00e7e9340767819ce6[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Mon Apr 4 17:36:47 2016 +0100
+
+    adding vacancies to admin
+
+[33mcommit 152bed4b389f1f1f89a2e975749ac7d5eccd440f[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Mon Apr 4 17:25:41 2016 +0100
+
+    refactored and modularised joi schemas #4
+
+[33mcommit 4c109a72f0fbe5c0e2c19287f7797ee0120c94f9[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Mon Apr 4 17:12:58 2016 +0100
+
+    correct joi vlaidation
+
+[33mcommit fe7029983738772987c5ce7989598f4783c09490[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Mon Apr 4 17:09:51 2016 +0100
+
+    correct joi vlaidation
+
+[33mcommit fd6d629da9a520241b8977d785e0b66205ea51e8[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Mon Apr 4 17:02:36 2016 +0100
+
+    adding https
+
+[33mcommit 1ce4b24bc89db3c4cc2c4e68e6aafcd705c4013f[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Mon Apr 4 16:57:16 2016 +0100
+
+    validated submitjob form #4
+
+[33mcommit b0547da24fa3ba667a20769ea06c45ab88e2fcc6[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Mon Apr 4 16:41:25 2016 +0100
+
+    merged branches and got datepicker working #4 #5
+
+[33mcommit fba71cc51f08f360d55b267f8dce06d2ff553bc7[m
+Merge: 1dbf785 11e3757
+Author: Huw <hdrdavies@gmail.com>
+Date:   Mon Apr 4 15:52:01 2016 +0100
+
+    Merge branch 'submitjob' of github.com:hutosaha/hrns- into submitjob
+
+[33mcommit 1dbf78594433f756a98239ff68a198ed951ec979[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Mon Apr 4 15:49:51 2016 +0100
+
+    client job endpoint setup #5
+
+[33mcommit 11e37573785a4c5dd79a3b4137355cc4d82b1de7[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Mon Apr 4 15:47:05 2016 +0100
+
+    job form css #4
+
+[33mcommit 972410694298a3b8c211799d0f1b6f9572168545[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Mon Apr 4 15:44:44 2016 +0100
+
+    job form #4
+
+[33mcommit a5b0afdd38aeb2291369047f5ec012d05ddd702f[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Mon Apr 4 15:36:40 2016 +0100
+
+    setup skeleton for displaying job on specific endpoint #5
+
+[33mcommit 56da5462ffa6b79b567dbbdc89d6ba64c96ae045[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Mon Apr 4 15:10:06 2016 +0100
+
+    emailing agencies on new job submission #8
+
+[33mcommit a2bd81e95498a1faa310311b695bf0c9c40a33f9[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Mon Apr 4 14:56:12 2016 +0100
+
+    skeleton of vacancy submission set up #5
+
+[33mcommit f5080db8c500eaa06ff109a714043b95f243dd46[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Mon Apr 4 12:42:45 2016 +0100
+
+    tidy up redis functions
+
+[33mcommit b23984afd21b5efdf6dfc5065a33ae5026b2ee01[m
+Author: Huw Davies <dear.huw@hdrdavi.es>
+Date:   Mon Apr 4 11:41:48 2016 +0100
+
+    removed codeCov badge
+
+[33mcommit 9e1daed632b25ad13bc75b46ad2d7f2bd7978ccd[m
+Merge: 2c6cffa e0b1371
+Author: Huw Davies <dear.huw@hdrdavi.es>
+Date:   Mon Apr 4 11:40:33 2016 +0100
+
+    Merge pull request #46 from hutosaha/heroku
+    
+    Emails from admin and testing
+
+[33mcommit e0b13710923bc412c27b654242ca870b4675b00f[m
+Merge: d955eec ce21e20
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Mon Apr 4 11:32:21 2016 +0100
+
+    added tests  merge conflicts redis function #11
+
+[33mcommit d955eec8d9156692a9a70c1853147790288ed9f8[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Mon Apr 4 11:08:23 2016 +0100
+
+    adding image ot email #10
+
+[33mcommit ce21e206cf17c4e4646c21804fec2c2367f40e88[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Mon Apr 4 11:01:04 2016 +0100
+
+    added final test to pass all redis functions so far :boom:
+
+[33mcommit e1f79e792d9ea27122a631631f5f667a31623599[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Mon Apr 4 10:40:34 2016 +0100
+
+    reshuffling variable declarations
+
+[33mcommit 97dd3c152b3365d844e7445bfc3a3e83f7e024a6[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Mon Apr 4 10:13:48 2016 +0100
+
+    adding emails #10
+
+[33mcommit 60e91afa34955d3afb355c3a4b2eb15c5129393c[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Fri Apr 1 18:39:43 2016 +0100
+
+    adding email functionality#10
+
+[33mcommit a2c89fae4f64912bc3d4c7a64a7d5e1f55f89ec4[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Fri Apr 1 17:54:14 2016 +0100
+
+    got to 30 tests
+
+[33mcommit 8c12b13ecb316fd0d4d9e8a98f2ba6f132abe98e[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Fri Apr 1 17:12:22 2016 +0100
+
+    more tests and corrected addAgencySignUpDetails
+
+[33mcommit 50a323e8ce1af11cb3bf3214ba000637f6d615f2[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Fri Apr 1 16:52:03 2016 +0100
+
+    more tests and rewrote one redis function
+
+[33mcommit 864fea250930f9e800aebb43b5a37d7090477cdf[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Fri Apr 1 16:22:38 2016 +0100
+
+     configure bell
+
+[33mcommit 498340979068c0388947e48a3abdc3f167f7c1c2[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Fri Apr 1 16:13:18 2016 +0100
+
+     configure bell
+
+[33mcommit 19af3a235f1fea4713c25fc57c2e30478668d4a4[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Fri Apr 1 15:50:47 2016 +0100
+
+    added redis-url #1
+
+[33mcommit 18a46ab08a855825520aefd048956a47527f0665[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Fri Apr 1 15:26:20 2016 +0100
+
+    adding procfile
+
+[33mcommit 84748a2dfdd1d2e149ed83134dbaefbed3d1ce41[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Fri Apr 1 15:11:48 2016 +0100
+
+    tidy up test file
+
+[33mcommit 2070cef147cfece975241c1efc02ad33f9806896[m
+Merge: e236c83 2c6cffa
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Fri Apr 1 14:47:39 2016 +0100
+
+    fixed merge conflict login.js and home.js
+
+[33mcommit 2c6cffaa14cd7385d4c71ac2efff66bb72971041[m
+Merge: e80305d 3809591
+Author: Tormod Smith <tormodsmith@gmail.com>
+Date:   Fri Apr 1 14:45:08 2016 +0100
+
+    Merge pull request #45 from hutosaha/adminuserinfo
+    
+    Adminuserinfo
+
+[33mcommit 3809591ca82b32f48e1bc78152e0c5d7cef3d01c[m
+Merge: 1c95c3d 79f62e1
+Author: Huw <hdrdavies@gmail.com>
+Date:   Fri Apr 1 14:40:12 2016 +0100
+
+    Merge branch 'adminuserinfo' of github.com:hutosaha/hrns- into adminuserinfo
+
+[33mcommit 1c95c3d36e8ceca8b3e62f2c206a2fe6289e580a[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Fri Apr 1 14:39:10 2016 +0100
+
+    sorted agency user auth flow #2
+
+[33mcommit 137ed6ce81fdad64ecd282a35ca0881713b7f174[m
+Merge: 2f7ec96 caa00f2
+Author: Huw <hdrdavies@gmail.com>
+Date:   Fri Apr 1 12:38:13 2016 +0100
+
+    merging agency login and adminuserinfo
+
+[33mcommit 79f62e1e6396ff937c3c9727dddaa7b920fcb74b[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Fri Apr 1 12:21:34 2016 +0100
+
+    adding helpers.js
+
+[33mcommit 2f7ec963dc29bdafd6777e2be4453313cd176c67[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Fri Apr 1 12:08:55 2016 +0100
+
+    added character counter for company description #39
+
+[33mcommit caa00f25eafd024d547f2ec197338c7a74083dc8[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Fri Apr 1 12:05:14 2016 +0100
+
+    added html template for users#10
+
+[33mcommit 7a53a76ef6826e602abdcddb38be06f957a60e70[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Fri Apr 1 11:35:43 2016 +0100
+
+    added labels on agency signup form #2
+
+[33mcommit 76c378440d3824f37edb998808881360899ea9fa[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Fri Apr 1 11:33:32 2016 +0100
+
+    modified regex whitelist for signup forms
+
+[33mcommit 6fcf2cdac523f946b9feba0239a3dc8f6043e992[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Fri Apr 1 11:14:06 2016 +0100
+
+    revert
+
+[33mcommit 4c51adb3ac9eafa4e44990e30f6ef6e6500062ac[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Fri Apr 1 10:57:54 2016 +0100
+
+    modified client signup html #39 #1
+
+[33mcommit 054b3ed31c43e80be423f35ab02e5ac737efbb95[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Thu Mar 31 19:15:58 2016 +0100
+
+    adding tabs for user info#10
+
+[33mcommit 9288cce77b9b252b2b633f39b21701cab32850db[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Thu Mar 31 19:00:50 2016 +0100
+
+    removed message contexts in signup pages #1 #2
+
+[33mcommit 4bff29edcb509867e75d6f94b31f1d75c2ac8ae0[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Thu Mar 31 18:54:57 2016 +0100
+
+    agency signup and client signup functioning #2 #1
+
+[33mcommit 60543440b5bc68712e795073c99a832ec2851477[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Thu Mar 31 17:47:39 2016 +0100
+
+    agency signup skeleton built #44 #2
+
+[33mcommit d7540c518f8bfbc069eaa7bb22d7707fb10c4a04[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Thu Mar 31 16:52:57 2016 +0100
+
+     adding handlebars #10
+
+[33mcommit fa02f86d455bb61452fa348846c9ea15acab1227[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Thu Mar 31 16:31:13 2016 +0100
+
+    added approved users#10
+
+[33mcommit 6253361fbd8efb54310916d58c75cb0e294339fa[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Thu Mar 31 13:03:18 2016 +0100
+
+    prepopulate name on client signup #44
+
+[33mcommit d788506462553becb1e4602ce8198d71cfe716bb[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Thu Mar 31 12:02:47 2016 +0100
+
+    adding helpers #26
+
+[33mcommit c9e222d4d237a829c03ce6e5be19581b71f0b6f7[m
+Merge: a1ed06f 7b6de31
+Author: Huw Davies <dear.huw@hdrdavi.es>
+Date:   Thu Mar 31 11:32:20 2016 +0100
+
+    Merge pull request #43 from hutosaha/test
+    
+    Test  #1
+
+[33mcommit 7b6de310901fcf2dba9f0280e31a7b1c4b0f3e0c[m
+Merge: 1193cc5 a1ed06f
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Thu Mar 31 11:19:33 2016 +0100
+
+    adding redis to tests#1
+
+[33mcommit 1193cc5cde547eefe50d962e28177ce3a5c78578[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Thu Mar 31 11:12:27 2016 +0100
+
+    adding redis to tests#1
+
+[33mcommit ace9621880f022d2e943f1dddea639ebf32e37c1[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Thu Mar 31 10:24:15 2016 +0100
+
+    adding status code to description #1
+
+[33mcommit a1ed06fd4fa825afd83284867c859ec0ca13a92b[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Thu Mar 31 10:23:03 2016 +0100
+
+    modified tests to pass travis
+
+[33mcommit e236c83d595f37865150c2c643e2ede3b72821e4[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Thu Mar 31 10:07:39 2016 +0100
+
+    adding console log to see credentials #1
+
+[33mcommit fa7da373bc0352823118ca5bed69bd7b16c5f458[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Wed Mar 30 19:14:26 2016 +0100
+
+    adding redis test
+
+[33mcommit 249aa4f4bb3ffa0443c99639e257281cb3c27de8[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Wed Mar 30 17:05:18 2016 +0100
+
+    adding test payload and test header functions #1
+
+[33mcommit e5788caca6ee59e25cda612a8ba7df5d6d69f5ef[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Wed Mar 30 13:46:14 2016 +0100
+
+    added further tests login #1
+
+[33mcommit c254a09286d9aaeaf09bd882d655b146dc0d78c7[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Wed Mar 30 12:38:26 2016 +0100
+
+    renamed client signup file
+
+[33mcommit 24f022bd825dc3c6176abc554b4e8f57c84db5a1[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Wed Mar 30 11:53:45 2016 +0100
+
+    user details are being printed out #11
+
+[33mcommit 18396cb056b54930678241b884c7af52d1d83cc5[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Wed Mar 30 11:08:53 2016 +0100
+
+    added redis function for grabbing users for approval #11
+
+[33mcommit c295cd9602ca23095df6ce6e8d8431dd13ad0e25[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Wed Mar 30 10:43:26 2016 +0100
+
+    add skeleton for approve users page #11
+
+[33mcommit a96346bbe5c73010eb5b80a573bb7c4dc26cd7da[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Tue Mar 29 17:58:28 2016 +0100
+
+    validation on signup form and DB function #1
+
+[33mcommit fa2e10dc472ccb7a30cfd7214f8e50620178030a[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Tue Mar 29 16:28:24 2016 +0100
+
+    adding validation #1
+
+[33mcommit 0d9ab287dbcd19780d5e2b78623db96e3c810408[m
+Merge: e678103 b7e5bbe
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Tue Mar 29 16:26:04 2016 +0100
+
+    adding validation
+
+[33mcommit e678103d6373a7f86a4a1f5d2b58294a5c16fd9d[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Tue Mar 29 14:38:10 2016 +0100
+
+    adding admin
+
+[33mcommit b7e5bbe09456973dea1cb0012153785ddde9b732[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Tue Mar 29 13:13:16 2016 +0100
+
+    setup signup endpoints and skeleton functions #1
+
+[33mcommit a16b2c89af18844201948a37b69f19958984e489[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Tue Mar 29 12:41:38 2016 +0100
+
+    setup skeleton client signup page #1
+
+[33mcommit 12d1808e26d7ffa5d22abdbca7ddd7cfe31022db[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Tue Mar 29 12:19:14 2016 +0100
+
+    added logut functionality #34
+
+[33mcommit 3a8bdfc755d38eba7d9fc60b32a1715c1e2b57c9[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Tue Mar 29 11:56:14 2016 +0100
+
+    readjust lint config #33
+
+[33mcommit af88d0c59fe8437e7031f4194b61bc1ca1a47391[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Tue Mar 29 11:54:01 2016 +0100
+
+    rearrange index.js and eslint config #33
+
+[33mcommit 85acea1e1a924c3f79a31a01ee18a9d8fdab5f28[m
+Merge: 027d081 a6e344c
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Tue Mar 29 11:40:16 2016 +0100
+
+    setup admin login #22
+
+[33mcommit a6e344cd4c9bd25320f69cf4dbfde67de8e8a89c[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Tue Mar 29 10:23:32 2016 +0100
+
+    corrected clientsignup path
+
+[33mcommit dd9813288c9b6021f35e22da4a5efca90c4920f6[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Tue Mar 29 10:10:26 2016 +0100
+
+    added eslint
+
+[33mcommit 027d0813e0dc09cd81ce2b689a3de1df48de31d7[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Tue Mar 29 09:56:32 2016 +0100
+
+    wrapped tests inside a server
+
+[33mcommit 95abaf3ccabc84e3bbc2aff11124fc0fe6f9adc1[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Sat Mar 26 13:08:31 2016 +0000
+
+    refactored test code
+
+[33mcommit e0a9227878565210e0dcff9e84cb55b09c2f78e8[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Sat Mar 26 11:56:40 2016 +0000
+
+    adding eslint
+
+[33mcommit c2740f99663b5f835f61250009d9812afb797f28[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Fri Mar 25 12:26:25 2016 +0000
+
+    added eslintrc to gitignore
+
+[33mcommit e80305d81cea44ed2e4acf1198127aff66230b34[m
+Merge: 1404f1f 19a8c2b
+Author: Tormod Smith <tormodsmith@gmail.com>
+Date:   Thu Mar 24 18:06:32 2016 +0000
+
+    Merge pull request #35 from hutosaha/setup
+    
+    setting up endpoints, tests, and db for #1
+
+[33mcommit 19a8c2b75e6c1bf3790e7a59761b65fd41c1747b[m
+Merge: 338c2cf 52bdf9b
+Author: Tormod Smith <tormodsmith@gmail.com>
+Date:   Thu Mar 24 18:04:59 2016 +0000
+
+    Merge pull request #36 from hutosaha/testing
+    
+    added passing tests for client and candidate scopes #1
+
+[33mcommit 52bdf9b4d2dcd8e3eca4d5a2bf5227d4a4ace91e[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Thu Mar 24 17:59:09 2016 +0000
+
+    added passing tests for client and candidate scopes #1
+
+[33mcommit 338c2cf8db0e65eef17628bafd12318567cb83ec[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Thu Mar 24 17:01:45 2016 +0000
+
+     updating testing routes #1
+
+[33mcommit dd356e0b1109733e851b73e464879843e2249282[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Thu Mar 24 15:44:07 2016 +0000
+
+    building login routes #1
+
+[33mcommit 1542b08ae0717b38f603f42ad2fddbb1df665dd1[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Thu Mar 24 14:00:37 2016 +0000
+
+    fixed test script tag #1
+
+[33mcommit f3ac5e4e9cbad34eec6c7b64597bbdba6d8c4113[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Thu Mar 24 13:58:17 2016 +0000
+
+    fixed test script tag
+
+[33mcommit e27363ab8011a22dfe068faa4d7701c77b63deb7[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Thu Mar 24 12:03:04 2016 +0000
+
+    merged changes
+
+[33mcommit ed07e3780d3f9ccdda5be59a8d434e79cdb82c8a[m
+Merge: cfbae50 df2eece
+Author: Huw <hdrdavies@gmail.com>
+Date:   Thu Mar 24 12:01:56 2016 +0000
+
+    Merge branch 'setup' of github.com:hutosaha/hrns- into setup
+
+[33mcommit cfbae50c8e3f7c1394374930168e210142d03ddd[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Thu Mar 24 12:01:36 2016 +0000
+
+    adjusted test script in package.json
+
+[33mcommit df2eecef1e827c12b7d62124894f600d4d093402[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Thu Mar 24 11:50:46 2016 +0000
+
+    fixing travis
+
+[33mcommit 162aacfe70092fd45bec9009030462ad5fa4512b[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Thu Mar 24 11:46:32 2016 +0000
+
+    fixing travis
+
+[33mcommit 2763de553ef7d32b59ba68edb2f443337c010c9e[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Thu Mar 24 11:34:02 2016 +0000
+
+    changing login route
+
+[33mcommit 5c4151f523b436c61b345ce76a8377c8e080ff95[m
+Merge: 1404f1f a87952f
+Author: Huw <hdrdavies@gmail.com>
+Date:   Thu Mar 24 11:17:50 2016 +0000
+
+    Merge branch 'setup' of github.com:hutosaha/hrns- into setup
+
+[33mcommit a87952f6c7ca30658f8c96dda9cde3c807366e80[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Thu Mar 24 11:14:59 2016 +0000
+
+    adding dump to gitignore
+
+[33mcommit 7de2d99247c5d5e89ec7581cb2b96476a38ad28d[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Thu Mar 24 10:32:18 2016 +0000
+
+    trying to fix travis + tidy up
+
+[33mcommit b9d9ae76d5e726fd4d399f381c8856e19af5d608[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Wed Mar 23 18:30:49 2016 +0000
+
+    configured travis file again
+
+[33mcommit 3e7c259751c0eedfc52ceedb2b175609b94c8140[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Wed Mar 23 18:25:31 2016 +0000
+
+    configured travis file
+
+[33mcommit df893574756db8467cbb9c9b44bbc23e925ba853[m
+Merge: 6d07388 5ae4de0
+Author: Huw <hdrdavies@gmail.com>
+Date:   Wed Mar 23 18:20:08 2016 +0000
+
+    merged branches for #1
+
+[33mcommit 6d07388bdacc5f28e1d2ee03d7b69ef8d476e279[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Wed Mar 23 18:16:48 2016 +0000
+
+    added redis promises #1
+
+[33mcommit 5ae4de04359886ab510ccc678c5118f85a32594f[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Wed Mar 23 18:15:50 2016 +0000
+
+    added test coverage and integration
+
+[33mcommit 1404f1f2bfd4c15a4cfc53233a8a2f6d63360605[m
+Author: Tormod Smith <tormodsmith@gmail.com>
+Date:   Wed Mar 23 17:50:30 2016 +0000
+
+    Update README.md
+
+[33mcommit 79f783fb45be94172b0fac096da3e03c9280722d[m
+Author: Tormod Smith <tormodsmith@gmail.com>
+Date:   Wed Mar 23 16:39:39 2016 +0000
+
+    Update README.md
+
+[33mcommit 5498687561894bfde2490e2520ef2392feff2560[m
+Author: tormod17 <tormodsmith@gmail.com>
+Date:   Wed Mar 23 16:06:27 2016 +0000
+
+    adding auth strategies
+
+[33mcommit 85a2b731a238a932fab23725ad38054e33597480[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Wed Mar 23 14:59:53 2016 +0000
+
+    added files for filestructure #33
+
+[33mcommit fd86ad6e6893ac2006a77c82172875fc5649ecb7[m
+Author: Huw <hdrdavies@gmail.com>
+Date:   Wed Mar 23 14:33:50 2016 +0000
+
+    setup file structure #33
+
+[33mcommit c18410374fa0464a81847f1ccb0a3b4e405feb8b[m
+Author: Huw Davies <dear.huw@hdrdavi.es>
+Date:   Mon Mar 14 10:33:32 2016 +0000
+
+    Initial commit
