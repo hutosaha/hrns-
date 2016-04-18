@@ -1,7 +1,7 @@
 'use strict';
 
 const test = require('tape');
-// const moment = require('moment');
+const moment = require('moment');
 
 const server = require('../lib/index.js');
 const redis = require('../lib/db/redis.js');
@@ -229,11 +229,77 @@ server.init(1, (err, server) => {
                     client.sismember('testvidadminShortlist', 'testcvid', (err, reply) => {
                         t.equal(reply, 1, 'cv is in vacancy set');
                         t.end();
-                        client.flushdb();
-                        client.quit();
+                      
+                    });
+                });
+        });
+
+
+          const jobPayload = { jobTitle: 'Tester', jobDescription: 'testing everything', jobCategory: 'test', teamCulture: 'persistant', typesOfProjects: 'tests', teamSize: 5, skillOne: 'test', skillTwo: 'test again', skillThree: 'test more', personality: 'persistant', salary: 100000, searchProgress: 'slow', searchDeadline: '12\/12\/2016' };
+    
+            test('addjob adds vacancy to db , livejobs & user id set also adds companyName and email', (t) => {
+                   let id = 'testid';
+                   let vid = 'testvid';
+                redis.addJob(jobPayload, id, vid, (res) => {
+                    console.log('RES', res);
+                    client.exists(vid, (err, reply) => {
+                        t.equal(reply, 1, 'cv exists in database');
+                    });
+                    client.hget(vid, 'dateSubmitted', (err, reply) => {
+                        t.equal(reply, moment().format('Do MMMM YYYY'), 'dateSubmitted key is in database');
+                    });
+                    client.hget(vid, 'searchDeadline', (err, reply) => {
+                        t.equal(reply, '12th December 2016', 'searchDeadl key is in database');
+                    });
+                    client.sismember(id + 'jobs', vid, (err, reply) => {
+                        t.equal(reply, 1, 'cv is in vacancy set');
+                    });
+                    client.sismember('liveJobs', vid, (err, reply) => {
+                        t.equal(reply, 1, 'cv is in livejobs set');
+                        t.end();
                     });
                 });
             });
+            test('removeVacancy removes from livejobs and idjobs', (t) => {
+                let id = 'testid';
+                let vid = 'testvid';
+                redis.removeVacancy(vid, id, (res) => {
+                    console.log('RES', res);
+                    client.exists(vid, (err, reply) => {
+                        t.equal(reply, 0, 'cv exists in database');
+                    });
+                    client.sismember(id + 'jobs', vid, (err, reply) => {
+                        t.equal(reply, 0, 'cv is not in vacancy set');
+                    });
+                    client.sismember('liveJobs', vid, (err, reply) => {
+                        t.equal(reply, 0, 'cv is not in livejobs set');
+                        t.end();
+                    });
+                });
+          
+            });
+            test('test hset', (t) => {
+                let id = 'testid';
+                let key = 'fieldname';
+                let value ='value';
+                redis.setHashKeyValue(id, key, value, (res) => {
+                    console.log('RES', res);
+                    client.exists(id, key,(err,reply) => {
+                        t.equal(reply,1, 'hash key exists in db');
+                        t.end();
+                        //client.flushdb();            
+                        client.quit();
+                    });
+                  
+                });
+           });
+
+
+
+
+
+
+
     });
 
     server.stop();
