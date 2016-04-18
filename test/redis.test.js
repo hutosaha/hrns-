@@ -177,8 +177,7 @@ server.init(1, (err, server) => {
                     client.sismember(set, hash, (err, reply) => {
                         t.equal(reply, 1, 'hash is now in set!');
                         t.end();
-                        client.flushdb();
-                        // client.quit();
+                    
                     });
                 });
             });
@@ -216,10 +215,10 @@ server.init(1, (err, server) => {
                         t.equal(reply, 1, 'cv exists in database');
                     });
                     client.hget(vid, 'dateSubmitted', (err, reply) => {
-                        t.equal(reply, moment().format('MMMM Do YYYY'), 'dateSubmitted key is in database');
+                        t.equal(reply, moment().format('Do MMMM YYYY'), 'dateSubmitted key is in database');
                     });
                     client.hget(vid, 'searchDeadline', (err, reply) => {
-                        t.equal(reply, 'December 12th 2016', 'searchDeadl key is in database');
+                        t.equal(reply, '12th December 2016', 'searchDeadl key is in database');
                     });
                     client.sismember(id + 'jobs', vid, (err, reply) => {
                         t.equal(reply, 1, 'cv is in vacancy set');
@@ -266,6 +265,7 @@ server.init(1, (err, server) => {
                         t.equal(reply,1, 'hash key exists in db');
                         t.end();
                     });
+                    client.flushdb();            
                     client.quit();
 
                 });
