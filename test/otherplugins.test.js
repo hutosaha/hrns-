@@ -44,10 +44,10 @@ server.init(0, (err, server) => {
     testEndPoint(server, '/login/candidate', 'GET', 302, 'unauth user responds with redirect 302');
     testEndPoint(server, '/login/candidate', 'GET', 302, 'auth user redirects : ', candidateCookie);
 
-    testEndPoint(server, '/login/client', 'GET', 302, 'unauth user responds with redirect to linkedin 302'); 
-    
-    testEndPoint(server, '/login/client', 'GET', 302, 'auth unapproved user  redirects', clientCookie);
- 
+
+    testEndPoint(server, '/login/client', 'GET', 302, 'unauth user responds with redirect 302');
+    //  testEndPoint(server, '/login/client', 'GET', 302, 'auth user  redirects', clientCookie);
+
     testHeaderLocation(server, '/login/client', 'GET', '/clientsignup', 'redirects to client signup form', nonExistingUserCookie);
 
     testPayload(server, '/logout', 'GET', 'You\'ve logged out!', 'payload has heading logged out');
