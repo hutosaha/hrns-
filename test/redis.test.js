@@ -278,7 +278,7 @@ server.init(1, (err, server) => {
                 });
           
             });
-            test('test hset', (t) => {
+           /* test('test hset', (t) => {
                 let id = 'testhashid';
                 let key = 'fieldname';
                 let value ='value';
@@ -293,7 +293,7 @@ server.init(1, (err, server) => {
                   
                 });
            });
-
+*/
 
 
 
