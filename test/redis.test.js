@@ -221,7 +221,7 @@ server.init(1, (err, server) => {
                 let payload = {
                     file_url: 'https://harnesscvbucket.s3.amazonaws.com/' + cvid
                 };
-                redis.addCVagainstVacancy(payload, vid, (res) => {
+                redis.addCVagainstVacancy(payload, cvid, vid, (res) => {
                     console.log('RES', res);
                     client.exists(cvid, (err, reply) => {
                         t.equal(reply, 1, 'cv exists in database');
@@ -229,17 +229,19 @@ server.init(1, (err, server) => {
                     client.sismember('testvidadminShortlist', 'testcvid', (err, reply) => {
                         t.equal(reply, 1, 'cv is in vacancy set');
                         t.end();
+                        
                       
                     });
                 });
         });
 
 
-          const jobPayload = { jobTitle: 'Tester', jobDescription: 'testing everything', jobCategory: 'test', teamCulture: 'persistant', typesOfProjects: 'tests', teamSize: 5, skillOne: 'test', skillTwo: 'test again', skillThree: 'test more', personality: 'persistant', salary: 100000, searchProgress: 'slow', searchDeadline: '12\/12\/2016' };
     
             test('addjob adds vacancy to db , livejobs & user id set also adds companyName and email', (t) => {
                    let id = 'testid';
                    let vid = 'testvid';
+                const jobPayload = { jobTitle: 'Tester', jobDescription: 'testing everything', jobCategory: 'test', teamCulture: 'persistant', typesOfProjects: 'tests', teamSize: 5, skillOne: 'test', skillTwo: 'test again', skillThree: 'test more', personality: 'persistant', salary: 100000, searchProgress: 'slow', searchDeadline: '12th December 2016', dateSubmitted:'18th April 2016'};
+
                 redis.addJob(jobPayload, id, vid, (res) => {
                     console.log('RES', res);
                     client.exists(vid, (err, reply) => {
@@ -274,6 +276,7 @@ server.init(1, (err, server) => {
                     client.sismember('liveJobs', vid, (err, reply) => {
                         t.equal(reply, 0, 'cv is not in livejobs set');
                         t.end();
+                        client.quit();
                     });
                 });
           
@@ -292,8 +295,8 @@ server.init(1, (err, server) => {
                     });
                   
                 });
-           });
-*/
+           });*/
+
 
 
 
