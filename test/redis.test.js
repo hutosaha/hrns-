@@ -279,7 +279,7 @@ server.init(1, (err, server) => {
           
             });
             test('test hset', (t) => {
-                let id = 'testid';
+                let id = 'testhashid';
                 let key = 'fieldname';
                 let value ='value';
                 redis.setHashKeyValue(id, key, value, (res) => {
