@@ -43,25 +43,6 @@
         {{/each}}
     </tbody>
 </table>
-<script type="text/javascript">
-$(function() {
-    $('.ui.dropdown')
-        .dropdown('set selected', 'value')
-
-
-    $("input").change(function() {
-        var stage = $(this).val()
-        var cvid = $(this).attr("id")
-        var vid =$(this).attr("name")
-        $.ajax({
-            url:"/progress/"+cvid+'/'+vid+'/'+stage,
-            success: function(data){
-              console.log('DATA', JSON.parse(data))
-              alert('moved onto the next stage ' + JSON.parse(data));
-            }
-        })
-
-     });
-});
+<script src='../js/app.js' type="text/javascript">
 </script>
 <!-- Their client shortlist will appear here  -->

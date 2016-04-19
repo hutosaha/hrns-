@@ -1,38 +1,65 @@
-{{> vacancy}}
-<table class="ui basic table">
-    <tbody>
-      {{#each cvs}}
-        <tr>
-            <td><h4>{{agencyName}}</h4></td>
-            <td><h4>{{candidateName}}</h4></td>
-            <td><h4>{{jobTitle}}</h4></td>
-            <td><h4>{{salary}}</h4></td>
-            <td><h4>{{email}}</h4></td>
-            <td><h4>{{contactNumber}}</h4></td>
-        </tr>
-        <tr>
-            {{#if linkedInProfile}}
-            <td><h4>{{linkedInProfile}}</h4></td>
-            {{/if }}
-            <td></td>  <!-- for proper rendering purposes-->
-            <td></td>  <!-- for proper rendering purposes-->
-            <td> <a href="{{file_url}}" type="text" download><h4>Download CV</h4></a></td>
-            <td><a href="/admin/job/{{vid}}/reject/{{agencyEmail}}/{{cvid}}"><button class="ui inverted red button">Reject</button></a></td>
-            <td>
-              <div class="ui compact menu">
-                  <div class="ui simple dropdown item">
-                    Accept
-                    <i class="dropdown icon"></i>
-                    <div class="menu">
-                      <a href="/admin/job/{{vid}}/accept/gold/{{agencyEmail}}/{{cvid}}"><div class="item"><i class="trophy yellow icon"></i>Gold</div></a>
-                      <a href="/admin/job/{{vid}}/accept/silver/{{agencyEmail}}/{{cvid}}"><div class="item"><i class="trophy grey icon"></i>Silver</div></a>
-                      <a href="/admin/job/{{vid}}/accept/bronze/{{agencyEmail}}/{{cvid}}"><div class="item"><i class="trophy brown icon"></i>Bronze</div></a>
+ {{> vacancy}}
+<div class="ui divider"></div>
+<a href="/admin/job/{{vid}}/{{clientEmail}}">
+    <button class="ui inverted blue button">Notify Client</button>
+</a>
+{{#unless}}
+<button class="ui inverted green button" id="submitRatings">Save Changes</button>
+<br> 
+{{#if message}}
+<h3>{{message}}</h3>
+ {{/if}}
+ <br>
+<div id="candidates">
+    <table class="ui basic table">
+        <tbody>
+            {{#each cvs}}
+            <tr>
+                <td>
+                    <h4>{{agencyName}}</h4>
+                    <h4>{{candidateName}}</h4>
+                </td>
+                <td>
+                    <h4>{{jobTitle}}</h4>
+                    <h4>{{salary}}</h4>
+                </td>
+                <td>
+                   
+                    {{#if linkedInProfile}}
+                      <h4>{{linkedInProfile}}</h4>
+                    {{/if }}
+                </td>
+              
+                <td>
+                    <h4>{{email}}</h4>
+                    <h4>{{contactNumber}}</h4>
+                    
+                </td>
+                             
+                <!-- for proper rendering purposes-->
+                <td> <a href="{{file_url}}" type="text" download><h4>Download CV</h4></a></td>
+                  <td>
+                    <a href="/admin/job/{{vid}}/reject/{{agencyEmail}}/{{cvid}}">
+                        <button class="ui inverted red button">Reject</button>
+                    </a>
+                
+                </td>
+                <td>             
+                    <div class="ui compact menu">
+                        <div class="ui simple selection dropdown">
+                            <input data-aEmail="{{agencyEmail}}" type="hidden" name="{{vid}}" id="{{cvid}}">
+                            <i class="dropdown icon"></i>
+                            <div class="default text">Rate</div>
+                            <div class="menu">
+                                <div class="item" data-value="gold"><i class="trophy yellow icon"></i>Gold</div>
+                                <div class="item" data-value="silver"><i class="trophy grey icon"></i>Silver</div>
+                                <div class="item" data-value="bronze"><i class="trophy brown icon"></i>Bronze</div>
+                            </div>
+                        </div>
                     </div>
-                  </div>
-              </div>
-             </td>
-        </tr>
-    {{/each}}
-    </tbody>
-    <a href="/admin/job/{{vid}}/{{clientEmail}}"><button class="ui inverted blue button">Notify Client</button></a>
-</table>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
