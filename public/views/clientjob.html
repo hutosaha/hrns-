@@ -1,14 +1,16 @@
 {{> vacancy}}
+<br>
+<div class="ui divider"></div>
 <div class="ui stackable grid">
       {{#each cvs}}
-      <div class="ui eight column row">
+      <div class="ui five column row">
 
           <div class="column">
               <h5>{{candidateName}}</h5>
           </div>
 
           <div class="column">
-              <h5>{{jobTitle}}</h5>
+              {{rating rating}}
           </div>
 
           <div class="column">
@@ -16,45 +18,44 @@
           </div>
 
           <div class="column">
-              <a href="mailto:{{email}}"><h5>{{email}}</h5></a>
-          </div>
-
-          <div class="column desktop only">
-              <a href="tel:{{contactNumber}}"><h5>{{contactNumber}}</h5></a>
-          </div>
-
-          <div class="column desktop only">
-            {{#if linkedInProfile}}
-                <h5>{{linkedInProfile}}</h5>
-            {{/if }}
-          </div>
-
-          <div class="column">
                 <a href="{{file_url}}" type="text" download><h5>Download CV</h5></a>
           </div>
 
           <div class="column">
-            <a href="/client/job/{{vid}}/reject/{{agencyEmail}}/{{cvid}}">
-                <button class="ui inverted red button">Reject</button>
+            <a href="/client/job/{{vid}}/accept/{{agencyEmail}}/{{cvid}}">
+                <button class="ui inverted blue button">Accept</button>
             </a>
           </div>
 
-          <td>
-              <div class="ui compact menu">
-                  <div class="ui selection dropdown">
-                      <input type="hidden" name="{{vid}}" id="{{cvid}}">
-                      <i class="dropdown icon"></i>
-                      <div class="default text">Progress</div>
-                      <div class="menu">
-                          <div class="item" data-value="1">Stage 1</div>
-                          <div class="item" data-value="2"> Stage 2</div>
-                          <div class="item" data-value="3">Stage 3</div>
-                      </div>
-                  </div>
-              </div>
-          </td>
+      </div>
+      <div class="ui five column row">
+
+        <div class="column">
+            <h5>{{jobTitle}}</h5>
+        </div>
+
+        <div class="column desktop only">
+          {{#if linkedInProfile}}
+              <h5>{{linkedInProfile}}</h5>
+          {{/if }}
+        </div>
+
+        <div class="column">
+            <a href="mailto:{{email}}"><h5>{{email}}</h5></a>
+        </div>
+
+        <div class="column desktop only">
+            <a href="tel:{{contactNumber}}"><h5>{{contactNumber}}</h5></a>
+        </div>
+
+        <div class="column">
+          <a href="/client/job/{{vid}}/reject/{{agencyEmail}}/{{cvid}}">
+              <button class="ui inverted red button">Reject</button>
+              <!-- add reasons for rejection here-->
+          </a>
+        </div>
+
       </div>
       <div class="ui divider"></div>
       {{/each}}
 </div>
-<!-- Their client shortlist will appear here  -->
