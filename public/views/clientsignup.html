@@ -1,6 +1,5 @@
 <h1 class="ui block header">Sign Up</h1>
 <div class="ui divider"></div>
-
 <form action="/clientsignup" method="POST" class="ui form">
     <div class="two fields">
         <div class="required field">
@@ -23,10 +22,12 @@
         </div>
     </div>
     <div class="field">
-        <label for="companyDescription"> Company Description (optional) </label>
+        <label for="companyDescription"> Company Description </label>
         <textarea rows="4" id="companyDescription" type="text" name="companyDescription" pattern="{{frontendInput}}" title="no ankle brackets, square brackets or slashes" placeholder="Company Description" maxlength="500"></textarea>
     </div>
-    <div id="textarea_feedback"></div>
+    <div class="field">
+        <h5 id="textarea_feedback"></h5>
+    </div>
     <div class="two fields">
         <div class="required field">
             <label for="companySector"> Company Sector </label>
@@ -55,28 +56,42 @@
     </div>
     <div class="two fields">
         <div class="field">
-            <label for="website"> Company Website (optional)
+            <label for="website"> Company Website
                 <input type="text" name="website" placeholder="Company Website" pattern="{{url}}" title="Please enter 'https://' or 'http://' before domain name">
             </label>
         </div>
         <div class="field">
-            <label for="twitter"> Company Twitter (optional)
+            <label for="twitter"> Company Twitter
                 <input type="text" name="twitter" placeholder="Twitter" pattern="{{frontendInput}}" title="no ankle brackets, square brackets or slashes" title="Please enter a valid twitter handle, e.g. '@harness'">
             </label>
         </div>
     </div>
     <div class="two fields">
         <div class="field">
-            <label for="facebook"> Company Facebook (optional)
+            <label for="facebook"> Company Facebook
                 <input type="text" name="facebook" placeholder="Facebook" pattern="{{url}}" title="Please enter 'https://' or 'http://' before domain name">
             </label>
         </div>
         <div class="field">
-            <label for="linkedin"> Company LinkedIn (optional)
+            <label for="linkedin"> Company LinkedIn
                 <input type="text" name="linkedin" placeholder="LinkedIn" pattern="{{url}}" title="Please enter 'https://' or 'http://' before domain name">
             </label>
         </div>
     </div>
-    <input type="submit" value="Sign Up" class="ui blue button">
+    <div class="two fields">
+        <input type="hidden" id="file_url" name="logo_url" value="https://cdn0.iconfinder.com/data/icons/home-house-pack/512/7-512.png" />
+        <div class="field">
+            <h4>Select your company logo</h4>
+            <input name="companyLogo" type="file" id="file_input" />
+            <div class="ui divider"></div>
+            <div class="ui tiny image">
+                <img id="preview" src="https://cdn0.iconfinder.com/data/icons/home-house-pack/512/7-512.png" />
+            </div>
+        </div>
+        <div class="field">
+            <input type="submit" value="Sign Up" class="ui blue button">
+        </div>
+    </div>
 </form>
 <script type="text/javascript" src="public/js/clientCharacterCounter.js"></script>
+<script type="text/javascript" src="public/js/aws.js"></script>

@@ -1,6 +1,6 @@
 (function() {
-    document.getElementById('cv').onchange = function() {
-        var files = document.getElementById("cv").files;
+    document.getElementById('file_input').onchange = function() {
+        var files = document.getElementById("file_input").files;
         var file = files[0];
         if (file == null) {
             alert("No file selected.");
@@ -34,7 +34,10 @@ function upload_file(file, signed_request, url){
     xhr.setRequestHeader('x-amz-acl', 'public-read-write');
     xhr.onload = function() {
         if (xhr.status === 200) {
-            document.getElementById('file_url').value = url; // where cvid is being saved & submitted with form
+            document.getElementById('file_url').value = url;
+            if(document.getElementById('preview')) { 
+                document.getElementById('preview').src =url; // where cvid is being saved & submitted with form
+            }
         }
     };
     xhr.onerror = function() {
