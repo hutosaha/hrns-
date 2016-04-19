@@ -240,7 +240,7 @@ server.init(1, (err, server) => {
             test('addjob adds vacancy to db , livejobs & user id set also adds companyName and email', (t) => {
                    let id = 'testid';
                    let vid = 'testvid';
-                const jobPayload = { jobTitle: 'Tester', jobDescription: 'testing everything', jobCategory: 'test', teamCulture: 'persistant', typesOfProjects: 'tests', teamSize: 5, skillOne: 'test', skillTwo: 'test again', skillThree: 'test more', personality: 'persistant', salary: 100000, searchProgress: 'slow', searchDeadline: '12th December 2016', dateSubmitted:'18th April 2016'};
+                const jobPayload = { jobTitle: 'Tester', jobDescription: 'testing everything', jobCategory: 'test', teamCulture: 'persistant', typesOfProjects: 'tests', teamSize: 5, skillOne: 'test', skillTwo: 'test again', skillThree: 'test more', personality: 'persistant', salary: 100000, searchProgress: 'slow', searchDeadline: '12th December 2016', dateSubmitted:moment().format('Do MMMM YYYY')};
 
                 redis.addJob(jobPayload, id, vid, (res) => {
                     console.log('RES', res);
