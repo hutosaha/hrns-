@@ -3,29 +3,36 @@
     <tbody>
       {{#each cvs}}
         <tr>
-            <td>
-                <h4>{{agencyName}}</h4>
-            </td>
-            <td> <h4>{{candidateName}}</h4></td>
-            <td> <h4>{{jobTitle}}</h4></td>
-            <td> <h4>{{contactNumber}}</h4></td>
-
-            <td>  <a href="{{file_url}}" type="text" download>   <h4>Download CV</h4></a></td>
-            <td><button class="ui inverted red button">Reject</button></td>
+            <td><h4>{{agencyName}}</h4></td>
+            <td><h4>{{candidateName}}</h4></td>
+            <td><h4>{{jobTitle}}</h4></td>
+            <td><h4>{{salary}}</h4></td>
+            <td><h4>{{email}}</h4></td>
+            <td><h4>{{contactNumber}}</h4></td>
+        </tr>
+        <tr>
+            {{#if linkedInProfile}}
+            <td><h4>{{linkedInProfile}}</h4></td>
+            {{/if }}
+            <td></td>  <!-- for proper rendering purposes-->
+            <td></td>  <!-- for proper rendering purposes-->
+            <td> <a href="{{file_url}}" type="text" download><h4>Download CV</h4></a></td>
+            <td><a href="/admin/job/{{vid}}/reject/{{agencyEmail}}/{{cvid}}"><button class="ui inverted red button">Reject</button></a></td>
             <td>
               <div class="ui compact menu">
-              <div class="ui simple dropdown item">
-               Accept
-                <i class="dropdown icon"></i>
-                <div class="menu">
-                  <div class="item"><i class="trophy yellow icon"></i>Gold</div>
-                  <div class="item"><i class="trophy grey icon"></i>Silver</div>
-                  <div class="item"><i class="trophy brown icon"></i>Bronze</div>
-                </div>
+                  <div class="ui simple dropdown item">
+                    Accept
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                      <a href="/admin/job/{{vid}}/accept/gold/{{agencyEmail}}/{{cvid}}"><div class="item"><i class="trophy yellow icon"></i>Gold</div></a>
+                      <a href="/admin/job/{{vid}}/accept/silver/{{agencyEmail}}/{{cvid}}"><div class="item"><i class="trophy grey icon"></i>Silver</div></a>
+                      <a href="/admin/job/{{vid}}/accept/bronze/{{agencyEmail}}/{{cvid}}"><div class="item"><i class="trophy brown icon"></i>Bronze</div></a>
+                    </div>
+                  </div>
               </div>
-            </div>
              </td>
         </tr>
     {{/each}}
     </tbody>
+    <a href="/admin/job/{{vid}}/{{clientEmail}}"><button class="ui inverted blue button">Notify Client</button></a>
 </table>
