@@ -1,67 +1,60 @@
 {{> vacancy}}
-<table class="ui basic table">
-    <tbody>
-        {{#each cvs}}
-        <tr>
-            <td>
-                <h4>{{candidateName}}</h4>
-                <h4>{{agencyName}}</h4></td>
-            <td>
-                <h4>{{jobTitle}}</h4>
-                <h4>{{salary}}</h4></td>
-            <td><a href="mailto:{{email}}"><h4>{{email}}</h4></a>
-                <br><a href="tel:{{contactNumber}}"><h4>{{contactNumber}}</h4></a></td>
+<div class="ui stackable grid">
+      {{#each cvs}}
+      <div class="ui eight column row">
+
+          <div class="column">
+              <h5>{{candidateName}}</h5>
+          </div>
+
+          <div class="column">
+              <h5>{{jobTitle}}</h5>
+          </div>
+
+          <div class="column">
+              <h5>{{salary}}</h5>
+          </div>
+
+          <div class="column">
+              <a href="mailto:{{email}}"><h5>{{email}}</h5></a>
+          </div>
+
+          <div class="column desktop only">
+              <a href="tel:{{contactNumber}}"><h5>{{contactNumber}}</h5></a>
+          </div>
+
+          <div class="column desktop only">
             {{#if linkedInProfile}}
-            <td>
-                <h4>{{linkedInProfile}}</h4></td>
+                <h5>{{linkedInProfile}}</h5>
             {{/if }}
-            <td></td>
-            <!-- for proper rendering purposes-->
-            <td></td>
-            <!-- for proper rendering purposes-->
-            <td> <a href="{{file_url}}" type="text" download><h4>Download CV</h4></a></td>
-            <td>
-                <a href="/admin/job/{{vid}}/reject/{{agencyEmail}}/{{cvid}}">
-                    <button class="ui inverted red button">Reject</button>
-                </a>
-            </td>
-            <td>
-                <div class="ui compact menu">
-                    <div class="ui selection dropdown">
-                        <input type="hidden" name="{{vid}}" id="{{cvid}}">
-                        <i class="dropdown icon"></i>
-                        <div class="default text">Progress</div>
-                        <div class="menu">
-                            <div class="item" data-value="1">Stage 1</div>
-                            <div class="item" data-value="2"> Stage 2</div>
-                            <div class="item" data-value="3">Stage 3</div>
-                        </div>
-                    </div>
-                </div>
-            </td>
-        </tr>
-        {{/each}}
-    </tbody>
-</table>
-<script type="text/javascript">
-$(function() {
-    $('.ui.dropdown')
-        .dropdown('set selected', 'value')
+          </div>
 
+          <div class="column">
+                <a href="{{file_url}}" type="text" download><h5>Download CV</h5></a>
+          </div>
 
-    $("input").change(function() {
-        var stage = $(this).val()
-        var cvid = $(this).attr("id")
-        var vid =$(this).attr("name")
-        $.ajax({
-            url:"/progress/"+cvid+'/'+vid+'/'+stage,
-            success: function(data){
-              console.log('DATA', JSON.parse(data))
-              alert('moved onto the next stage ' + JSON.parse(data));
-            }
-        })
+          <div class="column">
+            <a href="/client/job/{{vid}}/reject/{{agencyEmail}}/{{cvid}}">
+                <button class="ui inverted red button">Reject</button>
+            </a>
+          </div>
 
-     });
-});
-</script>
+          <td>
+              <div class="ui compact menu">
+                  <div class="ui selection dropdown">
+                      <input type="hidden" name="{{vid}}" id="{{cvid}}">
+                      <i class="dropdown icon"></i>
+                      <div class="default text">Progress</div>
+                      <div class="menu">
+                          <div class="item" data-value="1">Stage 1</div>
+                          <div class="item" data-value="2"> Stage 2</div>
+                          <div class="item" data-value="3">Stage 3</div>
+                      </div>
+                  </div>
+              </div>
+          </td>
+      </div>
+      <div class="ui divider"></div>
+      {{/each}}
+</div>
 <!-- Their client shortlist will appear here  -->
