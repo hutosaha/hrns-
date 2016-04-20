@@ -1,3 +1,11 @@
+.ui.grid.listView {
+    margin-top: 20px;
+}
+
+.modal-content {
+    margin: 4em;
+}
+
 /*==============================
   Container for every page - see content partial
 ================================*/
@@ -25,19 +33,18 @@ h1.ui.huge.header {
     text-align: center;
 }
 
-/*==============================
-  CLIENT HOMEPAGE (/client)
-================================*/
-
-.ui.grid.listView {
-    margin-top: 20px;
-}
 /*===========================
-  Vacancy
+  Vacancy partial
   ===========================*/
+
 .vacancy-dates {
-		line-height: 0.5em;
+		line-height: 0.3em;
  }
+.company-logo {
+	border:1px solid #d4d4d5;
+	padding:5px;
+	box-shadow: 0 0 0 1px #d4d4d5;
+}
 
 /*==============================
   More than standard laptop size

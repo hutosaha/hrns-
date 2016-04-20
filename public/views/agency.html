@@ -3,10 +3,12 @@
 {{#if message}}
 <h3>{{{message}}} </h3>
 {{/if }}
-<div class="ui grid listView">
+<div class="ui stackable grid listView">
     {{#each data}}
-    <!-- an image might go in here....  -->
-    <div class="ui four column row">
+    <div class="ui five column row">
+        <div class="ui column">
+          <img class="ui tiny image company-logo" src="{{logo_url}}"/>
+        </div>
         <div class="ui column">
             <p>{{companyName}}</p>
         </div>
