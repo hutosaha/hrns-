@@ -5,13 +5,13 @@ var $ = window.$;
 
 $('.reject').click(function() {
 
-  var name = $(this).data('candidate-name');
+  var candidateName = $(this).data('candidate-name');
   var cvid = $(this).data('cvid');
   var vid = $(this).data('vid');
   var email = $(this).data('agency-email');
 
-  if (name) {
-    $('#modal-heading').html('Sorry to hear you want to reject ' + name);
+  if (candidateName) {
+    $('#modal-heading').html('Sorry to hear you want to reject ' + candidateName);
   }
 
   $('.ui.modal.reject').modal('show');
@@ -24,18 +24,25 @@ $('.reject').click(function() {
     $('#modal-submit').toggleClass('loading');
 
     $.ajax({
-        url: vid + '/reject/' + email + '/' + cvid + '/' + reason,
+        url: '/client/job/reject',
+        data: {
+          candidateName: candidateName,
+          cvid: cvid,
+          vid: vid,
+          email: email,
+          reason: reason
+        },
+        async: true,
         success: function(res) {
-          console.log('res', res);
           $('#modal-submit').remove();
           if (res) {
             $('#modal-message').toggleClass('hidden');
             $('#modal-message').html('Candidate successfully rejected!!');
-            setTimeout(() => location = '/client/job/' + vid, 3000);
+            // setTimeout(() => location = '/client/job/' + vid, 3000);
           } else {
             $('#modal-message').toggleClass('hidden');
             $('#modal-message').html('Something went wrong, please try again...');
-            setTimeout(() => location = '/client/job/' + vid, 3000);
+            // setTimeout(() => location = '/client/job/' + vid, 3000);
           }
         }
     });

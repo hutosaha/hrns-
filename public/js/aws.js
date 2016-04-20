@@ -1,5 +1,9 @@
+var $ = window.$;
+
 (function() {
     document.getElementById('file_input').onchange = function() {
+
+        $('input[type=submit]').prop('disabled', true);
         var files = document.getElementById("file_input").files;
         var file = files[0];
         if (file == null) {
@@ -10,7 +14,7 @@
     };
 })();
 
-// creates a request to make asign a signature.
+// creates a request to make assign a signature.
 function get_signed_request(file) {
     var xhr = new XMLHttpRequest();
     xhr.open("GET", "/sign_s3?file_name="+ file.name + "&file_type=" + file.type);
@@ -34,9 +38,10 @@ function upload_file(file, signed_request, url){
     xhr.setRequestHeader('x-amz-acl', 'public-read-write');
     xhr.onload = function() {
         if (xhr.status === 200) {
-            document.getElementById('file_url').value = url;
-            if(document.getElementById('preview')) { 
-                document.getElementById('preview').src =url; // where cvid is being saved & submitted with form
+            document.getElementById('file_url').value = url; // where cvid is being saved & submitted with form
+            $('input[type=submit]').prop('disabled', false); // to ensure cvid is supplied in payload 
+            if(document.getElementById('preview')) {
+                document.getElementById('preview').src = url;
             }
         }
     };
