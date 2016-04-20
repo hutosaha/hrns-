@@ -1,10 +1,11 @@
 <div class="field">
-  <img class="ui middle aligned tiny image" 
-  src="{{data.logo_url}}"><h1 class="ui block header">{{data.jobTitle}} Vacancy</h1>
+    <h1 class="ui block header">{{data.jobTitle}} Vacancy</h1>
 </div>
 <div class="ui divider"></div>
-
 <h1 class="header">{{data.companyName}}</h1>
+<img class="ui middle aligned small company-logo image" 
+  src="{{data.logo_url}}">
+
 <h3 class="header">Salary: {{data.salary}}</h3>
 <h4 class="header vacancy-dates">Submitted: {{data.dateSubmitted}}</h4>
 {{#if data.searchDeadline}}

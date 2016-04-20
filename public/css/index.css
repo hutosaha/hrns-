@@ -36,8 +36,15 @@ h1.ui.huge.header {
   Vacancy
   ===========================*/
 .vacancy-dates {
-		line-height: 0.5em;
+		line-height: 0.3em;
  }
+.company-logo {
+	border:1px solid #d4d4d5;
+	padding:5px;
+	box-shadow: 0 0 0 1px #d4d4d5;
+}
+
+
 
 /*==============================
   More than standard laptop size
