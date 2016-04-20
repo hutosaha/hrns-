@@ -3,66 +3,67 @@
 {{#if message}}
 <h3>{{message}}</h3>
 {{/if }}
-<div class="ui grid listView">
+<div class="ui stackable grid listView">
   {{#each data}}
     <div class="ui six column row">
-          <div class="ui column">
-              <p>{{companyName}}</p>
+          <div class="column">
+              <h5>{{companyName}}</h5>
           </div>
-          <div class="ui column">
-              <p>{{contactName}}</p>
+          <div class="column">
+              <h5>{{contactName}}</h5>
           </div>
-          <div class="ui column">
-              <p>{{contactNumber}}</p>
+          <div class="column">
+            <a href="tel:{{contactNumber}}"><h5>{{contactNumber}}</h5></a>
           </div>
-          <div class="ui column">
-              <p>{{email}}</p>
+          <div class="column">
+              <a href="mailto:{{email}}"><h5>{{email}}</h5></a>
           </div>
-          <div class="ui column">
+          <div class="column">
               <a href="approveuser/approve/{{id}}/{{email}}">
                   <button class="ui inverted blue button">Approve</button>
               </a>
           </div>
-          <div class="ui column">
+          <div class="column">
               <a href="approveuser/reject/{{email}}">
-                  <button class="ui inverted blue button">Reject</button>
+                  <button class="ui inverted red button">Reject</button>
               </a>
           </div>
-          <!-- Don't think a view more is 100% necessary on this page as there won't be tons and tons of people -->
       </div>
       <div class="ui three column row">
-          <div class="ui column">
+          <div class="column">
+              <h5>Sector</h5>
               <p>{{companySector}}</p>
           </div>
-          <div class="ui column">
-              <p>{{companySize}}</p>
+          <div class="column">
+              <h5>{{companySize}}</h5>
           </div>
-          <div class="ui column">
+          <div class="column">
               {{#if website}}
-              <p>{{website}}</p>
+              <a href="{{website}}"><h5>{{website}}</h5></a>
               {{/if }}
           </div>
       </div>
       <div class="ui three column row">
-        <div class="ui column">
+        <div class="column">
             {{#if twitter}}
-            <p>{{twitter}}</p>
+            <h5>{{twitter}}</h5>
             {{/if }}
         </div>
-        <div class="ui column">
+        <div class="column">
             {{#if facebook}}
-            <p>{{facebook}}</p>
+            <a href="{{facebook}}"><h5>{{facebook}}</h5></a>
             {{/if }}
         </div>
-        <div class="ui column">
+        <div class="column">
             {{#if linkedin}}
-            <p>{{linkedin}}</p>
+            <a href="{{linkedin}}"><h5>{{linkedin}}</h5></a>
             {{/if }}
         </div>
       </div>
       {{#if companyDescription}}
       <div class="ui one column row">
-        <div class="ui column">
+        <div class="column">
+            <h5>Company Description</h5>
             <p>{{companyDescription}}</p>
         </div>
       </div>
