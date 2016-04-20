@@ -15,7 +15,7 @@ $(document).ready(function() {
     cvid = $(this).data('cvid');
     vid = $(this).data('vid');
     agencyEmail = $(this).data('agency-email');
-    $(this).parent()
+  
     if (candidateName) {
       $('#modal-heading').html('Sorry to hear you want to reject ' + candidateName);
     }
