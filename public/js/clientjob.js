@@ -2,26 +2,45 @@
 
 var $ = window.$;
 
+$(document).ready(function() {
 
-$('.reject').click(function() {
+  var candidateName,
+      cvid,
+      vid,
+      agencyEmail;
 
-  var candidateName = $(this).data('candidate-name');
-  var cvid = $(this).data('cvid');
-  var vid = $(this).data('vid');
-  var email = $(this).data('agency-email');
+  $('.reject-button').click(function() {
 
-  if (candidateName) {
-    $('#modal-heading').html('Sorry to hear you want to reject ' + candidateName);
-  }
+    candidateName = $(this).data('candidate-name');
+    cvid = $(this).data('cvid');
+    vid = $(this).data('vid');
+    agencyEmail = $(this).data('agency-email');
 
-  $('.ui.modal.reject').modal('show');
-  $('.ui.radio.checkbox').checkbox();
+    console.log('###candidateName', candidateName);
+    console.log('###cvid', cvid);
+    console.log('###vid', vid);
+    console.log('###agencyEmail', agencyEmail);
+
+    if (candidateName) {
+      $('#modal-heading').html('Sorry to hear you want to reject ' + candidateName);
+    }
+
+    $('.ui.modal.reject-modal').modal('show');
+    $('.ui.radio.checkbox').checkbox();
+    
+  });
 
   $('#modal-submit').click(function() {
+    console.log('candidateName', candidateName);
+    console.log('cvid', cvid);
+    console.log('vid', vid);
+    console.log('agencyEmail', agencyEmail);
 
     var reason = $('input[name="rejection-reason"]:checked').val();
 
-    $('#modal-submit').toggleClass('loading');
+    console.log('reason', reason);
+
+    // $('#modal-submit').toggleClass('loading');
 
     $.ajax({
         url: '/client/job/reject',
@@ -29,11 +48,12 @@ $('.reject').click(function() {
           candidateName: candidateName,
           cvid: cvid,
           vid: vid,
-          email: email,
+          email: agencyEmail,
           reason: reason
         },
         async: true,
         success: function(res) {
+          console.log('FE res', res);
           $('#modal-submit').remove();
           if (res) {
             $('#modal-message').toggleClass('hidden');
@@ -47,4 +67,5 @@ $('.reject').click(function() {
         }
     });
   });
+
 });
