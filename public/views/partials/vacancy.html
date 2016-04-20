@@ -1,7 +1,11 @@
-<h1 class="ui block header">{{data.jobTitle}} Vacancy</h1>
+<div class="field">
+    <h1 class="ui block header">{{data.jobTitle}} Vacancy</h1>
+</div>
 <div class="ui divider"></div>
 
-<h2 class="header">{{data.companyName}}</h2>
+<h1 class="header">{{data.companyName}}</h1>
+<img class="ui middle aligned small company-logo image" src="{{data.logo_url}}">
+
 <h3 class="header">Salary: {{data.salary}}</h3>
 <h4 class="header vacancy-dates">Submitted: {{data.dateSubmitted}}</h4>
 {{#if data.searchDeadline}}
@@ -9,7 +13,6 @@
 {{/if }}
 
 <br>
-
 <div class="ui stackable grid">
 
       <div class="ui one column row">
@@ -71,9 +74,3 @@
           <div class="column"></div> <!-- Leave this empty div here so page renders properly -->
       </div>
 </div>
-
-<br>
-{{#if message}}
-<h3>{{message}}</h3>
-<br>
-{{/if}}
