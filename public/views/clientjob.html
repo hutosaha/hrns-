@@ -2,7 +2,6 @@
 {{#if cvs}}
 <h2 class="header">Candidate Shortlist</h2>
 {{/if }}
-<br>
 <div class="ui divider"></div>
 <div class="ui stackable grid listView">
       {{#each cvs}}
@@ -33,9 +32,9 @@
             <h5>{{jobTitle}}</h5>
         </div>
 
-        <div class="column desktop only">
+        <div class="column">
           {{#if linkedInProfile}}
-              <h5>{{linkedInProfile}}</h5>
+              <a href="{{linkedInProfile}}"><h5>{{linkedInProfile}}</h5></a>
           {{/if }}
         </div>
 
