@@ -15,16 +15,16 @@
             {{#each cvs}}
 
             <div class="ui five column row">
-                  <div class="column">
+                  <div class="column text-overflow-element">
                       <h5>{{agencyName}}</h5>
                   </div>
-                  <div class="column">
+                  <div class="column text-overflow-element">
                       <h5>{{candidateName}}</h5>
                   </div>
-                  <div class="column">
+                  <div class="column text-overflow-element">
                       <h5>{{jobTitle}}</h5>
                   </div>
-                  <div class="column">
+                  <div class="column text-overflow-element">
                       <h5>{{salary}}</h5>
                   </div>
                   <div class="column">
@@ -44,15 +44,15 @@
               </div>
 
               <div class="ui five column row">
-                  <div class="column">  <!-- for proper rendering purposes-->
+                  <div class="column text-overflow-element">  <!-- for proper rendering purposes-->
                     {{#if linkedInProfile}}
                       <a href="{{linkedInProfile}}"><h5>{{linkedInProfile}}</h5></a>
                     {{/if }}
                   </div>
-                  <div class="column">
+                  <div class="column text-overflow-element">
                     <a href="tel:{{contactNumber}}"><h5>{{contactNumber}}</h5></a>
                   </div>
-                  <div class="column">
+                  <div class="column text-overflow-element">
                     <a href="mailto:{{email}}"><h5>{{email}}</h5></a>
                   </div>
                   <div class="column">

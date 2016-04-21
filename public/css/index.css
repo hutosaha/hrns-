@@ -6,6 +6,11 @@
     margin: 4em;
 }
 
+.text-overflow-element {
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
 /*==============================
   Container for every page - see content partial
 ================================*/

@@ -6,33 +6,33 @@
 <div class="ui stackable grid listView">
   {{#each data}}
     <div class="ui four column row">
-          <div class="column">
+          <div class="column text-overflow-element">
               <h5>Company Name</h5>
               <p>{{companyName}}</p>
           </div>
-          <div class="column">
+          <div class="column text-overflow-element">
               <h5>Contact Name</h5>
               <p>{{contactName}}</p>
           </div>
-          <div class="column">
+          <div class="column text-overflow-element">
             <h5>Contact Number</h5>
             <a href="tel:{{contactNumber}}"><p>{{contactNumber}}</p></a>
           </div>
-          <div class="column">
+          <div class="column text-overflow-element">
               <h5>Email</h5>
               <a href="mailto:{{email}}"><p>{{email}}</p></a>
           </div>
       </div>
       <div class="ui four column row">
-          <div class="column">
+          <div class="column text-overflow-element">
               <h5>Sector</h5>
               <p>{{companySector}}</p>
           </div>
-          <div class="column">
+          <div class="column text-overflow-element">
               <h5>Company Size</h5>
               <p>{{companySize}}</p>
           </div>
-          <div class="column">
+          <div class="column text-overflow-element">
               {{#if website}}
               <h5>Company Website</h5>
               <a href="{{website}}"><p>{{website}}</p></a>
@@ -45,19 +45,19 @@
           </div>
       </div>
       <div class="ui four column row">
-        <div class="column">
+        <div class="column text-overflow-element">
             {{#if twitter}}
             <h5>Twitter</h5>
             <p>{{twitter}}</p>
             {{/if }}
         </div>
-        <div class="column">
+        <div class="column text-overflow-element">
             {{#if facebook}}
             <h5>Facebook</h5>
             <a href="{{facebook}}"><p>{{facebook}}</p></a>
             {{/if }}
         </div>
-        <div class="column">
+        <div class="column text-overflow-element">
             {{#if linkedin}}
             <h5>LinkedIn</h5>
             <a href="{{linkedin}}"><p>{{linkedin}}</p></a>
