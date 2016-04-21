@@ -23,11 +23,11 @@
               </div>
               <div class="ui field">
                   <label>Contact Number</label>
-                  <p>{{contactNumber}}</p>
+                  <a href="tel:{{contactNumber}}"><p>{{contactNumber}}</p></a>
               </div>
               <div class="ui field">
                   <label>Email</label>
-                  <p>{{email}}</p>
+                  <a href="mailto:{{email}}"><p>{{email}}</p></a>
               </div>
               <div class="ui field">
                   <label>Size</label>
@@ -36,7 +36,7 @@
               {{#if website}}
               <div class="ui field">
                   <label>Website</label>
-                  <p>{{website}}</p>
+                  <a href="{{website}}"><p>{{website}}</p></a>
               </div>
               {{/if }}
               {{#if twitter}}
@@ -90,11 +90,11 @@
               </div>
               <div class="column">
                 <h5>Contact Number</h5>
-                <p>{{contactNumber}}</p>
+                <a href="tel:{{contactNumber}}"><p>{{contactNumber}}</p></a>
               </div>
               <div class="column">
                 <h5>Email</h5>
-                <p>{{email}}</p>
+                <a href="mailto:{{email}}"><p>{{email}}</p></a>
               </div>
               <div class="column">
                 <h5>Size</h5>
@@ -102,7 +102,7 @@
               </div>
               <div class="column">
                 <h5>Agency Specialism</h5>
-                <p>{{agencySpecialism}}</p>
+                <p>{{specialism agencySpecialism}}</p>
               </div>
             </div>
         </div>
