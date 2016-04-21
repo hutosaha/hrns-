@@ -16,7 +16,7 @@
 ================================*/
 
 .section-container {
-		margin: 5em 5em;
+		padding: 5em;
 }
 
 /*==============================
@@ -59,7 +59,8 @@ h1.ui.huge.header {
 and (min-width : 1224px) {
 
 	.section-container {
-		margin: 5em 15em;
+		margin: 0 auto;
+    padding: 5em;
 	}
 
 	.section-container {
