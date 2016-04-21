@@ -7,16 +7,20 @@
   {{#each data}}
     <div class="ui four column row">
           <div class="column">
-              <h5>{{companyName}}</h5>
+              <h5>Company Name</h5>
+              <p>{{companyName}}</p>
           </div>
           <div class="column">
-              <h5>{{contactName}}</h5>
+              <h5>Contact Name</h5>
+              <p>{{contactName}}</p>
           </div>
           <div class="column">
-            <a href="tel:{{contactNumber}}"><h5>{{contactNumber}}</h5></a>
+            <h5>Contact Number</h5>
+            <a href="tel:{{contactNumber}}"><p>{{contactNumber}}</p></a>
           </div>
           <div class="column">
-              <a href="mailto:{{email}}"><h5>{{email}}</h5></a>
+              <h5>Email</h5>
+              <a href="mailto:{{email}}"><p>{{email}}</p></a>
           </div>
       </div>
       <div class="ui four column row">

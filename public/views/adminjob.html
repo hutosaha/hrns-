@@ -6,61 +6,66 @@
 {{#unless message}}
 <button class="ui inverted green button" id="submitRatings">Save Changes</button>
 {{/unless}}
-<br>
+<div class="ui divider"></div>
 {{#if message}}
 <h3>{{message}}</h3>
  {{/if}}
- <br>
 <div id="candidates">
-    <table class="ui basic table">
-        <tbody>
+    <div class="ui stackable grid listView">
             {{#each cvs}}
-            <tr>
-                <td>
-                    <h4>{{agencyName}}</h4>
-                    <h4>{{candidateName}}</h4>
-                </td>
-                <td>
-                    <h4>{{jobTitle}}</h4>
-                    <h4>{{salary}}</h4>
-                </td>
-                <td>
 
-                    {{#if linkedInProfile}}
-                      <h4>{{linkedInProfile}}</h4>
-                    {{/if }}
-                </td>
-
-                <td>
-                    <h4>{{email}}</h4>
-                    <h4>{{contactNumber}}</h4>
-
-                </td>
-
-                <!-- for proper rendering purposes-->
-                <td> <a href="{{file_url}}" type="text" download><h4>Download CV</h4></a></td>
-                  <td>
-                    <a href="/admin/job/{{vid}}/reject/{{agencyEmail}}/{{cvid}}">
-                        <button class="ui inverted red button">Reject</button>
-                    </a>
-
-                </td>
-                <td>
+            <div class="ui five column row">
+                  <div class="column">
+                      <h5>{{agencyName}}</h5>
+                  </div>
+                  <div class="column">
+                      <h5>{{candidateName}}</h5>
+                  </div>
+                  <div class="column">
+                      <h5>{{jobTitle}}</h5>
+                  </div>
+                  <div class="column">
+                      <h5>{{salary}}</h5>
+                  </div>
+                  <div class="column">
                     <div class="ui compact menu">
-                        <div class="ui selection dropdown">
+                        <div class="ui compact selection dropdown">
                             <input data-aEmail="{{agencyEmail}}" type="hidden" name="{{vid}}" id="{{cvid}}">
                             <i class="dropdown icon"></i>
                             <div class="default text">Rate</div>
                             <div class="menu">
-                                <div class="item" data-value="gold"><i class="trophy yellow icon"></i>Gold</div>
-                                <div class="item" data-value="silver"><i class="trophy grey icon"></i>Silver</div>
-                                <div class="item" data-value="bronze"><i class="trophy brown icon"></i>Bronze</div>
+                                <div class="item" data-value="gold" title="Gold"><i class="trophy yellow icon"></i></div>
+                                <div class="item" data-value="silver" title="Silver"><i class="trophy grey icon"></i></div>
+                                <div class="item" data-value="bronze" title="Bronze"><i class="trophy brown icon"></i></div>
                             </div>
                         </div>
                     </div>
-                </td>
-            </tr>
-            {{/each}}
-        </tbody>
-    </table>
+                  </div>
+              </div>
+
+              <div class="ui five column row">
+                  <div class="column">  <!-- for proper rendering purposes-->
+                    {{#if linkedInProfile}}
+                      <a href="{{linkedInProfile}}"><h5>{{linkedInProfile}}</h5></a>
+                    {{/if }}
+                  </div>
+                  <div class="column">
+                    <a href="tel:{{contactNumber}}"><h5>{{contactNumber}}</h5></a>
+                  </div>
+                  <div class="column">
+                    <a href="mailto:{{email}}"><h5>{{email}}</h5></a>
+                  </div>
+                  <div class="column">
+                    <a href="{{file_url}}" type="text" download><h5>Download CV</h5></a>
+                  </div>
+                  <div class="column">
+                    <a href="/admin/job/{{vid}}/reject/{{agencyEmail}}/{{cvid}}">
+                        <button class="ui inverted red button">Reject</button>
+                    </a>
+                  </div>
+              </div>
+
+            <div class="ui divider"></div>
+        {{/each}}
+    </div>
 </div>
