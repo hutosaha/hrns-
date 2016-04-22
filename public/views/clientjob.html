@@ -3,59 +3,93 @@
 <h2 class="header">Candidate Shortlist</h2>
 {{/if }}
 <div class="ui divider"></div>
-<div class="ui stackable grid listView">
       {{#each cvs}}
-      <div class="ui five column row">
+<div class="ui stackable grid listView" id="{{cvid}}">
+            
+   <div class="ui five column row " >
 
-          <div class="column text-overflow-element">
-              <h5>{{candidateName}}</h5>
-          </div>
-          <div class="column text-overflow-element">
-              {{rating rating}}
-          </div>
-          <div class="column text-overflow-element">
-              <h5>{{salary}}</h5>
-          </div>
-          <div class="column">
-                <a href="{{file_url}}" type="text" download><h5>Download CV</h5></a>
-          </div>
-          <div class="column">
-            <a href="/client/job/{{vid}}/accept/{{agencyEmail}}/{{cvid}}">
-                <button class="ui inverted blue button">Accept</button>
-            </a>
-          </div>
 
-      </div>
-      <div class="ui five column row">
+                <div class="column text-overflow-element">
+                    <h5>{{candidateName}}</h5>
+                </div>
+                <div class="column text-overflow-element">
+                    {{rating rating}}
+                </div>
+                <div class="column text-overflow-element">
+                    <h5>{{salary}}</h5>
+                </div>
+                <div class="column">
+                      <a href="{{file_url}}" type="text" download><h5>Download CV</h5></a>
+                </div>
+                <div class="column">
+                  <a href="/client/job/{{vid}}/accept/{{agencyEmail}}/{{cvid}}">
+                      <button class="ui inverted blue button">Accept</button>
+                  </a>
+                </div>
 
-        <div class="column text-overflow-element">
-            <h5>{{jobTitle}}</h5>
-        </div>
-        <div class="column text-overflow-element">
-          {{#if linkedInProfile}}
-              <a href="{{linkedInProfile}}"><h5>{{linkedInProfile}}</h5></a>
-          {{/if }}
-        </div>
-        <div class="column text-overflow-element">
-            <a href="mailto:{{email}}"><h5>{{email}}</h5></a>
-        </div>
-        <div class="column text-overflow-element">
-            <a href="tel:{{contactNumber}}"><h5>{{contactNumber}}</h5></a>
-        </div>
-        <div class="column">
-              <button class="ui inverted red button reject-button"
-                      data-agency-email="{{agencyEmail}}"
-                      data-cvid="{{cvid}}"
-                      data-candidate-name={{candidateName}}
-                      data-vid="{{vid}}">
-                Reject
-              </button>
-        </div>
+   </div>
+   <div class="ui five column row " >
 
-      </div>
-      <div class="ui divider"></div>
+                <div class="column text-overflow-element">
+                    <h5>{{jobTitle}}</h5>
+                </div>
+                <div class="column text-overflow-element">
+                  {{#if linkedInProfile}}
+                      <a href="{{linkedInProfile}}"><h5>{{linkedInProfile}}</h5></a>
+                  {{/if }}
+                </div>
+                <div class="column text-overflow-element">
+                    <a href="mailto:{{email}}"><h5>{{email}}</h5></a>
+                </div>
+                <div class="column text-overflow-element">
+                    <a href="tel:{{contactNumber}}"><h5>{{contactNumber}}</h5></a>
+                </div>
+                <div class="column">
+                      <button class="ui inverted red button reject-button"
+                              data-agency-email="{{agencyEmail}}"
+                              data-cvid="{{cvid}}"
+                              data-candidate-name={{candidateName}}
+                              data-vid="{{vid}}">
+                        Reject
+                      </button>
+                </div>
+   </div>
+   <div class="ui five column row {{cvid}}">
+
+                  <div class="column">
+                      <h5>{{jobTitle}}</h5>
+                  </div>
+
+                  <div class="column desktop only">
+                    {{#if linkedInProfile}}
+                        <h5>{{linkedInProfile}}</h5>
+                    {{/if }}
+                  </div>
+
+                  <div class="column">
+                      <a href="mailto:{{email}}"><h5>{{email}}</h5></a>
+                  </div>
+
+                  <div class="column desktop only">
+                      <a href="tel:{{contactNumber}}"><h5>{{contactNumber}}</h5></a>
+                  </div>
+
+
+                  <div class="column">
+                        <button class="ui inverted red button reject-button"
+                                data-agency-email="{{agencyEmail}}"
+                                data-cvid="{{cvid}}"
+                                data-candidate-name={{candidateName}}
+                                data-vid="{{vid}}">
+                          Reject
+                        </button>
+                  </div>
+    </div>
+    <div class="ui divider"></div>
+          
+</div>   
       {{/each}}
-</div>
+
 
 <div class="ui modal reject-modal">
     <div class="modal-content">
@@ -80,7 +114,7 @@
                 <br>
                 <br>
                 <button id="modal-submit" class="ui red button" type="button">Confirm rejection</button>
-                <h3 id="modal-message" class="hidden"></h3>
+                 <h3 id="modal-message" class="hidden"></h3>
                 <br>
             </div>
     </div>

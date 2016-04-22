@@ -1,21 +1,23 @@
 var $ = window.$;
 
 (function() {
-    document.getElementById('file_input').onchange = function() {
-
+ 
+    $('input[type=file]').on('change', function(event){
         $('input[type=submit]').prop('disabled', true);
-        var files = document.getElementById("file_input").files;
+        var files = event.target.files;
         var file = files[0];
+        var file_url= event.target.nextElementSibling;
+        var preview =$(this).parent().parent().parent().find('img');
         if (file == null) {
             alert("No file selected.");
         } else {
-            get_signed_request(file);
+            get_signed_request(file, file_url, preview );
         }
-    };
+    });
 })();
 
 // creates a request to make assign a signature.
-function get_signed_request(file) {
+function get_signed_request(file, file_url, preview) {
     var xhr = new XMLHttpRequest();
     xhr.open("GET", "/sign_s3?file_name="+ file.name + "&file_type=" + file.type);
     xhr.onreadystatechange = function() {
@@ -23,7 +25,7 @@ function get_signed_request(file) {
             console.log('xhr.status', xhr.status);
             if (xhr.status === 200) {
                 var response = JSON.parse(xhr.responseText);
-                upload_file(file, response.signed_request, response.url);
+                upload_file(file, file_url, preview, response.signed_request, response.url);
             } else {
                 alert("Error. Try uploading the file again");
             }
@@ -32,16 +34,16 @@ function get_signed_request(file) {
     xhr.send();
 }
 
-function upload_file(file, signed_request, url){
+function upload_file(file, file_url, preview, signed_request, url){
     var xhr = new XMLHttpRequest();
     xhr.open("PUT", signed_request);
     xhr.setRequestHeader('x-amz-acl', 'public-read-write');
     xhr.onload = function() {
         if (xhr.status === 200) {
-            document.getElementById('file_url').value = url; // where cvid is being saved & submitted with form
+          file_url.value = url; // where cvid is being saved & submitted with form
             $('input[type=submit]').prop('disabled', false); // to ensure cvid is supplied in payload 
-            if(document.getElementById('preview')) {
-                document.getElementById('preview').src = url;
+            if(preview) {
+                preview.attr('src',url);
             }
         }
     };
