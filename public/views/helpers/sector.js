@@ -2,7 +2,7 @@
 
 const Handlebars = require('handlebars');
 
-module.exports = (specialism) => {
+module.exports = (sector) => {
   let result = {
     analytics: '<p>Analytics</p>',
     clientServices: '<p>Client Services</p>',
@@ -13,8 +13,8 @@ module.exports = (specialism) => {
     mobile: '<p>Mobile</p>',
     projectManagement: '<p>Project Management</p>',
     socialMedia: '<p>Social Media</p>',
-    defaultSpecialism: '<p>None specified</p>'
+    defaultSector: '<p>None specified</p>'
   };
 
-  return new Handlebars.SafeString(result[specialism] ? result[specialism] : result["defaultSpecialism"]);
+  return new Handlebars.SafeString(result[sector] ? result[sector] : result["defaultSector"]);
 };
