@@ -9,14 +9,13 @@
 {{/unless}}
 
 <div class="ui divider"></div>
-{{#if message}}
-<h3>{{message}}</h3>
- {{/if}}
+
+<h3 id="message">{{message}}</h3>
 
 <div id="candidates">
 
             {{#each cvs}}
-                <div class="ui stackable grid listView" id="{{cvid}}">
+    <div class="ui stackable grid listView" id="{{cvid}}">
             <div class="ui five column row">
                   <div class="column text-overflow-element">
                       <h5>{{agencyName}}</h5>
@@ -67,9 +66,10 @@
                     </a>
                   </div>
               </div>
+              <div class="ui divider"></div>
+       </div>
 
-            <div class="ui divider"></div>
-        {{/each}}
-    </div>
+    {{/each}}
+ 
 </div>
 
