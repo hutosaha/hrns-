@@ -13,12 +13,10 @@ const formatReason                   = utils.formatReason;
 const cleanPayload                   = utils.cleanPayload;
 
 test('formatCandidateKeys returns same key if not found in object', (t) => {
-
   let expected = 'foo';
   let actual = formatCandidateKeys('foo');
   t.equal(actual, expected, 'returns same key!');
   t.end();
-
 });
 
 test('formatEmailToAdminForGenericCV correctly renders HTML', (t) => {
