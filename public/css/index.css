@@ -6,12 +6,18 @@
     margin: 4em;
 }
 
+.hide-element {
+	display:none;
+}
+.show-element {
+	display: show;
+}
 /*==============================
   Container for every page - see content partial
 ================================*/
 
 .section-container {
-		margin: 5em 5em;
+		margin: 5em 3em;
 }
 
 /*==============================
