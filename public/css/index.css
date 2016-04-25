@@ -69,6 +69,10 @@ h1.ui.huge.header {
 .scheduling-heading {
     display: none;
 }
+.ui.radio.checkbox {
+    display: flex;
+    justify-content: center;
+}
 
 /*==============================
 ================================
