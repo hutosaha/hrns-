@@ -1,27 +1,27 @@
 <div class="two fields">
     <div class="required field">
         <label for="candidateName"> Name </label>
-        <input type="text" name="candidateName" placeholder="Name" pattern="{{frontendInput}}" title="no ankle brackets, square brackets or slashes" maxlength="100" required>
+        <input type="text" name="candidateName" placeholder="Name" pattern="{{frontendInput}}" title="no ankle brackets, square brackets or slashes" maxlength="100" value="George Jefferson" required>
     </div>
     <div class="required field">
         <label for="jobTitle"> Job Title </label>
-        <input type="text" name="jobTitle" placeholder="Job Title" pattern="{{frontendInput}}" title="no ankle brackets, square brackets or slashes" maxlength="100" required>
+        <input type="text" name="jobTitle" placeholder="Job Title" pattern="{{frontendInput}}" title="no ankle brackets, square brackets or slashes" maxlength="100" value="developer" required>
     </div>
 </div>
 <div class="two fields">
     <div class="required field">
         <label for="email"> Email Address </label>
-        <input type="email" name="email" placeholder="Email address" maxlength="100" required>
+        <input type="email" name="email" placeholder="Email address" maxlength="100" value="boo@test.com" required>
     </div>
     <div class="required field">
         <label for='contactNumber'> Phone Number </label>
-        <input type="tel" name='contactNumber' placeholder="Phone Number" maxlength="20" pattern={{phoneNumber}} title="Please enter numbers only" required>
+        <input type="tel" name='contactNumber' placeholder="Phone Number" maxlength="20" pattern={{phoneNumber}} title="Please enter numbers only" value="07739399939"required>
     </div>
 </div>
 <div class="two fields">
     <div class="required field">
         <label for="salary"> Current Salary </label>
-        <input type="text" name="salary" placeholder="Current Salary" pattern="{{frontendInput}}" title="no ankle brackets, square brackets or slashes" maxlength="100" required>
+        <input type="text" name="salary" placeholder="Current Salary" pattern="{{frontendInput}}" title="no ankle brackets, square brackets or slashes" maxlength="100" value="£60000" required>
     </div>
     <div class="field">
         <label for="linkedInProfile"> LinkedIn </label>
@@ -31,8 +31,8 @@
 <div class="two fields">
     <div class="required field">
         <label for="cv"> Upload CV </label>
-        <input type="file" name="file_name" id="file_input" />
-        <input type="hidden" id="file_url" name="file_url" />
+        <input type="file" name="file_name" class="file_input" required>
+        <input type="hidden" class="file_url" name="file_url" required>
     </div>
     <div class="field">
         <input type="submit" value="Submit" class="ui blue button" >

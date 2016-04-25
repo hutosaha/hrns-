@@ -6,7 +6,8 @@
   "scripts": {
     "test": "node test/index.js",
     "coverage": "node ./node_modules/.bin/istanbul cover test/index.js",
-    "start": "nodemon start.js"
+    "start": "nodemon --debug start.js",
+    "brk":"nodemon --debig-brk"
   },
   "repository": {
     "type": "git",

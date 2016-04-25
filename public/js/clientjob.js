@@ -15,7 +15,7 @@ $(document).ready(function() {
     cvid = $(this).data('cvid');
     vid = $(this).data('vid');
     agencyEmail = $(this).data('agency-email');
-
+  
     if (candidateName) {
       $('#modal-heading').html('Sorry to hear you want to reject ' + candidateName);
     }
@@ -29,7 +29,7 @@ $(document).ready(function() {
 
     var reason = $('input[name="rejection-reason"]:checked').val();
 
-    $('#modal-submit').toggleClass('loading');
+   // $('#modal-submit').toggleClass('loading');
 
     $.ajax({
         url: '/client/job/reject',
@@ -42,13 +42,16 @@ $(document).ready(function() {
         },
         async: true,
         success: function(res) {
-          $('#modal-submit').remove();
+         // $('#modal-submit').remove();
+         console.log('RES',res);
           if (res) {
-            $('#modal-message').toggleClass('hidden');
-            $('#modal-message').html('Candidate successfully rejected!!');
+           // $('.reject-modal').toggleClass('hidden');
+            $('.ui.modal.reject-modal').modal('hide');
+            var element = document.getElementById(cvid);
+            element.remove();
           } else {
             $('#modal-message').toggleClass('hidden');
-            $('#modal-message').html('Something went wrong, please try again...');
+            $('#modal-message').html('Something went wrong, click outside the box please try again...');
           }
         }
     });

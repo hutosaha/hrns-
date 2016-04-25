@@ -1,72 +1,104 @@
 <h1 class="ui block header">Approve Users</h1>
 <div class="ui divider"></div>
 {{#if message}}
-<h3>{{message}}</h3>
-{{/if }}
+
+<h3>{{message}}</h3> {{/if }} {{#each data}}
 <div class="ui grid listView">
-  {{#each data}}
-    <div class="ui six column row">
-          <div class="ui column">
-              <p>{{companyName}}</p>
-          </div>
-          <div class="ui column">
-              <p>{{contactName}}</p>
-          </div>
-          <div class="ui column">
-              <p>{{contactNumber}}</p>
-          </div>
-          <div class="ui column">
-              <p>{{email}}</p>
-          </div>
-          <div class="ui column">
-              <a href="approveuser/approve/{{id}}/{{email}}">
-                  <button class="ui inverted blue button">Approve</button>
-              </a>
-          </div>
-          <div class="ui column">
-              <a href="approveuser/reject/{{email}}">
-                  <button class="ui inverted blue button">Reject</button>
-              </a>
-          </div>
-          <!-- Don't think a view more is 100% necessary on this page as there won't be tons and tons of people -->
-      </div>
-      <div class="ui three column row">
-          <div class="ui column">
-              <p>{{companySector}}</p>
-          </div>
-          <div class="ui column">
-              <p>{{companySize}}</p>
-          </div>
-          <div class="ui column">
-              {{#if website}}
-              <p>{{website}}</p>
-              {{/if }}
-          </div>
-      </div>
-      <div class="ui three column row">
+    <div class="ui eight column row">
         <div class="ui column">
+            <p>{{companyName}}</p>
+        </div>
+        <div class="ui column">
+            <p>{{contactName}}</p>
+        </div>
+        <div class="ui column">
+            <p>{{contactNumber}}</p>
+        </div>
+        <div class="ui two wide column">
+            <p>{{email}}</p>
+        </div>
+        <div class="ui column">
+        </div>
+        <div class="ui column">
+            <button class="ui inverted blue mini button viewMore">View More</button>
+        </div>
+        <div class="ui column">
+            <a href="approveuser/approve/{{id}}/{{email}}">
+                <button class="ui inverted blue tiny button">Approve</button>
+            </a>
+        </div>
+        <div class="ui column">
+            <a href="approveuser/reject/{{email}}">
+                <button class="ui inverted blue tiny button">Reject</button>
+            </a>
+        </div>
+        <!-- Don't think a view more is 100% necessary on this page as there won't be tons and tons of people -->
+    </div>
+    <div class="ui three column row">
+        <div class="ui column">
+            <p>{{companySector}}</p>
+        </div>
+        <div class="ui column">
+            <p>{{companySize}}</p>
+        </div>
+        <div class="ui column">
+            {{#if website}}
+            <p>{{website}}</p>
+            {{/if }}
+        </div>
+    </div>
+    <div class="ui three column row">
+        <div class="ui column">
+
             {{#if twitter}}
+            <h5>Twitter</h5>
             <p>{{twitter}}</p>
             {{/if }}
         </div>
-        <div class="ui column">
+        <div class="column text-overflow-element">
             {{#if facebook}}
-            <p>{{facebook}}</p>
+            <h5>Facebook</h5>
+            <a href="{{facebook}}"><p>{{facebook}}</p></a>
             {{/if }}
         </div>
-        <div class="ui column">
+        <div class="column text-overflow-element">
             {{#if linkedin}}
-            <p>{{linkedin}}</p>
+            <h5>LinkedIn</h5>
+            <a href="{{linkedin}}"><p>{{linkedin}}</p></a>
             {{/if }}
         </div>
-      </div>
-      {{#if companyDescription}}
-      <div class="ui one column row">
+
+    </div>
+    {{#if companyDescription}}
+    <div class="ui one column row">
         <div class="ui column">
             <p>{{companyDescription}}</p>
         </div>
-      </div>
-      {{/if }}
-  <div class="ui divider"></div>
-  {{/each}}
+    </div>
+    {{/if }}
+    <div class="ui one column row upload">
+        <form class="ui form hide-element" id="{{id}}">
+            <div class="three fields">
+                <div class="field">
+                    <input type="file" name="file_name" class="file_input" required>
+                    <input type="hidden" class="file_url" name="file_url" required>
+                </div>
+                <div class="field">
+                    <div class="ui tiny image company-logo">
+                        <img class="preview" src="https://cdn0.iconfinder.com/data/icons/home-house-pack/512/7-512.png" />
+                    </div>
+                </div>
+                <div class="field">
+                    <input type="submit" value="Submit" class="ui blue tiny button submit">
+                </div>
+                <div class="field">
+                    <h3 class="message"></h3>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="ui divider"></div>
 </div>
+{{/each}}
+<script type="text/javascript" src="../public/js/aws.js"></script>
+<script type="text/javascript" src="../public/js/approveusers.js"></script>
