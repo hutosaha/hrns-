@@ -1,11 +1,14 @@
 {{> vacancy}}
 {{#if cvs}}
 <h2 class="header">Candidate Shortlist</h2>
+<a href="/client/job/{{vid}}/scheduling">
+    <button class="ui inverted green button">Go to Scheduling</button>
+</a>
 {{/if }}
 <div class="ui divider"></div>
       {{#each cvs}}
 <div class="ui stackable grid listView" id="{{cvid}}">
-            
+
    <div class="ui five column row " >
 
 
@@ -55,8 +58,8 @@
                 </div>
    </div>
    <div class="ui divider"></div>
-          
-</div>   
+
+</div>
       {{/each}}
 
 
