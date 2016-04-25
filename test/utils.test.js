@@ -2,10 +2,47 @@
 
 const test = require('tape');
 
-const formatReason = require('../lib/plugins/utils/app.js').formatReason;
-const cleanPayload = require('../lib/plugins/utils/app.js').cleanPayload;
-const rating       = require('../public/views/helpers/rating.js');
-const sector       = require('../public/views/helpers/sector.js');
+const utils = require('../lib/plugins/utils/app.js');
+
+const rating                         = require('../public/views/helpers/rating.js');
+const sector                         = require('../public/views/helpers/sector.js');
+const formatEmailToAdminForGenericCV = utils.formatEmailToAdminForGenericCV;
+const emailAdminForGenericCV         = utils.emailAdminForGenericCV;
+const formatCandidateKeys            = utils.formatCandidateKeys;
+const formatReason                   = utils.formatReason;
+const cleanPayload                   = utils.cleanPayload;
+
+test('formatCandidateKeys returns same key if not found in object', (t) => {
+  let expected = 'foo';
+  let actual = formatCandidateKeys('foo');
+  t.equal(actual, expected, 'returns same key!');
+  t.end();
+});
+
+test('formatEmailToAdminForGenericCV correctly renders HTML', (t) => {
+    let expected = '<h1>Candidate Info</h1><br>Name: Joe<br>Job Title: Dev<br><h4>The candidate\'s CV is downloadable <a href="http://google.com">here</a></h4>';
+    let actual = formatEmailToAdminForGenericCV({ file_url: 'http://google.com', file_name: 'foo', candidateName: 'Joe', jobTitle: 'Dev' });
+    t.equal(actual, expected, 'formats correctly!');
+    t.end();
+});
+
+test('emailAdminForGenericCV callbacks as expected', (t) => {
+
+  emailAdminForGenericCV({}, '', (res) => {
+    let expected = false;
+    let actual = res;
+    t.equal(actual, expected, 'handles failure');
+    t.end();
+  });
+
+  //  fix this, see #93 (HUW)
+
+  // emailAdminForGenericCV({ file_url: 'http://google.com', candidateName: 'foo' }, 'candidate', (res) => {
+  //   let expected = true;
+  //   let actual = res;
+  //   t.equal(actual, expected, 'emailAdmin with Generic CV works!');
+  // });
+});
 
 test('clean payload deletes empty strings in an object', (t) => {
     let payload = { name: 'Joe Bloggs', age: 10, food: '', sport: '' };

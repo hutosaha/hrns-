@@ -29,7 +29,6 @@ server.init(1, (err, server) => {
 
     test('getHashKeyValue gets a hash\'s key value', (t) => {
         hash = 'test1';
-
         client.hset(hash, 'type', 'client');
         redis.getHashKeyValue(hash, 'type', (type) => {
             t.equal(type, 'client', 'types match');
@@ -39,7 +38,6 @@ server.init(1, (err, server) => {
 
     test('addRemoveFromSets adds to a set and removes from another', (t) => {
         hash = 'test2';
-
         client.sadd('awaitingApproval', hash);
         redis.addRemoveFromSets('approvedUsers', 'awaitingApproval', hash, () => {
             client.sismember('approvedUsers', hash, (err, res) => {
@@ -54,7 +52,6 @@ server.init(1, (err, server) => {
 
     test('isAMemberOfSet correctly checks for a set member', (t) => {
         hash = 'test4';
-
         client.sadd('approvedUsers', hash);
         redis.isAMemberOfSet(hash, 'approvedUsers', (res) => {
             t.equal(res, 1, 'correctly identifies hash!');
@@ -64,7 +61,6 @@ server.init(1, (err, server) => {
 
     test('isExistingUser identifies user in DB', (t) => {
         hash = 'test5';
-
         client.del(hash);
         client.hset(hash, 'id', hash, (err, res) => {
             if (res) {
@@ -132,7 +128,6 @@ server.init(1, (err, server) => {
         redis.getSetMembersInfo('testSet', (res) => {
             let actual = res;
             let expected = [{ company: 'facebook', email: 'google@gmail.com', id: 'user123', type: 'client' }, { company: 'facebook', email: 'google@gmail.com', id: 'user123', type: 'client' }];
-
             t.deepEqual(actual, expected, 'The correct data was returned!');
             redis.getSetMembersInfo('testSet2', (res) => {
                 t.equal(res, false, 'empty set should return false');
@@ -181,7 +176,6 @@ server.init(1, (err, server) => {
             let hash2 = 'test13',
                 hash3 = 'test14',
                 set = 'testSet4';
-
             client.sadd(set, hash, hash2, hash3);
             redis.getSetMembers(set, (res) => {
                 t.deepEqual(res.length, 3, 'correct set has been returned!');
@@ -211,10 +205,11 @@ server.init(1, (err, server) => {
                 client.sismember(set, hash, (err, reply) => {
                     t.equal(reply, 1, 'hash is now in set!');
                     t.end();
-                 
+
                 });
             });
         });
+
         test('addcvagainstvacancy, does what it says', (t) => {
                 let vid = 'testvid';
                 let cvid = 'testcvid';
@@ -229,14 +224,10 @@ server.init(1, (err, server) => {
                     client.sismember('testvidadminShortlist', 'testcvid', (err, reply) => {
                         t.equal(reply, 1, 'cv is in vacancy set');
                         t.end();
-                        
-                      
                     });
                 });
         });
 
-
-    
             test('addjob adds vacancy to db , livejobs & user id set also adds companyName and email', (t) => {
                    let id = 'testid';
                    let vid = 'testvid';
@@ -262,6 +253,7 @@ server.init(1, (err, server) => {
                     });
                 });
             });
+
             test('removeVacancy removes from livejobs and idjobs', (t) => {
                 let id = 'testid';
                 let vid = 'testvid';
@@ -279,7 +271,6 @@ server.init(1, (err, server) => {
                         client.quit();
                     });
                 });
-          
             });
            /* test('test hset', (t) => {
                 let id = 'testhashid';
@@ -290,14 +281,12 @@ server.init(1, (err, server) => {
                     client.exists(id, key,(err,reply) => {
                         t.equal(reply,1, 'hash key exists in db');
                         t.end();
-                        //client.flushdb();            
+                        //client.flushdb();
                         client.quit();
                     });
-                  
+
                 });
            });*/
-
     });
-
     server.stop();
 });
