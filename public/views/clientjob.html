@@ -1,92 +1,91 @@
-{{> vacancy}}
-{{#if cvs}}
-<h2 class="header">Candidate Shortlist</h2>
-{{/if }}
+{{> vacancy}} {{#if cvs}}
+<h2 class="header">Candidate Shortlist</h2> {{/if }}
 <div class="ui divider"></div>
-      {{#each cvs}}
+{{#each cvs}}
 <div class="ui stackable grid listView" id="{{cvid}}">
-            
-   <div class="ui five column row " >
-
-
-                <div class="column text-overflow-element">
-                    <h5>{{candidateName}}</h5>
+    <div class="ui five column row ">
+        <div class="column text-overflow-element">
+            <h5>{{candidateName}}</h5>
+        </div>
+        <div class="column text-overflow-element">
+            {{rating rating}}
+        </div>
+        <div class="column text-overflow-element">
+            <h5>{{salary}}</h5>
+        </div>
+        <div class="column">
+            <a href="{{file_url}}" type="text" download><h5>Download CV</h5></a>
+        </div>
+        <div class="column">
+            <a href="/client/job/{{vid}}/accept/{{agencyEmail}}/{{cvid}}">
+                <button class="ui inverted blue button">Accept</button>
+            </a>
+        </div>
+    </div>
+    <div class="ui five column row ">
+        <div class="column text-overflow-element">
+            <h5>{{jobTitle}}</h5>
+        </div>
+        <div class="column text-overflow-element">
+            {{#if linkedInProfile}}
+            <a href="{{linkedInProfile}}"><h5>{{linkedInProfile}}</h5></a> {{/if }}
+        </div>
+        <div class="column text-overflow-element">
+            <a href="mailto:{{email}}"><h5>{{email}}</h5></a>
+        </div>
+        <div class="column text-overflow-element">
+            <a href="tel:{{contactNumber}}"><h5>{{contactNumber}}</h5></a>
+        </div>
+        <div class="column">
+            <button class="ui inverted red button reject-button" data-agency-email="{{agencyEmail}}" data-cvid="{{cvid}}" data-candidate-name={{candidateName}} data-vid="{{vid}}">
+                Reject
+            </button>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+</div>
+{{/each}}
+<div class="ui first coupled modal">
+    <div class="header">
+        Sorry to hear you want to reject this candidate...
+    </div>
+    <div class="content">
+        <h5>What's the reason?</h5>
+        <div class="grouped fields">
+            <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="rejection-reason" checked="" tabindex="0" class="hidden" value="not_enough">
+                    <label>Not enough experience</label>
                 </div>
-                <div class="column text-overflow-element">
-                    {{rating rating}}
-                </div>
-                <div class="column text-overflow-element">
-                    <h5>{{salary}}</h5>
-                </div>
-                <div class="column">
-                      <a href="{{file_url}}" type="text" download><h5>Download CV</h5></a>
-                </div>
-                <div class="column">
-                  <a href="/client/job/{{vid}}/accept/{{agencyEmail}}/{{cvid}}">
-                      <button class="ui inverted blue button">Accept</button>
-                  </a>
-                </div>
-
-   </div>
-   <div class="ui five column row " >
-
-                <div class="column text-overflow-element">
-                    <h5>{{jobTitle}}</h5>
-                </div>
-                <div class="column text-overflow-element">
-                  {{#if linkedInProfile}}
-                      <a href="{{linkedInProfile}}"><h5>{{linkedInProfile}}</h5></a>
-                  {{/if }}
-                </div>
-                <div class="column text-overflow-element">
-                    <a href="mailto:{{email}}"><h5>{{email}}</h5></a>
-                </div>
-                <div class="column text-overflow-element">
-                    <a href="tel:{{contactNumber}}"><h5>{{contactNumber}}</h5></a>
-                </div>
-                <div class="column">
-                      <button class="ui inverted red button reject-button"
-                              data-agency-email="{{agencyEmail}}"
-                              data-cvid="{{cvid}}"
-                              data-candidate-name={{candidateName}}
-                              data-vid="{{vid}}">
-                        Reject
-                      </button>
-                </div>
-   </div>
-   <div class="ui divider"></div>
-          
-</div>   
-      {{/each}}
-
-
-<div class="ui modal reject-modal">
-    <div class="modal-content">
-        <h2 class="ui header" id="modal-heading">Sorry to hear you want to reject this candidate...</h2>
-            <br>
-            <h5>What's the reason?</h5>
-            <br>
-            <div class="grouped fields">
-                  <div class="field">
-                    <div class="ui radio checkbox">
-                      <input type="radio" name="rejection-reason" checked="" tabindex="0" class="hidden" value="not_enough">
-                      <label>Not enough experience</label>
-                    </div>
-                  </div>
-                  <br>
-                  <div class="field">
-                    <div class="ui radio checkbox">
-                      <input type="radio" name="rejection-reason" tabindex="0" class="hidden" value="not_right">
-                      <label>Experience not quite right</label>
-                    </div>
-                  </div>
-                <br>
-                <br>
-                <button id="modal-submit" class="ui red button" type="button">Confirm rejection</button>
-                 <h3 id="modal-message" class="hidden"></h3>
-                <br>
             </div>
+            <br>
+            <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="rejection-reason" tabindex="0" class="hidden" value="not_right">
+                    <label>Experience not quite right</label>
+                </div>
+            </div>
+            <br>
+        </div>
+    </div>
+    <div class="actions">
+        <button id="modal-submit" class="ui primary button" type="button">Confirm rejection</button>
+    </div>
+</div>
+<div class="ui small second coupled modal">
+    <div class="header">
+        Rejection confirmed
+    </div class="content">
+        <div class="description">
+            <p>Sorry this candidate wasn't quite right, thanks for your feedback.</p>
+        </div>
+    </div>
+    <div class="actions">
+        <div class="ui approve button">
+            <i class="checkmark icon"></i> All Done
+        </div>
     </div>
 </div>
 
 <script type="text/javascript" src="/public/js/clientjob.js"></script>
+

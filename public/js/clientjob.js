@@ -20,9 +20,24 @@ $(document).ready(function() {
       $('#modal-heading').html('Sorry to hear you want to reject ' + candidateName);
     }
 
-    $('.ui.modal.reject-modal').modal('show');
+    //$('.ui.modal.reject-modal').modal('show');
     $('.ui.radio.checkbox').checkbox();
 
+
+
+    $('.coupled.modal')
+      .modal({
+        allowMultiple: false
+      })
+    ;
+    // attach events to buttons
+    $('.second.modal')
+      .modal('attach events', '.first.modal .button')
+    ;
+    // show first now
+    $('.first.modal')
+      .modal('show')
+    ;
   });
 
   $('#modal-submit').click(function() {
@@ -42,11 +57,7 @@ $(document).ready(function() {
         },
         async: true,
         success: function(res) {
-         // $('#modal-submit').remove();
-         console.log('RES',res);
           if (res) {
-           // $('.reject-modal').toggleClass('hidden');
-            $('.ui.modal.reject-modal').modal('hide');
             var element = document.getElementById(cvid);
             element.remove();
           } else {
@@ -55,6 +66,11 @@ $(document).ready(function() {
           }
         }
     });
-  });
+
+});
+
+
+
+
 
 });
