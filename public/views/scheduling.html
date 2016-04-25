@@ -1,47 +1,50 @@
 <h1 class="ui block header">{{jobTitle}} Vacancy Scheduling</h1>
 <div class="ui divider"></div>
 
-{{#unless data}}
+{{#unless cvs}}
 <h3 class="ui header">Doesn't look like there's any accepted candidates right now... Go back and accept some <a href="/client/job/{{vid}}">here!</a></h3>
 {{/unless}}
 
-{{#if data}}
-<div class="ui stackable grid">
-  <div class="three wide column text-overflow-element">
-    <h4>Name</h4>
-  </div>
-  <div class="two wide column text-overflow-element">
-    <h4>Salary</h4>
-  </div>
-  <div class="two wide column text-overflow-element">
-    <h4>Email</h4>
-  </div>
-  <div class="four wide column text-overflow-element">
-    <h4>Application Stage</h4>
-  </div>
-  <div class="two wide column">
-    <h4>Rating</h4>
-  </div>
-  <div class="four wide column">
-    <a href="/client/job/{{vid}}/scheduling/update">
-        <button class="ui inverted green button">Save Changes</button>
-    </a>
-  </div>
-</div>
-<div class="ui stackable grid">
-  <div class="seven wide column"></div> <!-- for rendering purposes -->
-  <div class="one wide column">
-    <h5>1</h5>
-  </div>
-  <div class="one wide column">
-    <h5>2</h5>
-  </div>
-  <div class="one wide column">
-    <h5>3</h5>
-  </div>
-  <div class="one wide column">
-    <h5>4</h5>
-  </div>
+{{#if cvs}}
+<div class="scheduling-heading">
+    <div class="ui stackable grid">
+      <div class="three wide column text-overflow-element">
+        <h4>Name</h4>
+      </div>
+      <div class="two wide column text-overflow-element">
+        <h4>Salary</h4>
+      </div>
+      <div class="two wide column text-overflow-element">
+        <h4>Email</h4>
+      </div>
+      <div class="four wide column text-overflow-element text-centering">
+        <h4>Application Stage</h4>
+      </div>
+      <div class="two wide column">
+        <h4>Rating</h4>
+      </div>
+      <div class="three wide column">
+        <a href="/client/job/{{vid}}/scheduling/update">
+            <button class="ui inverted green button">Save Changes</button>
+        </a>
+      </div>
+    </div>
+    <div class="ui stackable grid application-stages">
+      <div class="seven wide column"></div>
+      <div class="one wide column">
+        <h5>1</h5>
+      </div>
+      <div class="one wide column">
+        <h5>2</h5>
+      </div>
+      <div class="one wide column">
+        <h5>3</h5>
+      </div>
+      <div class="one wide column">
+        <h5>4</h5>
+      </div>
+    </div>
+    <div class="ui divider"></div>
 </div>
 
 {{#each cvs}}
@@ -53,7 +56,7 @@
     <h5>{{salary}}</h5>
   </div>
   <div class="two wide column text-overflow-element">
-    <h5>{{email}}</h5>
+    <a href="mailto:{{email}}"><h5>{{email}}</h5></a>
   </div>
   <div class="four wide column text-overflow-element">
     <!-- Four boxes -->
@@ -70,7 +73,8 @@
     </a>
   </div>
 </div>
+<div class="ui divider"></div>
 {{/each}}
 
-<script type="text/javascript" src="public/js/scheduling.js"></script>
+<script type="text/javascript" src="/public/js/scheduling.js"></script>
 {{/if }}
