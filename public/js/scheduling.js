@@ -1,5 +1,4 @@
-// this logic will be used on our scheduling page
-// we'll use similar logic on client/job and admin/job
+// Needs to change?
 
 'use strict';
 
@@ -14,7 +13,8 @@ $(function() {
         var cvid = $(this).attr("id");
         var vid =$(this).attr("name");
         $.ajax({
-            url:"/progress/"+cvid+'/'+vid+'/'+stage, // url for backend
+            // current URL in backend is '/client/job/{vid}/scheduling/update'
+            url:"/progress/"+cvid+'/'+vid+'/'+stage,
             success: function(data) {
               console.log('DATA', JSON.parse(data));
               alert('moved onto the next stage ' + JSON.parse(data));

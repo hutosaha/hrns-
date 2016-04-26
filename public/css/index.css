@@ -11,11 +11,12 @@
     overflow: hidden;
 }
 
-.hide-element {
-	display:none;
+.text-centering {
+    text-align: center;
 }
-.show-element {
-	display: show;
+
+.hide-element {
+  	display:none;
 }
 
 /*==============================
@@ -23,8 +24,7 @@
 ================================*/
 
 .section-container {
-		padding: 5em;
-		margin: 5em 3em;
+		padding: 1em;
 }
 
 /*==============================
@@ -54,25 +54,79 @@ h1.ui.huge.header {
 		line-height: 0.3em;
  }
 .company-logo {
-	border:1px solid #d4d4d5;
-	padding:5px;
-	box-shadow: 0 0 0 1px #d4d4d5;
+  	border:1px solid #d4d4d5;
+  	padding:5px;
+  	box-shadow: 0 0 0 1px #d4d4d5;
+}
+
+/*===========================
+  SCHEDULING PAGE
+  ===========================*/
+
+.ui.stackable.grid.application-stages {
+    margin-top: -2em;
+}
+.scheduling-heading {
+    display: none;
+}
+.ui.radio.checkbox {
+    display: flex;
+    justify-content: center;
 }
 
 /*==============================
-  More than standard laptop size
+================================
+MEDIA QUERIES
+================================
+================================*/
+
+/*==============================
+Larger than smartphone
+================================*/
+
+@media (min-width:600px) {
+
+  .section-container {
+      padding: 1em;
+      margin: 2em 2em;
+  }
+
+}
+
+/*==============================
+Laptops
+================================*/
+
+@media only screen
+and (min-width: 768px) {
+
+  .section-container {
+      padding: 3em;
+      margin: 0 auto;
+  }
+  .ui.stackable.grid.application-stages {
+      margin-top: -2em;
+      text-align: center;
+  }
+  .scheduling-heading {
+      display: block;
+  }
+
+}
+
+/*==============================
+Very Large Screen
 ================================*/
 
 @media only screen
 and (min-width : 1224px) {
 
 	.section-container {
-		margin: 0 auto;
-    padding: 5em;
+      padding: 5em;
 	}
 
 	.section-container {
-		max-width: 1224px;
+		  max-width: 1224px;
 	}
 
 }

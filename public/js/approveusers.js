@@ -12,7 +12,7 @@ $(':input[type=submit]').on('click',function(){
 	var id = $(this.form).attr('id');
 	var message =$(this.form).find('.message');
 		$.ajax({
-        url: '/admin/clientlogo/',
+        url: '/approveusers/clientlogo/',
         data: {
           logo_url: logo_url,
           id: id
