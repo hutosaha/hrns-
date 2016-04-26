@@ -1,2 +1,103 @@
 <h1 class="ui block header">My Jobs</h1>
 <div class="ui divider"></div>
+
+
+
+{{#unless vids}}
+<h3 class="ui header">None of your candidates have been moved to scheduling by any clients </h3>
+{{/unless}}
+
+{{#if vids}}
+<div class="overview-heading">
+    <div class="ui stackable grid">
+      <div class="three wide column text-overflow-element">
+        <h4>Name</h4>
+      </div>
+      <div class="two wide column text-overflow-element">
+        <h4>Salary</h4>
+      </div>
+      <div class="two wide column text-overflow-element">
+        <h4>Email</h4>
+      </div>
+      <div class="four wide column text-overflow-element text-centering">
+        <h4>Application Stage</h4>
+      </div>
+      <div class="two wide column">
+        <h4>Rating</h4>
+      </div>
+      <div class="three wide column">
+        <a href="/client/job/{{vid}}/overview/update">
+            <button class="ui inverted green button">Save Changes</button>
+        </a>
+      </div>
+    </div>
+    <div class="ui stackable grid application-stages">
+      <div class="seven wide column"></div>
+      <div class="one wide column">
+        <h5>1</h5>
+      </div>
+      <div class="one wide column">
+        <h5>2</h5>
+      </div>
+      <div class="one wide column">
+        <h5>3</h5>
+      </div>
+      <div class="one wide column">
+        <h5>4</h5>
+      </div>
+    </div>
+    <div class="ui divider"></div>
+</div>
+
+{{#each vids}}
+<div class="ui stackable grid listView" id="{{cvid}}">
+  <div class="three wide column text-overflow-element">
+    <h5>{{candidateName}}</h5>
+  </div>
+  <div class="two wide column text-overflow-element">
+    <h5>{{salary}}</h5>
+  </div>
+  <div class="two wide column text-overflow-element">
+    <a href="mailto:{{email}}"><h5>{{email}}</h5></a>
+  </div>
+  <div class="one wide column">
+    <div class="ui radio checkbox">
+      <input type="radio" name="frequency" checked="checked">
+      <label></label>
+    </div>
+  </div>
+  <div class="one wide column">
+    <div class="ui radio checkbox">
+      <input type="radio" name="frequency">
+      <label></label>
+    </div>
+  </div>
+  <div class="one wide column">
+    <div class="ui radio checkbox">
+      <input type="radio" name="frequency">
+      <label></label>
+    </div>
+  </div>
+  <div class="one wide column">
+    <div class="ui radio checkbox">
+      <input type="radio" name="frequency">
+      <label></label>
+    </div>
+  </div>
+  <div class="two wide column">
+    {{rating rating}}
+  </div>
+  <div class="one wide column">
+    <a href="{{file_url}}" type="text" download><h5>CV</h5></a>
+  </div>
+  <div class="two wide column">
+    <a href="/admin/job/{{vid}}/reject/{{agencyEmail}}/{{cvid}}">
+        <button class="ui inverted red button">Reject</button>
+    </a>
+  </div>
+</div>
+<div class="ui divider"></div>
+{{/each}}
+
+<script type="text/javascript" src="/public/js/overview.js"></script>
+{{/if }}
