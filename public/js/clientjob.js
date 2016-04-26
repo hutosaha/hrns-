@@ -7,7 +7,8 @@ $(document).ready(function() {
   var candidateName,
       cvid,
       vid,
-      agencyEmail;
+      agencyEmail,
+      jobTitle;
 
   $('.reject-button').click(function() {
 
@@ -43,6 +44,7 @@ $(document).ready(function() {
     cvid = $(this).data('cvid');
     vid = $(this).data('vid');
     agencyEmail = $(this).data('agency-email');
+    jobTitle = $(this).data('job-title');
     $('.accept-candidateName').html(candidateName);
     
     $('.coupled.modal.accept-modal')
@@ -102,7 +104,8 @@ $(document).ready(function() {
             candidateName: candidateName,
             cvid: cvid,
             vid: vid,
-            email: agencyEmail
+            email: agencyEmail,
+            jobTitle: jobTitle
           },
           async: true,
           success: function(res) {
