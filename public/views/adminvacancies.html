@@ -7,21 +7,21 @@
 <div class="ui stackable grid listView">
     {{#each data}}
     <div class="ui seven column row">
-        <div class="ui column">
+        <div class="column">
           <img class="ui tiny image company-logo" src="{{logo_url}}"/>
         </div>
-        <div class="ui column">
+        <div class="column">
             <p>{{companyName}}</p>
         </div>
-        <div class="ui column">
+        <div class="column">
             <p>{{jobTitle}}</p>
         </div>
         {{#if salary}}
-        <div class="ui column">
+        <div class="column">
             <p>{{salary}}</p>
         </div>
         {{/if }}
-        <div class="ui column">
+        <div class="column">
             {{#if searchDeadline}}  <!-- positioned if block inside div so button alignment works -->
             <label for="">Search Deadline:</label>
             <p>{{searchDeadline}}</p>

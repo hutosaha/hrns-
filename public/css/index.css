@@ -19,6 +19,11 @@
   	display:none;
 }
 
+.hidden-group {
+    /* currently used on approve users + user info */
+    padding: 1em;
+}
+
 /*==============================
   Container for every page - see content partial
 ================================*/
@@ -110,6 +115,11 @@ and (min-width: 768px) {
   }
   .scheduling-heading {
       display: block;
+  }
+  /* on live jobs page #80 */
+  .live-job-element {
+      height: 90px;
+      line-height: 70px;
   }
 
 }

@@ -1,11 +1,11 @@
 <h1 class="ui block header">{{jobTitle}} Vacancy Scheduling</h1>
 <div class="ui divider"></div>
 
-{{#unless cvs}}
+{{#unless data}}
 <h3 class="ui header">Doesn't look like there's any accepted candidates right now... Go back and accept some <a href="/client/job/{{vid}}">here!</a></h3>
 {{/unless}}
 
-{{#if cvs}}
+{{#if data}}
 <div class="scheduling-heading">
     <div class="ui stackable grid">
       <div class="three wide column text-overflow-element">
@@ -24,9 +24,7 @@
         <h4>Rating</h4>
       </div>
       <div class="three wide column">
-        <a href="/client/job/{{vid}}/scheduling/update">
-            <button class="ui inverted green button">Save Changes</button>
-        </a>
+        <button class="ui inverted green button" id="save-changes">Save Changes</button>
       </div>
     </div>
     <div class="ui stackable grid application-stages">
@@ -47,7 +45,9 @@
     <div class="ui divider"></div>
 </div>
 
-{{#each cvs}}
+<div id="message"></div>
+
+{{#each data}}
 <div class="ui stackable grid listView" id="{{cvid}}">
   <div class="three wide column text-overflow-element">
     <h5>{{candidateName}}</h5>
@@ -60,30 +60,30 @@
   </div>
   <div class="one wide column">
     <div class="ui radio checkbox">
-      <input type="radio" name="frequency" checked="checked">
+      <input type="radio" name="frequency" data-stage="stageOne" data-cvid="{{cvid}}" checked="checked">
       <label></label>
     </div>
   </div>
   <div class="one wide column">
     <div class="ui radio checkbox">
-      <input type="radio" name="frequency">
+      <input type="radio" name="frequency" data-stage="stageTwo" data-cvid="{{cvid}}">
       <label></label>
     </div>
   </div>
   <div class="one wide column">
     <div class="ui radio checkbox">
-      <input type="radio" name="frequency">
+      <input type="radio" name="frequency" data-stage="stageThree" data-cvid="{{cvid}}">
       <label></label>
     </div>
   </div>
   <div class="one wide column">
     <div class="ui radio checkbox">
-      <input type="radio" name="frequency">
+      <input type="radio" name="frequency" data-stage="stageFour" data-cvid="{{cvid}}">
       <label></label>
     </div>
   </div>
   <div class="two wide column">
-    {{rating rating}}
+    {{rating}}
   </div>
   <div class="one wide column">
     <a href="{{file_url}}" type="text" download><h5>CV</h5></a>
@@ -95,7 +95,7 @@
   </div>
 </div>
 <div class="ui divider"></div>
-{{/each}}
+{{/each }}
 
 <script type="text/javascript" src="/public/js/scheduling.js"></script>
 {{/if }}
