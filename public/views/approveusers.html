@@ -6,44 +6,51 @@
 <div class="ui grid listView">
     <div class="ui eight column row">
         <div class="ui column">
+            <h5>Company Name</h5>
             <p>{{companyName}}</p>
         </div>
         <div class="ui column">
+            <h5>Contact Name</h5>
             <p>{{contactName}}</p>
         </div>
         <div class="ui column">
+            <h5>Contact Number</h5>
             <p>{{contactNumber}}</p>
         </div>
         <div class="ui two wide column">
-            <p>{{email}}</p>
+            <h5>Email</h5>
+            <a href="mailto:{{email}}"><p>{{email}}</p></a>
         </div>
         <div class="ui column">
         </div>
         <div class="ui column">
-            <button class="ui inverted blue mini button viewMore">View More</button>
+            <button class="ui inverted blue button viewMore">View More</button>
         </div>
         <div class="ui column">
             <a href="approveuser/approve/{{id}}/{{email}}">
-                <button class="ui inverted blue tiny button">Approve</button>
+                <button class="ui inverted blue button">Approve</button>
             </a>
         </div>
         <div class="ui column">
             <a href="approveuser/reject/{{email}}">
-                <button class="ui inverted blue tiny button">Reject</button>
+                <button class="ui inverted blue button">Reject</button>
             </a>
         </div>
-        <!-- Don't think a view more is 100% necessary on this page as there won't be tons and tons of people -->
     </div>
+
     <div class="ui three column row">
         <div class="ui column">
+            <h5>Sector</h5>
             <p>{{companySector}}</p>
         </div>
         <div class="ui column">
+            <h5>Company Size</h5>
             <p>{{companySize}}</p>
         </div>
         <div class="ui column">
             {{#if website}}
-            <p>{{website}}</p>
+            <h5>Company Website</h5>
+            <a href="{{website}}"><p>{{website}}</p></a>
             {{/if }}
         </div>
     </div>
@@ -72,6 +79,7 @@
     {{#if companyDescription}}
     <div class="ui one column row">
         <div class="ui column">
+            <h5>Company Description</h5>
             <p>{{companyDescription}}</p>
         </div>
     </div>
@@ -85,16 +93,18 @@
                 </div>
                 <div class="field">
                     <div class="ui tiny image company-logo">
+                        {{#if logo_url}}
+                        <img class="preview" src="{{logo_url}}"/>
+                        {{/if }}
+                        {{#unless logo_url}}
                         <img class="preview" src="https://cdn0.iconfinder.com/data/icons/home-house-pack/512/7-512.png" />
+                        {{/unless }}
                     </div>
-                </div>
-                <div class="field">
-                    <h3 class="message">Click submit to add a new logo!</h3>
                 </div>
                 <div class="field">
                     <input type="submit" value="Submit" class="ui blue tiny button submit">
                 </div>
-             
+
             </div>
         </form>
     </div>
