@@ -24,9 +24,7 @@
         <h4>Rating</h4>
       </div>
       <div class="three wide column">
-        <a href="/client/job/{{vid}}/scheduling/update">
-            <button class="ui inverted green button">Save Changes</button>
-        </a>
+        <button class="ui inverted green button" id="save-changes">Save Changes</button>
       </div>
     </div>
     <div class="ui stackable grid application-stages">
@@ -47,6 +45,8 @@
     <div class="ui divider"></div>
 </div>
 
+<div id="message"></div>
+
 {{#each cvs}}
 <div class="ui stackable grid listView" id="{{cvid}}">
   <div class="three wide column text-overflow-element">
@@ -60,25 +60,25 @@
   </div>
   <div class="one wide column">
     <div class="ui radio checkbox">
-      <input type="radio" name="frequency" checked="checked">
+      <input type="radio" name="frequency" data-stage="stageOne" data-cvid="{{cvid}}" checked="checked">
       <label></label>
     </div>
   </div>
   <div class="one wide column">
     <div class="ui radio checkbox">
-      <input type="radio" name="frequency">
+      <input type="radio" name="frequency" data-stage="stageTwo" data-cvid="{{cvid}}">
       <label></label>
     </div>
   </div>
   <div class="one wide column">
     <div class="ui radio checkbox">
-      <input type="radio" name="frequency">
+      <input type="radio" name="frequency" data-stage="stageThree" data-cvid="{{cvid}}">
       <label></label>
     </div>
   </div>
   <div class="one wide column">
     <div class="ui radio checkbox">
-      <input type="radio" name="frequency">
+      <input type="radio" name="frequency" data-stage="stageFour" data-cvid="{{cvid}}">
       <label></label>
     </div>
   </div>

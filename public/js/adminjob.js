@@ -32,14 +32,14 @@ $(function() {
                     async: true,
                     success: function( data) {
                         var ele = document.getElementById(cvid);
-                        if( ele) { ele.remove();}
+                        if(ele) { ele.remove();}
                         var inputCount = $(":input[type=hidden]");
                         console.log('ALLINPUTS', inputCount.length);
 
                         if (inputCount.length === 0) {
                             document.getElementById('submitRatings').style.display = 'none';
                             $('#message').html(data);
-                        } 
+                        }
 
                     },
                     error: function(thrownError) {

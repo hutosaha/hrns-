@@ -1,24 +1,37 @@
-// Needs to change?
-
-'use strict';
-
-const $ = window.$;
+var $ = window.$;
 
 $(function() {
-    $('.ui.dropdown')
-        .dropdown('set selected', 'value');
 
-    $("input").change(function() {
-        var stage = $(this).val();
-        var cvid = $(this).attr("id");
-        var vid =$(this).attr("name");
+    $('#save-changes').on('click', function(e) {
+      e.preventDefault();
+
+      $("input:radio:checked").each(function() {
+
+        var stage = $(this).data('stage');
+        var cvid  = $(this).data('cvid');
+        var vid   = window.location.pathname.split('/client/job/')[1].split('/scheduling')[0];
+
+        console.log('FE stage', stage);
+
         $.ajax({
-            // current URL in backend is '/client/job/{vid}/scheduling/update'
-            url:"/progress/"+cvid+'/'+vid+'/'+stage,
-            success: function(data) {
-              console.log('DATA', JSON.parse(data));
-              alert('moved onto the next stage ' + JSON.parse(data));
+          url: '/client/job/' + vid + '/scheduling/update',
+          data: {
+            stage: stage,
+            cvid: cvid
+          },
+          async: true,
+          success: function(res) {
+            console.log('FE res', res);
+            if (res) {
+              document.getElementById('message').innerHTML = 'Worked!'; // change to something better...
+            } else {
+              document.getElementById('message').innerHTML = 'Sorry, there was an error. Please try again!';
             }
+          },
+          error: function() {
+            document.getElementById('message').innerHTML = 'Sorry, there was an error. Please try again!';
+          }
         });
-     });
+      });
+    });
 });
