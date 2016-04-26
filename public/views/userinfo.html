@@ -34,15 +34,14 @@
                 <h5>Size</h5>
                 <p>{{companySize}}</p>
               </div>
-              <div class="column text-overflow-element">
-                <h5>Sector</h5>
-                {{sector companySector}}
+              <div class="ui column">
+                  <button class="ui inverted blue button viewMore" data-id="{{id}}">More...</button>
               </div>
             </div>
 
             <div class="ui six column row">
-              <div class="column text-overflow-element">
-                <h5>Picture goes here!</h5>
+              <div class="column">
+                <img class="ui tiny image company-logo" src="{{logo_url}}"/>
               </div>
               <div class="column text-overflow-element">
                 {{#if twitter}}
@@ -68,11 +67,11 @@
                 <a href="{{linkedin}}"><p>{{linkedin}}</p></a>
                 {{/if }}
               </div>
-              <div class="column">
-                <!-- Blank column for rendering -->
+              <div class="column text-overflow-element">
+                <h5>Sector</h5>
+                {{sector companySector}}
               </div>
             </div>
-            <!-- View more for company description??  -->
             {{#if companyDescription}}
             <div class="ui one column row">
               <div class="column">
@@ -125,4 +124,4 @@
         <div class="ui divider"></div>
     {{/each}}
 </div>
-<script type="text/javascript" src="../public/js/tab.js"></script>
+<script type="text/javascript" src="../public/js/userinfo.js"></script>
