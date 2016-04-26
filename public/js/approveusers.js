@@ -3,7 +3,9 @@ var $ = window.$;
 (function() {
 
 	$('.viewMore').on('click', function(){
-		$(this).parent().parent().parent().find('form').fadeToggle();
+		var id = $(this).data('id');
+		console.log('id', id);
+		$(this).parent().parent().parent().find('#' + id).fadeToggle();
   });
 
 	$(':input[type=submit]').on('click',function(){
