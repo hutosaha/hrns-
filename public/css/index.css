@@ -116,6 +116,11 @@ and (min-width: 768px) {
   .scheduling-heading {
       display: block;
   }
+  /* on live jobs page #80 */
+  .live-job-element {
+      height: 90px;
+      line-height: 70px;
+  }
 
 }
 
