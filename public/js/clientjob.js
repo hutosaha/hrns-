@@ -82,6 +82,9 @@ $(document).ready(function() {
           if (res) {
             var element = document.getElementById(cvid);
             element.remove();
+            if ($('.listView').length === 0 ) { 
+                $('.message').html('There are no candidates yet!');
+            }
           } else {
             alert('somehting went wrong');
           }
@@ -106,6 +109,9 @@ $(document).ready(function() {
             if (res) {
               var element = document.getElementById(cvid);
               element.remove();
+                if ($('.listView').length === 0 ) { 
+                    $('.message').html('There are no new candidates for this position.');
+                }
             } else {
                 alert('somehting went wrong');                    
             }
@@ -114,8 +120,9 @@ $(document).ready(function() {
 
   });
 
+
   if ($('.listView').length === 0 ) { 
-    $('.header.message').html('There are no candidates yet!');
+    $('.message').html('There are no candidates yet!');
   }
 
 
