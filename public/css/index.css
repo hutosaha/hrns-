@@ -20,8 +20,8 @@
 }
 
 .hidden-group {
-    /*currently used on approve users*/
-    padding-top: 1em;
+    /* currently used on approve users + user info */
+    padding: 1em;
 }
 
 /*==============================
