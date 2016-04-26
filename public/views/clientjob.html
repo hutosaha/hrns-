@@ -1,5 +1,5 @@
 {{> vacancy}} {{#if cvs}}
-<h2 class="header">Candidate Shortlist</h2> {{/if }}
+<h2 class="header message">Candidate Shortlist</h2> {{/if }}
 <div class="ui divider"></div>
 {{#each cvs}}
 <div class="ui stackable grid listView" id="{{cvid}}">
@@ -17,9 +17,16 @@
             <a href="{{file_url}}" type="text" download><h5>Download CV</h5></a>
         </div>
         <div class="column">
-            <a href="/client/job/{{vid}}/accept/{{agencyEmail}}/{{cvid}}">
-                <button class="ui inverted blue button">Accept</button>
-            </a>
+            
+                <button class="ui inverted blue button accept-button" 
+                 data-candidate-name="{{candidateName}}"
+                 data-agency-email="{{agencyEmail}}"
+                 data-cvid="{{cvid}}"
+                 data-candidate-name="{{candidateName}}" data-vid="{{vid}}"
+
+
+                >Accept</button>
+            
         </div>
     </div>
     <div class="ui five column row ">
@@ -37,7 +44,11 @@
             <a href="tel:{{contactNumber}}"><h5>{{contactNumber}}</h5></a>
         </div>
         <div class="column">
-            <button class="ui inverted red button reject-button" data-agency-email="{{agencyEmail}}" data-cvid="{{cvid}}" data-candidate-name={{candidateName}} data-vid="{{vid}}">
+            <button class="ui inverted red button reject-button" 
+            data-agency-email="{{agencyEmail}}"
+            data-cvid="{{cvid}}"
+            data-candidate-name="{{candidateName}}" 
+            data-vid="{{vid}}">
                 Reject
             </button>
         </div>
@@ -45,7 +56,7 @@
     <div class="ui divider"></div>
 </div>
 {{/each}}
-<div class="ui first coupled modal">
+<div class="ui first coupled modal reject-modal">
     <div class="header">
         Sorry to hear you want to reject this candidate...
     </div>
@@ -69,13 +80,15 @@
         </div>
     </div>
     <div class="actions">
-        <button id="modal-submit" class="ui primary button" type="button">Confirm rejection</button>
+        <button id="" class="ui primary button modal-submit-rejection-button" type="button">Confirm rejection</button>
     </div>
 </div>
-<div class="ui small second coupled modal">
+
+<div class="ui small second coupled modal reject-modal">
     <div class="header">
         Rejection confirmed
-    </div class="content">
+    </div> 
+    <div class="content">
         <div class="description">
             <p>Sorry this candidate wasn't quite right, thanks for your feedback.</p>
         </div>
@@ -83,6 +96,38 @@
     <div class="actions">
         <div class="ui approve button">
             <i class="checkmark icon"></i> All Done
+        </div>
+    </div>
+</div>
+
+<div class="ui first coupled modal accept-modal">
+    <div class="header">
+        Great to hear you are interested in <span class="accept-candidateName"></span>
+    </div>
+    <div class="content">
+        <h5>Click here to confirm your interest</h5>   
+    </div>
+    <div class="actions">
+        <div class="ui primary button modal-submit-acceptance-button">Confirm Acceptance </div>
+    </div>
+  
+</div>
+
+<div class="ui small second coupled modal accept-modal">
+    <div class="header">
+        Great Acceptance Confirmed!
+    </div> 
+    <div class="content">
+        <div class="description">
+            <span class="accept-candidateName"></span> will now be viewable on your scheduling page!
+        </div>
+    </div>
+    <div class="actions">
+        <div class="ui approve button">
+            <i class="checkmark icon"></i> All Done
+        </div>
+         <div class="ui basic button">
+            <a href="/client/job/{{vid}}/scheduling" ><i class="calendar icon"></i> Scheduling</a>
         </div>
     </div>
 </div>
