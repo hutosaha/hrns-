@@ -19,6 +19,11 @@
   	display:none;
 }
 
+.hidden-group {
+    /*currently used on approve users*/
+    padding-top: 1em;
+}
+
 /*==============================
   Container for every page - see content partial
 ================================*/
