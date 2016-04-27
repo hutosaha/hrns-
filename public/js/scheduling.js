@@ -2,11 +2,10 @@ var $ = window.$;
 
 $(function() {
 
-
     $("input:radio").on('click', function(){
           var $radio =$(this);
           var cvid = $(this).attr('name');
-         
+
           if($radio.is(":checked")) {
               var group ="input:radio[name='"+cvid+"']";
               $(group).prop("checked", false);
@@ -16,7 +15,6 @@ $(function() {
           }
     });
 
-
     $('#save-changes').on('click', function(e) {
       e.preventDefault();
 
@@ -24,19 +22,16 @@ $(function() {
 
         var stage = $(this).data('stage');
         var cvid  = $(this).data('cvid');
-        var vid   = window.location.pathname.split('/client/job/')[1].split('/scheduling')[0];
-
-        console.log('FE stage', stage);
+        var vid   = window.location.pathname.split('/client/scheduling/')[1];
 
         $.ajax({
-          url: '/client/job/' + vid + '/scheduling/update',
+          url: '/client/scheduling/' + vid + '/update',
           data: {
             stage: stage,
             cvid: cvid
           },
           async: true,
           success: function(res) {
-            console.log('FE res', res);
             if (res) {
               document.getElementById('message').innerHTML = 'Worked!'; // change to something better...
             } else {
