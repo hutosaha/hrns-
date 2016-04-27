@@ -2,6 +2,21 @@ var $ = window.$;
 
 $(function() {
 
+
+    $("input:radio").on('click', function(){
+          var $radio =$(this);
+          var cvid = $(this).attr('name');
+         
+          if($radio.is(":checked")) {
+              var group ="input:radio[name='"+cvid+"']";
+              $(group).prop("checked", false);
+              $radio.prop("checked",true);
+          } else {
+              $radio.prop("checked",false);
+          }
+    });
+
+
     $('#save-changes').on('click', function(e) {
       e.preventDefault();
 
