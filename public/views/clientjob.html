@@ -2,15 +2,17 @@
 {{> vacancy}}
 {{#if cvs}}
 <h2 class="header">Candidate Shortlist</h2>
-<a href="/client/scheduling/{{vid}}">
-    <button class="ui inverted blue button">Go to Scheduling</button>
-</a>
+
 {{/if }}
 
 <div class="ui divider"></div>
-<h3 class="message"></h3>
-{{#each cvs}}
+<a href="/client/scheduling/{{vid}}/{{data.jobTitle}}">
+    <button class="ui inverted blue button">Go to Scheduling</button>
+</a>
 
+<h3 class="message"></h3>
+
+{{#each cvs}}
 <div class="ui stackable grid listView" id="{{cvid}}">
 
     <div class="ui five column row">
@@ -76,6 +78,7 @@
     </div>
     <div class="content">
         <h5>Click here to confirm your interest</h5>
+        <p>Click out side the white box to go back</p>
     </div>
     <div class="actions">
         <div class="ui primary button modal-submit-acceptance-button">Confirm Acceptance </div>
@@ -97,7 +100,7 @@
             <i class="checkmark icon"></i> All Done
         </div>
          <div class="ui basic button">
-            <a href="/client/scheduling/{{vid}}" ><i class="calendar icon"></i> Scheduling</a>
+            <a href="/client/scheduling/{{vid}}/{{data.jobTitle}}" ><i class="calendar icon"></i> Scheduling</a>
         </div>
     </div>
 </div>
