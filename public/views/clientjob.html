@@ -1,11 +1,11 @@
 
 {{> vacancy}}
-{{#if cvs}}
+
 <h2 class="header">Candidate Shortlist</h2>
 <a href="/client/scheduling/{{vid}}">
     <button class="ui inverted blue button">Go to Scheduling</button>
 </a>
-{{/if }}
+
 
 <div class="ui divider"></div>
 <h3 class="message"></h3>
@@ -27,7 +27,6 @@
             <a href="{{file_url}}" type="text" download><h5>Download CV</h5></a>
         </div>
         <div class="column">
-
                 <button class="ui inverted blue button accept-button"
                  data-candidate-name="{{candidateName}}"
                  data-agency-email="{{agencyEmail}}"
@@ -38,7 +37,6 @@
                  data-vid="{{vid}}">
                    Accept
                  </button>
-
         </div>
     </div>
     <div class="ui five column row ">
@@ -80,12 +78,11 @@
     <div class="actions">
         <div class="ui primary button modal-submit-acceptance-button">Confirm Acceptance </div>
     </div>
-
 </div>
 
 <div class="ui small second coupled modal accept-modal">
     <div class="header">
-        Great Acceptance Confirmed!
+        Great, your acceptance has been confirmed!
     </div>
     <div class="content">
         <div class="description">
