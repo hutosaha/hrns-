@@ -91,12 +91,13 @@
   </div>
   <div class="two wide column">
     <a href="/admin/job/{{vid}}/reject/{{agencyEmail}}/{{cvid}}">
-        <button class="ui inverted red button">Reject</button>
+        <button data-cvid="{{cvid}}" class="ui inverted red button">Reject</button>
     </a>
   </div>
 </div>
 <div class="ui divider"></div>
 {{/each }}
+{{> rejectcandidatemodal}}
 
 <script type="text/javascript" src="/public/js/scheduling.js"></script>
 {{/if }}

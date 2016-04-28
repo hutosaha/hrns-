@@ -8,6 +8,7 @@ $(document).ready(function() {
       cvid,
       vid,
       agencyEmail,
+      agencyId,
       jobTitle;
 
   $('.reject-button').click(function() {
@@ -39,32 +40,6 @@ $(document).ready(function() {
     ;
   });
 
-  $('.accept-button').click(function(){
-    candidateName = $(this).data('candidate-name');
-    cvid = $(this).data('cvid');
-    vid = $(this).data('vid');
-    agencyEmail = $(this).data('agency-email');
-    jobTitle = $(this).data('job-title');
-    $('.accept-candidateName').html(candidateName);
-    
-    $('.coupled.modal.accept-modal')
-      .modal({
-        allowMultiple: false
-      })
-    ;
-    // attach events to buttons
-    $('.second.modal.accept-modal')
-      .modal('attach events', '.first.modal .button')
-    ;
-    // show first now
-    $('.first.modal.accept-modal')
-      .modal('show')
-    ;
-
-  });
-
-
-
 
   $('.modal-submit-rejection-button').click(function() {
 
@@ -95,6 +70,33 @@ $(document).ready(function() {
 
   });
 
+  $('.accept-button').click(function(){
+    candidateName = $(this).data('candidate-name');
+    cvid = $(this).data('cvid');
+    vid = $(this).data('vid');
+    agencyEmail = $(this).data('agency-email');
+    agencyId = $(this).data('agency-id');
+    jobTitle = $(this).data('job-title');
+    $('.accept-candidateName').html(candidateName);
+    
+    $('.coupled.modal.accept-modal')
+      .modal({
+        allowMultiple: false
+      })
+    ;
+    // attach events to buttons
+    $('.second.modal.accept-modal')
+      .modal('attach events', '.first.modal .button')
+    ;
+    // show first now
+    $('.first.modal.accept-modal')
+      .modal('show')
+    ;
+
+  });
+
+
+
 
   $('.modal-submit-acceptance-button').click(function() {
 
@@ -105,6 +107,7 @@ $(document).ready(function() {
             cvid: cvid,
             vid: vid,
             email: agencyEmail,
+            agencyId: agencyId,
             jobTitle: jobTitle
           },
           async: true,

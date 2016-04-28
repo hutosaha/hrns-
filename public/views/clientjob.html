@@ -31,6 +31,7 @@
                 <button class="ui inverted blue button accept-button"
                  data-candidate-name="{{candidateName}}"
                  data-agency-email="{{agencyEmail}}"
+                 data-agency-id="{{agencyId}}"
                  data-cvid="{{cvid}}"
                  data-candidate-name="{{candidateName}}"
                  data-job-title="{{jobTitle}}"
@@ -67,49 +68,7 @@
     <div class="ui divider"></div>
 </div>
 {{/each}}
-<div class="ui first coupled modal reject-modal">
-    <div class="header">
-        Sorry to hear you want to reject this candidate...
-    </div>
-    <div class="content">
-        <h5>What's the reason?</h5>
-        <div class="grouped fields">
-            <div class="field">
-                <div class="ui radio checkbox">
-                    <input type="radio" name="rejection-reason" checked="" tabindex="0" class="hidden" value="not_enough">
-                    <label>Not enough experience</label>
-                </div>
-            </div>
-            <br>
-            <div class="field">
-                <div class="ui radio checkbox">
-                    <input type="radio" name="rejection-reason" tabindex="0" class="hidden" value="not_right">
-                    <label>Experience not quite right</label>
-                </div>
-            </div>
-            <br>
-        </div>
-    </div>
-    <div class="actions">
-        <button id="" class="ui primary button modal-submit-rejection-button" type="button">Confirm rejection</button>
-    </div>
-</div>
-
-<div class="ui small second coupled modal reject-modal">
-    <div class="header">
-        Rejection confirmed
-    </div>
-    <div class="content">
-        <div class="description">
-            <p>Sorry this candidate wasn't quite right, thanks for your feedback.</p>
-        </div>
-    </div>
-    <div class="actions">
-        <div class="ui approve button">
-            <i class="checkmark icon"></i> All Done
-        </div>
-    </div>
-</div>
+{{> rejectcandidatemodal}}
 
 <div class="ui first coupled modal accept-modal">
     <div class="header">
