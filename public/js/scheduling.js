@@ -18,11 +18,17 @@ $(function() {
     $('#save-changes').on('click', function(e) {
         e.preventDefault();
 
+        $('.small.modal.save-modal')
+            .modal('show');
+    });
+
+    $('.ui.positive.button').on('click', function() {
+
         $("input:radio:checked").each(function() {
 
             var stage = $(this).data('stage');
             var cvid = $(this).data('cvid');
-            var vid = window.location.pathname.split('/client/scheduling/')[1];
+            var vid = window.location.pathname.split('/client/scheduling/')[1].split('/')[0];
 
             $.ajax({
                 url: '/client/scheduling/' + vid + '/update',
@@ -33,7 +39,7 @@ $(function() {
                 async: true,
                 success: function(res) {
                     if (res) {
-                        document.getElementById('message').innerHTML = 'Worked!'; // change to something better...
+                        document.getElementById('message').innerHTML = 'Your changes have been saved'; // change to something better...
                     } else {
                         document.getElementById('message').innerHTML = 'Sorry, there was an error. Please try again!';
                     }
@@ -45,16 +51,25 @@ $(function() {
         });
     });
 
-    var cvid;
-
-    $('.red.button').on('click', function() {
-        //var element = e.target;
-        cvid = $(this).data('cvid');
 
 
-        if (cvid) {
-            $('#modal-heading').html('Sorry to hear you want to reject the candidate');
+
+    $('.reject-button').click(function() {
+
+
+        var candidateName = $(this).data('candidate-name');
+        var cvid = $(this).data('cvid');
+        var vid = $(this).data('vid');
+        var currentStage = $(this).data('current-stage');
+        var agencyEmail = $(this).data('agency-email');
+
+
+        if (candidateName) {
+            $('#modal-heading').html('Sorry to hear you want to reject ' + candidateName);
         }
+
+        //$('.ui.modal.reject-modal').modal('show');
+        $('.ui.radio.checkbox').checkbox();
 
         $('.coupled.modal.reject-modal')
             .modal({
@@ -66,27 +81,41 @@ $(function() {
         // show first now
         $('.first.modal.reject-modal')
             .modal('show');
-    });
 
-    $('.modal-submit-rejection-button').click(function() {
+        
 
-        $.ajax({
-            url: '/scheduling/rejection/' + cvid,
-            async: true,
-            success: function(res) {
-                if (res) {
-                    var element = document.getElementById(cvid);
-                    element.remove();
-                    if ($('.listView').length === 0) {
-                        $('.message').html('There are no candidates yet!');
+
+
+
+        $('.modal-submit-rejection-button').click(function() {
+
+            var reason = $('input[name="rejection-reason"]:checked').val();
+            $.ajax({
+                url: '/client/scheduling/reject',
+                data: {
+                    candidateName: candidateName,
+                    cvid: cvid,
+                    vid: vid,
+                    email: agencyEmail,
+                    reason: reason,
+                    stage: currentStage
+                },
+                async: true,
+                success: function(res) {
+                    if (res) {
+                        var element = document.getElementById(cvid);
+                        element.nextSibling.nextSibling.remove();
+                        element.remove();
+
+                        if ($('.listView').length === 0) {
+                            $('.message').html('There are no candidates yet!');
+                        }
+                    } else {
+                        alert('something went wrong');
                     }
-                } else {
-                    alert('somehting went wrong');
                 }
-            },
-            error: function() {
-                document.getElementById('message').innerHTML = 'Sorry, there was an error. Please try again!';
-            }
+            });
+
         });
     });
 
