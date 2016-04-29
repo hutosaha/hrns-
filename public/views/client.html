@@ -19,7 +19,7 @@
         <h4>Search Deadline</h4>
       </div>
       <div class="four wide column text-overflow-element text-centering">
-        <h4>Application Stage</h4>
+        <h4>Candidates at Application Stage</h4>
       </div>
     </div>
     <div class="ui stackable grid">
@@ -54,28 +54,24 @@
       {{/if }}
   </div>
   <div class="one wide column">
-      {{#if stageOneCount}}
-      <p>{{stageOneCount}}</p>
+      {{#if stage1Count}}
+      <p>{{stage1Count}}</p>
       {{/if }}
-      <p>0</p>
   </div>
   <div class="one wide column">
-      {{#if stageTwoCount}}
-      <p>{{stageTwoCount}}</p>
+      {{#if stage2Count}}
+      <p>{{stage2Count}}</p>
       {{/if }}
-      <p>0</p>
   </div>
   <div class="one wide column">
-      {{#if stageThreeCount}}
-      <p>{{stageThreeCount}}</p>
+      {{#if stage3Count}}
+      <p>{{stage3Count}}</p>
       {{/if }}
-      <p>0</p>
   </div>
   <div class="one wide column">
-      {{#if stageFourCount}}
-      <p>{{stageFourCount}}</p>
+      {{#if stage4Count}}
+      <p>{{stage4Count}}</p>
       {{/if }}
-      <p>0</p>
   </div>
   <div class="two wide column client-button">
     <a href='/client/job/{{vid}}'>
