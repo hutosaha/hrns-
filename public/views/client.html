@@ -4,36 +4,90 @@
 <h3>{{{message}}} </h3>
 {{/if }}
 
+
+
 {{#if data}}
-<div class="ui stackable grid listView">
-    {{#each data}}
-    <div class="ui five column row">
-        <div class="ui column">
-            <p>{{jobTitle}}</p>
-        </div>
-        {{#if salary}}
-        <div class="ui column">
-            <p>{{salary}}</p>
-        </div>
-        {{/if }}
-        <div class="ui column">
-            {{#if searchDeadline}}  <!-- positioned inside div so button alignment works -->
-            <label for="">Search Deadline:</label>
-            <p>{{searchDeadline}}</p>
-            {{/if }}
-        </div>
-        <div class="right floated column">
-          <a href='/client/job/{{vid}}'>
-            <button class="ui inverted blue button">View</button>
-          </a>
-        </div>
-        <div class="right floated column">
-          <a href='/client/job/remove/{{vid}}'>
-            <button class="ui inverted blue button">Remove</button>
-          </a>
-        </div>
+<div class="overview-heading">
+    <div class="ui stackable grid">
+      <div class="three wide column text-overflow-element">
+        <h4>Job Title</h4>
+      </div>
+      <div class="two wide column text-overflow-element">
+        <h4>Salary</h4>
+      </div>
+      <div class="three wide column text-overflow-element">
+        <h4>Search Deadline</h4>
+      </div>
+      <div class="four wide column text-overflow-element text-centering">
+        <h4>Application Stage</h4>
+      </div>
+    </div>
+    <div class="ui stackable grid">
+      <div class="eight wide column"></div>
+      <div class="one wide column">
+        <h5>1</h5>
+      </div>
+      <div class="one wide column">
+        <h5>2</h5>
+      </div>
+      <div class="one wide column">
+        <h5>3</h5>
+      </div>
+      <div class="one wide column">
+        <h5>4</h5>
+      </div>
     </div>
     <div class="ui divider"></div>
-    {{/each}}
 </div>
+
+{{#each data}}
+<div class="ui stackable grid listView client-list">
+  <div class="three wide column">
+      <p>{{jobTitle}}</p>
+  </div>
+  <div class="two wide column">
+      <p>{{salary}}</p>
+  </div>
+  <div class="three wide column">
+      {{#if searchDeadline}}  <!-- positioned inside column div so button alignment works -->
+      <p>{{searchDeadline}}</p>
+      {{/if }}
+  </div>
+  <div class="one wide column">
+      {{#if stageOneCount}}
+      <p>{{stageOneCount}}</p>
+      {{/if }}
+      <p>0</p>
+  </div>
+  <div class="one wide column">
+      {{#if stageTwoCount}}
+      <p>{{stageTwoCount}}</p>
+      {{/if }}
+      <p>0</p>
+  </div>
+  <div class="one wide column">
+      {{#if stageThreeCount}}
+      <p>{{stageThreeCount}}</p>
+      {{/if }}
+      <p>0</p>
+  </div>
+  <div class="one wide column">
+      {{#if stageFourCount}}
+      <p>{{stageFourCount}}</p>
+      {{/if }}
+      <p>0</p>
+  </div>
+  <div class="two wide column client-button">
+    <a href='/client/job/{{vid}}'>
+      <button class="ui inverted blue button">View</button>
+    </a>
+  </div>
+  <div class="two wide column client-button">
+    <a href='/client/job/remove/{{vid}}'>
+      <button class="ui inverted blue button">Remove</button>
+    </a>
+  </div>
+</div>
+<div class="ui divider"></div>
+{{/each}}
 {{/if }}

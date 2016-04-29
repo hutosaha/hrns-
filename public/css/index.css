@@ -67,16 +67,27 @@ h1.ui.huge.header {
 /*===========================
   SCHEDULING PAGE
   ===========================*/
-
 .ui.stackable.grid.application-stages {
     margin-top: -2em;
 }
-.scheduling-heading {
+.overview-heading {
+  /* also on /client */
     display: none;
 }
 .ui.radio.checkbox {
     display: flex;
     justify-content: center;
+}
+
+/*===========================
+  CLIENT PAGE
+  ===========================*/
+.two.wide.column.client-button {
+    margin-top: -0.6em;
+}
+
+.ui.stackable.grid.listView.client-list {
+    margin-bottom: 0px;
 }
 
 /*==============================
@@ -109,11 +120,11 @@ and (min-width: 768px) {
       padding: 3em;
       margin: 0 auto;
   }
-  .ui.stackable.grid.application-stages {
-      margin-top: -2em;
+
+  .application-stages {
       text-align: center;
   }
-  .scheduling-heading {
+  .overview-heading {
       display: block;
   }
   /* on live jobs page #80 */

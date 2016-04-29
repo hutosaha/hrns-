@@ -7,7 +7,7 @@
 {{/unless}}
 
 {{#if data}}
-<div class="scheduling-heading">
+<div class="overview-heading">
     <div class="ui stackable grid">
       <div class="three wide column text-overflow-element">
         <h4>Name</h4>
@@ -91,8 +91,8 @@
   </div>
   <div class="two wide column">
 
-        <button 
-          data-cvid="{{cvid}}" 
+        <button
+          data-cvid="{{cvid}}"
           data-vid="{{vid}}"
           data-candidate-name="{{candidateName}}"
           data-current-stage = "{{stage}}"
@@ -100,9 +100,8 @@
 
   </div>
 
-  </div>
-  <div class="ui divider"></div>
 </div>
+<div class="ui divider"></div>
 {{/each }}
 {{> rejectcandidatemodal}}
 {{> savechanges}}
