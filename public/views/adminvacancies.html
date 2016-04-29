@@ -19,15 +19,12 @@
       <div class="two wide column text-overflow-element">
         <h4>Salary</h4>
       </div>
-      <div class="two wide column text-overflow-element">
-        <h4>Search Deadline</h4>
-      </div>
       <div class="four wide column text-overflow-element text-centering">
         <h4>Candidates at Application Stage</h4>
       </div>
     </div>
     <div class="ui stackable grid">
-      <div class="ten wide column"></div>
+      <div class="eight wide column"></div>
       <div class="one wide column">
         <h5>1</h5>
       </div>
@@ -46,38 +43,61 @@
 
 {{#each data}}
 <div class="ui stackable grid listView">
-    <div class="ui seven column row">
-        <div class="column">
-          <img class="ui tiny image company-logo" src="{{logo_url}}"/>
-        </div>
-        <div class="column">
-            <p>{{companyName}}</p>
-        </div>
-        <div class="column">
-            <p>{{jobTitle}}</p>
-        </div>
-        {{#if salary}}
-        <div class="column">
-            <p>{{salary}}</p>
-        </div>
-        {{/if }}
-        <div class="column">
-            {{#if searchDeadline}}  <!-- positioned if block inside div so button alignment works -->
-            <label for="">Search Deadline:</label>
-            <p>{{searchDeadline}}</p>
-            {{/if }}
-        </div>
-        <div class="right floated column">
-          <a href='/admin/job/{{vid}}'>
-            <button class="ui inverted blue button">View  <span style="color:green"> {{newCvCount}}</span></button>
-          </a>
-        </div>
-        <div class="right floated column">
-          <a href='/admin/job/remove/{{vid}}'>
-            <button class="ui inverted blue button">Remove</button>
-          </a>
-        </div>
+    <div class="two wide column">
+      <img class="ui tiny image company-logo" src="{{logo_url}}"/>
     </div>
-    <div class="ui divider"></div>
+    <div class="two wide column text-overflow-element">
+        <p>{{companyName}}</p>
+    </div>
+    <div class="two wide column text-overflow-element">
+        <p>{{jobTitle}}</p>
+    </div>
+    <div class="two wide column text-overflow-element">
+        <p>{{salary}}</p>
+    </div>
+    <div class="one wide column">
+        {{#if stage1Count}}
+        <p>{{stage1Count}}</p>
+        {{/if }}
+        {{#unless stage1Count}}
+        <p>0</p>
+        {{/unless }}
+    </div>
+    <div class="one wide column">
+        {{#if stage2Count}}
+        <p>{{stage2Count}}</p>
+        {{/if }}
+        {{#unless stage2Count}}
+        <p>0</p>
+        {{/unless }}
+    </div>
+    <div class="one wide column">
+        {{#if stage3Count}}
+        <p>{{stage3Count}}</p>
+        {{/if }}
+        {{#unless stage3Count}}
+        <p>0</p>
+        {{/unless }}
+    </div>
+    <div class="one wide column">
+        {{#if stage4Count}}
+        <p>{{stage4Count}}</p>
+        {{/if }}
+        {{#unless stage4Count}}
+        <p>0</p>
+        {{/unless }}
+    </div>
+    <div class="two wide column">
+      <a href='/admin/job/{{vid}}'>
+        <button class="ui inverted blue button">View</button>
+      </a>
+    </div>
+    <div class="two wide column">
+      <a href='/admin/job/remove/{{vid}}'>
+        <button class="ui inverted blue button">Remove</button>
+      </a>
+    </div>
 </div>
+<div class="ui divider"></div>
 {{/each}}
+{{/if }}
