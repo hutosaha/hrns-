@@ -4,8 +4,48 @@
 <h3>{{message}}</h3>
 {{/if }}
 
+{{#if data}}
+<div class="overview-heading">
+    <div class="ui stackable grid">
+      <div class="two wide column text-overflow-element">
+        <h4>Company Image</h4>
+      </div>
+      <div class="two wide column text-overflow-element">
+        <h4>Company</h4>
+      </div>
+      <div class="two wide column text-overflow-element">
+        <h4>Job Title</h4>
+      </div>
+      <div class="two wide column text-overflow-element">
+        <h4>Salary</h4>
+      </div>
+      <div class="two wide column text-overflow-element">
+        <h4>Search Deadline</h4>
+      </div>
+      <div class="four wide column text-overflow-element text-centering">
+        <h4>Candidates at Application Stage</h4>
+      </div>
+    </div>
+    <div class="ui stackable grid">
+      <div class="ten wide column"></div>
+      <div class="one wide column">
+        <h5>1</h5>
+      </div>
+      <div class="one wide column">
+        <h5>2</h5>
+      </div>
+      <div class="one wide column">
+        <h5>3</h5>
+      </div>
+      <div class="one wide column">
+        <h5>4</h5>
+      </div>
+    </div>
+    <div class="ui divider"></div>
+</div>
+
+{{#each data}}
 <div class="ui stackable grid listView">
-    {{#each data}}
     <div class="ui seven column row">
         <div class="column">
           <img class="ui tiny image company-logo" src="{{logo_url}}"/>
@@ -39,5 +79,5 @@
         </div>
     </div>
     <div class="ui divider"></div>
-    {{/each}}
 </div>
+{{/each}}

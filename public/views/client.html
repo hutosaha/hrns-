@@ -4,8 +4,6 @@
 <h3>{{{message}}} </h3>
 {{/if }}
 
-
-
 {{#if data}}
 <div class="overview-heading">
     <div class="ui stackable grid">
@@ -57,21 +55,33 @@
       {{#if stage1Count}}
       <p>{{stage1Count}}</p>
       {{/if }}
+      {{#unless stage1Count}}
+      <p>0</p>
+      {{/unless }}
   </div>
   <div class="one wide column">
       {{#if stage2Count}}
       <p>{{stage2Count}}</p>
       {{/if }}
+      {{#unless stage2Count}}
+      <p>0</p>
+      {{/unless }}
   </div>
   <div class="one wide column">
       {{#if stage3Count}}
       <p>{{stage3Count}}</p>
       {{/if }}
+      {{#unless stage3Count}}
+      <p>0</p>
+      {{/unless }}
   </div>
   <div class="one wide column">
       {{#if stage4Count}}
       <p>{{stage4Count}}</p>
       {{/if }}
+      {{#unless stage4Count}}
+      <p>0</p>
+      {{/unless }}
   </div>
   <div class="two wide column client-button">
     <a href='/client/job/{{vid}}'>
