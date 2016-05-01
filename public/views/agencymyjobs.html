@@ -1,13 +1,13 @@
-<h1 class="ui block header">My Jobs</h1>
+<h1 class="ui block header">{{title}}</h1>
 <div class="ui divider"></div>
 
 
 
-{{#unless vids}}
+{{#unless data}}
 <h3 class="ui header">None of your candidates have been moved to scheduling by any clients </h3>
 {{/unless}}
 
-{{#if vids}}
+{{#if data}}
 <div class="overview-heading">
     <div class="ui stackable grid">
       <div class="three wide column text-overflow-element">
@@ -26,9 +26,6 @@
         <h4>Rating</h4>
       </div>
       <div class="three wide column">
-        <a href="/client/job/{{vid}}/overview/update">
-            <button class="ui inverted green button">Save Changes</button>
-        </a>
       </div>
     </div>
     <div class="ui stackable grid application-stages">
@@ -48,56 +45,41 @@
     </div>
     <div class="ui divider"></div>
 </div>
+{{/if }}
 
-{{#each vids}}
+
+{{#each data}}
 <div class="ui stackable grid listView" id="{{cvid}}">
   <div class="three wide column text-overflow-element">
-    <h5>{{candidateName}}</h5>
+    <h5>{{companyName}}</h5>
   </div>
   <div class="two wide column text-overflow-element">
-    <h5>{{salary}}</h5>
+    <h5>{{salary}} </h5>
   </div>
   <div class="two wide column text-overflow-element">
     <a href="mailto:{{email}}"><h5>{{email}}</h5></a>
   </div>
   <div class="one wide column">
-    <div class="ui radio checkbox">
-      <input type="radio" name="frequency" value="1">
-      <label></label>
-    </div>
+       <p>{{stageOne}}</p>
   </div>
   <div class="one wide column">
-    <div class="ui radio checkbox">
-      <input type="radio" name="frequency">
-      <label></label>
-    </div>
+       <p>{{stageTwo}}</p>
   </div>
   <div class="one wide column">
-    <div class="ui radio checkbox">
-      <input type="radio" name="frequency">
-      <label></label>
-    </div>
+       <p>{{stageThree}}</p>
   </div>
   <div class="one wide column">
-    <div class="ui radio checkbox">
-      <input type="radio" name="frequency">
-      <label></label>
-    </div>
+      <p>{{stageFour}}</p>
   </div>
   <div class="two wide column">
-    {{rating rating}}
+       {{rating rating}}
   </div>
   <div class="one wide column">
     <a href="{{file_url}}" type="text" download><h5>CV</h5></a>
-  </div>
-  <div class="two wide column">
-    <a href="/admin/job/{{vid}}/reject/{{agencyEmail}}/{{cvid}}">
-        <button class="ui inverted red button">Reject</button>
-    </a>
   </div>
 </div>
 <div class="ui divider"></div>
 {{/each}}
 
-<script type="text/javascript" src="/public/js/overview.js"></script>
-{{/if }}
+<!-- <script type="text/javascript" src="/public/js/overview.js"></script>
+ -->

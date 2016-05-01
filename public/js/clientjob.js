@@ -22,26 +22,25 @@ $(document).ready(function() {
       $('#modal-heading').html('Sorry to hear you want to reject ' + candidateName);
     }
 
-    //$('.ui.modal.reject-modal').modal('show');
     $('.ui.radio.checkbox').checkbox();
 
     $('.coupled.modal.reject-modal')
       .modal({
         allowMultiple: false
-      })
-    ;
-    // attach events to buttons
-    $('.second.modal.reject-modal')
-      .modal('attach events', '.first.modal .button')
-    ;
-    // show first now
+      });
+
+  
     $('.first.modal.reject-modal')
-      .modal('show')
-    ;
-  });
+        .modal('show')
+      ;
+    });
+
+    $('.modal-cancel').modal('hide','.first.modal');
 
 
-  $('.modal-submit-rejection-button').click(function() {
+  $('.modal-confirmation-rejection-button').click(function() {
+
+    $('.second.modal.reject-modal').modal('show', '.first.modal .button');
 
     var reason = $('input[name="rejection-reason"]:checked').val();
 
