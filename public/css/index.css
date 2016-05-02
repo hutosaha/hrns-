@@ -1,3 +1,22 @@
+
+
+.ui.inverted.menu {
+  color: white;
+  background-color: #1D849A;
+}
+
+
+.ui.menu .item>img:not(.ui) {
+  width:8em;
+}
+
+/*===================
+      Colours
+=====================*/
+
+
+
+
 .ui.grid.listView {
     margin-top: 20px;
 }
