@@ -1,4 +1,5 @@
 <div class="ui first coupled modal reject-modal">
+    <i class="close icon"></i>
     <div class="header">
         Sorry to hear you want to reject this candidate...
     </div>
@@ -8,14 +9,14 @@
             <div class="grouped fields">
                 <div class="field">
                     <div class="ui checkbox">
-                        <input type="checkbox" name="rejection-reason" checked="" tabindex="0" class="hidden" value="not_enough">
+                        <input type="checkbox" name="rejection-reason"  class="" value="not_enough" checked>
                         <label>Not enough experience</label>
                     </div>
                 </div>
                 <br>
                 <div class="field">
                     <div class="ui checkbox">
-                        <input type="checkbox" name="rejection-reason" tabindex="0" class="hidden" value="not_right">
+                        <input type="checkbox" name="rejection-reason"  class="" value="not_right">
                         <label>Experience not quite right</label>
                     </div>
                 </div>
@@ -24,10 +25,8 @@
         </div>
     </div>
     <div class="actions">
-        <div class="ui inverted red button modal-cancel">
-            Cancel
-        </div>
-        <button id="" class="ui primary button modal-confirmation-rejection-button" type="button">Confirm rejection</button>
+      
+        <button class="ui primary button confirm-rejection-button" type="button">Confirm rejection</button>
     </div>
 </div>
 

@@ -39,6 +39,7 @@ $(function() {
                 async: true,
                 success: function(res) {
                     if (res) {
+                        $('#message').addClass('ui info message right floated');
                         document.getElementById('message').innerHTML = 'Your changes have been saved'; // change to something better...
                     } else {
                         document.getElementById('message').innerHTML = 'Sorry, there was an error. Please try again!';
@@ -69,7 +70,7 @@ $(function() {
         }
 
         //$('.ui.modal.reject-modal').modal('show');
-        $('.ui.radio.checkbox').checkbox();
+        $('.ui.checkbox').checkbox();
 
         $('.coupled.modal.reject-modal')
             .modal({
@@ -82,14 +83,23 @@ $(function() {
         $('.first.modal.reject-modal')
             .modal('show');
 
-        
+
+        var $inputs = $('input[name=rejection-reason]');
+        $('input[name=rejection-reason]').change(function() {
+            if (this.checked)
+                $inputs.not(this).prop('checked', !this.checked);
+        });
 
 
 
 
-        $('.modal-submit-rejection-button').click(function() {
+        $('.confirm-rejection-button').click(function() {
+                $('.first.modal.reject').modal('hide');
+                $('.second.modal.reject-modal').modal('show', '.first.modal .button');
+
 
             var reason = $('input[name="rejection-reason"]:checked').val();
+            console.log('Reason', reason);
             $.ajax({
                 url: '/client/scheduling/reject',
                 data: {
@@ -110,8 +120,6 @@ $(function() {
                         if ($('.listView').length === 0) {
                             $('.message').html('There are no candidates yet!');
                         }
-                    } else {
-                        alert('something went wrong');
                     }
                 }
             });

@@ -31,7 +31,7 @@ $(function() {
 
                             var cvid = $(this).attr("id");
                             var vid = $(this).attr("name");
-                            var agencyEmail = $(this).attr("agencyEmail");
+                            var agencyEmail = $(this).data("agency-email");
 
                             $.ajax({
                                 url: '/rating/',
