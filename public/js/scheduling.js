@@ -39,7 +39,7 @@ $(function() {
                 async: true,
                 success: function(res) {
                     if (res) {
-                        $('#message').addClass('ui info message right floated');
+                        $('#message').addClass('ui info message');
                         document.getElementById('message').innerHTML = 'Your changes have been saved'; // change to something better...
                     } else {
                         document.getElementById('message').innerHTML = 'Sorry, there was an error. Please try again!';

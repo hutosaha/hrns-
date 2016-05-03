@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html>
-  <head>
-      <meta charset="utf-8">
-      {{> title}}
-      {{> config}}
-  </head>
-  <body>
-    <nav class="ui menu">
-      <a class="item" href="/admindashboard"><h3 class="header item"> Dashboard</h3></a>
-      <a class="item" href="/logout"><h3 class="header item"> Logout</h3></a>
+
+<head>
+    <meta charset="utf-8"> {{> title}} {{> config}}
+</head>
+
+<body>
+    <nav class="ui fixed inverted menu">
+        <div class="ui container">
+            <a class="item" href="/"><img height="30" class="large logo" src="https://cloud.githubusercontent.com/assets/13098199/14913438/fed406cc-0dfa-11e6-9a90-274a2f64c187.png"></a>
+            <a class="item" href="/admindashboard"><h3 class="header item"> Dashboard</h3></a>
+            <a class="item" href="/logout"><h3 class="header item"> Logout</h3></a>
+        </div>
     </nav>
-  {{> content}}
-  </body>
+    <br>
+    <br>
+    {{> content}}
+</body>
+
 </html>
