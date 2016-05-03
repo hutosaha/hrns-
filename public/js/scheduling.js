@@ -15,6 +15,10 @@ $(function() {
         }
     });
 
+    $("input:radio").on('change', function(){
+        $('#save-changes').addClass('active');
+    });
+
     $('#save-changes').on('click', function(e) {
         e.preventDefault();
 
@@ -63,6 +67,7 @@ $(function() {
         var vid = $(this).data('vid');
         var currentStage = $(this).data('current-stage');
         var agencyEmail = $(this).data('agency-email');
+        var agencyId = $(this).data('agency-id');
 
 
         if (candidateName) {
@@ -107,6 +112,7 @@ $(function() {
                     cvid: cvid,
                     vid: vid,
                     email: agencyEmail,
+                    agencyId: agencyId,
                     reason: reason,
                     stage: currentStage
                 },
