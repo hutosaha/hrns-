@@ -1,8 +1,6 @@
 <h1 class="ui block header">{{title}}</h1>
 <div class="ui divider"></div>
 
-
-
 {{#unless data}}
 <h3 class="ui header">None of your candidates have been moved to scheduling by any clients </h3>
 {{/unless}}
@@ -10,26 +8,24 @@
 {{#if data}}
 <div class="overview-heading">
     <div class="ui stackable grid">
-      <div class="three wide column text-overflow-element">
-        <h4>Name</h4>
+      <div class="two wide column text-overflow-element">
+        <h4>Company Image</h4>
       </div>
-      <div class="three wide column text-overflow-element">
+      <div class="two wide column text-overflow-element">
+        <h4>Company</h4>
+      </div>
+      <div class="two wide column text-overflow-element">
         <h4>Job Title</h4>
       </div>
-      <div class="three wide column text-overflow-element">
-        <h4>Email</h4>
+      <div class="two wide column text-overflow-element">
+        <h4>Salary</h4>
       </div>
       <div class="four wide column text-overflow-element text-centering">
-        <h4>Application Stage</h4>
-      </div>
-      <div class="two wide column">
-        <h4>Date Posted</h4>
-      </div>
-      <div class="three wide column">
+        <h4>Candidates at Application Stage</h4>
       </div>
     </div>
-    <div class="ui stackable grid application-stages">
-      <div class="nine wide column"></div>
+    <div class="ui stackable grid">
+      <div class="eight wide column"></div>
       <div class="one wide column">
         <h5>1</h5>
       </div>
@@ -45,44 +41,68 @@
     </div>
     <div class="ui divider"></div>
 </div>
-{{/if }}
-
 
 {{#each data}}
-<div class="ui stackable grid listView" id="{{cvid}}">
-  <div class="three wide column text-overflow-element">
-    <h5>{{companyName}}</h5>
-  </div>
-  <div class="three wide column text-overflow-element">
-    <h5>{{jobTitle}} </h5>
-  </div>
-  <div class="three wide column text-overflow-element">
-    <a href="mailto:{{email}}"><h5>{{clientEmail}}</h5></a>
-  </div>
-  <div class="one wide column">
-      <h5>{{stageone}} </h5> 
-  </div>
-  <div class="one wide column">
-       <h5>{{stagetwo}}</h5>
-  </div>
-  <div class="one wide column">
-       <h5>{{stagethree}}</h5>
-  </div>
-  <div class="one wide column">
-      <h5>{{stagefour}}</h5>
-  </div>
-  <div class="two wide column">
-      <h5>{{dateSubmitted}}</h5>    
-  </div>
-  <div class="one wide column">
-  </div>
+<div class="ui stackable grid listView">
+    <div class="two wide column">
+      <img class="ui tiny image company-logo" src="{{logo_url}}"/>
+    </div>
+    <div class="two wide column text-overflow-element">
+        <p>{{companyName}}</p>
+    </div>
+    <div class="two wide column text-overflow-element">
+        <p>{{jobTitle}}</p>
+    </div>
+    <div class="two wide column text-overflow-element">
+        <p>{{salary}}</p>
+    </div>
+    <div class="one wide column">
+        {{#if stageone}}
+        <p>{{stageone}}</p>
+        {{/if }}
+        {{#unless stageone}}
+        <p>0</p>
+        {{/unless }}
+    </div>
+    <div class="one wide column">
+        {{#if stagetwo}}
+        <p>{{stagetwo}}</p>
+        {{/if }}
+        {{#unless stagetwo}}
+        <p>0</p>
+        {{/unless }}
+    </div>
+    <div class="one wide column">
+        {{#if stagethree}}
+        <p>{{stagethree}}</p>
+        {{/if }}
+        {{#unless stagethree}}
+        <p>0</p>
+        {{/unless }}
+    </div>
+    <div class="one wide column">
+        {{#if stagefour}}
+        <p>{{stagefour}}</p>
+        {{/if }}
+        {{#unless stagefour}}
+        <p>0</p>
+        {{/unless }}
+    </div>
+    <div class="two wide column">
+      <a href='/agency/job/{{vid}}'>
+        <button class="ui inverted blue button">View</button>
+      </a>
+    </div>
+    <div class="two wide column">
+      <a href='/agency/job/remove/{{vid}}'>
+        <button class="ui inverted blue button">Remove</button>
+      </a>
+    </div>
 </div>
 <div class="ui divider"></div>
 {{/each}}
+{{/if }}
 
-{{#each data}}
-  {{log this}}
-{{/each}}
 
 
 <!-- <script type="text/javascript" src="/public/js/overview.js"></script>
