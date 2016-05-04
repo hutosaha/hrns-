@@ -1,3 +1,4 @@
+
 <h1 class="ui block header">{{jobTitle}} Vacancy Scheduling</h1>
 <div class="ui three column grid">
   <div class="ui two column">
@@ -15,7 +16,7 @@
 {{/unless}}
 
 {{#if data}}
-<div class="scheduling-heading">
+<div class="overview-heading">
     <div class="ui stackable grid">
       <div class="three wide column text-overflow-element">
         <h4>Name</h4>
@@ -99,8 +100,8 @@
   </div>
   <div class="two wide column">
 
-        <button 
-          data-cvid="{{cvid}}" 
+        <button
+          data-cvid="{{cvid}}"
           data-vid="{{vid}}"
           data-candidate-name="{{candidateName}}"
           data-current-stage = "{{stage}}"
@@ -109,9 +110,8 @@
           class="ui inverted red button reject-button">Reject</button>
 
   </div>
-
-  </div>
-  <div class="ui divider"></div>
+ </div>
+<div class="ui divider"></div>
 
 {{/each }}
 
