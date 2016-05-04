@@ -95,15 +95,17 @@
     </div>
     <div class="two wide column">
       <a href='/agency/job/remove/{{vid}}'>
-        <button class="ui inverted blue button">Remove</button>
+        <button 
+          data-vid ="{{vid}}"
+
+
+        class="ui inverted red button remove">Remove</button>
       </a>
     </div>
 </div>
 <div class="ui divider"></div>
 {{/each}}
 {{/if }}
+{{> remove-vacancy-modal}}
 
-
-
-<!-- <script type="text/javascript" src="/public/js/overview.js"></script>
- -->
+<script type="text/javascript" src="/public/js/agencymyjobs.js"></script>
