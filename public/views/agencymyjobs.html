@@ -2,7 +2,7 @@
 <div class="ui divider"></div>
 
 {{#unless data}}
-<h3 class="ui header">None of your candidates have been moved to scheduling by any clients </h3>
+<h3 class="ui header">None of your candidates have been moved to scheduling yet. Come back later!</h3>
 {{/unless}}
 
 {{#if data}}
@@ -57,34 +57,34 @@
         <p>{{salary}}</p>
     </div>
     <div class="one wide column">
-        {{#if stageone}}
-        <p>{{stageone}}</p>
+        {{#if stage1Count}}
+        <p>{{stage1Count}}</p>
         {{/if }}
-        {{#unless stageone}}
+        {{#unless stage1Count}}
         <p>0</p>
         {{/unless }}
     </div>
     <div class="one wide column">
-        {{#if stagetwo}}
-        <p>{{stagetwo}}</p>
+        {{#if stage2Count}}
+        <p>{{stage2Count}}</p>
         {{/if }}
-        {{#unless stagetwo}}
+        {{#unless stage2Count}}
         <p>0</p>
         {{/unless }}
     </div>
     <div class="one wide column">
-        {{#if stagethree}}
-        <p>{{stagethree}}</p>
+        {{#if stage3Count}}
+        <p>{{stage3Count}}</p>
         {{/if }}
-        {{#unless stagethree}}
+        {{#unless stage3Count}}
         <p>0</p>
         {{/unless }}
     </div>
     <div class="one wide column">
-        {{#if stagefour}}
-        <p>{{stagefour}}</p>
+        {{#if stage4Count}}
+        <p>{{stage4Count}}</p>
         {{/if }}
-        {{#unless stagefour}}
+        {{#unless stage4Count}}
         <p>0</p>
         {{/unless }}
     </div>
@@ -102,8 +102,3 @@
 <div class="ui divider"></div>
 {{/each}}
 {{/if }}
-
-
-
-<!-- <script type="text/javascript" src="/public/js/overview.js"></script>
- -->
