@@ -37,6 +37,7 @@ $(document).ready(function() {
         $('.confirm-rejection-button').click(function() {
                   $('.first.modal.reject').modal('hide');
                   $('.second.modal.reject-modal').modal('show', '.first.modal .button');
+                  $('.second.coupled.modal.accept-modal').modal('hide');
           
 
             var reason = $('input[name="rejection-reason"]:checked').val();

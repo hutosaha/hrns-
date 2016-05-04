@@ -4,7 +4,7 @@
 {{#unless data}}
 <h3 class="ui header">None of your candidates have been moved to scheduling yet. Come back later!</h3>
 {{/unless}}
-
+<h3 id="message"></h3>
 {{#if data}}
 <div class="overview-heading">
     <div class="ui stackable grid">
@@ -41,9 +41,9 @@
     </div>
     <div class="ui divider"></div>
 </div>
-
+{{/if }}
 {{#each data}}
-<div class="ui stackable grid overview-list">
+<div class="ui stackable grid overview-list" id="{{vid}}">
     <div class="two wide column">
       <img class="ui tiny image company-logo" src="{{logo_url}}"/>
     </div>
@@ -94,11 +94,14 @@
       </a>
     </div>
     <div class="two wide column">
-      <a class="overview-list-element" href='/agency/job/remove/{{vid}}'>
-        <button class="ui inverted blue button">Remove</button>
+      <a class="overview-list-element">
+        <button data-vid ="{{vid}}" class="ui inverted red button remove-button">Remove</button>
       </a>
     </div>
 </div>
 <div class="ui divider"></div>
 {{/each}}
-{{/if }}
+
+{{> remove-vacancy-modal}}
+
+<script type="text/javascript" src="/public/js/agencymyjobs.js"></script>
