@@ -1,12 +1,22 @@
+
 <h1 class="ui block header">{{jobTitle}} Vacancy Scheduling</h1>
+<div class="ui three column grid">
+  <div class="ui two column">
+  <a href="/client/job/{{vid}}" ><button class="ui inverted blue button">Go Back</button></a>    
+  </div>
+  <div class="ui one column">
+<h3 id="message"></h3>  
+  </div>  
+</div>
+
 <div class="ui divider"></div>
 
-{{#unless cvs}}
+{{#unless data}}
 <h3 class="ui header">Doesn't look like there's any accepted candidates right now... Go back and accept some <a href="/client/job/{{vid}}">here!</a></h3>
 {{/unless}}
 
-{{#if cvs}}
-<div class="scheduling-heading">
+{{#if data}}
+<div class="overview-heading">
     <div class="ui stackable grid">
       <div class="three wide column text-overflow-element">
         <h4>Name</h4>
@@ -24,9 +34,7 @@
         <h4>Rating</h4>
       </div>
       <div class="three wide column">
-        <a href="/client/job/{{vid}}/scheduling/update">
-            <button class="ui inverted green button">Save Changes</button>
-        </a>
+        <button class="ui inverted green button" id="save-changes">Save Changes</button>
       </div>
     </div>
     <div class="ui stackable grid application-stages">
@@ -47,7 +55,9 @@
     <div class="ui divider"></div>
 </div>
 
-{{#each cvs}}
+
+
+{{#each data}}
 <div class="ui stackable grid listView" id="{{cvid}}">
   <div class="three wide column text-overflow-element">
     <h5>{{candidateName}}</h5>
@@ -60,25 +70,25 @@
   </div>
   <div class="one wide column">
     <div class="ui radio checkbox">
-      <input type="radio" name="frequency" checked="checked">
+      <input type="radio" name="{{cvid}}" data-stage="stageOne" data-cvid="{{cvid}}" {{stageOne stage}} >
       <label></label>
     </div>
   </div>
   <div class="one wide column">
     <div class="ui radio checkbox">
-      <input type="radio" name="frequency">
+      <input type="radio" name="{{cvid}}" data-stage="stageTwo" data-cvid="{{cvid}}" {{stageTwo stage}}>
       <label></label>
     </div>
   </div>
   <div class="one wide column">
     <div class="ui radio checkbox">
-      <input type="radio" name="frequency">
+      <input type="radio" name="{{cvid}}" data-stage="stageThree" data-cvid="{{cvid}}"{{stageThree stage}}>
       <label></label>
     </div>
   </div>
   <div class="one wide column">
     <div class="ui radio checkbox">
-      <input type="radio" name="frequency">
+      <input type="radio" name="{{cvid}}" data-stage="stageFour" data-cvid="{{cvid}}" {{stageFour stage}}>
       <label></label>
     </div>
   </div>
@@ -89,13 +99,24 @@
     <a href="{{file_url}}" type="text" download><h5>CV</h5></a>
   </div>
   <div class="two wide column">
-    <a href="/admin/job/{{vid}}/reject/{{agencyEmail}}/{{cvid}}">
-        <button class="ui inverted red button">Reject</button>
-    </a>
+
+        <button
+          data-cvid="{{cvid}}"
+          data-vid="{{vid}}"
+          data-candidate-name="{{candidateName}}"
+          data-current-stage = "{{stage}}"
+          data-agency-email ="{{agencyEmail}}"
+          data-agency-id ="{{agencyId}}"
+          class="ui inverted red button reject-button">Reject</button>
+
   </div>
-</div>
+ </div>
 <div class="ui divider"></div>
-{{/each}}
+
+{{/each }}
+
+{{> rejectcandidatemodal}}
+{{> savechanges}}
 
 <script type="text/javascript" src="/public/js/scheduling.js"></script>
 {{/if }}

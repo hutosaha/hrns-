@@ -32,10 +32,11 @@
                   <div class="column">
                     <div class="ui compact menu">
                         <div class="ui compact selection dropdown">
-                            <input data-aEmail="{{agencyEmail}}" type="hidden" name="{{vid}}" id="{{cvid}}">
+                            <input data-agency-email="{{agencyEmail}}" type="hidden" name="{{vid}}" id="{{cvid}}">
                             <i class="dropdown icon"></i>
                             <div class="default text">Rate</div>
                             <div class="menu">
+                                <div class="item"  title="Rate">Rate</div>
                                 <div class="item" data-value="gold" title="Gold"><i class="trophy yellow icon"></i></div>
                                 <div class="item" data-value="silver" title="Silver"><i class="trophy grey icon"></i></div>
                                 <div class="item" data-value="bronze" title="Bronze"><i class="trophy brown icon"></i></div>
@@ -61,9 +62,12 @@
                     <a href="{{file_url}}" type="text" download><h5>Download CV</h5></a>
                   </div>
                   <div class="column">
-                    <a href="/admin/job/{{vid}}/reject/{{agencyEmail}}/{{cvid}}">
-                        <button class="ui inverted red button">Reject</button>
-                    </a>
+      
+                  <button 
+                  data-agency-email="{{agencyEmail}}"
+                  data-vid= "{{vid}}"
+                  data-cvid= "{{cvid}}"
+                  class="ui inverted red button reject">Reject</button>            
                   </div>
               </div>
               <div class="ui divider"></div>
@@ -72,4 +76,5 @@
     {{/each}}
  
 </div>
-
+{{> admin-reject-modal-nofeedback}}
+{{> admin-savechanges-modal}}

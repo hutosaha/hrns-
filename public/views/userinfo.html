@@ -34,54 +34,59 @@
                 <h5>Size</h5>
                 <p>{{companySize}}</p>
               </div>
-              <div class="column text-overflow-element">
-                <h5>Sector</h5>
-                {{sector companySector}}
+              <div class="ui column">
+                  <button class="ui inverted blue button viewMore" data-id="{{id}}">More...</button>
               </div>
             </div>
 
-            <div class="ui six column row">
-              <div class="column text-overflow-element">
-                <h5>Picture goes here!</h5>
-              </div>
-              <div class="column text-overflow-element">
-                {{#if twitter}}
-                <h5>Twitter</h5>
-                <p>{{twitter}}</p>
+            <div class="hide-element hidden-group" id="{{id}}">
+              <div class="ui stackable grid">
+                <div class="ui six column row">
+                  <div class="column">
+                    <img class="ui tiny image company-logo" src="{{logo_url}}"/>
+                  </div>
+                  <div class="column text-overflow-element">
+                    {{#if twitter}}
+                    <h5>Twitter</h5>
+                    <p>{{twitter}}</p>
+                    {{/if }}
+                  </div>
+                  <div class="column text-overflow-element">
+                    {{#if website}}
+                    <h5>Company Website</h5>
+                    <a href="{{website}}"><p>{{website}}</p></a>
+                    {{/if }}
+                  </div>
+                  <div class="column text-overflow-element">
+                    {{#if facebook}}
+                    <h5>Facebook</h5>
+                    <a href="{{facebook}}"><p>{{facebook}}</p></a>
+                    {{/if }}
+                  </div>
+                  <div class="column text-overflow-element">
+                    {{#if linkedin}}
+                    <h5>LinkedIn</h5>
+                    <a href="{{linkedin}}"><p>{{linkedin}}</p></a>
+                    {{/if }}
+                  </div>
+                  <div class="column text-overflow-element">
+                    <h5>Sector</h5>
+                    {{sector companySector}}
+                  </div>
+                </div>
+                {{#if companyDescription}}
+                <div class="ui one column row">
+                  <div class="column">
+                    <h5>Company Description</h5>
+                    <p>{{companyDescription}}</p>
+                  </div>
+                </div>
                 {{/if }}
-              </div>
-              <div class="column text-overflow-element">
-                {{#if website}}
-                <h5>Company Website</h5>
-                <a href="{{website}}"><p>{{website}}</p></a>
-                {{/if }}
-              </div>
-              <div class="column text-overflow-element">
-                {{#if facebook}}
-                <h5>Facebook</h5>
-                <a href="{{facebook}}"><p>{{facebook}}</p></a>
-                {{/if }}
-              </div>
-              <div class="column text-overflow-element">
-                {{#if linkedin}}
-                <h5>LinkedIn</h5>
-                <a href="{{linkedin}}"><p>{{linkedin}}</p></a>
-                {{/if }}
-              </div>
-              <div class="column">
-                <!-- Blank column for rendering -->
-              </div>
             </div>
-            <!-- View more for company description??  -->
-            {{#if companyDescription}}
-            <div class="ui one column row">
-              <div class="column">
-                <h5>Company Description</h5>
-                <p>{{companyDescription}}</p>
-              </div>
-            </div>
-            {{/if }}
+          </div>
         </div>
+
+        <div class="one colum row" style="display:none;"></div> <!-- so the divider underneath shows -->
         <div class="ui divider"></div>
         {{/each}}
 </div>
@@ -125,4 +130,4 @@
         <div class="ui divider"></div>
     {{/each}}
 </div>
-<script type="text/javascript" src="../public/js/tab.js"></script>
+<script type="text/javascript" src="../public/js/userinfo.js"></script>

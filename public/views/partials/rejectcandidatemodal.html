@@ -1,0 +1,48 @@
+<div class="ui first coupled modal reject-modal">
+    <i class="close icon"></i>
+    <div class="header">
+        Sorry to hear you want to reject this candidate...
+    </div>
+    <div class="content">
+        <h5>What's the reason?</h5>
+        <div class="description">
+            <div class="grouped fields">
+                <div class="field">
+                    <div class="ui checkbox">
+                        <input type="checkbox" name="rejection-reason"  class="" value="not_enough" checked>
+                        <label>Not enough experience</label>
+                    </div>
+                </div>
+                <br>
+                <div class="field">
+                    <div class="ui checkbox">
+                        <input type="checkbox" name="rejection-reason"  class="" value="not_right">
+                        <label>Experience not quite right</label>
+                    </div>
+                </div>
+                <br>
+            </div>
+        </div>
+    </div>
+    <div class="actions">
+      
+        <button class="ui primary button confirm-rejection-button" type="button">Confirm rejection</button>
+    </div>
+</div>
+
+<div class="ui small second coupled modal reject-modal">
+    <div class="header">
+        Rejection confirmed
+    </div>
+    <div class="content">
+        <div class="description">
+            <p>Sorry this candidate wasn't quite right, thanks for your feedback.</p>
+        </div>
+    </div>
+    <div class="actions">
+
+        <div class="ui approve button">
+            <i class="checkmark icon"></i> All Done
+        </div>
+    </div>
+</div>

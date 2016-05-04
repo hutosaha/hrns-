@@ -3,52 +3,129 @@
 var $ = window.$;
 
 $(function() {
-    $('.ui.dropdown')
-        .dropdown('set selected', 'value');
+            $('.ui.dropdown')
+                .dropdown('set selected', 'value');
 
-    var allInputs = $(":input[type=hidden]");
-    $('#submitRatings').on('click', function() {
+            var allInputs = $(":input[type=hidden]");
 
 
-        allInputs.each(function() {
+            $('#submitRatings').on('click', function() {
 
-            var rating = $(this).val();
+                $('.first.modal.confirmation-modal')
+                    .modal('show');
 
-            if (rating) {
-
-                var cvid = $(this).attr("id");
-                var vid = $(this).attr("name");
-                var aEmail = $(this).attr("data-aEmail");
-
-                console.log('allInputs', rating, vid, cvid, aEmail);
-                $.ajax({
-                    url: '/rating/',
-                    data: {
-                        cvid: cvid,
-                        vid: vid,
-                        rating: rating,
-                        email: aEmail
-                    },
-                    async: true,
-                    success: function( data) {
-                        var ele = document.getElementById(cvid);
-                        if( ele) { ele.remove();}
-                        var inputCount = $(":input[type=hidden]");
-                        console.log('ALLINPUTS', inputCount.length);
-
-                        if (inputCount.length === 0) {
-                            document.getElementById('submitRatings').style.display = 'none';
-                            $('#message').html(data);
-                        } 
-
-                    },
-                    error: function(thrownError) {
-                        console.log(thrownError);
-                    }
+                $('.button.cancel-confirmation').click(function() {
+                    $('.ui.first.modal.confirmation-modal').modal('hide');
                 });
-            } else {
-                console.log('!Rating', rating);
-            }
-        });
-    });
-});
+            });
+
+            $('.button.savechanges-confirmation').click(function() {
+                    $('.ui.first.modal.confirmation-modal').modal('hide');
+                    $('.second.modal.confirmation-modal').modal('show', '.first.modal .button');
+
+                    allInputs.each(function() {
+
+                        var rating = $(this).val();
+
+                        if (rating) {
+
+                            var cvid = $(this).attr("id");
+                            var vid = $(this).attr("name");
+                            var agencyEmail = $(this).data("agency-email");
+
+                            $.ajax({
+                                url: '/rating/',
+                                data: {
+                                    cvid: cvid,
+                                    vid: vid,
+                                    rating: rating,
+                                    email: agencyEmail
+                                },
+                                async: true,
+                                success: function(res) {
+                                    if( res ) { 
+                                        var ele = document.getElementById(cvid);
+                                        if (ele) { ele.remove(); }
+                                        var inputCount = $(":input[type=hidden]");
+
+                                        if (inputCount.length === 0) {
+                                        document.getElementById('submitRatings').style.display = 'none';
+                                        $('#message').html('There are no candidates to approve for this vacancy');
+                                        }
+                                    } else {
+                                        $('#message').html('Error please try again');
+                                    }
+
+                                },
+                                error: function(thrownError) {
+                                    console.log(thrownError);
+                                }
+                            });
+                        } else {
+                            console.log('!Rating', rating);
+                        }
+                    });
+                });
+
+
+                $('.coupled.modal.reject-modal')
+                    .modal({
+                        allowMultiple: false
+                    });
+
+                $('.button.reject').on('click', function() {
+
+                    let cvid = $(this).data('cvid');
+                    let vid = $(this).data('vid');
+                    let agencyEmail = $(this).data('agency-email');
+
+                    $('.first.modal.reject-modal')
+                        .modal('show');
+
+                    $('.button.cancel-rejection').click(function() {
+                        $('.first.modal.reject-modal').modal('hide');
+                    });
+
+
+                    $('.button.confirm-rejection').click(function() {
+                        $('.first.modal.reject').modal('hide');
+                        $('.second.modal.reject-modal').modal('show', '.first.modal .button');
+
+
+                        $.ajax({
+                            url: '/admin/job/reject',
+                            data: {
+                                cvid: cvid,
+                                vid: vid,
+                                agencyEmail: agencyEmail
+                            },
+                            async: true,
+                            success: function(res) {
+                                if (res) {
+                                    var ele = document.getElementById(cvid);
+                                    if (ele) { ele.remove(); }
+                                    var applicationsCount = $(".listView");
+                                    if (applicationsCount.length === 0) {
+                                        document.getElementById('submitRatings').style.display = 'none';
+                                        $('#message').html('There are no candidates for you to approve at the moment... come back when there are!');
+                                    }
+                                } else {
+                                    $('#message').html('Error please try again');
+                                }
+
+                            },
+                            error: function(thrownError) {
+                                console.log(thrownError);
+                            }
+                    });
+
+
+                   });
+
+
+
+                });
+
+
+
+            });
