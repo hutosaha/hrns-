@@ -41,7 +41,7 @@
     </div>
     <div class="ui divider"></div>
 </div>
-
+{{/if }}
 {{#each data}}
 <div class="ui stackable grid listView">
     <div class="two wide column">
@@ -94,7 +94,7 @@
       </a>
     </div>
     <div class="two wide column">
-      <a href='/agency/job/remove/{{vid}}'>
+      <a href='/agency/myjob/remove'>
         <button 
           data-vid ="{{vid}}"
 
@@ -105,7 +105,7 @@
 </div>
 <div class="ui divider"></div>
 {{/each}}
-{{/if }}
+
 {{> remove-vacancy-modal}}
 
 <script type="text/javascript" src="/public/js/agencymyjobs.js"></script>
