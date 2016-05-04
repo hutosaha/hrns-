@@ -1,21 +1,11 @@
-
-
 .ui.inverted.menu {
   color: white;
   background-color: #1D849A;
 }
 
-
 .ui.menu .item>img:not(.ui) {
   width:10em;
 }
-
-/*===================
-      Colours
-=====================*/
-
-
-
 
 .ui.grid.listView {
     margin-top: 20px;
@@ -109,6 +99,21 @@ h1.ui.huge.header {
     margin-bottom: 0px;
 }
 
+/*===========================
+  OVERVIEW PAGES
+  ===========================*/
+
+.ui.grid.overview-list {
+  /* currently used on adminvacancies */
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.overview-list-element {
+  height: 90px;
+  line-height: 70px;
+}
+
 /*==============================
 ================================
 MEDIA QUERIES
@@ -142,13 +147,11 @@ and (min-width: 768px) {
 
  .ui.stackable.grid.application-stages {
       margin-top: -2em;
-/*    text-align: center;
-   */  }
+  }
  .application-stages {
       text-align: center;
   }
   .overview-heading {
-
       display: block;
   }
   /* on live jobs page #80 */
