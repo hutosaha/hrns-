@@ -2,11 +2,11 @@
 <h1 class="ui block header">{{jobTitle}} Vacancy Scheduling</h1>
 <div class="ui three column grid">
   <div class="ui two column">
-  <a href="/client/job/{{vid}}" ><button class="ui inverted blue button">Go Back</button></a>    
+    <button class="ui inverted blue button" id="go-back" data-url="/client/job/{{vid}}">Go Back</button>
   </div>
   <div class="ui one column">
-<h3 id="message"></h3>  
-  </div>  
+    <h3 id="message"></h3>
+  </div>
 </div>
 
 <div class="ui divider"></div>
@@ -54,8 +54,6 @@
     </div>
     <div class="ui divider"></div>
 </div>
-
-
 
 {{#each data}}
 <div class="ui stackable grid listView" id="{{cvid}}">
