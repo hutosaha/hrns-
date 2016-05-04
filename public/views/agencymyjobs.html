@@ -13,23 +13,23 @@
       <div class="three wide column text-overflow-element">
         <h4>Name</h4>
       </div>
-      <div class="two wide column text-overflow-element">
-        <h4>Salary</h4>
+      <div class="three wide column text-overflow-element">
+        <h4>Job Title</h4>
       </div>
-      <div class="two wide column text-overflow-element">
+      <div class="three wide column text-overflow-element">
         <h4>Email</h4>
       </div>
       <div class="four wide column text-overflow-element text-centering">
         <h4>Application Stage</h4>
       </div>
       <div class="two wide column">
-        <h4>Rating</h4>
+        <h4>Date Posted</h4>
       </div>
       <div class="three wide column">
       </div>
     </div>
     <div class="ui stackable grid application-stages">
-      <div class="seven wide column"></div>
+      <div class="nine wide column"></div>
       <div class="one wide column">
         <h5>1</h5>
       </div>
@@ -53,33 +53,37 @@
   <div class="three wide column text-overflow-element">
     <h5>{{companyName}}</h5>
   </div>
-  <div class="two wide column text-overflow-element">
+  <div class="three wide column text-overflow-element">
     <h5>{{jobTitle}} </h5>
   </div>
-  <div class="two wide column text-overflow-element">
+  <div class="three wide column text-overflow-element">
     <a href="mailto:{{email}}"><h5>{{clientEmail}}</h5></a>
   </div>
   <div class="one wide column">
-       {{stageOne}}
+      <h5>{{stageone}} </h5> 
   </div>
   <div class="one wide column">
-       <h5>{{stageTwo}}</h5>
+       <h5>{{stagetwo}}</h5>
   </div>
   <div class="one wide column">
-       <p>{{stageThree}}</p>
+       <h5>{{stagethree}}</h5>
   </div>
   <div class="one wide column">
-      <p>{{stageFour}}</p>
+      <h5>{{stagefour}}</h5>
   </div>
   <div class="two wide column">
-       {{rating rating}}
+      <h5>{{dateSubmitted}}</h5>    
   </div>
   <div class="one wide column">
-    <a href="{{file_url}}" type="text" download><h5>CV</h5></a>
   </div>
 </div>
 <div class="ui divider"></div>
 {{/each}}
+
+{{#each data}}
+  {{log this}}
+{{/each}}
+
 
 <!-- <script type="text/javascript" src="/public/js/overview.js"></script>
  -->
