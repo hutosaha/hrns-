@@ -43,58 +43,58 @@
 </div>
 
 {{#each data}}
-<div class="ui stackable grid listView">
+<div class="ui stackable grid overview-list">
     <div class="two wide column">
       <img class="ui tiny image company-logo" src="{{logo_url}}"/>
     </div>
     <div class="two wide column text-overflow-element">
-        <p>{{companyName}}</p>
+        <p class="overview-list-element">{{companyName}}</p>
     </div>
     <div class="two wide column text-overflow-element">
-        <p>{{jobTitle}}</p>
+        <p class="overview-list-element">{{jobTitle}}</p>
     </div>
     <div class="two wide column text-overflow-element">
-        <p>{{salary}}</p>
+        <p class="overview-list-element">{{salary}}</p>
     </div>
     <div class="one wide column">
         {{#if stage1Count}}
-        <p>{{stage1Count}}</p>
+        <p class="overview-list-element">{{stage1Count}}</p>
         {{/if }}
         {{#unless stage1Count}}
-        <p>0</p>
+        <p class="overview-list-element">0</p>
         {{/unless }}
     </div>
     <div class="one wide column">
         {{#if stage2Count}}
-        <p>{{stage2Count}}</p>
+        <p class="overview-list-element">{{stage2Count}}</p>
         {{/if }}
         {{#unless stage2Count}}
-        <p>0</p>
+        <p class="overview-list-element">0</p>
         {{/unless }}
     </div>
     <div class="one wide column">
         {{#if stage3Count}}
-        <p>{{stage3Count}}</p>
+        <p class="overview-list-element">{{stage3Count}}</p>
         {{/if }}
         {{#unless stage3Count}}
-        <p>0</p>
+        <p class="overview-list-element">0</p>
         {{/unless }}
     </div>
     <div class="one wide column">
         {{#if stage4Count}}
-        <p>{{stage4Count}}</p>
+        <p class="overview-list-element">{{stage4Count}}</p>
         {{/if }}
         {{#unless stage4Count}}
-        <p>0</p>
+        <p class="overview-list-element">0</p>
         {{/unless }}
     </div>
     <div class="two wide column">
-      <a href='/agency/job/{{vid}}'>
+      <a class="overview-list-element" href='/agency/job/{{vid}}'>
         <button class="ui inverted blue button">View</button>
       </a>
     </div>
     <div class="two wide column">
-      <a href='/agency/job/remove/{{vid}}'>
+      <a class="overview-list-element" href='/agency/job/remove/{{vid}}'>
         <button class="ui inverted blue button">Remove</button>
       </a>
     </div>
