@@ -4,7 +4,7 @@
 {{#unless data}}
 <h3 class="ui header">None of your candidates have been moved to scheduling by any clients </h3>
 {{/unless}}
-
+<h3 id="message"></h3>
 {{#if data}}
 <div class="overview-heading">
     <div class="ui stackable grid">
@@ -43,7 +43,7 @@
 </div>
 {{/if }}
 {{#each data}}
-<div class="ui stackable grid listView">
+<div class="ui stackable grid listView" id="{{vid}}">
     <div class="two wide column">
       <img class="ui tiny image company-logo" src="{{logo_url}}"/>
     </div>
@@ -94,12 +94,7 @@
       </a>
     </div>
     <div class="two wide column">
-      <a href='/agency/myjob/remove'>
-        <button 
-          data-vid ="{{vid}}"
-
-
-        class="ui inverted red button remove">Remove</button>
+         <button data-vid ="{{vid}}" class="ui inverted red button remove-button">Remove</button>
       </a>
     </div>
 </div>

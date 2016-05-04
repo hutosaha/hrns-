@@ -1,13 +1,16 @@
+var $ = window.$;
+
+(function() {
+
     $('.coupled.modal.reject-modal')
         .modal({
             allowMultiple: false
         });
 
-    $('.button.reject').on('click', function() {
-
-        let cvid = $(this).data('cvid');
+    $('.remove-button').click(function() {
+       
         let vid = $(this).data('vid');
-        let agencyEmail = $(this).data('agency-email');
+     
 
         $('.first.modal.reject-modal')
             .modal('show');
@@ -23,21 +26,20 @@
 
 
             $.ajax({
-                url: '/admin/job/reject',
+                url: '/agency/myjobs/remove',
                 data: {
-                    cvid: cvid,
-                    vid: vid,
-                    agencyEmail: agencyEmail
+                    vid: vid                
                 },
                 async: true,
                 success: function(res) {
                     if (res) {
-                        var ele = document.getElementById(cvid);
+                        var ele = document.getElementById(vid);
                         if (ele) { ele.remove(); }
-                        var applicationsCount = $(".listView");
-                        if (applicationsCount.length === 0) {
-                            document.getElementById('submitRatings').style.display = 'none';
-                            $('#message').html('There are no candidates for you to approve at the moment... come back when there are!');
+                        var vacanciesCount = $(".listView");
+                        if (vacanciesCount.length === 0) {
+                           $('.overview-heading').remove();
+                           $('#message').html('None of your candidates have been moved to scheduling by any clients');
+
                         }
                     } else {
                         $('#message').html('Error please try again');
@@ -55,3 +57,4 @@
 
 
     });
+})();
