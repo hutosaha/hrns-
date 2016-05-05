@@ -4,9 +4,9 @@
 {{#if message}}
 <h3>{{message}}</h3>
 {{/if }}
+
 <div class="ui stackable grid listView">
   {{#each data}}
-
     <div class="ui eight column row">
         <div class="ui column">
             <h5>Company Name</h5>
@@ -35,8 +35,8 @@
             </a>
         </div>
         <div class="ui column">
-            <a href="approveuser/reject/{{email}}">
-                <button class="ui inverted blue button">Reject</button>
+            <a href="approveuser/reject/{{id}}/{{email}}">
+                <button class="ui inverted red button">Reject</button>
             </a>
         </div>
     </div>
@@ -119,7 +119,7 @@
 
       </div>
     </div>
-    <div class="one colum row" style="display:none;"></div> <!-- so the divider underneath shows -->
+    <div class="one column row" style="display:none;"></div> <!-- so the divider underneath shows -->
     <div class="ui divider"></div>
     {{/each}}
 </div>
