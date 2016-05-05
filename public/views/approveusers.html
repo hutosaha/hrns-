@@ -1,12 +1,9 @@
 <h1 class="ui block header">Approve Users</h1>
+<h3 id="message">{{message}}</h3>
 <div class="ui divider"></div>
 
-{{#if message}}
-<h3>{{message}}</h3>
-{{/if }}
-
-<div class="ui stackable grid listView">
   {{#each data}}
+  <div class="ui stackable grid listView" id="{{id}}block">
     <div class="ui eight column row">
         <div class="ui column">
             <h5>Company Name</h5>
@@ -30,14 +27,14 @@
             <button class="ui inverted blue button viewMore" data-id="{{id}}">More...</button>
         </div>
         <div class="ui column">
-            <a href="approveuser/approve/{{id}}/{{email}}">
-                <button class="ui inverted blue button">Approve</button>
-            </a>
+            <button data-url="approveuser/approve/{{id}}/{{email}}"
+                    data-id="{{id}}block"
+                    class="ui inverted blue button approve-button">Approve</button>
         </div>
         <div class="ui column">
-            <a href="approveuser/reject/{{id}}/{{email}}">
-                <button class="ui inverted red button">Reject</button>
-            </a>
+            <button data-url="approveuser/reject/{{id}}/{{email}}"
+                    data-id="{{id}}block"
+                    class="ui inverted red button reject-button">Reject</button>
         </div>
     </div>
 
@@ -121,8 +118,8 @@
     </div>
     <div class="one column row" style="display:none;"></div> <!-- so the divider underneath shows -->
     <div class="ui divider"></div>
+  </div>
     {{/each}}
-</div>
 
 <script type="text/javascript" src="../public/js/aws.js"></script>
 <script type="text/javascript" src="../public/js/approveusers.js"></script>
