@@ -5,7 +5,7 @@ const client = require('../lib/db/client.js');
 
 const testEndPoint       = require('./utils/utils.js').testEndPoint;
 const testPayload        = require('./utils/utils.js').testPayload;
-const testHeaderLocation = require('./utils/utils.js').testHeaderLocation;
+// const testHeaderLocation = require('./utils/utils.js').testHeaderLocation;
 
 const adminCookie    = require('./utils/utils.js').adminCookie;
 const clientCookie   = require('./utils/utils.js').clientCookie;
