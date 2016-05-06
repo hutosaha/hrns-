@@ -87,6 +87,10 @@ h1 {
 }
 
 
+.ui.main.container {
+	margin-top: 7em;
+}
+
 h1.ui.huge.header {
     text-align: center;
     margin:1em;
