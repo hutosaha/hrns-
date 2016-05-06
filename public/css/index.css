@@ -1,6 +1,14 @@
+body, h1, h2, h3, h4, h5, .ui.header, .ui.button {
+  font-family: 'Open Sans', sans-serif;
+
+}
+h1 {
+  font-family: 'Open Sans', sans-serif;
+}
+
 .ui.inverted.menu {
   color: white;
-  background-color: #1D849A;
+  background-color: #0E98B9;
 }
 
 .ui.menu .item>img:not(.ui) {
@@ -33,6 +41,10 @@
     padding: 1em;
 }
 
+.form-margin {
+  margin:0em 13em;
+}
+
 /*==============================
   Container for every page - see content partial
 ================================*/
@@ -58,6 +70,47 @@
 
 h1.ui.huge.header {
     text-align: center;
+}
+
+/*===========================
+  Nav Bar
+  ==========================*/
+
+
+.ui.fixed.inverted.menu {
+display: -webkit-box;
+display: -webkit-flex;
+display: -ms-flexbox;
+display: flex;
+margin: 0;
+font-weight: 400; /
+/ border: 1px solid rgba(34,36,38,.15); /
+box-shadow: 0 1px 2px 0 rgba(34,36,38,.15);
+/ border-radius: .28571429rem; /
+/ min-height: 2.85714286em;
+}
+
+.ui.fixed.inverted.menu .header.item, .ui.vertical.menu .header.item {
+margin: 0;
+background: 0 0;
+/* text-transform: normal; */
+font-weight: 600;
+}
+
+.ui.fixed.inverted.menu .item:before {
+position: absolute;
+content: '';
+top: 0;
+right: 0;
+height: 100%;
+/* width: 1px; /
+/ background: rgba(34,36,38,.1); */
+}
+
+.ui.link.menu .item:hover, .ui.menu .dropdown.item:hover, .ui.menu .link.item:hover, .ui.menu a.item:hover {
+cursor: pointer;
+background: rgba(0,0,0,.1);
+color: rgba(0,0,0,.95);
 }
 
 /*===========================
@@ -87,6 +140,8 @@ h1.ui.huge.header {
     display: flex;
     justify-content: center;
 }
+
+
 
 /*===========================
   CLIENT PAGE

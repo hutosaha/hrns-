@@ -239,7 +239,7 @@ server.init(1, (err, server) => {
                         t.equal(reply, 1, 'cv exists in database');
                     });
                     client.hget(vid, 'dateSubmitted', (err, reply) => {
-                        t.equal(reply, moment().format('Do MMMM YYYY'), 'dateSubmitted key is in database');
+                        t.equal(reply, moment().format('llll')..trim().slice(0,-5), 'dateSubmitted key is in database');
                     });
                     client.hget(vid, 'searchDeadline', (err, reply) => {
                         t.equal(reply, '12th December 2016', 'searchDeadl key is in database');
