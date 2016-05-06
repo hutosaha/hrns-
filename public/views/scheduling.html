@@ -1,4 +1,3 @@
-
 <h1 class="ui block header">{{jobTitle}} Vacancy Scheduling</h1>
 <div class="ui three column grid">
   <div class="ui two column">
@@ -98,23 +97,22 @@
   </div>
   <div class="two wide column">
 
-        <button
-          data-cvid="{{cvid}}"
-          data-vid="{{vid}}"
-          data-candidate-name="{{candidateName}}"
-          data-current-stage = "{{stage}}"
-          data-agency-email ="{{agencyEmail}}"
-          data-agency-id ="{{agencyId}}"
-          class="ui inverted red button reject-button">Reject</button>
+      <button
+        data-cvid="{{cvid}}"
+        data-vid="{{vid}}"
+        data-candidate-name="{{candidateName}}"
+        data-current-stage = "{{stage}}"
+        data-agency-email ="{{agencyEmail}}"
+        data-agency-id ="{{agencyId}}"
+        class="ui inverted red button reject-button">Reject</button>
 
   </div>
  </div>
 <div class="ui divider"></div>
-
 {{/each }}
 
 {{> rejectcandidatemodal}}
 {{> savechanges}}
 
-<script type="text/javascript" src="/public/js/scheduling.js"></script>
 {{/if }}
+<script type="text/javascript" src="/public/js/scheduling.js"></script>
