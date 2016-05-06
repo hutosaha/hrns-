@@ -1,10 +1,11 @@
 {{#if message}}
     <h3>{{message}}</h3>
 {{/if }}
+<div class="form-margin">
 <h1 class="ui block header">Sign Up</h1>
 <div class="ui divider"></div>
-    <h2>id: {{id}}</h2>
-    <form method="POST" action="/candidate" class="ui form">
+   <form method="POST" action="/candidate" class="ui form">
         {{> candidateform}}
     </form>
+</div>
 <script type="text/javascript" src="/public/js/aws.js"></script>

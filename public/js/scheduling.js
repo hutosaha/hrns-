@@ -3,9 +3,10 @@ var $ = window.$;
 $(function() {
 
     // replaces a link so the admin can't click the button
-    $('#go-back').on('click', function(e) {
-        e.preventDefault();
+    $('#go-back').on('click', function() {
         var url = $(this).data('url');
+        console.log('boom url',url);
+
         window.location.replace(url);
       });
 
@@ -79,6 +80,8 @@ $(function() {
 
     $('.reject-button').click(function() {
 
+      console.log('1');
+
         var candidateName = $(this).data('candidate-name');
         var cvid = $(this).data('cvid');
         var vid = $(this).data('vid');
@@ -92,11 +95,7 @@ $(function() {
 
         $('.ui.checkbox').checkbox();
 
-        $('.coupled.modal.reject-modal')
-            .modal({
-                allowMultiple: false
-            });
-
+        $('.coupled.modal.reject-modal').modal({ allowMultiple: false });
         $('.second.modal.reject-modal').modal('attach events', '.first.modal .button');
         $('.first.modal.reject-modal').modal('show');
 
@@ -112,8 +111,11 @@ $(function() {
                 $('.first.modal.reject').modal('hide');
                 $('.second.modal.reject-modal').modal('show', '.first.modal .button');
 
+                console.log('2');
+
+
             var reason = $('input[name="rejection-reason"]:checked').val();
-            console.log('Reason', reason);
+
             $.ajax({
                 url: '/client/scheduling/reject',
                 data: {
@@ -128,12 +130,14 @@ $(function() {
                 async: true,
                 success: function(res) {
                     if (res) {
+                      console.log('3');
+
                         var element = document.getElementById(cvid);
                         element.nextSibling.nextSibling.remove();
                         element.remove();
 
                         if ($('.listView').length === 0) {
-                            $('.message').html('There are no candidates yet!');
+                            $('.message').html('There are no approved candidates at the moment... Come back when there are!');
                         }
                     }
                 }
@@ -141,4 +145,4 @@ $(function() {
 
         });
     });
-});
+})();
