@@ -45,6 +45,10 @@ h1 {
   margin:0em 13em;
 }
 
+
+.scheduling-header-margin h5 {
+  margin-left: -10px
+}
 /*==============================
   Container for every page - see content partial
 ================================*/
@@ -68,8 +72,24 @@ h1 {
 		transform: translate(-50%, -50%);
 }
 
+.home-navbar  {
+  margin:2em;
+}
+
+.home-navbar a {
+  margin-left: 10px;
+  margin-top: 1em;
+}
+
+.ui.linkedin.button {
+    border-radius: 25px;
+
+}
+
+
 h1.ui.huge.header {
     text-align: center;
+    margin:1em;
 }
 
 /*===========================
