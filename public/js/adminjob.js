@@ -39,7 +39,7 @@ $(function() {
                         cvid: cvid,
                         vid: vid,
                         rating: rating,
-                        email: agencyEmail
+                        agencyEmail: agencyEmail
                     },
                     async: true,
                     success: function(res) {
