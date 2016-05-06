@@ -3,9 +3,10 @@ var $ = window.$;
 $(function() {
 
     // replaces a link so the admin can't click the button
-    $('#go-back').on('click', function(e) {
-        e.preventDefault();
+    $('#go-back').on('click', function() {
         var url = $(this).data('url');
+        console.log('boom url',url);
+
         window.location.replace(url);
       });
 
@@ -144,4 +145,4 @@ $(function() {
 
         });
     });
-});
+})();

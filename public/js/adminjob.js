@@ -19,6 +19,11 @@ $(function() {
         });
     });
 
+    $("input[type=hidden]").on('change', function(){
+        $('#submitRatings').addClass('active');
+    });
+
+
     $('.button.savechanges-confirmation').click(function() {
         $('.ui.first.modal.confirmation-modal').modal('hide');
         $('.second.modal.confirmation-modal').modal('show', '.first.modal .button');

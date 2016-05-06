@@ -53,7 +53,7 @@ test('clean payload deletes empty strings in an object', (t) => {
 });
 
 test('rating helper correctly formats key values', (t) => {
-    let expected = { string: '<a class="ui yellow label">Gold</a>' };
+    let expected = { string: '<p class="ui yellow label">Gold</p>' };
     let actual = rating('gold');
     t.deepEqual(actual, expected);
     expected = { string: '<h5>No rating</h5>' };
