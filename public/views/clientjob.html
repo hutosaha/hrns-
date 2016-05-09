@@ -1,4 +1,5 @@
 {{> vacancy}}
+
 <h2 class="header">Candidate Shortlist</h2>
 <div class="ui divider"></div>
 <a href="/client/scheduling/{{vid}}/{{data.jobTitle}}">
@@ -17,7 +18,7 @@
             <h5>{{salary}}</h5>
         </div>
         <div class="column">
-            <a href="{{file_url}}" type="text" download><h5>Download CV</h5></a>
+            <a href="{{file_url}}" data-url='{{file_url}}' id='url' type="text" download><h5>Download CV</h5></a>
         </div>
         <div class="column">
             <button class="ui inverted blue button accept-button" data-candidate-name="{{candidateName}}" data-agency-email="{{agencyEmail}}" data-agency-id="{{agencyId}}" data-cvid="{{cvid}}" data-candidate-name="{{candidateName}}" data-job-title="{{jobTitle}}" data-vid="{{vid}}">
@@ -28,6 +29,9 @@
     <div class="ui five column row ">
         <div class="column text-overflow-element">
             <h5>{{jobTitle}}</h5>
+        </div>
+        <div class="column text-overflow-element">
+            <h5>CV Viewer</h5>
         </div>
         <div class="column text-overflow-element">
             {{#if linkedInProfile}}
@@ -47,7 +51,15 @@
     </div>
     <div class="ui divider"></div>
 </div>
-{{/each}} {{> rejectcandidatemodal}}
+
+
+{{/each}} 
+
+
+{{> rejectcandidatemodal}}
+
+
+
 <div class="ui first coupled modal accept-modal">
     <i class="close icon"></i>
     <div class="header">

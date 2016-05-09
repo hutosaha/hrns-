@@ -44,6 +44,7 @@
     "shot": "^3.0.1",
     "tape": "^4.5.1",
     "uuid": "^2.0.1",
+    "viewer": "^0.10.11",
     "vision": "^4.0.1"
   },
   "devDependencies": {
