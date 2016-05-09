@@ -2,6 +2,40 @@ var $ = window.$;
 
 (function() {
 
+	var messageElem = $('#message');
+
+	$('.reject-button').on('click', function(){
+
+		var url = $(this).data('url');
+		var id  = $(this).data('id');
+
+		$.ajax({
+			url: url,
+			async: true,
+			success: function (res) {
+				messageElem.html(res);
+				$('#' + id).remove();
+			}
+		});
+
+	});
+
+	$('.approve-button').on('click', function(){
+
+		var url = $(this).data('url');
+		var id  = $(this).data('id');
+
+		$.ajax({
+			url: url,
+			async: true,
+			success: function (res) {
+				messageElem.html(res);
+				$('#' + id).remove();
+			}
+		});
+
+	});
+
 	$('.viewMore').on('click', function(){
 		var id = $(this).data('id');
 		$(this).parent().parent().parent().find('#' + id).fadeToggle();

@@ -1,8 +1,7 @@
-
 <h1 class="ui block header">{{jobTitle}} Vacancy Scheduling</h1>
 <div class="ui grid">
   <div class="ui four wide column">
-  
+
     <button class="ui inverted blue button" id="go-back" data-url="/client/job/{{vid}}">Go Back</button>
   </div>
   <div class="ui four wide column">
@@ -98,23 +97,22 @@
   </div>
   <div class="two wide column">
 
-        <button
-          data-cvid="{{cvid}}"
-          data-vid="{{vid}}"
-          data-candidate-name="{{candidateName}}"
-          data-current-stage = "{{stage}}"
-          data-agency-email ="{{agencyEmail}}"
-          data-agency-id ="{{agencyId}}"
-          class="ui inverted red button reject-button">Reject</button>
+      <button
+        data-cvid="{{cvid}}"
+        data-vid="{{vid}}"
+        data-candidate-name="{{candidateName}}"
+        data-current-stage = "{{stage}}"
+        data-agency-email ="{{agencyEmail}}"
+        data-agency-id ="{{agencyId}}"
+        class="ui inverted red button reject-button">Reject</button>
 
   </div>
  </div>
 <div class="ui divider"></div>
-
 {{/each }}
 
 {{> rejectcandidatemodal}}
 {{> savechanges}}
+
 {{/if }}
 <script type="text/javascript" src="/public/js/scheduling.js"></script>
-
