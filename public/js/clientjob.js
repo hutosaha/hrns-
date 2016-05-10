@@ -31,7 +31,7 @@ $(document).ready(function() {
                                 $('iframe').attr('src', src);
                                 setTimeout(function(){
                                    document.getElementById('iframe').contentWindow.location.reload();
-                                },1500);
+                                },2000);
 
                             };
                     }

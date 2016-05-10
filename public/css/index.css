@@ -74,14 +74,16 @@ h5,
 .main-pic {
   width: 100%;
   height: 60em;
-  opacity: 0.2;
+  opacity: 0.5;
   postion: 40%;
+ 
 }
 
 .home-container {
     text-align: center;
     max-height: 50em;
     postion:relative;
+    background-color: black;
 }
 
 .intro-text {
@@ -137,10 +139,12 @@ s
    margin: auto;
 }
 
-/* .ui.medium.circular.image {
+.ui.medium.circular.image {
     border: solid 2px #15abc6;
     margin-bottom: 2em;
-=======
+}
+
+
 .ui.main.container {
     margin-top: 7em;
 }
@@ -148,9 +152,8 @@ s
 h1.ui.huge.header {
     text-align: center;
     margin:1em;
->>>>>>> master
 }
- */
+ 
 
 
 /*===========================
