@@ -1,5 +1,4 @@
 {{> vacancy}}
-
 <h2 class="header">Candidate Shortlist</h2>
 <div class="ui divider"></div>
 <a href="/client/scheduling/{{vid}}/{{data.jobTitle}}">
@@ -9,16 +8,16 @@
 <div class="ui stackable grid listView" id="{{cvid}}">
     <div class="ui five column row">
         <div class="column text-overflow-element">
-            <h5>{{candidateName}}</h5>
+            <h5>{{candidateName}}<a href="{{file_url}}" data-url='{{file_url}}' id='url' type="text" download>(CV)</h5></a>
         </div>
         <div class="column text-overflow-element">
-            {{rating rating}}
+            <a href="mailto:{{email}}"><h5>{{email}}</h5></a>
+        </div>
+        <div class="column text-overflow-element">
+            <a href="tel:{{contactNumber}}"><h5>{{contactNumber}}</h5></a>
         </div>
         <div class="column text-overflow-element">
             <h5>{{salary}}</h5>
-        </div>
-        <div class="column">
-            <a href="{{file_url}}" data-url='{{file_url}}' id='url' type="text" download><h5>Download CV</h5></a>
         </div>
         <div class="column">
             <button class="ui inverted blue button accept-button" data-candidate-name="{{candidateName}}" data-agency-email="{{agencyEmail}}" data-agency-id="{{agencyId}}" data-cvid="{{cvid}}" data-candidate-name="{{candidateName}}" data-job-title="{{jobTitle}}" data-vid="{{vid}}">
@@ -28,20 +27,19 @@
     </div>
     <div class="ui five column row ">
         <div class="column text-overflow-element">
-            <h5>{{jobTitle}}</h5>
+            <button class="tiny ui inverted teal button cv-viewer" data-filepath=""
+             data-candidate-name="{{candidateName}}" data-agency-email="{{agencyEmail}}" data-agency-id="{{agencyId}}" data-cvid="{{cvid}}" data-candidate-name="{{candidateName}}" data-job-title="{{jobTitle}}" data-vid="{{vid}}"  data-file-name="{{file-name}}"       
+             >CV Viewer</button>     
         </div>
         <div class="column text-overflow-element">
-            <h5>CV Viewer</h5>
+            <h5>{{jobTitle}}</h5>
         </div>
         <div class="column text-overflow-element">
             {{#if linkedInProfile}}
             <a href="{{linkedInProfile}}"><h5>{{linkedInProfile}}</h5></a> {{/if }}
         </div>
         <div class="column text-overflow-element">
-            <a href="mailto:{{email}}"><h5>{{email}}</h5></a>
-        </div>
-        <div class="column text-overflow-element">
-            <a href="tel:{{contactNumber}}"><h5>{{contactNumber}}</h5></a>
+            {{rating rating}}
         </div>
         <div class="column">
             <button class="ui inverted red button reject-button" data-agency-email="{{agencyEmail}}" data-cvid="{{cvid}}" data-candidate-name="{{candidateName}}" data-vid="{{vid}}">
@@ -51,15 +49,7 @@
     </div>
     <div class="ui divider"></div>
 </div>
-
-
-{{/each}} 
-
-
-{{> rejectcandidatemodal}}
-
-
-
+{{/each}} {{> rejectcandidatemodal}}
 <div class="ui first coupled modal accept-modal">
     <i class="close icon"></i>
     <div class="header">
@@ -90,4 +80,5 @@
         </div>
     </div>
 </div>
+{{> document-viewer}}
 <script type="text/javascript" src="/public/js/clientjob.js"></script>
