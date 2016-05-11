@@ -2,11 +2,11 @@
 <div class="ui divider"></div>
 
 {{#unless data}}
-<h3 class="ui header">None of your candidates have been moved to scheduling by any clients </h3>
+<h3 class="ui header">None of your candidates have been moved to scheduling yet. Come back later!</h3>
 {{/unless}}
-
+<h3 id="message"></h3>
 {{#if data}}
-<div class="overview-heading">
+<div class="overview-heading" >
     <div class="ui stackable grid">
       <div class="two wide column text-overflow-element">
         <h4>Company Image</h4>
@@ -21,89 +21,88 @@
         <h4>Salary</h4>
       </div>
       <div class="four wide column text-overflow-element text-centering">
-        <h4>Candidates at Application Stage</h4>
+        <h4>Interview Stage</h4>
       </div>
     </div>
-    <div class="ui stackable grid">
+    <div class="ui stackable grid scheduling-header-margin">
       <div class="eight wide column"></div>
       <div class="one wide column">
-        <h5>1</h5>
+        <h5 class="">Accepted</h5>
+
       </div>
       <div class="one wide column">
-        <h5>2</h5>
+        <h5>1st</h5>
       </div>
       <div class="one wide column">
-        <h5>3</h5>
+        <h5>2nd</h5>
       </div>
       <div class="one wide column">
-        <h5>4</h5>
+        <h5>Final</h5>
       </div>
     </div>
     <div class="ui divider"></div>
 </div>
-
+{{/if }}
 {{#each data}}
-<div class="ui stackable grid listView">
+<div class="ui stackable grid overview-list" id="{{vid}}">
     <div class="two wide column">
       <img class="ui tiny image company-logo" src="{{logo_url}}"/>
     </div>
     <div class="two wide column text-overflow-element">
-        <p>{{companyName}}</p>
+        <p class="overview-list-element">{{companyName}}</p>
     </div>
     <div class="two wide column text-overflow-element">
-        <p>{{jobTitle}}</p>
+        <p class="overview-list-element">{{jobTitle}}</p>
     </div>
     <div class="two wide column text-overflow-element">
-        <p>{{salary}}</p>
+        <p class="overview-list-element">{{salary}}</p>
     </div>
     <div class="one wide column">
-        {{#if stageone}}
-        <p>{{stageone}}</p>
+        {{#if stage1Count}}
+        <p class="overview-list-element">{{stage1Count}}</p>
         {{/if }}
-        {{#unless stageone}}
-        <p>0</p>
+        {{#unless stage1Count}}
+        <p class="overview-list-element">0</p>
         {{/unless }}
     </div>
     <div class="one wide column">
-        {{#if stagetwo}}
-        <p>{{stagetwo}}</p>
+        {{#if stage2Count}}
+        <p class="overview-list-element">{{stage2Count}}</p>
         {{/if }}
-        {{#unless stagetwo}}
-        <p>0</p>
+        {{#unless stage2Count}}
+        <p class="overview-list-element">0</p>
         {{/unless }}
     </div>
     <div class="one wide column">
-        {{#if stagethree}}
-        <p>{{stagethree}}</p>
+        {{#if stage3Count}}
+        <p class="overview-list-element">{{stage3Count}}</p>
         {{/if }}
-        {{#unless stagethree}}
-        <p>0</p>
+        {{#unless stage3Count}}
+        <p class="overview-list-element">0</p>
         {{/unless }}
     </div>
     <div class="one wide column">
-        {{#if stagefour}}
-        <p>{{stagefour}}</p>
+        {{#if stage4Count}}
+        <p class="overview-list-element">{{stage4Count}}</p>
         {{/if }}
-        {{#unless stagefour}}
-        <p>0</p>
+        {{#unless stage4Count}}
+        <p class="overview-list-element">0</p>
         {{/unless }}
     </div>
     <div class="two wide column">
-      <a href='/agency/job/{{vid}}'>
+      <a class="overview-list-element" href='/agency/job/{{vid}}'>
         <button class="ui inverted blue button">View</button>
       </a>
     </div>
     <div class="two wide column">
-      <a href='/agency/job/remove/{{vid}}'>
-        <button class="ui inverted blue button">Remove</button>
+      <a class="overview-list-element">
+        <button data-vid ="{{vid}}" class="ui inverted red button remove-button">Remove</button>
       </a>
     </div>
 </div>
 <div class="ui divider"></div>
 {{/each}}
-{{/if }}
 
+{{> remove-vacancy-modal}}
 
-
-<!-- <script type="text/javascript" src="/public/js/overview.js"></script>
- -->
+<script type="text/javascript" src="/public/js/agencymyjobs.js"></script>

@@ -1,21 +1,22 @@
-
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+.ui.header,
+.ui.button {
+    font-family: 'Open Sans', sans-serif;
+}
 
 .ui.inverted.menu {
-  color: white;
-  background-color: #1D849A;
+    color: white;
+    background-color: #0E98B9;
 }
-
 
 .ui.menu .item>img:not(.ui) {
-  width:10em;
+    width: 10em;
 }
-
-/*===================
-      Colours
-=====================*/
-
-
-
 
 .ui.grid.listView {
     margin-top: 20px;
@@ -35,7 +36,7 @@
 }
 
 .hide-element {
-  	display:none;
+    display: none;
 }
 
 .hidden-group {
@@ -43,64 +44,249 @@
     padding: 1em;
 }
 
+.form-margin {
+    margin: 0em 13em;
+}
+
+
 /*==============================
   Container for every page - see content partial
 ================================*/
 
 .section-container {
-		padding: 1em;
+    padding: 1em;
 }
+
 
 /*==============================
   HOMEPAGE (/home)
 ================================*/
 
-.home-container {
-		postion: relative;
+.top-padding {
+    padding-top: 20em; 
+    position: relative;
 }
 
-.home-content {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
+.main-pic {
+  width: 100%;
+  height: 60em;
+  opacity: 0.5;
+  postion: 40%;
+ 
+}
+
+.home-container {
+    text-align: center;
+    max-height: 50em;
+    postion:relative;
+    background-color: black;
+}
+
+.intro-text {
+    position: absolute;
+    color: #15abc6;
+    top: 20%;
+    text-align: center;
+    width: 100%;   
+}
+
+.intro-text h2 {
+    margin: 5em;
+}
+
+.home-navbar .container {
+    margin: 0 1em;
+    width: 120em;
+}
+
+.ui.text.container {
+    text-align: center;
+    margin: 2em;
+}
+.ui.introduction.text.container {
+    text-align: center;
+    margin: 2em;
+    width: 50em;
+}
+
+.ui.attached.segment.trustedby {
+  background-color: #15abc6;
+  min-height: 20em;
+
+}
+
+.ui.attached.segment.howitworks {
+    min-height: 40em;
+}
+
+
+.ui.header.howitworks  {
+     color: #15abc6;
+}
+
+.image-round-container {
+   background-color: white;
+   text-align: center;
+   margin: auto;
+   padding-bottom: 2em;
+}
+.image-round-container img {
+   text-align: center;
+   margin: auto;
+}
+
+.ui.medium.circular.image {
+    border: solid 2px #15abc6;
+    margin-bottom: 2em;
+}
+
+
+.ui.main.container {
+    margin-top: 7em;
 }
 
 h1.ui.huge.header {
     text-align: center;
+    margin:1em;
 }
+ 
+
+
+/*===========================
+  Nav Bar
+  ==========================*/
+.ui.fixed.menu.home-navbar {
+  border-top:solid 2px  #15abc6;
+}
+
+.home-navbar a {
+    margin-left: 10px;
+    margin-top: 1em;
+}
+
+.ui.linkedin.button {
+    border-radius: 25px;
+}
+
+h1.ui.huge.header {
+    text-align: center;
+    margin: 1em;
+}
+
+.ui.fixed.inverted.menu {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 0;
+    font-weight: 400;
+    / / border: 1px solid rgba(34, 36, 38, .15);
+    / box-shadow: 0 1px 2px 0 rgba(34, 36, 38, .15);
+    / border-radius: .28571429rem;
+    / / min-height: 2.85714286em;
+}
+
+.ui.fixed.inverted.menu .header.item,
+.ui.vertical.menu .header.item {
+    margin: 0;
+    background: 0 0;
+    /* text-transform: normal; */
+    font-weight: 600;
+}
+
+.ui.fixed.inverted.menu .item:before {
+    position: absolute;
+    content: '';
+    top: 0;
+    right: 0;
+    height: 100%;
+    /* width: 1px; /
+    / background: rgba(34,36,38,.1); */
+}
+
+.ui.link.menu .item:hover,
+.ui.menu .dropdown.item:hover,
+.ui.menu .link.item:hover,
+.ui.menu a.item:hover {
+    cursor: pointer;
+    background: rgba(0, 0, 0, .1);
+    color: rgba(0, 0, 0, .95);
+}
+
+/*===========================
+Agency Login
+  ===========================*/
+
+.agency.linkedin.button {
+    position: absolute;
+    text-align: center;
+    width:auto;
+    top: 20%;  
+    left: 45%;
+    margin: auto;   
+}
+.home-navbar {
+   border-top:solid 2px  #15abc6;
+}
+
+.agency.background {
+    margin: auto;
+    top:50%;
+
+    background-color: black;
+}
+.agency.wrapper {
+    position: relative;
+    background-color: black;
+}
+
 
 /*===========================
   Vacancy partial
   ===========================*/
 
 .vacancy-dates {
-		line-height: 0.3em;
- }
-.company-logo {
-  	border:1px solid #d4d4d5;
-  	padding:5px;
-  	box-shadow: 0 0 0 1px #d4d4d5;
+    line-height: 0.3em;
 }
+
+.company-logo {
+    border: 1px solid #d4d4d5;
+    padding: 5px;
+    box-shadow: 0 0 0 1px #d4d4d5;
+}
+
 
 /*===========================
   SCHEDULING PAGE
   ===========================*/
+
 .ui.stackable.grid.application-stages {
     margin-top: -2em;
 }
+
 .overview-heading {
-  /* also on /client */
+    /* also on /client */
     display: none;
 }
+.scheduling-header-margin h5 {
+    margin-left: -15px
+}
+
+
 .ui.radio.checkbox {
     display: flex;
     justify-content: center;
 }
 
+.accepted {
+    margin-right: 12px;
+}
+
+
 /*===========================
   CLIENT PAGE
   ===========================*/
+
 .two.wide.column.client-button {
     margin-top: -0.6em;
 }
@@ -109,69 +295,77 @@ h1.ui.huge.header {
     margin-bottom: 0px;
 }
 
+
+/*===========================
+  OVERVIEW PAGES
+  ===========================*/
+
+.ui.grid.overview-list {
+    /* currently used on adminvacancies */
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.overview-list-element {
+    height: 90px;
+    line-height: 70px;
+}
+
+
 /*==============================
 ================================
 MEDIA QUERIES
 ================================
 ================================*/
 
+
 /*==============================
 Larger than smartphone
 ================================*/
 
 @media (min-width:600px) {
-
-  .section-container {
-      padding: 1em;
-      margin: 2em 2em;
-  }
-
+    .section-container {
+        padding: 1em;
+        margin: 2em 2em;
+    }
 }
+
 
 /*==============================
 Laptops
 ================================*/
 
-@media only screen
-and (min-width: 768px) {
-
-  .section-container {
-      padding: 3em;
-      margin: 0 auto;
-  }
-
- .ui.stackable.grid.application-stages {
-      margin-top: -2em;
-/*    text-align: center;
-   */  }
- .application-stages {
-      text-align: center;
-  }
-  .overview-heading {
-
-      display: block;
-  }
-  /* on live jobs page #80 */
-  .live-job-element {
-      height: 90px;
-      line-height: 70px;
-  }
-
+@media only screen and (min-width: 768px) {
+    .section-container {
+        padding: 3em;
+        margin: 0 auto;
+    }
+    .ui.stackable.grid.application-stages {
+        margin-top: -2em;
+    }
+    .application-stages {
+        text-align: center;
+    }
+    .overview-heading {
+        display: block;
+    }
+    /* on live jobs page #80 */
+    .live-job-element {
+        height: 90px;
+        line-height: 70px;
+    }
 }
+
 
 /*==============================
 Very Large Screen
 ================================*/
 
-@media only screen
-and (min-width : 1224px) {
-
-	.section-container {
-      padding: 5em;
-	}
-
-	.section-container {
-		  max-width: 1224px;
-	}
-
+@media only screen and (min-width: 1224px) {
+    .section-container {
+        padding: 5em;
+    }
+    .section-container {
+        max-width: 1224px;
+    }
 }

@@ -4,9 +4,9 @@ const Handlebars = require('handlebars');
 
 module.exports = (rating) => {
   let result = {
-    gold: '<a class="ui yellow label">Gold</a>',
-    silver: '<a class="ui grey label">Silver</a>',
-    bronze: '<a class="ui brown label">Bronze</a>',
+    gold: '<p class="ui yellow label">Gold</p>',
+    silver: '<p class="ui grey label">Silver</p>',
+    bronze: '<p class="ui brown label">Bronze</p>',
     defaultRating: '<h5>No rating</h5>'
   };
 

@@ -1,14 +1,15 @@
-    <h1 class="header">Submit Job</h1>
+    <div class="form-margin">
+    <h1 class="header">Submit a Job</h1>
     <form action="/submitjob" method="POST" class="ui form">
         <div class="required eight wide field">
             <label for="jobTitle"> Job Title </label>
-            <input type="text" name="jobTitle" pattern="{{frontendInput}}" title="no ankle brackets, square brackets or slashes" placeholder="Job title" maxlength="100" required>
+            <input type="text" name="jobTitle" pattern="{{frontendInput}}" title="no ankle brackets, square brackets or slashes" placeholder="e.g. I.T. Director" maxlength="100" required>
         </div>
         <div class="required field">
             <label for="jobDescription"> Job Description </label>
-            <textarea id="jobDescription" type="text" name="jobDescription" pattern="{{frontendInput}}" title="no ankle brackets, square brackets or slashes" placeholder="Job Description" maxlength="3000" required></textarea>
+            <textarea id="jobDescription" type="text" name="jobDescription" pattern="{{frontendInput}}" title="no ankle brackets, square brackets or slashes" placeholder="You know the drill - keep it concise, to the point and don't be boring." maxlength="3000" required></textarea>
         </div>
-        <div id="textarea_feedback"></div>
+        <h4 class="header item" id="textarea_feedback"></h4>
         <div class="two fields">
               <div class="required field">
                   <label for="jobCategory"> Job Category </label>
@@ -26,13 +27,13 @@
               </div>
               <div class="required field">
                   <label for="teamCulture"> Team Culture </label>
-                  <input type="text" name="teamCulture" pattern="{{frontendInput}}" title="no ankle brackets, square brackets or slashes" placeholder="Team Culture" maxlength="100" required>
+                  <input type="text" name="teamCulture" pattern="{{frontendInput}}" title="no ankle brackets, square brackets or slashes" placeholder="e.g. Innovative, Startup, etc." maxlength="100" required>
               </div>
         </div>
         <div class="two fields">
               <div class="required field">
-                  <label for="typesOfProjects"> Types of Projects </label>
-                  <input type="text" name="typesOfProjects" pattern="{{frontendInput}}" title="no ankle brackets, square brackets or slashes" placeholder="Types of Projects" maxlength="100" required>
+                  <label for="typesOfProjects"> What will they be working on?</label>
+                  <input type="text" name="typesOfProjects" pattern="{{frontendInput}}" title="no ankle brackets, square brackets or slashes" placeholder="e.g. Team Transformation" maxlength="100" required>
               </div>
               <div class="field">
                   <label for="teamSize"> Team Size </label>
@@ -44,16 +45,20 @@
                   </select>
               </div>
         </div>
-        <div class="two fields">
-              <div class="required field">
-                <label for="salary"> Salary And Package Details </label>
-                <input type="text" name="salary" pattern="{{frontendInput}}" title="No 'greater than' or 'less than' symbols" maxlength="100" required>
+
+        <div class=" two fields">
+              <div class="required  field">
+                <label for="salary"> Salary (£)</label>
+                <input type="number" name="salary" pattern="{{frontendInput}}" title="No 'greater than' or 'less than' symbols" maxlength="100" placeholder="e.g. £70,000" required>
               </div>
               <div class="field">
-                  <label for="personality"> Personality </label>
-                  <input type="text" name="personality" pattern="{{frontendInput}}" title="No 'greater than' or 'less than' symbols" maxlength="100">
+                  <label for="package"> Package Details </label>
+                  <input type="text" name="package" pattern="{{frontendInput}}" title="No 'greater than' or 'less than' symbols" maxlength="100" placeholder="e.g. +10% bonus, +3% equity etc.">
               </div>
+
         </div>
+
+
         <div class="two fields">
           <div class="field">
             <label for="searchProgress"> What have you done so far in the search? </label>
@@ -65,17 +70,24 @@
           </div>
           <div class="field">
             <label for="searchDeadline"> Deadline For Search </label>
-            <input name="searchDeadline" id="datepicker">
+            <input name="searchDeadline" class="datepicker">
           </div>
         </div>
-        <div class="eight wide field">
-            <label for="threeMostImportantSkills"> Three Most Important Skills </label>
-            <input name="skillOne" type="text" placeholder="1.">
-            <input name="skillTwo" type="text" placeholder="2.">
-            <input name="skillThree" type="text" placeholder="3.">
-        </div>
+        <div class="two fields">
+          <div class="field">
+              <label for="threeMostImportantSkills"> Three Most Important Skills </label>
+              <input name="skillOne" type="text" placeholder="1. e.g. Management">
+              <input name="skillTwo" type="text" placeholder="2. e.g. Innovative">
+              <input name="skillThree" type="text" placeholder="3. e.g. Leadership">
+          </div>
+          <div class="field">
+                    <label for="personality">Ideal Personality Fit </label>
+                    <input type="text" name="personality" pattern="{{frontendInput}}" title="No 'greater than' or 'less than' symbols" placeholder="e.g. Super sociable, Quietly quirky, etc." maxlength="100">
+           </div>
+         </div>
         <input type="submit" value="Submit" class="ui blue button">
     </form>
+</div>
 {{message}}
 <script type="text/javascript" src="public/js/jobCharacterCounter.js"></script>
 <script type="text/javascript" src="public/js/datepicker.js"></script>

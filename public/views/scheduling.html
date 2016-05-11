@@ -1,12 +1,12 @@
+<h1 class="ui block header" data-company-name="{{companyName}}">{{companyName}} - {{jobTitle}} Vacancy Scheduling</h1>
+<div class="ui grid">
+  <div class="ui four wide column">
 
-<h1 class="ui block header">{{jobTitle}} Vacancy Scheduling</h1>
-<div class="ui three column grid">
-  <div class="ui two column">
-  <a href="/client/job/{{vid}}" ><button class="ui inverted blue button">Go Back</button></a>    
+    <button class="ui inverted blue button" id="go-back" data-url="/client/job/{{vid}}">Go Back</button>
   </div>
-  <div class="ui one column">
-<h3 id="message"></h3>  
-  </div>  
+  <div class="ui eight wide column">
+    <h3 id="message"></h3>
+  </div>
 </div>
 
 <div class="ui divider"></div>
@@ -24,49 +24,46 @@
       <div class="two wide column text-overflow-element">
         <h4>Salary</h4>
       </div>
-      <div class="two wide column text-overflow-element">
-        <h4>Email</h4>
+      <div class="three wide column text-overflow-element">
+        <h4>Agency Email</h4>
       </div>
       <div class="four wide column text-overflow-element text-centering">
-        <h4>Application Stage</h4>
+        <h4>Interview Stage</h4>
       </div>
       <div class="two wide column">
         <h4>Rating</h4>
       </div>
       <div class="three wide column">
-        <button class="ui inverted green button" id="save-changes">Save Changes</button>
       </div>
     </div>
-    <div class="ui stackable grid application-stages">
-      <div class="seven wide column"></div>
-      <div class="one wide column">
-        <h5>1</h5>
+    <div class="ui stackable grid application-stages scheduling-header-margin">
+      <div class="eight wide column"></div>
+      <div class="one wide column accepted">
+        <h5 class="">Accepted</h5>
       </div>
       <div class="one wide column">
-        <h5>2</h5>
+        <h5>1st</h5>
       </div>
       <div class="one wide column">
-        <h5>3</h5>
+        <h5>2nd</h5>
       </div>
       <div class="one wide column">
-        <h5>4</h5>
+        <h5>Final</h5>
       </div>
     </div>
     <div class="ui divider"></div>
 </div>
 
-
-
 {{#each data}}
-<div class="ui stackable grid listView" id="{{cvid}}">
+<div class="ui stackable grid listView" id="{{cvid}}" data-candidate-name='{{candidateName}}' data-agency-email="{{agencyEmail}}" data-agency-id="{{agencyId}}" data-vid="{{vid}}" data-job-title="{{jobTitle}}" >
   <div class="three wide column text-overflow-element">
-    <h5>{{candidateName}}</h5>
+     <h5>{{candidateName}}  <a href="{{file_url}}" type="text" download>(CV)</a></h5>
   </div>
   <div class="two wide column text-overflow-element">
     <h5>{{salary}}</h5>
   </div>
-  <div class="two wide column text-overflow-element">
-    <a href="mailto:{{email}}"><h5>{{email}}</h5></a>
+  <div class="three wide column text-overflow-element">
+    <a href="mailto:{{email}}"><h5>{{agencyEmail}}</h5></a>
   </div>
   <div class="one wide column">
     <div class="ui radio checkbox">
@@ -95,28 +92,25 @@
   <div class="two wide column">
     {{rating rating}}
   </div>
-  <div class="one wide column">
-    <a href="{{file_url}}" type="text" download><h5>CV</h5></a>
-  </div>
   <div class="two wide column">
 
-        <button
-          data-cvid="{{cvid}}"
-          data-vid="{{vid}}"
-          data-candidate-name="{{candidateName}}"
-          data-current-stage = "{{stage}}"
-          data-agency-email ="{{agencyEmail}}"
-          data-agency-id ="{{agencyId}}"
-          class="ui inverted red button reject-button">Reject</button>
+      <button
+        data-cvid="{{cvid}}"
+        data-vid="{{vid}}"
+        data-candidate-name="{{candidateName}}"
+        data-current-stage = "{{stage}}"
+        data-agency-email ="{{agencyEmail}}"
+        data-agency-id ="{{agencyId}}"
+        class="ui inverted red button reject-button">Reject</button>
 
   </div>
  </div>
 <div class="ui divider"></div>
-
 {{/each }}
 
 {{> rejectcandidatemodal}}
 {{> savechanges}}
+{{> create-appointment}}
 
-<script type="text/javascript" src="/public/js/scheduling.js"></script>
 {{/if }}
+<script type="text/javascript" src="/public/js/scheduling.js"></script>
