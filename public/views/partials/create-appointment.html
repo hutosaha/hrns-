@@ -4,54 +4,55 @@
         Arrange an Interview
     </div>
     <div class="ui content">
-        <form class="ui form" action="/scheduling/appointment" method="POST">
+        <form class="ui form">
             <h4 class="ui dividing header"> Proposed time, date and location</h4>
             <div class="required inline fields">
-                <label for=" first-time"> 1st  Choice Date & Time</label>
+                <label for=" firstIntDate"> 1st  Choice Date & Time</label>
                 <div class="required three wide field">
-                    <input name="first-date" class="datepicker" required>
+                    <input name="firstIntDate" class="datepicker" required>
                 </div>
                 <div class="required three wide field">
-                    <input name="first-time" type="time"  placeholder="19:00" required>
+                    <input name="firstIntTime" type="time"  placeholder="19:00" required>
                 </div>
             </div>
             <div class="inline fields">
-                <label for="second-time"> 2nd  Choice Date & Time </label>
+                <label for="secondIntTime"> 2nd  Choice Date & Time </label>
                 <div class="three wide field">
-                    <input name="second-date" class="datepicker">
+                    <input name="secondIntDate" class="datepicker">
                 </div>
                 <div class="three wide field">
-                    <input name="second-time" type="time" ></input>
+                    <input name="secondIntTime" type="time" ></input>
                 </div>
             </div>
             <div class="inline fields">
-                <label for="third-time"> 3rd  Choice Date & Time</label>
+                <label for="thirdIntTime"> 3rd  Choice Date & Time</label>
 
                 <div class="three wide field">
-                    <input name="third-date" class="datepicker">
+                    <input name="thirdIntDate" class="datepicker">
                 </div>
                 <div class="three wide  field ">
-                    <input name="third-time" type="time"></input>
+                    <input name="thirdInTime" type="time"></input>
                 </div>
             </div>
             <div class="inline fields">
                   <label>Location</label>
                   <div class="required eight wide inline field" >
-                    <input type="text" name="interview-address"  placeholder="Buckingham Palace, London SW1A 1AA " required></input>
+                    <input type="text" name="interviewAddress"  placeholder="Buckingham Palace, London SW1A 1AA " required></input>
                 </div>
             </div>
             <div class="inline fields">
                  <label>Aditional comments</label>
                  <div class="twelve wide field">
-                    <textarea rows="3" maxlength="2000" placeholder="e.g. bring portfolio, interview will be one hour, etc." pattern="{{frontendInput}}"></textarea>
+                    <textarea name="additonalComments" value=""rows="3" maxlength="2000" placeholder="e.g. bring portfolio, interview will be one hour, etc." pattern="{{frontendInput}}"></textarea>
                 </div>
             </div>
         </div>
         <div class="actions">
             <div class="ui button cancel-appointment">Cancel</div>
-            <button type="submit" class="ui green button send-appointment">Send</button>
+            <button type="button" class="ui green button send-appointment">Send</button>
         </div>
     </form>
+   </div>
 </div>
 <script type="text/javascript" src="/public/js/jobCharacterCounter.js"></script>
 <script type="text/javascript" src="/public/js/datepicker.js"></script>
