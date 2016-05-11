@@ -3,7 +3,6 @@
 {{#if message}}
 <h3>{{message}}</h3>
 {{/if }}
-
 {{#if data}}
 <div class="overview-heading">
     <div class="ui stackable grid">
@@ -24,9 +23,10 @@
       </div>
     </div>
     <div class="ui stackable grid scheduling-header-margin">
-      <div class="eight wide column"></div>
-      <div class="one wide column">
-        <h5>Accepted</h5>
+      <div class="nine wide column"></div>
+      <div class="one wide column accepted">
+        <h5 class="">Accepted</h5>
+
       </div>
       <div class="one wide column">
         <h5>1st</h5>
@@ -49,7 +49,7 @@
     <div class="two wide column text-overflow-element">
         <p class="overview-list-element">{{companyName}}</p>
     </div>
-    <div class="two wide column text-overflow-element">
+    <div class="three wide column text-overflow-element">
         <p class="overview-list-element">{{jobTitle}}</p>
     </div>
     <div class="two wide column text-overflow-element">
@@ -87,14 +87,14 @@
         <p class="overview-list-element">0</p>
         {{/unless }}
     </div>
-    <div class="two wide column">
+    <div class="one wide column">
       <a class="overview-list-element" href='/admin/job/{{vid}}'>
-        <button class="ui inverted blue button">View</button>
+        <button class="ui inverted tiny blue button">View</button>
       </a>
     </div>
-    <div class="two wide column">
+    <div class="one wide column">
       <a class="overview-list-element" href='/admin/job/remove/{{vid}}'>
-        <button class="ui inverted red button">Remove</button>
+        <button class="ui inverted tiny red button">Remove</button>
       </a>
     </div>
 </div>

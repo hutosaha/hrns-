@@ -24,11 +24,15 @@ $(function() {
     if (getParameterByName('type') === 'admin') {
       // disable save changes, reject, and go back buttons
       $('button').addClass('disabled');
+      $('button').addClass('hide');
+
     }
 
     $("input:radio").on('click', function() {
         var $radio = $(this);
         var cvid = $(this).attr('name');
+
+        $('.modal.appointment').modal('show');
 
         if ($radio.is(":checked")) {
             var group = "input:radio[name='" + cvid + "']";
@@ -43,8 +47,8 @@ $(function() {
         $('#save-changes').addClass('active');
     });
 
-    $('#save-changes').on('click', function(e) {
-        e.preventDefault();
+    $('#save-changes').on('click', function() {
+     
         $('.small.modal.save-modal').modal('show');
     });
 
@@ -145,4 +149,4 @@ $(function() {
 
         });
     });
-})();
+});
