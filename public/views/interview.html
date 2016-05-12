@@ -33,8 +33,9 @@
 	</div>
 	<div class="ui eight wide column">
 		<div class="ui small inverted blue button confirm-time"
-			 data-confirmed-time="{{firstInTime}}"
+			 data-confirmed-time="{{firstIntTime}}"
 			 data-confirmed-date="{{firstIntDate}}"
+			 data-appointment-id="{{appointmentId}}"
 		>Confirm</div>
 	</div>
 	{{#if secondIntTime}}
@@ -70,6 +71,8 @@
 		data-interview-address="{{interviewAddress}}"
 		data-additional-comments"{{additionalComments}}"
 		data-appointment-id="{{appointmentId}}"
+		data-candidate-name="{{candidateName}}"
+		data-job-title= "{{jobTitle}}"
 		>Suggest Another Time</div>
 	</div>
 </div>
