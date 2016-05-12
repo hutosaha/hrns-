@@ -1,18 +1,25 @@
 var $ = window.$;
 
 (function() {
- 
+
     $('input[type=file]').on('change', function(event){
         $('input[type=submit]').prop('disabled', true);
         var files = event.target.files;
         var file = files[0];
-        var file_url= event.target.nextElementSibling;
-        var preview =$(this).parent().parent().parent().find('img');
-        if (file == null) {
+
+        var filesize = ((file.size/1024)/1024).toFixed(4); // MB to 4dp
+        if (filesize <= 10) {
+          var file_url= event.target.nextElementSibling;
+          var preview =$(this).parent().parent().parent().find('img');
+          if (file == null) {
             alert("No file selected.");
-        } else {
+          } else {
             get_signed_request(file, file_url, preview );
+          }
+        } else {
+          alert("File size exceeds 10MB limit.");
         }
+
     });
 })();
 
@@ -41,7 +48,7 @@ function upload_file(file, file_url, preview, signed_request, url){
     xhr.onload = function() {
         if (xhr.status === 200) {
           file_url.value = url; // where cvid is being saved & submitted with form
-            $('input[type=submit]').prop('disabled', false); // to ensure cvid is supplied in payload 
+            $('input[type=submit]').prop('disabled', false); // to ensure cvid is supplied in payload
             if(preview) {
                 preview.attr('src',url);
             }
