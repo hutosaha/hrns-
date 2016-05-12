@@ -5,9 +5,9 @@ var $ = window.$;
 $(document).ready(function() {
 
     $('.cv-viewer').click(function() {
-        /// need to write file before iframe injection 
+        // need to write file before iframe injection
 
-       var candidateName = $(this).data('candidate-name');
+        var candidateName = $(this).data('candidate-name');
         var cvid = $(this).data('cvid');
         var vid = $(this).data('vid');
         var agencyEmail = $(this).data('agency-email');
@@ -15,32 +15,27 @@ $(document).ready(function() {
         var jobTitle = $(this).data('job-title');
 
         const ext = cvid.substr(cvid.lastIndexOf('.')+1)
-        
+
         if ( ext === 'pdf') {
                 $('iframe').attr('src', '');
+
                 $.ajax({
                     url: '/client/view-cv',
                     data: {
-                        cvid: cvid,
+                        cvid: cvid
                     },
                     async: true,
-                    success: function(pathName) {
-                            if (pathName) {
-
-                                var src = "/public/assets/ViewerJS/#../Downloads/" +pathName;
-                                $('iframe').attr('src', src);
-                                setTimeout(function(){
-                                   document.getElementById('iframe').contentWindow.location.reload();
-                                },2000);
-
-                            };
+                    success: function(data) {
+                      let responseObject = JSON.parse(data);
+                      // setTimeout(function(){
+                      //  document.getElementById('iframe').contentWindow.location.reload();
+                      // }, 2000);
+                      var src = "/public/assets/ViewerJS/#../Downloads/" + responseObject.cvid;
+                      $('iframe').attr('src', src);
+                      $('.ui.basic.doc-viewer.modal').modal('show');
                     }
                 });
 
-
-               
-                // make an ajax call to convert and write file . 
-                $('.ui.basic.doc-viewer.modal').modal('show');
 
 
                 $('.reject').click(function() {
@@ -90,9 +85,9 @@ $(document).ready(function() {
                 });
             } else {
                 $(this).html('Only pdf files');
-                $(this).attr('disabled','disabled');            
+                $(this).attr('disabled','disabled');
         }
-    
+
 
 
         $('.accept').click(function() {
