@@ -41,7 +41,7 @@ $(function() {
                         success: function(res) {
                             if (res) {
                                 $('#message').addClass('ui info message');
-                                document.getElementById('message').innerHTML = "We\'ve emailed the agent to arrange an appointment"; // change to something better...
+                                document.getElementById('message').innerHTML = "We\'ve emailed the clinet to arrange an appointment"; // change to something better...
                             } else {
                                 document.getElementById('message').innerHTML = 'Sorry, there was an error. Please try again!';
                             }
