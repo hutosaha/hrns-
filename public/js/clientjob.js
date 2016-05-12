@@ -25,12 +25,11 @@ $(document).ready(function() {
                         cvid: cvid
                     },
                     async: true,
-                    success: function(data) {
-                      let responseObject = JSON.parse(data);
+                    success: function(filePath) {
                       // setTimeout(function(){
                       //  document.getElementById('iframe').contentWindow.location.reload();
                       // }, 2000);
-                      var src = "/public/assets/ViewerJS/#../Downloads/" + responseObject.cvid;
+                      var src = "/public/assets/ViewerJS/#../Downloads/" + filePath;
                       $('iframe').attr('src', src);
                       $('.ui.basic.doc-viewer.modal').modal('show');
                     }
