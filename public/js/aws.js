@@ -8,7 +8,7 @@ var $ = window.$;
         var file = files[0];
 
         var filesize = ((file.size/1024)/1024).toFixed(4); // MB to 4dp
-        if (filesize <= 10) {
+        if (filesize <= 4) {
           var file_url= event.target.nextElementSibling;
           var preview =$(this).parent().parent().parent().find('img');
           if (file == null) {
@@ -17,7 +17,7 @@ var $ = window.$;
             get_signed_request(file, file_url, preview );
           }
         } else {
-          alert("File size exceeds 10MB limit.");
+          alert("File size exceeds 4MB limit.");
         }
 
     });
