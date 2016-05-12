@@ -45,6 +45,10 @@
                   <div class="column">
                     <img class="ui tiny image company-logo" src="{{logo_url}}"/>
                   </div>
+                   <div class="column text-overflow-element">
+                    <h5>Sector</h5>
+                    {{sector companySector}}
+                  </div>
                   <div class="column text-overflow-element">
                     {{#if twitter}}
                     <h5>Twitter</h5>
@@ -69,11 +73,7 @@
                     <a href="{{linkedin}}"><p>{{linkedin}}</p></a>
                     {{/if }}
                   </div>
-                  <div class="column text-overflow-element">
-                    <h5>Sector</h5>
-                    {{sector companySector}}
-                  </div>
-                </div>
+               </div>
                 {{#if companyDescription}}
                 <div class="ui one column row">
                   <div class="column">

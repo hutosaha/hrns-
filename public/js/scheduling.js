@@ -5,30 +5,42 @@ $(function() {
     // replaces a link so the admin can't click the button
     $('#go-back').on('click', function() {
         var url = $(this).data('url');
-        console.log('boom url',url);
+        console.log('boom url', url);
 
         window.location.replace(url);
-      });
+    });
 
     // function for getting query string
     function getParameterByName(name, url) {
-      if (!url) url = window.location.href;
-      name = name.replace(/[\[\]]/g, "\\$&");
-      var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-          results = regex.exec(url);
-      if (!results) return null;
-      if (!results[2]) return '';
-      return decodeURIComponent(results[2].replace(/\+/g, " "));
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
     }
 
     if (getParameterByName('type') === 'admin') {
-      // disable save changes, reject, and go back buttons
-      $('button').addClass('disabled');
+        // disable save changes, reject, and go back buttons
+        $('button').addClass('disabled');
+        $('button').addClass('hide');
+
     }
 
     $("input:radio").on('click', function() {
         var $radio = $(this);
         var cvid = $(this).attr('name');
+        var stage = $(this).data('stage');
+        var agencyId = $(this).closest('.listView').data('agency-id');
+        var agencyEmail = $(this).closest('.listView').data('agency-email');
+        var candidateName = $(this).closest('.listView').data('candidate-name');
+        var jobTitle = $(this).closest('.listView').data('job-title');
+        var companyName = $('.ui.block.header').data('company-name');
+        var vid = $(this).closest('.listView').data('vid');
+      
+
+        $('.modal.appointment').modal('show');
 
         if ($radio.is(":checked")) {
             var group = "input:radio[name='" + cvid + "']";
@@ -37,50 +49,50 @@ $(function() {
         } else {
             $radio.prop("checked", false);
         }
-    });
 
-    $("input:radio").on('change', function(){
-        $('#save-changes').addClass('active');
-    });
 
-    $('#save-changes').on('click', function(e) {
-        e.preventDefault();
-        $('.small.modal.save-modal').modal('show');
-    });
+        $('.send-appointment').on('click', function() {
 
-    $('.ui.positive.button').on('click', function() {
+            $('.small.modal.save-modal').modal('show');
 
-        $("input:radio:checked").each(function() {
+            $('.ui.positive.button').on('click', function() {
 
-            var stage = $(this).data('stage');
-            var cvid = $(this).data('cvid');
-            var vid = window.location.pathname.split('/client/scheduling/')[1].split('/')[0];
-
-            $.ajax({
-                url: '/client/scheduling/' + vid + '/update',
-                data: {
+                var data = $('form').serialize();
+                var agencyData = {
+                    agencyEmail: agencyEmail,
+                    agencyId: agencyId,
                     stage: stage,
-                    cvid: cvid
-                },
-                async: true,
-                success: function(res) {
-                    if (res) {
-                        $('#message').addClass('ui info message');
-                        document.getElementById('message').innerHTML = 'Your changes have been saved'; // change to something better...
-                    } else {
-                        document.getElementById('message').innerHTML = 'Sorry, there was an error. Please try again!';
-                    }
-                },
-                error: function() {
-                    document.getElementById('message').innerHTML = 'Sorry, there was an error. Please try again!';
+                    vid: vid,
+                    cvid: cvid,
+                    candidateName: candidateName,
+                    jobTitle: jobTitle,
+                    companyName: companyName
                 }
+                data = data+'&'+$.param(agencyData);
+                var url = "/scheduling/appointment";
+                $.ajax({
+                        method: 'POST',
+                        url: url,
+                        data: data,
+                        async: true,
+                        success: function(res) {
+                            if (res) {
+                                $('#message').addClass('ui info message');
+                                document.getElementById('message').innerHTML = "We\'ve emailed the agent to arrange an appointment"; // change to something better...
+                            } else {
+                                document.getElementById('message').innerHTML = 'Sorry, there was an error. Please try again!';
+                            }
+
+                        }               
+                });
+
             });
+
         });
+
     });
 
     $('.reject-button').click(function() {
-
-      console.log('1');
 
         var candidateName = $(this).data('candidate-name');
         var cvid = $(this).data('cvid');
@@ -103,15 +115,13 @@ $(function() {
 
         $('input[name=rejection-reason]').change(function() {
             if (this.checked) {
-              $inputs.not(this).prop('checked', !this.checked);
+                $inputs.not(this).prop('checked', !this.checked);
             }
         });
 
         $('.confirm-rejection-button').click(function() {
-                $('.first.modal.reject').modal('hide');
-                $('.second.modal.reject-modal').modal('show', '.first.modal .button');
-
-                console.log('2');
+            $('.first.modal.reject').modal('hide');
+            $('.second.modal.reject-modal').modal('show', '.first.modal .button');
 
 
             var reason = $('input[name="rejection-reason"]:checked').val();
@@ -130,7 +140,6 @@ $(function() {
                 async: true,
                 success: function(res) {
                     if (res) {
-                      console.log('3');
 
                         var element = document.getElementById(cvid);
                         element.nextSibling.nextSibling.remove();
@@ -145,4 +154,4 @@ $(function() {
 
         });
     });
-})();
+});
