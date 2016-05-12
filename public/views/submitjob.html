@@ -49,7 +49,7 @@
         <div class=" two fields">
               <div class="required  field">
                 <label for="salary"> Salary (£)</label>
-                <input type="number" name="salary" pattern="{{frontendInput}}" title="No 'greater than' or 'less than' symbols" maxlength="100" placeholder="e.g. £70,000" required>
+                <input type="number" name="salary" pattern="{{frontendInput}}" title="No 'greater than' or 'less than' symbols" min="0" step="1000"  maxlength="100" placeholder="e.g. £70,000" required>
               </div>
               <div class="field">
                   <label for="package"> Package Details </label>
