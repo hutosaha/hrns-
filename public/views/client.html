@@ -13,7 +13,7 @@
       <div class="two wide column text-overflow-element">
         <h4>Salary</h4>
       </div>
-      <div class="two wide column text-overflow-element">
+      <div class="three wide column text-overflow-element">
         <h4>Search Deadline</h4>
       </div>
       <div class="four wide column text-overflow-element text-centering">
@@ -21,11 +21,11 @@
       </div>
     </div>
     <div class="ui stackable grid scheduling-header-margin">
-      <div class="eight wide column"></div>
-       <div class="one wide column accepted">
+      <div class="seven wide column"></div>
+       <div class="one wide column submitted-margin">
         <h5>Submitted</h5>
       </div>
-      <div class="one wide column accepted">
+      <div class="one wide column accepted-margin">
         <h5>Accepted  </h5>
       </div>
       <div class="one wide column">
@@ -49,7 +49,7 @@
   <div class="two wide column">
       <p>{{salary}}</p>
   </div>
-  <div class="two wide column">
+  <div class="three wide column">
       {{#if searchDeadline}}  <!-- positioned inside column div so button alignment works -->
       <p>{{searchDeadline}}</p>
       {{/if }}
@@ -96,12 +96,12 @@
   </div>
   <div class="two wide column client-button">
     <a href='/client/job/{{vid}}'>
-      <button class="ui inverted blue button">View</button>
+      <button class="ui inverted tiny blue button">View</button>
     </a>
   </div>
   <div class="two wide column client-button">
     <a href='/client/job/remove/{{vid}}'>
-      <button class="ui inverted red button">Remove</button>
+      <button class="ui inverted tiny red button">Remove</button>
     </a>
   </div>
 </div>

@@ -278,8 +278,12 @@ Agency Login
     justify-content: center;
 }
 
-.accepted {
+.accepted-margin {
     margin-right: 12px;
+}
+.submitted-margin {
+    margin-right: 12px;
+    margin-left:-12px;
 }
 
 
