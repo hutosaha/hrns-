@@ -7,13 +7,13 @@
 {{#if data}}
 <div class="overview-heading">
     <div class="ui stackable grid">
-      <div class="three wide column text-overflow-element">
+      <div class="two wide column text-overflow-element">
         <h4>Job Title</h4>
       </div>
       <div class="two wide column text-overflow-element">
         <h4>Salary</h4>
       </div>
-      <div class="three wide column text-overflow-element">
+      <div class="two wide column text-overflow-element">
         <h4>Search Deadline</h4>
       </div>
       <div class="four wide column text-overflow-element text-centering">
@@ -22,6 +22,9 @@
     </div>
     <div class="ui stackable grid scheduling-header-margin">
       <div class="eight wide column"></div>
+       <div class="one wide column accepted">
+        <h5>Submitted</h5>
+      </div>
       <div class="one wide column accepted">
         <h5>Accepted  </h5>
       </div>
@@ -40,16 +43,24 @@
 
 {{#each data}}
 <div class="ui stackable grid listView client-list">
-  <div class="three wide column">
+  <div class="two wide column">
       <p>{{jobTitle}}</p>
   </div>
   <div class="two wide column">
       <p>{{salary}}</p>
   </div>
-  <div class="three wide column">
+  <div class="two wide column">
       {{#if searchDeadline}}  <!-- positioned inside column div so button alignment works -->
       <p>{{searchDeadline}}</p>
       {{/if }}
+  </div>
+    <div class="one wide column">
+      {{#if submitted}}
+      <p>{{submitted}}</p>
+      {{/if }}
+      {{#unless submitted}}
+      <p>0</p>
+      {{/unless }}
   </div>
   <div class="one wide column">
       {{#if stage1Count}}
