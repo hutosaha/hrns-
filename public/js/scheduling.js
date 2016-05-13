@@ -67,9 +67,9 @@ $(function() {
                     candidateName: candidateName,
                     jobTitle: jobTitle,
                     companyName: companyName
-                }
+                };
                 data = data+'&'+$.param(agencyData);
-                var url = "/scheduling/appointment";
+                var url = "/appointment/propose";
                 $.ajax({
                         method: 'POST',
                         url: url,
