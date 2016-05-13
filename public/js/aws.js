@@ -2,26 +2,32 @@ var $ = window.$;
 
 (function() {
 
+    var files, file, file_url, preview;
+
     $('input[type=file]').on('change', function(event){
-        $('input[type=submit]').prop('disabled', true);
-        var files = event.target.files;
-        var file = files[0];
-
-        var filesize = ((file.size/1024)/1024).toFixed(4); // MB to 4dp
-        if (filesize <= 4) {
-          var file_url= event.target.nextElementSibling;
-          var preview =$(this).parent().parent().parent().find('img');
-          if (file == null) {
-            alert("No file selected.");
-          } else {
-            get_signed_request(file, file_url, preview );
-          }
-        } else {
-          alert("File size exceeds 4MB limit.");
-        }
-
+        files = event.target.files;
+        file = files[0];
+        file_url= event.target.nextElementSibling;
+        preview =$(this).parent().parent().parent().find('img');
     });
+
+    $('input[type=submit]').on('click', function(event) {
+      event.preventDefault();
+      check_file_extension(file, (response) => {
+        response === "accept" ?
+        get_signed_request(file, file_url, preview) :
+        alert('Please make sure that your file is in one of the following formats: .docx, .doc, .odt, .pdf');
+      });
+    });
+
 })();
+
+function check_file_extension(file, callback) {
+  var acceptedFiles = ["doc", "docx", "odt", "pdf"];
+  var file_extension = file.name.substr(file.name.lastIndexOf('.')+1);
+  acceptedFiles.indexOf(file_extension) > -1 ? callback("accept") : callback("decline");
+}
+
 
 // creates a request to make assign a signature.
 function get_signed_request(file, file_url, preview) {
@@ -29,7 +35,6 @@ function get_signed_request(file, file_url, preview) {
     xhr.open("GET", "/sign_s3?file_name="+ file.name + "&file_type=" + file.type);
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4) {
-            console.log('xhr.status', xhr.status);
             if (xhr.status === 200) {
                 var response = JSON.parse(xhr.responseText);
                 upload_file(file, file_url, preview, response.signed_request, response.url);
