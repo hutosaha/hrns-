@@ -2,22 +2,43 @@
 <div class="ui divider"></div>
 <div class="ui grid interview" data-appointment-id="{{appointmentId}}">
 	<div class="ui four wide column" >
-		<h3>{{candidateName}}</h3>
+		<h3>Candidate Contact Details:</h3>
 	</div>
 	<div class="ui four wide column">
-		<a href="tel:{{contactNumber}}"><h3>{{contactNumber}}</h3></a>
+		<a href="tel:{{contactNumber}}"><h3> {{candidateName}}</h3></a>
+	</div>
+	<div class="ui four wide column">
+		<a href="emailto:{{email}}"><h3>{{contactNumber}}</h3></a>
+	</div>
+	<div class="ui four wide column">
+		<a href="emailto:{{email}}"><h3>{{email}}</h3></a>
+	</div>
+	<div class="ui four wide column" >
+		<h3>Agent Contact Details:</h3>
+	</div>
+	<div class="ui four wide column">
+		<a href="tel:{{contactNumber}}"><h3> {{agencyName}}</h3></a>
 	</div>
 	<div class="ui eight wide column">
-		<a href="emailto:{{email}}"><h3>{{email}}</h3></a>
+		<a href="emailto:{{email}}"><h3>{{agencyEmail}}</h3></a>
+	</div>
+	<div class="ui four wide column">
+		<h3>Client Contact Details:</h3>
 	</div>
 	<div class="ui four wide column">
 		<h3>{{companyName}}</h3>
 	</div>
+	<div class="ui eight wide column">
+		<h3>{{clientEmail}}</h3>
+	</div>	
 	<div class="ui four wide column">
-		<h3>{{jobTitle}}</h3>
+		<h4>Interview Details:</h4>
+	</div>
+	<div class="ui four wide column">
+		<h4>{{jobTitle}}</h4>
 	</div>
 	<div class="ui eight wide column">
-		<h3>{{interviewAddress}}</h3>
+		<h4>Address: {{interviewAddress}}</h4>
 	</div>
 	<div class="ui sixteen wide column">
 		<h4>Additional Comments:</h4><p> {{additonalComments}}</p>

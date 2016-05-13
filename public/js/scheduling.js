@@ -1,4 +1,4 @@
-var $ = window.$;
+    var $ = window.$;
 
 $(function() {
 
@@ -38,8 +38,7 @@ $(function() {
         var jobTitle = $(this).closest('.listView').data('job-title');
         var companyName = $('.ui.block.header').data('company-name');
         var vid = $(this).closest('.listView').data('vid');
-      
-
+        
         $('.modal.appointment').modal('show');
 
         if ($radio.is(":checked")) {
@@ -49,45 +48,58 @@ $(function() {
         } else {
             $radio.prop("checked", false);
         }
-
-
+            
         $('.send-appointment').on('click', function() {
+         
 
-            $('.small.modal.save-modal').modal('show');
+            if ( (document.getElementById('firstIntDate').validity.valid) && 
+                 (document.getElementById('firstIntTime').validity.valid) &&
+                 (document.getElementById('interviewAddress').validity.valid)
+            ){
+           
 
-            $('.ui.positive.button').on('click', function() {
+                $('.modal.appointment').modal('hide');
+                $('.ui.small.save-modal').modal('show');
 
-                var data = $('form').serialize();
-                var agencyData = {
-                    agencyEmail: agencyEmail,
-                    agencyId: agencyId,
-                    stage: stage,
-                    vid: vid,
-                    cvid: cvid,
-                    candidateName: candidateName,
-                    jobTitle: jobTitle,
-                    companyName: companyName
-                };
-                data = data+'&'+$.param(agencyData);
-                var url = "/appointment/propose";
-                $.ajax({
-                        method: 'POST',
-                        url: url,
-                        data: data,
-                        async: true,
-                        success: function(res) {
-                            if (res) {
-                                $('#message').addClass('ui info message');
-                                document.getElementById('message').innerHTML = "We\'ve emailed the agent to arrange an appointment"; // change to something better...
-                            } else {
-                                document.getElementById('message').innerHTML = 'Sorry, there was an error. Please try again!';
-                            }
+                $('.ui.positive.button').on('click',function(){ 
 
-                        }               
+                    var data = $('form').serialize();
+                    var agencyData = {
+                        agencyEmail: agencyEmail,
+                        agencyId: agencyId,
+                        stage: stage,
+                        vid: vid,
+                        cvid: cvid,
+                        candidateName: candidateName,
+                        jobTitle: jobTitle,
+                        companyName: companyName
+                    };
+                    data = data+'&'+$.param(agencyData);
+                    var url = "/appointment/proposed";
+                    $.ajax({
+                            type: 'POST',
+                            url: url,
+                            data: data,
+                            async: true,
+                            success: function(res) {
+                                if (res) {    
+
+                                    $('#message').addClass('ui info message');
+                                    document.getElementById('message').innerHTML = "We\'ve emailed the agent to arrange an appointment"; // change to something better...
+                                } else {
+                                    document.getElementById('message').innerHTML = 'Sorry, there was an error. Please try again!';
+                                }
+                                console.log('reui warning messages>>>', res);
+                            } ,
+                            error: function(res) {
+                                console.log("ERROR", res);
+                            }              
+                    });
                 });
-
-            });
-
+            }else {
+                $('.ui.warning.message').text('Please choose at least one date, time and a location for the interview');
+            }
+            
         });
 
     });
