@@ -39,7 +39,7 @@ $(function() {
         var companyName = $('.ui.block.header').data('company-name');
         var vid = $(this).closest('.listView').data('vid');
         
-        $('.modal.appointment').modal('show');
+        $('.modal.interview').modal('show');
 
         if ($radio.is(":checked")) {
             var group = "input:radio[name='" + cvid + "']";
@@ -49,7 +49,7 @@ $(function() {
             $radio.prop("checked", false);
         }
             
-        $('.send-appointment').on('click', function() {
+        $('.send-interview').on('click', function() {
          
 
             if ( (document.getElementById('firstIntDate').validity.valid) && 
@@ -58,7 +58,7 @@ $(function() {
             ){
            
 
-                $('.modal.appointment').modal('hide');
+                $('.modal.interview').modal('hide');
                 $('.ui.small.save-modal').modal('show');
 
                 $('.ui.positive.button').on('click',function(){ 
@@ -75,7 +75,7 @@ $(function() {
                         companyName: companyName
                     };
                     data = data+'&'+$.param(agencyData);
-                    var url = "/appointment/proposed";
+                    var url = "/interview/proposed";
                     $.ajax({
                             type: 'POST',
                             url: url,
@@ -85,11 +85,10 @@ $(function() {
                                 if (res) {    
 
                                     $('#message').addClass('ui info message');
-                                    document.getElementById('message').innerHTML = "We\'ve emailed the agent to arrange an appointment"; // change to something better...
+                                    document.getElementById('message').innerHTML = "We\'ve emailed the agent to arrange an interview"; // change to something better...
                                 } else {
                                     document.getElementById('message').innerHTML = 'Sorry, there was an error. Please try again!';
                                 }
-                                console.log('reui warning messages>>>', res);
                             } ,
                             error: function(res) {
                                 console.log("ERROR", res);
