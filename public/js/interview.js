@@ -3,11 +3,13 @@ var $ = window.$;
 $(function() {
 
     $('.ui.button.confirm-time').on('click', function() {
-        var confirmedTime = $(this).data('confirmed-time');
-        var confirmedDate = $(this).data('confirmed-date');
+        var confirmedIntTime = $(this).data('confirmed-time');
+        var confirmedIntDate = $(this).data('confirmed-date');
         var interviewId = $(this).data('interview-id');
 
+
         $('.ui.small.modal.save-modal').modal('show');
+        $('.save-message').text('Confirm interview Date & Time: '+confirmedIntDate+' at '+confirmedIntTime);
 
         $('.ui.positive.button').on('click', function() {
             var url = '/interview/confirmed';
@@ -18,15 +20,18 @@ $(function() {
                 url: url,
                 async: true,
                 data: {
-                    confirmedDate: confirmedDate,
-                    confirmedTime: confirmedTime,
+                    confirmedIntDate: confirmedIntDate,
+                    confirmedIntTime: confirmedIntTime,
                     interviewId: interviewId
                 },
                 success: function(res) {
                     if (res) {
-                        $('#message').addClass('ui info message').text("We\'ve emailed the client to arrange an interview"); // change to something better...)
+                        $('#message').addClass('ui massive info message')
+                        .text("Congratulaitons we\'ve emailed both parties to confirm the interview"); // change to something better...
+                        $('.button.confirm-time').removeClass('blue').addClass('green').text('Confirmed');
+                        $('.button.another-time').remove(); // remove 
                     } else {
-                        document.getElementById('message').innerHTML = 'Sorry, there was an error. Please try again!';
+                        $('#message').addClass('ui massive warning info message').text('Sorry, there was an error. Please try again!');
                     }
 
                 }
@@ -38,8 +43,8 @@ $(function() {
         var interviewAddress = $(this).data('interview-address');
         var additionalComments = $(this).data('additional-comments');
         var interviewId = $(this).data('interview-id');
-        var candidateName = $(this).data('candidate-name');
-        var jobTitle = $(this).data('jobtitle');
+        //var candidateName = $(this).data('candidate-name');
+        //var jobTitle = $(this).data('jobtitle');
 
 
         $('input[name=additionalComments], textarea').text(additionalComments);
@@ -58,7 +63,7 @@ $(function() {
                 $('.small.modal.save-modal').modal('show');
                     var firstIntTime = $('form input[name=firstIntTime').val();
                     var firstIntDate = $("form input[name=firstIntDate]").val();
-                    $('.save-message').text('Please confirm your first choice Date & Time:'+firstIntDate+' at '+firstIntTime);
+                    $('.save-message').text('Please confirm your first choice of Date & Time:'+firstIntDate+' at '+firstIntTime);
 
                 $('.ui.positive.button').on('click', function() {
 
@@ -74,15 +79,8 @@ $(function() {
                         success: function(res) {
                             if (res) {
                                 console.log('Changed InterviewData', res);
-                                $('#message').addClass('ui info message').text("We\'ve emailed the other party to suggest another time for the interview");
-                                $('.firstIntDate').text(res.firstIntDate);
-                                $('.firstIntTime').text(res.firstIntTime);
-                                $('.secondIntDate').text(res.secondIntDate);
-                                $('.secondIntTime').text(res.secondInTime);
-                                $('.thirdIntDate').text(res.thirdIntDate);
-                                $('.thirdIntTime').text(res.thirdInTime);
-                                $('.additionalComments').text(res.additionalComments); 
-                                $('.interviewAddress').text(res.interviewAddress);
+                                $('#message').addClass('ui massive info message').text("We\'ve emailed the other party to suggest another time for the interview");
+                                $('.ui.grid.interview').remove();
                             } else {
                                 $('#message').addClass('ui warning message').text("Sorry something went wrong please try again");                           
                             }

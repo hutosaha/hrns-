@@ -92,6 +92,7 @@ $(function() {
                             } ,
                             error: function(res) {
                                 console.log("ERROR", res);
+                                document.getElementById('message').innerHTML = 'Sorry, there was an error. Please try again!';                              
                             }              
                     });
                 });
