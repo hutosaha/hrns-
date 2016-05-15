@@ -14,14 +14,14 @@ $(document).ready(function() {
         var agencyId = $(this).data('agency-id');
         var jobTitle = $(this).data('job-title');
 
-        const ext = cvid.substr(cvid.lastIndexOf('.')+1)
+        const ext = cvid.substr(cvid.lastIndexOf('.')+1);
         
         if ( ext === 'pdf') {
                 $('iframe').attr('src', '');
                 $.ajax({
                     url: '/client/view-cv',
                     data: {
-                        cvid: cvid,
+                        cvid: cvid
                     },
                     async: true,
                     success: function(pathName) {
@@ -33,7 +33,7 @@ $(document).ready(function() {
                                    document.getElementById('iframe').contentWindow.location.reload();
                                 },2000);
 
-                            };
+                            }
                     }
                 });
 
