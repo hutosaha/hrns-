@@ -13,6 +13,7 @@ $(document).ready(function() {
         var agencyEmail = $(this).data('agency-email');
         var agencyId = $(this).data('agency-id');
         var jobTitle = $(this).data('job-title');
+        var msDocumentTypes = ['doc', 'docx'];
 
         const ext = cvid.substr(cvid.lastIndexOf('.')+1)
 
@@ -82,10 +83,13 @@ $(document).ready(function() {
                         });
                     });
                 });
+            // FOR MICROSOFT OFFICE DOCS: Convert from .doc/.docx to .pdf using nodejs-unoconv
+            } else if (msDocumentTypes.indexOf(ext) > -1) {
+                console.log('microsoft word');
             } else {
-                $(this).html('Only pdf files');
-                $(this).attr('disabled','disabled');
-        }
+              $(this).html('Only pdf files');
+              $(this).attr('disabled','disabled');
+            }
 
 
 
