@@ -13,20 +13,20 @@
     {{/unless}}
         {{#each clients}}
         <div class="ui stackable grid">
-            <div class="ui six column row">
-              <div class="column text-overflow-element">
+            <div class="ui twelve column row">
+              <div class="three wide column text-overflow-element">
                 <h5>Company Name</h5>
                 <p>{{companyName}}</p>
               </div>
-              <div class="column text-overflow-element">
+              <div class="two wide column text-overflow-element">
                 <h5>Contact</h5>
                 <p>{{contactName}}</p>
               </div>
-              <div class="column text-overflow-element">
+              <div class="two wide column text-overflow-element">
                 <h5>Contact Number</h5>
                 <a href="tel:{{contactNumber}}"><p>{{contactNumber}}</p></a>
               </div>
-              <div class="column text-overflow-element">
+              <div class="three wide column text-overflow-element">
                 <h5>Email</h5>
                 <a href="mailto:{{email}}"><p>{{email}}</p></a>
               </div>
@@ -34,28 +34,28 @@
                 <h5>Size</h5>
                 <p>{{companySize}}</p>
               </div>
-              <div class="ui column">
-                  <button class="ui inverted blue button viewMore" data-id="{{id}}">More...</button>
+              <div class="column">
+                  <button class="ui inverted tiny blue button viewMore" data-id="{{id}}">More...</button>
               </div>
             </div>
 
             <div class="hide-element hidden-group" id="{{id}}">
               <div class="ui stackable grid">
-                <div class="ui six column row">
-                  <div class="column">
-                    <img class="ui tiny image company-logo" src="{{logo_url}}"/>
+                <div class="ui twelve column row">
+                  <div class="three wide column tiny image">
+                    <img class="ui company-logo" src="{{logo_url}}"/>
                   </div>
-                   <div class="column text-overflow-element">
+                   <div class="two wide column text-overflow-element">
                     <h5>Sector</h5>
                     {{sector companySector}}
                   </div>
-                  <div class="column text-overflow-element">
+                  <div class="two wide column text-overflow-element">
                     {{#if twitter}}
                     <h5>Twitter</h5>
                     <p>{{twitter}}</p>
                     {{/if }}
                   </div>
-                  <div class="column text-overflow-element">
+                  <div class=" three wide column text-overflow-element">
                     {{#if website}}
                     <h5>Company Website</h5>
                     <a href="{{website}}"><p>{{website}}</p></a>
