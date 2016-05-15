@@ -38,54 +38,53 @@
                   <button class="ui inverted tiny blue button viewMore" data-id="{{id}}">More...</button>
               </div>
             </div>
+      </div>
 
-            <div class="hide-element hidden-group" id="{{id}}">
-              <div class="ui stackable grid">
-                <div class="ui row">
-                  <div class="six wide column tiny image">
-                    <img class="ui company-logo" src="{{logo_url}}"/>
-                  </div>
-                   <div class="three wide column text-overflow-element">
-                    <h5>Sector</h5>
-                    {{sector companySector}}
-                  </div>
-                  <div class="two wide column text-overflow-element">
-                    {{#if twitter}}
-                    <h5>Twitter</h5>
-                    <p>{{twitter}}</p>
-                    {{/if }}
-                  </div>
-                  <div class=" three wide column text-overflow-element">
-                    {{#if website}}
-                    <h5>Company Website</h5>
-                    <a href="{{website}}"><p>{{website}}</p></a>
-                    {{/if }}
-                  </div>
-                  <div class="column text-overflow-element">
-                    {{#if facebook}}
-                    <h5>Facebook</h5>
-                    <a href="{{facebook}}"><p>{{facebook}}</p></a>
-                    {{/if }}
-                  </div>
-                  <div class="column text-overflow-element">
-                    {{#if linkedin}}
-                    <h5>LinkedIn</h5>
-                    <a href="{{linkedin}}"><p>{{linkedin}}</p></a>
-                    {{/if }}
-                  </div>
-               </div>
-                {{#if companyDescription}}
-                <div class="ui one column row">
-                  <div class="column">
-                    <h5>Company Description</h5>
-                    <p>{{companyDescription}}</p>
-                  </div>
-                </div>
-                {{/if }}
-            </div>
+      <div class="hide-element hidden-group" id="{{id}}">
+            <div class="ui stackable sixteen column grid">
+               <div class="ui row">
+                    <div class="five wide column">
+                      <img class="ui company-logo" src="{{logo_url}}"/>
+                    </div>
+                     <div class="five wide column text-overflow-element">
+                      <h5>Sector</h5>
+                      {{sector companySector}}
+                    </div>
+                    <div class="two wide column text-overflow-element">
+                      {{#if twitter}}
+                      <h5>Twitter</h5>
+                      <p>{{twitter}}</p>
+                      {{/if }}
+                    </div>
+                    <div class=" three wide column text-overflow-element">
+                      {{#if website}}
+                      <h5>Company Website</h5>
+                      <a href="{{website}}"><p>{{website}}</p></a>
+                      {{/if }}
+                    </div>
+                    <div class="column text-overflow-element">
+                      {{#if facebook}}
+                      <h5>Facebook</h5>
+                      <a href="{{facebook}}"><p>{{facebook}}</p></a>
+                      {{/if }}
+                    </div>
+                    <div class="column text-overflow-element">
+                      {{#if linkedin}}
+                      <h5>LinkedIn</h5>
+                      <a href="{{linkedin}}"><p>{{linkedin}}</p></a>
+                      {{/if }}
+                    </div>
+             </div>
+              {{#if companyDescription}}
+              <div class="ui row">
+                    <div class="sixteen wide column">
+                      <h5>Company Description</h5>
+                      <p>{{companyDescription}}</p>
+                    </div>
+              </div>
+              {{/if }}
           </div>
-        </div>
-
+      </div>
         <div class="one colum row" style="display:none;"></div> <!-- so the divider underneath shows -->
         <div class="ui divider"></div>
         {{/each}}
