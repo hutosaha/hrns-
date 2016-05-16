@@ -6,7 +6,7 @@ $(document).ready(function() {
 
     $('.cv-viewer').click(function() {
         // need to write file before iframe injection
-
+        console.log('CLICKED');
         var candidateName = $(this).data('candidate-name');
         var cvid = $(this).data('cvid');
         var vid = $(this).data('vid');
@@ -15,234 +15,82 @@ $(document).ready(function() {
         var jobTitle = $(this).data('job-title');
         var msDocumentTypes = ['doc', 'docx'];
 
-        const ext = cvid.substr(cvid.lastIndexOf('.')+1);
+        // isFileAlreadyDownloaded(cvid, (response) => {
+        //     if (response) {
+        //           checkFileExtension(fileName, () => {
+        //
+        //           })
+        //     } else {
+        //         //get file extension
+        //     }
+        // });
 
-        if ( ext === 'pdf') {
-                $('iframe').attr('src', '');
-
-                $.ajax({
-                    url: '/client/view-cv',
-                    data: {
-                        cvid: cvid
-                    },
-                    async: true,
-
-                    success: function(filePath) {
-                      // setTimeout(function(){
-                      //  document.getElementById('iframe').contentWindow.location.reload();
-                      // }, 2000);
-                      var src = "/public/assets/ViewerJS/#../Downloads/" + filePath;
-                      $('iframe').attr('src', src);
-                      $('.ui.basic.doc-viewer.modal').modal('show');
-                    }
-                });
-
-
-
-                $('.reject').click(function() {
-
-                    $('.first.modal.reject-modal').modal('show');
-
-                    var $inputs = $('input[name=rejection-reason]');
-                    $('input[name=rejection-reason]').change(function() {
-                        if (this.checked)
-                            $inputs.not(this).prop('checked', !this.checked);
-                    });
-
-
-                    $('.confirm-rejection-button').click(function() {
-                        $('.first.modal.reject').modal('hide');
-                        $('.second.modal.reject-modal').modal('show', '.first.modal .button');
-                        $('.second.coupled.modal.accept-modal').modal('hide');
-
-
-                        var reason = $('input[name="rejection-reason"]:checked').val();
-
-                        $.ajax({
-                            url: '/client/job/reject',
-                            data: {
-                                candidateName: candidateName,
-                                cvid: cvid,
-                                vid: vid,
-                                email: agencyEmail,
-                                reason: reason
-                            },
-                            async: true,
-                            success: function(res) {
-                                if (res) {
-                                    var element = document.getElementById(cvid);
-                                    element.remove();
-                                    $('.ui.basic.doc-viewer.modal').modal('hide');
-
-                                    if ($('.listView').length === 0) {
-                                        $('.message').html('There are no candidates yet!');
-                                    }
-                                }
-                            }
-                        });
-                    });
-                });
-            // FOR MICROSOFT OFFICE DOCS: Convert from .doc/.docx to .pdf using nodejs-unoconv
-            } else if (msDocumentTypes.indexOf(ext) > -1) {
-                console.log('microsoft word');
-            } else {
-              $(this).html('Only pdf files');
-              $(this).attr('disabled','disabled');
-            }
-
-
-
-        $('.accept').click(function() {
-            $('.ui.basic.doc-viewer.modal').modal('hide');
-
-            $.ajax({
-                url: '/client/job/accept',
-                data: {
-                    candidateName: candidateName,
-                    cvid: cvid,
-                    vid: vid,
-                    email: agencyEmail,
-                    agencyId: agencyId,
-                    jobTitle: jobTitle
-                },
-                async: true,
-                success: function(res) {
-                    if (res) {
-                        $('.doc-viewer.modal').hide();
-                        var element = document.getElementById(cvid);
-                        element.remove();
-                        if ($('.listView').length === 0) {
-                            $('.message').html('There are no new candidates for this position.');
-                        }
-                    }
-                }
-            });
-
-        });
-
+        getFileName(cvid, (response) => {
+          if (response) {
+            let fileName = response;
+            downloadFile(fileName, cvid, (response) => {
+                console.log('downloaded');
+            })
+          };
+        })
     });
-
-    $('.reject-button').click(function() {
-
-        var candidateName = $(this).data('candidate-name');
-        var cvid = $(this).data('cvid');
-        var vid = $(this).data('vid');
-        var agencyEmail = $(this).data('agency-email');
-
-        if (candidateName) {
-            $('#modal-heading').html('Sorry to hear you want to reject ' + candidateName);
-        }
-
-        $('.ui.checkbox').checkbox();
-
-
-        $('.coupled.modal.reject-modal')
-            .modal({
-                allowMultiple: false
-            });
-
-        $('.first.modal.reject-modal')
-            .modal('show');
-
-
-        var $inputs = $('input[name=rejection-reason]');
-        $('input[name=rejection-reason]').change(function() {
-            if (this.checked)
-                $inputs.not(this).prop('checked', !this.checked);
-        });
-
-
-
-        $('.confirm-rejection-button').click(function() {
-            $('.first.modal.reject').modal('hide');
-            $('.second.modal.reject-modal').modal('show', '.first.modal .button');
-            $('.second.coupled.modal.accept-modal').modal('hide');
-
-
-            var reason = $('input[name="rejection-reason"]:checked').val();
-
-            $.ajax({
-                url: '/client/job/reject',
-                data: {
-                    candidateName: candidateName,
-                    cvid: cvid,
-                    vid: vid,
-                    email: agencyEmail,
-                    reason: reason
-                },
-                async: true,
-                success: function(res) {
-                    if (res) {
-                        var element = document.getElementById(cvid);
-                        element.remove();
-                        if ($('.listView').length === 0) {
-                            $('.message').html('There are no candidates yet!');
-                        }
-                    }
-                }
-            });
-
-        });
-    });
-
-    $('.accept-button').click(function() {
-        var candidateName = $(this).data('candidate-name');
-        var cvid = $(this).data('cvid');
-        var vid = $(this).data('vid');
-        var agencyEmail = $(this).data('agency-email');
-        var agencyId = $(this).data('agency-id');
-        var jobTitle = $(this).data('job-title');
-        $('.accept-candidateName').html(candidateName);
-
-        $('.coupled.modal.accept-modal')
-            .modal({
-                allowMultiple: false
-            });
-        // attach events to buttons
-        $('.second.modal.accept-modal')
-            .modal('attach events', '.first.modal .button');
-        // show first now
-        $('.first.modal.accept-modal')
-            .modal('show');
-
-
-
-        $('.modal-cancel-acceptance').click(function() {
-            $('.first.modal.accept-modal').hide();
-        });
-
-
-
-        $('.modal-submit-acceptance-button').click(function() {
-
-            $.ajax({
-                url: '/client/job/accept',
-                data: {
-                    candidateName: candidateName,
-                    cvid: cvid,
-                    vid: vid,
-                    email: agencyEmail,
-                    agencyId: agencyId,
-                    jobTitle: jobTitle
-                },
-                async: true,
-                success: function(res) {
-                    if (res) {
-                        var element = document.getElementById(cvid);
-                        element.remove();
-                        if ($('.listView').length === 0) {
-                            $('.message').html('There are no new candidates for this position.');
-                        }
-                    }
-                }
-            });
-
-        });
-
-    });
-    if ($('.listView').length === 0) {
-        $('.message').html('There are no candidates yet!');
-    }
-
 
 });
+
+// var isFileAlreadyDownloaded = (cvid, callback) => {
+//     //AJAX request to do fs.readdirSync --> check if file already exists
+//     $.ajax({
+//         url: '/client/file-exists',
+//         data: {
+//             cvid: cvid,
+//         },
+//         async: true,
+//         success: function(response) {
+//           console.log('!!!!!', response);
+//           callback(response);
+//         }
+//     });
+// }
+
+var getFileName = (cvid, callback) => {
+  $.ajax({
+      url: '/client/get-filename',
+      data: {
+          cvid: cvid,
+      },
+      async: true,
+      success: function(response) {
+        console.log('!!!!!', response);
+        callback(response);
+      }
+  });
+}
+
+var downloadFile = (fileName, cvid, callback) => {
+    $.ajax({
+        url: '/client/get-file-from-s3',
+        data: {
+            fileName: fileName,
+            cvid: cvid
+        },
+        async: true,
+        success: function(response) {
+          console.log('YESYESYES', response);
+          callback(response);
+        }
+    });
+}
+
+// var findFileExtensionFor = (cvid) => {
+//
+//   $.ajax({
+//       url: '/client/get-cv',
+//       data: {
+//           cvid: cvid,
+//       },
+//       async: true,
+//       success: function(res) {
+//         console.log('!!!!!', res);
+//       }
+//   });
+// }
