@@ -31,7 +31,7 @@ $(function() {
                         $('.button.confirm-time').removeClass('blue').addClass('green').text('Confirmed');
                         $('.button.another-time').remove(); // remove 
                     } else {
-                        $('#message').addClass('ui massive warning info message').text('Sorry, there was an error. Please try again!');
+                        $('#message').addClass('ui massive warning info message').text('Sorry, there was an error. Please try again!').attr('disabled', 'disabled');
                     }
 
                 }
