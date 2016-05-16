@@ -25,11 +25,19 @@ $(document).ready(function() {
         //     }
         // });
 
-        getFileName(cvid, (response) => {
-          if (response) {
-            let fileName = response;
-            downloadFile(fileName, cvid, (response) => {
-                console.log('downloaded');
+        // FLOW: getFileName, checkIfFileNameAlreadyDownloaded
+        // If downloaded - open in iframe
+        // If not downloaded - downloadFile
+
+        getFileName(cvid, (fileName) => {
+            ifFileAlreadyDownloaded(fileName, (response) => {
+                if (response) { // true if file has downloaded;
+                    previewFile(downloadedFile);
+                } else {
+                    downloadFile(fileName, cvid, (response) => {
+                        response === 'success' ? previewFile(downloadedFile) :
+                  });
+                }
             })
           };
         })
@@ -37,20 +45,20 @@ $(document).ready(function() {
 
 });
 
-// var isFileAlreadyDownloaded = (cvid, callback) => {
-//     //AJAX request to do fs.readdirSync --> check if file already exists
-//     $.ajax({
-//         url: '/client/file-exists',
-//         data: {
-//             cvid: cvid,
-//         },
-//         async: true,
-//         success: function(response) {
-//           console.log('!!!!!', response);
-//           callback(response);
-//         }
-//     });
-// }
+var isFileAlreadyDownloaded = (cvid, callback) => {
+    //AJAX request to do fs.readdirSync --> check if file already exists
+    $.ajax({
+        url: '/client/file-exists',
+        data: {
+            cvid: cvid,
+        },
+        async: true,
+        success: function(response) {
+          console.log('!!!!!', response);
+          callback(response);
+        }
+    });
+}
 
 var getFileName = (cvid, callback) => {
   $.ajax({
@@ -76,21 +84,21 @@ var downloadFile = (fileName, cvid, callback) => {
         async: true,
         success: function(response) {
           console.log('YESYESYES', response);
-          callback(response);
+          response.match(/fileDownloaded/g) ? callback('success') : callback('failed');
         }
     });
 }
 
-// var findFileExtensionFor = (cvid) => {
-//
-//   $.ajax({
-//       url: '/client/get-cv',
-//       data: {
-//           cvid: cvid,
-//       },
-//       async: true,
-//       success: function(res) {
-//         console.log('!!!!!', res);
-//       }
-//   });
-// }
+var previewFile = (cvid) => {
+
+  $.ajax({
+      url: '/client/get-cv',
+      data: {
+          cvid: cvid,
+      },
+      async: true,
+      success: function(res) {
+        console.log('!!!!!', res);
+      }
+  });
+}

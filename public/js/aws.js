@@ -40,7 +40,7 @@ function check_file_size (file, callback) {
 // creates a request to make assign a signature.
 function get_signed_request(file, file_url, preview) {
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", "/sign_s3?file_name="+ file.name + "&file_type=" + file.type);
+    xhr.open("GET", "/sign_s3");
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
