@@ -25,10 +25,15 @@
                       <option value="Other">Other</option>
                   </select>
               </div>
-              <div class="required field">
-                  <label for="teamCulture"> Team Culture </label>
-                  <input type="text" name="teamCulture" pattern="{{frontendInput}}"  placeholder="e.g. Innovative, Startup, etc." maxlength="100" required>
-              </div>
+               <div class="field">
+            <label for="searchProgress"> What have you done so far in the search? </label>
+            <select name="searchProgress">
+              <option value="Nothing so far">Nothing so far</option>
+              <option value="Just started looking">Just started looking</option>
+              <option value="Been looking for a while">Been looking for a while</option>
+            </select>
+          </div>
+            
         </div>
         <div class="two fields">
               <div class="required field">
@@ -45,33 +50,25 @@
                   </select>
               </div>
         </div>
-
         <div class=" two fields">
               <div class="required  field">
                 <label for="salary"> Salary (£)</label>
                 <input type="number" name="salary" pattern="{{frontendInput}}"  maxlength="100" placeholder="e.g. £70,000" required>
               </div>
-              <div class="field">
+              <div class="required field">
                   <label for="package"> Package Details </label>
                   <input type="text" name="package" pattern="{{frontendInput}}"  maxlength="100" placeholder="e.g. +10% bonus, +3% equity etc." required>
               </div>
-
         </div>
-
-
         <div class="two fields">
-          <div class="field">
-            <label for="searchProgress"> What have you done so far in the search? </label>
-            <select name="searchProgress">
-              <option value="Nothing so far">Nothing so far</option>
-              <option value="Just started looking">Just started looking</option>
-              <option value="Been looking for a while">Been looking for a while</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="searchDeadline"> Deadline For Search </label>
-            <input name="searchDeadline" class="datepicker">
-          </div>
+              <div class="required field">
+                  <label for="teamCulture"> Team Culture </label>
+                  <input type="text" name="teamCulture" pattern="{{frontendInput}}"  placeholder="e.g. Innovative, Startup, etc." maxlength="100" required>
+              </div>
+              <div class="field">
+                    <label for="personality">Ideal Personality Fit </label>
+                    <input type="text" name="personality" pattern="{{frontendInput}}"  placeholder="e.g. Super sociable, Quietly quirky, etc." maxlength="100">
+              </div>      
         </div>
         <div class="two fields">
           <div class="field">
@@ -81,9 +78,9 @@
               <input name="skillThree" type="text" placeholder="3. e.g. Leadership">
           </div>
           <div class="field">
-                    <label for="personality">Ideal Personality Fit </label>
-                    <input type="text" name="personality" pattern="{{frontendInput}}"  placeholder="e.g. Super sociable, Quietly quirky, etc." maxlength="100">
-           </div>
+            <label for="searchDeadline"> Deadline For Search </label>
+            <input name="searchDeadline" class="datepicker">
+          </div>
          </div>
         <input type="submit" value="Submit" class="ui blue button">
     </form>
