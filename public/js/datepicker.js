@@ -3,5 +3,5 @@
 var $ = window.$;
 
  $(function() {
-    $( ".datepicker" ).datepicker({dateFormat: 'mm-dd-yy'});
+    $( ".datepicker" ).datepicker({dateFormat: 'DD, d MM, yy'});
  });

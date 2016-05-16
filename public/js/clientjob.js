@@ -15,7 +15,7 @@ $(document).ready(function() {
         var jobTitle = $(this).data('job-title');
         var msDocumentTypes = ['doc', 'docx'];
 
-        const ext = cvid.substr(cvid.lastIndexOf('.')+1)
+        const ext = cvid.substr(cvid.lastIndexOf('.')+1);
 
         if ( ext === 'pdf') {
                 $('iframe').attr('src', '');
@@ -26,6 +26,7 @@ $(document).ready(function() {
                         cvid: cvid
                     },
                     async: true,
+
                     success: function(filePath) {
                       // setTimeout(function(){
                       //  document.getElementById('iframe').contentWindow.location.reload();
@@ -40,9 +41,7 @@ $(document).ready(function() {
 
                 $('.reject').click(function() {
 
-                    $('.first.modal.reject-modal')
-                        .modal('show');
-
+                    $('.first.modal.reject-modal').modal('show');
 
                     var $inputs = $('input[name=rejection-reason]');
                     $('input[name=rejection-reason]').change(function() {

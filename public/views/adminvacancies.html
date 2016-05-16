@@ -12,7 +12,7 @@
       <div class="two wide column text-overflow-element">
         <h4>Company</h4>
       </div>
-      <div class="two wide column text-overflow-element">
+      <div class="three wide column text-overflow-element">
         <h4>Job Title</h4>
       </div>
       <div class="two wide column text-overflow-element">
@@ -24,7 +24,10 @@
     </div>
     <div class="ui stackable grid scheduling-header-margin">
       <div class="nine wide column"></div>
-      <div class="one wide column accepted">
+      <div class="one wide column submitted-margin">
+        <h5 class="">Submitted</h5>
+      </div>
+      <div class="one wide column accepted-margin">
         <h5 class="">Accepted</h5>
 
       </div>
@@ -54,6 +57,14 @@
     </div>
     <div class="two wide column text-overflow-element">
         <p class="overview-list-element">{{salary}}</p>
+    </div>
+    <div class="one wide column">
+        {{#if submitted}}
+        <p class="overview-list-element submitted-green">{{submitted}}</p>
+        {{/if }}
+        {{#unless submitted}}
+        <p class="overview-list-element">0</p>
+        {{/unless }}
     </div>
     <div class="one wide column">
         {{#if stage1Count}}
