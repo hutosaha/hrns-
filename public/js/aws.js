@@ -24,7 +24,6 @@ var $ = window.$;
 })();
 
 function check_file_size (file, callback) {
-    console.log('CHECKING FILE SIZE');
     var filesize = ((file.size/1024)/1024).toFixed(4); // MB to 4dp
     filesize <= 4 ? callback("accept") : alert("File size exceeds 4MB limit.");
 }
@@ -35,7 +34,6 @@ function get_signed_request(file, file_url, preview) {
     xhr.open("GET", "/sign_s3?file_name="+ file.name + "&file_type=" + file.type);
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4) {
-            console.log('xhr.status', xhr.status);
             if (xhr.status === 200) {
                 if (response !== 'invalidFileFormat') {
                   var response = JSON.parse(xhr.responseText);
