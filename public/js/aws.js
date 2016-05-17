@@ -51,7 +51,7 @@ function get_signed_request(file, file_url, preview) {
 
 function upload_file(file, file_url, preview, signed_request, url){
     var xhr = new XMLHttpRequest();
-    xhr.open("PUT", signed_request);
+    xhr.open("PUT", signed_request);    
     xhr.setRequestHeader('x-amz-acl', 'public-read-write');
     xhr.onload = function() {
         if (xhr.status === 200) {

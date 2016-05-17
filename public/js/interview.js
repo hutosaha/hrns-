@@ -29,7 +29,7 @@ $(function() {
                     if (res) {
                         $('#message').addClass('ui massive info message')
                         .text("Congratulaitons we\'ve emailed both parties to confirm the interview"); // change to something better...
-                        element.removeClass('blue').addClass('green').text('Confirmed').attr('disabled', 'disabled');
+                        element.removeClass('ui button confirm-date').addClass('green').text('Confirmed');
                         $('.button.another-time').remove(); // remove 
                     } else {
                         $('#message').addClass('ui massive warning info message').text('Sorry, there was an error. Please try again!');
@@ -64,7 +64,7 @@ $(function() {
                 $('.small.modal.save-modal').modal('show');
                     var firstIntTime = $('form input[name=firstIntTime').val();
                     var firstIntDate = $("form input[name=firstIntDate]").val();
-                    $('.save-message').text('Please confirm your first choice of Date & Time:'+firstIntDate+' at '+firstIntTime);
+                    $('.save-message').text('Please confirm your new first choice of Date & Time for the interview is :'+firstIntDate+' at '+firstIntTime);
 
                 $('.ui.positive.button').on('click', function() {
 
