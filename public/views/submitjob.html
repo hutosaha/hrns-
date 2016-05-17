@@ -33,7 +33,7 @@
               <option value="Been looking for a while">Been looking for a while</option>
             </select>
           </div>
-            
+
         </div>
         <div class="two fields">
               <div class="required field">
@@ -53,7 +53,7 @@
         <div class=" two fields">
               <div class="required  field">
                 <label for="salary"> Salary (£)</label>
-                <input type="number" name="salary" pattern="{{frontendInput}}"  maxlength="100" placeholder="e.g. £70,000" required>
+                <input type="number" name="salary" pattern="{{frontendInput}}" title="No 'greater than' or 'less than' symbols" min="0" step="1000"  maxlength="100" placeholder="e.g. £70,000" required>
               </div>
               <div class="required field">
                   <label for="package"> Package Details </label>
@@ -68,7 +68,7 @@
               <div class="field">
                     <label for="personality">Ideal Personality Fit </label>
                     <input type="text" name="personality" pattern="{{frontendInput}}"  placeholder="e.g. Super sociable, Quietly quirky, etc." maxlength="100">
-              </div>      
+              </div>
         </div>
         <div class="two fields">
           <div class="field">
