@@ -1,0 +1,104 @@
+<h1 class="ui block header">Interview Confirmation Page</h1>
+<div class="ui divider"></div>
+<div id="message">{{message}}</div>
+<div class="ui grid interview" data-interview-id="{{interviewId}}">
+	<div class="ui four wide column" >
+		<h3>Candidate Contact Details:</h3>
+	</div>
+	<div class="ui four wide column">
+		<a href="tel:{{contactNumber}}"><h3> {{candidateName}}</h3></a>
+	</div>
+	<div class="ui four wide column">
+		<a href="emailto:{{email}}"><h3>{{contactNumber}}</h3></a>
+	</div>
+	<div class="ui four wide column">
+		<a href="emailto:{{email}}"><h3>{{email}}</h3></a>
+	</div>
+	<div class="ui four wide column" >
+		<h3>Agent Contact Details:</h3>
+	</div>
+	<div class="ui four wide column">
+		<a href="tel:{{contactNumber}}"><h3> {{agencyName}}</h3></a>
+	</div>
+	<div class="ui eight wide column">
+	<!-- 	<a href="emailto:{{email}}"><h3>{{agencyEmail}}</h3></a> -->
+	</div>
+	<div class="ui four wide column">
+		<h3>Client Contact Details:</h3>
+	</div>
+	<div class="ui four wide column">
+		<h3>{{companyName}}</h3>
+	</div>
+	<div class="ui eight wide column">
+	<!-- 	<h3>{{clientEmail}}</h3> -->
+	</div>	
+	<div class="ui four wide column">
+		<h3>Interview Details:</h3>
+	</div>
+	<div class="ui four wide column">
+		<h3>{{jobTitle}}</h3>
+	</div>
+	<div class="ui eight wide column">
+		<h3>Address: {{interviewAddress}}</h3>
+	</div>
+	<div class="ui sixteen wide column">
+		<h3>Additional Comments:</h3><p class="additionalComments"> {{additionalComments}}</p>
+	</div>
+	<div class="ui sixteen wide column">
+		<h3>Please confirm which time is best for your candidate.</h3>
+	</div>
+	<div class="ui four wide column">
+		 <h3 class="firstIntTime ">{{firstIntTime}}</h3>
+	</div>
+	<div class="ui four wide column">
+		<h3 class="firstIntDate">{{firstIntDate}}</h3>
+	</div>
+	<div class="ui eight wide column">
+		<div class="ui small inverted blue button confirm-time"
+			 data-confirmed-time="{{firstIntTime}}"
+			 data-confirmed-date="{{firstIntDate}}"
+			 data-interview-id="{{interviewId}}"
+		>Confirm</div>
+	</div>
+	{{#if secondIntTime}}
+	<div class="ui four wide column">
+		 <h3 class="secondIntTime">{{secondIntTime}}</h3>
+	</div>
+	<div class="ui four wide column">
+		<h3 class="secondIntDate">{{secondIntDate}}</h3>
+	</div>
+	<div class="ui eight wide column">
+		<div class="ui small inverted blue button confirm-time"
+				data-confirmed-time="{{secondIntTime}}"
+			 	data-confirmed-date="{{secondIntDate}}"
+		>Confirm</div>
+	</div>
+	{{/if}}
+	{{#if thirdIntTime}}
+	<div class="ui four wide column">
+		 <h3 class="thirdIntTime">{{thirdIntTime}}</h3>
+	</div>
+	<div class="ui four wide column">
+		<h3 class="thirdIntDate">{{thirdIntDate}}</h3>
+	</div>
+	<div class="ui eight wide column">
+		<div class="ui small inverted blue button confirm-time"
+					data-confirmed-time="{{thirdInTime}}"
+			 		data-confirmed-date="{{thirdIntDate}}"
+		>Confirm</div>
+	</div>
+	{{/if}}
+	<div class="ui twelve wide column">
+		<div class="ui inverted small red button another-time"
+		data-interview-address="{{interviewAddress}}"
+		data-additional-comments"{{additionalComments}}"
+		data-interview-id="{{interviewId}}"
+		data-candidate-name="{{candidateName}}"
+		data-job-title= "{{jobTitle}}"
+		>Suggest Another Time</div>
+	</div>
+</div>
+{{> savechanges}}
+{{> create-interview}}
+
+<script type="text/javascript" src="/public/js/interview.js"></script>

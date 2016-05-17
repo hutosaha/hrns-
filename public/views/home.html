@@ -3,12 +3,14 @@
 <head>
     <meta charset="utf-8"> {{> title}} {{> config}}
 </head>
+<body>
 <div class="ui fixed menu home-navbar">
     <div class="ui container">
         <div class="right menu">
-            <h1 class="ui huge header">[H]ARNESS</h1>
+            <image height="28" class="home logo" src="public/assets/images/greenLogo.png">
         </div>
         <div class="right menu">
+            <h4 class="signin">SIGN IN AS</h4>
             <a href="/login/client">
                 <button class="ui linkedin button"><i class="linkedin icon"></i>Client Login</button>
             </a>
@@ -18,18 +20,16 @@
         </div>
     </div>
 </div>
-
 <div class="home-container">
-    <img class="main-pic" src="/public/assets/flat-faces.jpg"
-     width="1000" height="500" >
+    <img class="main-pic" src="/public/assets/bg_flat_faces.jpg" width="1000" height="500">
     <div class="intro-text">
-            <h2><strong>Tech Talent Search, Evolved - </strong> Welcome to the future of hiring Tech Talent. Harness the power of the 1000's of professional networks, to find the very best tech talent in the world, at the click of a button. No stress, no admin - just click smile, hire. </h2>
-        <div class="">FIND OUT MORE </div>
-        <i class="down arrow icon"></i>
+        <p><strong>Tech Talent Search, Evolved - </strong> Welcome to the future of hiring Tech Talent. <strong>HARNESS</strong> the power of the 1000's of professional networks, to find the very best tech talent in the world, at the click of a button. No stress, no admin - just click smile, hire. </p>
+
+         <i class="large angle down icon scroll-down" style="cursor:pointer; font-weight: 900"></i>
+        <div class="scroll-down" style="cursor:pointer">FIND OUT MORE </div>
+       
     </div>
 </div>
-    
-
 <div class="ui attached segment trustedby">
     <div class="ui container trustedby">
         <div class="ui text container">
@@ -64,40 +64,71 @@
             <div class="column">
                 <div class="ui column">
                     <div class="image-round-container">
-                    <img class="ui medium circular image" src="/public/assets/default-logo.png">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
-                    </div>
-                </div>
-            </div>
-            <div class="column">
-                <div class="ui column">
-                      <div class="image-round-container">
-                    <img class="ui medium circular image" src="/public/assets/default-logo.png">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
+                        <img class="ui medium circular image" src="/public/assets/default-logo.png">
+                        <p>1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
                     </div>
                 </div>
             </div>
             <div class="column">
                 <div class="ui column">
                     <div class="image-round-container">
-                    <img class="ui medium circular image" src="/public/assets/default-logo.png">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
+                        <img class="ui medium circular image" src="/public/assets/default-logo.png">
+                        <p>2. Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="ui column">
+                    <div class="image-round-container">
+                        <img class="ui medium circular image" src="/public/assets/default-logo.png">
+                        <p>3. Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-<<<<<<< HEAD
 </div>
-<div class="ui container">
-=======
-   <div class="ui main container">
->>>>>>> master
-    <div class="ui text container">
-        <h1 class="ui header">
-        TESTIMONIALS
-      </h1>
+<div class="ui attached segment testimonials">
+    <div class="ui container testimonials">
+        <div class="ui text container">
+            <h1 class="ui inverted header">
+           TESTIMONIALS
+          </h1>
+            <div class="ui two column centered grid testimonials">
+                <div class="column testimonials">
+                    <h3 class="ui  floated right">Buzz Feed</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                </div>
+                <div class="column testimonials">
+                    <h3 class="ui floated right">Buzz Feed</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                </div>
+                <div class="column testimonials">
+                    <h3>Buzz Feed </h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                </div>
+                <div class="column testimonials">
+                    <h3>Buzz Feed</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-
+</body>
 </html>
+<script type="text/javascript"> 
+
+
+$(document).ready(function(){
+    var scrolled =0;            
+    $(".scroll-down").on("click" ,function(){
+                scrolled=scrolled+500;
+        
+                $("body").animate({
+                        scrollTop:  scrolled
+                   });
+
+            })
+});
+</script>
