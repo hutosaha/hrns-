@@ -3,7 +3,15 @@
 <div class="ui divider"></div>
 <h2 class="ui dividing header">Submit new candidate</h2>
 <form method="POST" action="/submitvacancycv/{{vid}}" class="ui form">
-{{> candidateform}}
+    {{> candidateform}}
+    <div class="field">
+        <div class="required field">
+            <div class="ui checkbox">
+                <input type="checkbox" tabindex="0" required>
+                <label>By ticking this box I confirm that I have informed the candidate of who Harness is, and what will happen to their personal details</label>
+            </div>
+        </div>
+    </div>
 </form>
 
 <script type="text/javascript" src="/public/js/aws.js"></script>

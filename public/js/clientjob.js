@@ -4,126 +4,101 @@ var $ = window.$;
 
 $(document).ready(function() {
 
-      $('.reject-button').click(function() {
-
-        var candidateName = $(this).data('candidate-name');
-        var cvid = $(this).data('cvid');
-        var vid = $(this).data('vid');
-        var agencyEmail = $(this).data('agency-email');
-
-        if (candidateName) {
-            $('#modal-heading').html('Sorry to hear you want to reject ' + candidateName);
-        }
-
-        $('.ui.checkbox').checkbox();
-
-        $('.coupled.modal.reject-modal')
-            .modal({
-                allowMultiple: false
-            });
-
-        $('.first.modal.reject-modal')
-            .modal('show');
-
-
-        var $inputs = $('input[name=rejection-reason]');
-        $('input[name=rejection-reason]').change(function() {
-            if (this.checked)
-                $inputs.not(this).prop('checked', !this.checked);
-        });
-
-
-
-        $('.confirm-rejection-button').click(function() {
-                  $('.first.modal.reject').modal('hide');
-                  $('.second.modal.reject-modal').modal('show', '.first.modal .button');
-                  $('.second.coupled.modal.accept-modal').modal('hide');
-          
-
-            var reason = $('input[name="rejection-reason"]:checked').val();
-
-            $.ajax({
-                url: '/client/job/reject',
-                data: {
-                    candidateName: candidateName,
-                    cvid: cvid,
-                    vid: vid,
-                    email: agencyEmail,
-                    reason: reason
-                },
-                async: true,
-                success: function(res) {
-                    if (res) {
-                        var element = document.getElementById(cvid);
-                        element.remove();
-                        if ($('.listView').length === 0) {
-                            $('.message').html('There are no candidates yet!');
-                        }
-                    }
-                }
-            });
-
-        });
-    });
-
-    $('.accept-button').click(function() {
+    $('.cv-viewer').click(function() {
+        // need to write file before iframe injection
+        console.log('CLICKED');
         var candidateName = $(this).data('candidate-name');
         var cvid = $(this).data('cvid');
         var vid = $(this).data('vid');
         var agencyEmail = $(this).data('agency-email');
         var agencyId = $(this).data('agency-id');
         var jobTitle = $(this).data('job-title');
-        $('.accept-candidateName').html(candidateName);
+        var msDocumentTypes = ['doc', 'docx'];
 
-        $('.coupled.modal.accept-modal')
-            .modal({
-                allowMultiple: false
-            });
-        // attach events to buttons
-        $('.second.modal.accept-modal')
-            .modal('attach events', '.first.modal .button');
-        // show first now
-        $('.first.modal.accept-modal')
-            .modal('show');
+        // isFileAlreadyDownloaded(cvid, (response) => {
+        //     if (response) {
+        //           checkFileExtension(fileName, () => {
+        //
+        //           })
+        //     } else {
+        //         //get file extension
+        //     }
+        // });
 
+        // FLOW: getFileName, checkIfFileNameAlreadyDownloaded
+        // If downloaded - open in iframe
+        // If not downloaded - downloadFile
 
-
-        $('.modal-cancel-acceptance').click(function() {
-            $('.first.modal.accept-modal').hide();
-        });
-
-
-
-        $('.modal-submit-acceptance-button').click(function() {
-
-            $.ajax({
-                url: '/client/job/accept',
-                data: {
-                    candidateName: candidateName,
-                    cvid: cvid,
-                    vid: vid,
-                    email: agencyEmail,
-                    agencyId: agencyId,
-                    jobTitle: jobTitle
-                },
-                async: true,
-                success: function(res) {
-                    if (res) {
-                        var element = document.getElementById(cvid);
-                        element.remove();
-                        if ($('.listView').length === 0) {
-                            $('.message').html('There are no new candidates for this position.');
-                        }
-                    } 
+        getFileName(cvid, (fileName) => {
+            ifFileAlreadyDownloaded(fileName, (response) => {
+                if (response) { // true if file has downloaded;
+                    previewFile(downloadedFile);
+                } else {
+                    downloadFile(fileName, cvid, (response) => {
+                        response === 'success' ? previewFile(downloadedFile) :
+                  });
                 }
-            });
-
-        });
-
+            })
+          };
+        })
     });
-    if ($('.listView').length === 0) {
-        $('.message').html('There are no candidates yet!');
-    }
-
 
 });
+
+var isFileAlreadyDownloaded = (cvid, callback) => {
+    //AJAX request to do fs.readdirSync --> check if file already exists
+    $.ajax({
+        url: '/client/file-exists',
+        data: {
+            cvid: cvid,
+        },
+        async: true,
+        success: function(response) {
+          console.log('!!!!!', response);
+          callback(response);
+        }
+    });
+}
+
+var getFileName = (cvid, callback) => {
+  $.ajax({
+      url: '/client/get-filename',
+      data: {
+          cvid: cvid,
+      },
+      async: true,
+      success: function(response) {
+        console.log('!!!!!', response);
+        callback(response);
+      }
+  });
+}
+
+var downloadFile = (fileName, cvid, callback) => {
+    $.ajax({
+        url: '/client/get-file-from-s3',
+        data: {
+            fileName: fileName,
+            cvid: cvid
+        },
+        async: true,
+        success: function(response) {
+          console.log('YESYESYES', response);
+          response.match(/fileDownloaded/g) ? callback('success') : callback('failed');
+        }
+    });
+}
+
+var previewFile = (cvid) => {
+
+  $.ajax({
+      url: '/client/get-cv',
+      data: {
+          cvid: cvid,
+      },
+      async: true,
+      success: function(res) {
+        console.log('!!!!!', res);
+      }
+  });
+}

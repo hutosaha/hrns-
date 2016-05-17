@@ -6,5 +6,5 @@ var $ = window.$;
 
  $('.viewMore').on('click', function(){
    var id = $(this).data('id');
-   $(this).parent().parent().parent().find('#' + id).fadeToggle();
+   $('#' + id).fadeToggle();
  });

@@ -48,10 +48,6 @@ h5,
     margin: 0em 13em;
 }
 
-.scheduling-header-margin h5 {
-    margin-left: -10px
-}
-
 
 /*==============================
   Container for every page - see content partial
@@ -65,7 +61,18 @@ h5,
 /*==============================
   HOMEPAGE (/home)
 ================================*/
+.home.logo {
+    position:absolute;
+    height: 45px;
+    margin-top: 2em; 
+    right:43%;
 
+}
+.signin {
+    position: absolute;
+    top:16%;
+    right:14%;
+}
 .top-padding {
     padding-top: 20em; 
     position: relative;
@@ -73,32 +80,40 @@ h5,
 
 .main-pic {
   width: 100%;
-  height: 60em;
+  height: 100%;
   opacity: 0.2;
   postion: 40%;
+  top:30%;
+ 
 }
 
 .home-container {
     text-align: center;
-    max-height: 50em;
+    max-height: 60em;
     postion:relative;
+    background-color: black;
 }
 
 .intro-text {
     position: absolute;
-    color: #15abc6;
+    color:#ffffff;
     top: 20%;
+    right:20%;
     text-align: center;
-    width: 100%;   
-    
+    max-width: 60%;   
 }
-.intro-text h2 {
-    margin: 5em;
+
+.intro-text p {
+    margin: 3em;
+}
+.intro-text p {
+    font-size: 200%;
 }
 
 .home-navbar .container {
     margin: 0 1em;
     width: 120em;
+    height:120px;
 }
 
 .ui.text.container {
@@ -114,13 +129,16 @@ h5,
 .ui.attached.segment.trustedby {
   background-color: #15abc6;
   min-height: 20em;
-
+}
+.ui.container.trustedby img {
+    margin-top: 2em;
+    margin-bottom: 2em;
 }
 
 .ui.attached.segment.howitworks {
     min-height: 40em;
 }
-s
+
 
 .ui.header.howitworks  {
      color: #15abc6;
@@ -137,10 +155,12 @@ s
    margin: auto;
 }
 
-/* .ui.medium.circular.image {
+.ui.medium.circular.image {
     border: solid 2px #15abc6;
     margin-bottom: 2em;
-=======
+}
+
+
 .ui.main.container {
     margin-top: 7em;
 }
@@ -148,10 +168,18 @@ s
 h1.ui.huge.header {
     text-align: center;
     margin:1em;
->>>>>>> master
 }
- */
+.ui.attached.segment.testimonials {
+  background-color: #15abc6;
+  min-height: 40em;
 
+}
+ 
+.grid.testimonials {
+    margin-top: 4em;
+    color: white;
+    text-align: center;
+}
 
 /*===========================
   Nav Bar
@@ -161,13 +189,14 @@ h1.ui.huge.header {
 }
 
 .home-navbar a {
-    margin-left: 10px;
-    margin-top: 1em;
+    margin-right: 40px;
+    margin-top: 4em;
 }
 
 .ui.linkedin.button {
     border-radius: 25px;
 }
+
 
 h1.ui.huge.header {
     text-align: center;
@@ -214,6 +243,33 @@ h1.ui.huge.header {
     color: rgba(0, 0, 0, .95);
 }
 
+/*===========================
+Agency Login
+  ===========================*/
+
+.agency.linkedin.button {
+    position: absolute;
+    text-align: center;
+    width:auto;
+    top: 20%;  
+    left: 45%;
+    margin: auto;   
+}
+.home-navbar {
+   border-top:solid 2px  #15abc6;
+}
+
+.agency.background {
+    margin: auto;
+    top:50%;
+
+    background-color: black;
+}
+.agency.wrapper {
+    position: relative;
+    background-color: black;
+}
+
 
 /*===========================
   Vacancy partial
@@ -227,6 +283,9 @@ h1.ui.huge.header {
     border: 1px solid #d4d4d5;
     padding: 5px;
     box-shadow: 0 0 0 1px #d4d4d5;
+    max-width: 150px;
+    max-height: 150px;
+    margin:auto;
 }
 
 
@@ -242,10 +301,25 @@ h1.ui.huge.header {
     /* also on /client */
     display: none;
 }
+.scheduling-header-margin h5 {
+    margin-left: -15px
+}
+
 
 .ui.radio.checkbox {
     display: flex;
     justify-content: center;
+}
+
+.accepted-margin {
+    margin-right: 12px;
+}
+.submitted-margin {
+    margin-right: 12px;
+    margin-left:-12px;
+}
+.submitted-green {
+    color: green;
 }
 
 

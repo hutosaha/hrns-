@@ -3,6 +3,14 @@
     <div class="ui divider"></div>
     <form method="POST" action="/agency/submitcandidate" class="ui form">
         {{> candidateform}}
+        <div class="field">
+            <div class="required field">
+                <div class="ui checkbox">
+                    <input type="checkbox" tabindex="0" required>
+                    <label>By ticking this box I confirm that I have informed the candidate of who Harness is, and what will happen to their personal details</label>
+                </div>
+            </div>
+        </div>
     </form>
 </div>
 <script type="text/javascript" src="/public/js/aws.js"></script>

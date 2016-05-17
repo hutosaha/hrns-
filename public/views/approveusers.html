@@ -1,9 +1,8 @@
 <h1 class="ui block header">Approve Users</h1>
 <h3 id="message">{{message}}</h3>
 <div class="ui divider"></div>
-
-  {{#each data}}
-  <div class="ui stackable grid listView" id="{{id}}block">
+{{#each data}}
+<div class="ui stackable grid listView" id="{{id}}block">
     <div class="ui eight column row">
         <div class="ui column">
             <h5>Company Name</h5>
@@ -15,11 +14,15 @@
         </div>
         <div class="ui column">
             <h5>Contact Number</h5>
-            <a href="tel:{{contactNumber}}"><p>{{contactNumber}}</p></a>
+            <a href="tel:{{contactNumber}}">
+                <p>{{contactNumber}}</p>
+            </a>
         </div>
         <div class="ui two wide column">
             <h5>Email</h5>
-            <a href="mailto:{{email}}"><p>{{email}}</p></a>
+            <a href="mailto:{{email}}">
+                <p>{{email}}</p>
+            </a>
         </div>
         <div class="ui column">
         </div>
@@ -27,99 +30,91 @@
             <button class="ui inverted blue button viewMore" data-id="{{id}}">More...</button>
         </div>
         <div class="ui column">
-            <button data-url="approveuser/approve/{{id}}/{{email}}"
-                    data-id="{{id}}block"
-                    class="ui inverted blue button approve-button">Approve</button>
+            <button data-url="approveuser/approve/{{id}}/{{email}}" data-id="{{id}}block" class="ui inverted blue button approve-button">Approve</button>
         </div>
         <div class="ui column">
-            <button data-url="approveuser/reject/{{id}}/{{email}}"
-                    data-id="{{id}}block"
-                    class="ui inverted red button reject-button">Reject</button>
+            <button data-url="approveuser/reject/{{id}}/{{email}}" data-id="{{id}}block" class="ui inverted red button reject-button">Reject</button>
         </div>
-    </div>
+</div>
 
-    <div class="hide-element hidden-group" id="{{id}}">
-      <div class="ui stackable grid">
-
-        <div class="ui three column row">
-            <div class="ui column">
-                <h5>Sector</h5>
-                <p>{{companySector}}</p>
+<div class="hide-element hidden-group" id="{{id}}">
+        <div class="ui stackable grid">
+            <div class="ui eight column row">
+                <div class="ui column">
+                    <h5>Sector</h5>
+                    <p>{{companySector}}</p>
+                </div>
+                <div class="ui column">
+                    <h5>Company Size</h5>
+                    <p>{{companySize}}</p>
+                </div>
+                <div class="ui column">
+                    {{#if website}}
+                    <h5>Company Website</h5>
+                    <a href="{{website}}">
+                        <p>{{website}}</p>
+                    </a>
+                    {{/if }}
+                </div>
+                <div class="ui column">
+                    {{#if twitter}}
+                    <h5>Twitter</h5>
+                    <p>{{twitter}}</p>
+                    {{/if }}
+                </div>
+                <div class="column text-overflow-element">
+                    {{#if facebook}}
+                    <h5>Facebook</h5>
+                    <a href="{{facebook}}">
+                        <p>{{facebook}}</p>
+                    </a>
+                    {{/if }}
+                </div>
+                <div class="column text-overflow-element">
+                    {{#if linkedin}}
+                    <h5>LinkedIn</h5>
+                    <a href="{{linkedin}}">
+                        <p>{{linkedin}}</p>
+                    </a>
+                    {{/if }}
+                </div>
             </div>
-            <div class="ui column">
-                <h5>Company Size</h5>
-                <p>{{companySize}}</p>
+            {{#if companyDescription}}
+            <div class="ui one column row">
+                <div class="ui column">
+                    <h5>Company Description</h5>
+                    <p>{{companyDescription}}</p>
+                </div>
             </div>
-            <div class="ui column">
-                {{#if website}}
-                <h5>Company Website</h5>
-                <a href="{{website}}"><p>{{website}}</p></a>
-                {{/if }}
-            </div>
-        </div>
-
-        <div class="ui three column row">
-            <div class="ui column">
-                {{#if twitter}}
-                <h5>Twitter</h5>
-                <p>{{twitter}}</p>
-                {{/if }}
-            </div>
-            <div class="column text-overflow-element">
-                {{#if facebook}}
-                <h5>Facebook</h5>
-                <a href="{{facebook}}"><p>{{facebook}}</p></a>
-                {{/if }}
-            </div>
-            <div class="column text-overflow-element">
-                {{#if linkedin}}
-                <h5>LinkedIn</h5>
-                <a href="{{linkedin}}"><p>{{linkedin}}</p></a>
-                {{/if }}
-            </div>
-        </div>
-
-        {{#if companyDescription}}
-        <div class="ui one column row">
-            <div class="ui column">
-                <h5>Company Description</h5>
-                <p>{{companyDescription}}</p>
-            </div>
-        </div>
-        {{/if }}
-
-        <div class="ui one column row upload">
-            <form class="ui form" id="{{id}}">
-                <div class="five fields">
-                    <div class="field">
-                        <input type="file" name="file_name" class="file_input" required>
-                        <input type="hidden" class="file_url" name="file_url" required>
-                    </div>
-                    <div class="field"></div>
-                    <div class="field">
-                        <div class="ui tiny image company-logo">
-                            {{#if logo_url}}
-                            <img class="preview" src="{{logo_url}}"/>
-                            {{/if }}
-                            {{#unless logo_url}}
-                            <img class="preview" src="/public/assets/default-logo.png" />
-                            {{/unless }}
+            {{/if }}
+            <div class="ui row upload">
+                <form class="ui form" id="{{id}}">
+                    <div class="inline fields">
+                        <div class="field">
+                            <input type="file" name="file_name" class="file_input" required>
+                            <input type="hidden" class="file_url" name="file_url" required>
+                        </div>
+                        <div class="field"></div>
+                        <div class="field">
+                            <div class="ui tiny image company-logo">
+                                {{#if logo_url}}
+                                <img class="preview" src="{{logo_url}}" /> {{/if }} {{#unless logo_url}}
+                                <img class="preview" src="/public/assets/default-logo.png" /> {{/unless }}
+                            </div>
+                        </div>
+                        <div class="field"></div>
+                        <div class="field">
+                            <input type="submit" value="Submit" class="ui blue tiny button submit">
                         </div>
                     </div>
-                    <div class="field"></div>
-                    <div class="field">
-                        <input type="submit" value="Submit" class="ui blue tiny button submit">
-                    </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
-
-      </div>
     </div>
-    <div class="one column row" style="display:none;"></div> <!-- so the divider underneath shows -->
+    <div class="one column row" style="display:none;"></div>
     <div class="ui divider"></div>
-  </div>
-    {{/each}}
 
+{{/each}}
 <script type="text/javascript" src="../public/js/aws.js"></script>
 <script type="text/javascript" src="../public/js/approveusers.js"></script>
+
