@@ -29,10 +29,10 @@ $(function() {
                     if (res) {
                         $('#message').addClass('ui massive info message')
                         .text("Congratulaitons we\'ve emailed both parties to confirm the interview"); // change to something better...
-                        element.removeClass('blue').addClass('green').text('Confirmed');
+                        element.removeClass('blue').addClass('green').text('Confirmed').attr('disabled', 'disabled');
                         $('.button.another-time').remove(); // remove 
                     } else {
-                        $('#message').addClass('ui massive warning info message').text('Sorry, there was an error. Please try again!').attr('disabled', 'disabled');
+                        $('#message').addClass('ui massive warning info message').text('Sorry, there was an error. Please try again!');
                     }
 
                 }
