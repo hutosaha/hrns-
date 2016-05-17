@@ -13,15 +13,16 @@ $(document).ready(function() {
         var agencyEmail = $(this).data('agency-email');
         var agencyId = $(this).data('agency-id');
         var jobTitle = $(this).data('job-title');
+         var cvUrl = $(this).data('url');
 
-        const ext = cvid.substr(cvid.lastIndexOf('.')+1);
+        const ext = cvUrl.substr(cvUrl.lastIndexOf('.')+1);
         
         if ( ext === 'pdf') {
                 $('iframe').attr('src', '');
                 $.ajax({
                     url: '/client/view-cv',
                     data: {
-                        cvid: cvid
+                        cvUrl: cvUrl
                     },
                     async: true,
                     success: function(pathName) {
