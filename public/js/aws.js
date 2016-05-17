@@ -1,7 +1,7 @@
 var $ = window.$;
 
 (function() {
- 
+
     $('input[type=file]').on('change', function(event){
         $('input[type=submit]').prop('disabled', true);
         var files = event.target.files;
@@ -24,8 +24,12 @@ function get_signed_request(file, file_url, preview) {
         if (xhr.readyState === 4) {
             console.log('xhr.status', xhr.status);
             if (xhr.status === 200) {
-                var response = JSON.parse(xhr.responseText);
-                upload_file(file, file_url, preview, response.signed_request, response.url);
+                if (response !== 'invalidFileFormat') {
+                  var response = JSON.parse(xhr.responseText);
+                  upload_file(file, file_url, preview, response.signed_request, response.url);
+                } else {
+                  alert("Error: incorrect file type");
+                }
             } else {
                 alert("Error. Try uploading the file again");
             }
@@ -41,7 +45,7 @@ function upload_file(file, file_url, preview, signed_request, url){
     xhr.onload = function() {
         if (xhr.status === 200) {
           file_url.value = url; // where cvid is being saved & submitted with form
-            $('input[type=submit]').prop('disabled', false); // to ensure cvid is supplied in payload 
+            $('input[type=submit]').prop('disabled', false); // to ensure cvid is supplied in payload
             if(preview) {
                 preview.attr('src',url);
             }
