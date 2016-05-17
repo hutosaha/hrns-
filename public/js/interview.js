@@ -29,7 +29,7 @@ $(function() {
                     if (res) {
                         $('#message').addClass('ui massive info message')
                         .text("Congratulaitons we\'ve emailed both parties to confirm the interview"); // change to something better...
-                        element.removeClass('confirm-date').addClass('green').text('Confirmed');
+                        element.removeClass('ui button confirm-date').addClass('green').text('Confirmed');
                         $('.button.another-time').remove(); // remove 
                     } else {
                         $('#message').addClass('ui massive warning info message').text('Sorry, there was an error. Please try again!');
