@@ -63,6 +63,7 @@ var openViewer = (filePath) => {
   var src = "/public/assets/ViewerJS/#../Downloads/" + filePath;
   $('iframe').attr('src', src);
   $('.ui.basic.doc-viewer.modal').modal('show');
+  $('.reject').click(rejectApplication());
 }
 
 var rejectApplication = () => {
@@ -73,12 +74,10 @@ var rejectApplication = () => {
       if (this.checked) $inputs.not(this).prop('checked', !this.checked);
   });
 
-
   $('.confirm-rejection-button').click(function() {
       $('.first.modal.reject').modal('hide');
       $('.second.modal.reject-modal').modal('show', '.first.modal .button');
       $('.second.coupled.modal.accept-modal').modal('hide');
-
 
       var reason = $('input[name="rejection-reason"]:checked').val();
 
@@ -105,4 +104,8 @@ var rejectApplication = () => {
           }
       });
   });
+}
+
+var acceptApplication = () => {
+
 }
