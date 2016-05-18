@@ -10,7 +10,7 @@ $(function() {
 
 
         $('.ui.small.modal.save-modal').modal('show');
-        $('.save-message').text('Confirm interview Date & Time: '+confirmedIntDate+' at '+confirmedIntTime);
+        $('.save-message').text('Confirm interview Date & Time: ' + confirmedIntDate + ' at ' + confirmedIntTime);
 
         $('.ui.positive.button').on('click', function() {
             var url = '/interview/confirmed';
@@ -28,7 +28,7 @@ $(function() {
                 success: function(res) {
                     if (res) {
                         $('#message').addClass('ui massive info message')
-                        .text("Congratulaitons we\'ve emailed both parties to confirm the interview"); // change to something better...
+                        .text("Congratulaitons! we\'ve emailed both parties, the interview is now confirmed, good luck!!"); // change to something better...
                         element.removeClass('ui button confirm-date').addClass('ui green').text('Confirmed');
                         $('.button.another-time').remove(); // remove 
                     } else {
@@ -62,9 +62,9 @@ $(function() {
 
 
                 $('.small.modal.save-modal').modal('show');
-                    var firstIntTime = $('form input[name=firstIntTime').val();
-                    var firstIntDate = $("form input[name=firstIntDate]").val();
-                    $('.save-message').text('Please confirm your new first choice of Date & Time for the interview is :'+firstIntDate+' at '+firstIntTime);
+                var firstIntTime = $('form input[name=firstIntTime').val();
+                var firstIntDate = $("form input[name=firstIntDate]").val();
+                $('.save-message').text('Please confirm your new first choice of Date & Time for the interview is :' + firstIntDate + ' at ' + firstIntTime);
 
                 $('.ui.positive.button').on('click', function() {
 
@@ -80,10 +80,10 @@ $(function() {
                         success: function(res) {
                             if (res) {
                                 console.log('Changed InterviewData', res);
-                                $('#message').addClass('ui massive info message').text("We\'ve emailed the other party to suggest another time for the interview");
+                                $('#message').addClass('ui massive info message').text("We\'ve emailed yourself and the other party with the new time, please let them confirm");
                                 $('.ui.grid.interview').remove();
                             } else {
-                                $('#message').addClass('ui warning message').text("Sorry something went wrong please try again");                           
+                                $('#message').addClass('ui warning message').text("Sorry something went wrong please try again");
                             }
                         }
                     });
