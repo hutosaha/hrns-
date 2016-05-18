@@ -38,6 +38,8 @@ $(function() {
         var jobTitle = $(this).closest('.listView').data('job-title');
         var companyName = $('.ui.block.header').data('company-name');
         var vid = $(this).closest('.listView').data('vid');
+        $('#message').removeClass('ui info message').text("");
+        $('form input').forEach((ele) =>  ele.val(''));
         
         $('.modal.interview').modal('show');
 
