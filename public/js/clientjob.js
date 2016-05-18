@@ -14,16 +14,23 @@ window.onbeforeunload = () => {
 
 $(document).ready(function() {
 
+
+    if ($('.listView').length === 0) {
+        $('.message').html('There are no candidates yet!');
+    }
+
     $('.cv-viewer').click(function() {
         /// need to write file before iframe injection
 
-        const candidateName = $(this).data('candidate-name');
-        const cvid = $(this).data('cvid');
-        const vid = $(this).data('vid');
-        const agencyEmail = $(this).data('agency-email');
-        const agencyId = $(this).data('agency-id');
-        const jobTitle = $(this).data('job-title');
-        const cvUrl = $(this).data('url');
+        const relatedInfoObject = {
+          candidateName: $(this).data('candidate-name'),
+          cvid: $(this).data('cvid'),
+          vid: $(this).data('vid'),
+          agencyEmail: $(this).data('agency-email'),
+          agencyId: $(this).data('agency-id'),
+          jobTitle: $(this).data('job-title')
+        };
+        const cvUrl = $(this).data('url')
         const msDocumentTypes = ['doc', 'docx'];
 
         const ext = cvUrl.substr(cvUrl.lastIndexOf('.')+1);
@@ -40,12 +47,12 @@ $(document).ready(function() {
             downloadFile(cvUrl, ext, (fileName) => {
               console.log('DOWNLOADED FILE');
               if (ext === 'pdf') {
-                viewFile(fileName);
+                viewFile(fileName, relatedInfoObject);
               } else {
                 convertFile(fileName, (response) => {
                   if (response === 'success') {
                     const newFileName = fileName.slice(0, -ext.length) + 'pdf';
-                    viewFile(newFileName);
+                    viewFile(newFileName, relatedInfoObject);
                   } else {
                     alert('An error has occurred, please refresh the page and try again.')
                   }
@@ -54,7 +61,6 @@ $(document).ready(function() {
             });
           }
         });
-
     });
 });
 
@@ -88,7 +94,7 @@ var downloadFile = (cvUrl, ext, callback) => {
   });
 }
 
-function convertFile(fileName, callback){
+var convertFile = (fileName, callback) => {
   console.log('inside convertfile');
   $.ajax({
       url: '/client/convert-file',
@@ -102,55 +108,10 @@ function convertFile(fileName, callback){
   });
 }
 
-var viewFile = (fileName) => {
+var viewFile = (fileName, relatedInfoObject) => {
   console.log(fileName);
   var src = "/public/assets/ViewerJS/#../Downloads/" + fileName;
   console.log(src);
   $('iframe').attr('src', src);
   $('.ui.basic.doc-viewer.modal').modal('show');
-  // $('.reject').click(rejectApplication());
-}
-
-var rejectApplication = () => {
-  $('.first.modal.reject-modal').modal('show');
-
-  var $inputs = $('input[name=rejection-reason]');
-  $('input[name=rejection-reason]').change(function() {
-      if (this.checked) $inputs.not(this).prop('checked', !this.checked);
-  });
-
-  $('.confirm-rejection-button').click(function() {
-      $('.first.modal.reject').modal('hide');
-      $('.second.modal.reject-modal').modal('show', '.first.modal .button');
-      $('.second.coupled.modal.accept-modal').modal('hide');
-
-      var reason = $('input[name="rejection-reason"]:checked').val();
-
-      $.ajax({
-          url: '/client/job/reject',
-          data: {
-              candidateName: candidateName,
-              cvid: cvid,
-              vid: vid,
-              email: agencyEmail,
-              reason: reason
-          },
-          async: true,
-          success: function(res) {
-              if (res) {
-                  var element = document.getElementById(cvid);
-                  element.remove();
-                  $('.ui.basic.doc-viewer.modal').modal('hide');
-
-                  if ($('.listView').length === 0) {
-                      $('.message').html('There are no candidates yet!');
-                  }
-              }
-          }
-      });
-  });
-}
-
-var acceptApplication = () => {
-
 }
