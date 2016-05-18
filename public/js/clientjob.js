@@ -10,7 +10,7 @@ window.onbeforeunload = () => {
         console.log(response);
       }
   });
-}
+};
 
 $(document).ready(function() {
 
@@ -26,8 +26,8 @@ $(document).ready(function() {
           agencyId: $(this).data('agency-id'),
           jobTitle: $(this).data('job-title')
         };
-        const cvUrl = $(this).data('url')
-        const msDocumentTypes = ['doc', 'docx'];
+        const cvUrl = $(this).data('url');
+        //const msDocumentTypes = ['doc', 'docx'];
 
         const ext = cvUrl.substr(cvUrl.lastIndexOf('.')+1);
 
@@ -44,7 +44,7 @@ $(document).ready(function() {
                     const newFileName = fileName.slice(0, -ext.length) + 'pdf';
                     viewFile(newFileName, relatedInfoObject);
                   } else {
-                    alert('An error has occurred, please refresh the page and try again.')
+                    alert('An error has occurred, please refresh the page and try again.');
                   }
                 });
               }
@@ -54,22 +54,23 @@ $(document).ready(function() {
     });
 });
 
-var isFileAlreadyDownloaded = (cvUrl, callback) => {
+var isFileAlreadyDownloaded = (cvUrl, callback) => {   // why would it be downloaded ? 
+
   $.ajax({
       url: '/client/file-exists',
       data: {
-          cvUrl: cvUrl,
+          cvUrl: cvUrl
       },
       async: true,
       success: function(response) {
         callback(response);
       }
   });
-}
+};
 
 var downloadFile = (cvUrl, ext, callback) => {
   $.ajax({
-      url: '/client/download-file',
+      url: '/client/download-file', 
       data: {
           cvUrl: cvUrl,
           ext: ext
@@ -79,7 +80,7 @@ var downloadFile = (cvUrl, ext, callback) => {
         callback(response);
       }
   });
-}
+};
 
 var convertFile = (fileName, callback) => {
   console.log('inside convertfile');
@@ -90,10 +91,10 @@ var convertFile = (fileName, callback) => {
       },
       async: true,
       success: function(response) {
-          callback(response)
+          callback(response);
       }
   });
-}
+};
 
 var viewFile = (fileName, relatedInfoObject) => {
   var src = "/public/assets/ViewerJS/#../Downloads/" + fileName;
@@ -277,4 +278,4 @@ var viewFile = (fileName, relatedInfoObject) => {
          });
      });
  });
-}
+};
