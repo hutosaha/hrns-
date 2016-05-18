@@ -7,33 +7,41 @@ $(document).ready(function() {
     $('.cv-viewer').click(function() {
         /// need to write file before iframe injection
 
-        var candidateName = $(this).data('candidate-name');
-        var cvid = $(this).data('cvid');
-        var vid = $(this).data('vid');
-        var agencyEmail = $(this).data('agency-email');
-        var agencyId = $(this).data('agency-id');
-        var jobTitle = $(this).data('job-title');
-        var cvUrl = $(this).data('url');
-        var msDocumentTypes = ['doc', 'docx'];
+        const candidateName = $(this).data('candidate-name');
+        const cvid = $(this).data('cvid');
+        const vid = $(this).data('vid');
+        const agencyEmail = $(this).data('agency-email');
+        const agencyId = $(this).data('agency-id');
+        const jobTitle = $(this).data('job-title');
+        const cvUrl = $(this).data('url');
+        const msDocumentTypes = ['doc', 'docx'];
 
         const ext = cvUrl.substr(cvUrl.lastIndexOf('.')+1);
-
         // FLOW: checkIfFileNameAlreadyDownloaded
         // If downloaded - open in iframe
         // If not downloaded - downloadFile
 
-        isFileAlreadyDownloaded(cvUrl, (filePath) => {
-          if (filePath !== 'notFound') {
-            console.log('FILE FOUND');
-            openViewer(filePath);
-            // checkFileExtension(fileName, () => {
-            //
-            // })
+        isFileAlreadyDownloaded(cvUrl, (fileName) => {
+          console.log(fileName);
+          if (fileName !== 'notFound') {
+              ext === 'pdf' ? viewFile(fileName) : viewFile(fileName.slice(0, -ext.length) + 'pdf');
           } else {
-            console.log('NOT FOUND :\'\()');
-            downloadFile(cvUrl, (filePath) => {
-
-            })
+            console.log('NOT FOUND');
+            downloadFile(cvUrl, ext, (fileName) => {
+              console.log('DOWNLOADED FILE');
+              if (ext === 'pdf') {
+                viewFile(fileName);
+              } else {
+                convertFile(fileName, (response) => {
+                  if (response === 'success') {
+                    const newFileName = fileName.slice(0, -ext.length) + 'pdf';
+                    viewFile(newFileName);
+                  } else {
+                    alert('An error has occurred, please refresh the page and try again.')
+                  }
+                });
+              }
+            });
           }
         });
 
@@ -55,15 +63,42 @@ var isFileAlreadyDownloaded = (cvUrl, callback) => {
   });
 }
 
-var downloadFile = (filePath, callback) => {
+var downloadFile = (cvUrl, ext, callback) => {
+  $.ajax({
+      url: '/client/download-file',
+      data: {
+          cvUrl: cvUrl,
+          ext: ext
+      },
+      async: true,
+      success: function(response) {
+        console.log(response);
+        callback(response);
+      }
+  });
 }
 
+function convertFile(fileName, callback){
+  console.log('inside convertfile');
+  $.ajax({
+      url: '/client/convert-file',
+      data: {
+          fileName: fileName
+      },
+      async: true,
+      success: function(response) {
+          callback(response)
+      }
+  });
+}
 
-var openViewer = (filePath) => {
-  var src = "/public/assets/ViewerJS/#../Downloads/" + filePath;
+var viewFile = (fileName) => {
+  console.log(fileName);
+  var src = "/public/assets/ViewerJS/#../Downloads/" + fileName;
+  console.log(src);
   $('iframe').attr('src', src);
   $('.ui.basic.doc-viewer.modal').modal('show');
-  $('.reject').click(rejectApplication());
+  // $('.reject').click(rejectApplication());
 }
 
 var rejectApplication = () => {
