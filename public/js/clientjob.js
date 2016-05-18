@@ -7,7 +7,7 @@ window.onbeforeunload = () => {
       url: '/client/clear-downloads',
       async: true,
       success: function(response) {
-        console.log('!!!!!', response);
+        console.log(response);
       }
   });
 }
@@ -32,13 +32,10 @@ $(document).ready(function() {
         const ext = cvUrl.substr(cvUrl.lastIndexOf('.')+1);
 
         isFileAlreadyDownloaded(cvUrl, (fileName) => {
-          console.log(fileName);
           if (fileName !== 'notFound') {
               ext === 'pdf' ? viewFile(fileName) : viewFile(fileName.slice(0, -ext.length) + 'pdf');
           } else {
-            console.log('NOT FOUND');
             downloadFile(cvUrl, ext, (fileName) => {
-              console.log('DOWNLOADED FILE');
               if (ext === 'pdf') {
                 viewFile(fileName, relatedInfoObject);
               } else {
@@ -65,7 +62,7 @@ var isFileAlreadyDownloaded = (cvUrl, callback) => {
       },
       async: true,
       success: function(response) {
-        console.log('!!!!!', response);
+        console.log(response);
         callback(response);
       }
   });
