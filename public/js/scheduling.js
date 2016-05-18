@@ -39,7 +39,7 @@ $(function() {
         var companyName = $('.ui.block.header').data('company-name');
         var vid = $(this).closest('.listView').data('vid');
         $('#message').removeClass('ui info message').text("");
-        $('form input').forEach((ele) =>  ele.val(''));
+        $('form').trigger("reset");
         
         $('.modal.interview').modal('show');
 
