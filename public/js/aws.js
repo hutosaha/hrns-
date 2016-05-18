@@ -14,7 +14,6 @@ var $ = window.$;
         if (file) {
           check_file_size(file, (response) => {
             if (response === "accept") {
-              $('input[type=submit]').prop('disabled', false);
               get_signed_request(file, file_url, preview);
             }
           });
