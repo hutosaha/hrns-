@@ -62,7 +62,6 @@ var isFileAlreadyDownloaded = (cvUrl, callback) => {
       },
       async: true,
       success: function(response) {
-        console.log(response);
         callback(response);
       }
   });
@@ -77,7 +76,6 @@ var downloadFile = (cvUrl, ext, callback) => {
       },
       async: true,
       success: function(response) {
-        console.log(response);
         callback(response);
       }
   });
@@ -98,9 +96,7 @@ var convertFile = (fileName, callback) => {
 }
 
 var viewFile = (fileName, relatedInfoObject) => {
-  console.log(fileName);
   var src = "/public/assets/ViewerJS/#../Downloads/" + fileName;
-  console.log(src);
   $('iframe').attr('src', src);
   $('.ui.basic.doc-viewer.modal').modal('show');
 
