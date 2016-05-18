@@ -2,6 +2,16 @@
 
 var $ = window.$;
 
+window.onbeforeunload = () => {
+  $.ajax({
+      url: '/client/clear-downloads',
+      async: true,
+      success: function(response) {
+        console.log('!!!!!', response);
+      }
+  });
+}
+
 $(document).ready(function() {
 
     $('.cv-viewer').click(function() {
