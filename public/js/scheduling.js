@@ -1,6 +1,6 @@
-    var $ = window.$;
+var $ = window.$;
 
-    $(function() {
+$(function() {
 
         // replaces a link so the admin can't click the button
         $('#go-back').on('click', function() {
@@ -28,9 +28,10 @@
 
         }
 
+     
         $("input:radio").on('click', function() {
-           
-            const interviewData = {
+            let interviewData ={};
+            interviewData = {
                 cvid: $(this).attr('name'),
                 stage: $(this).data('stage'),
                 agencyId: $(this).closest('.listView').data('agency-id'),
@@ -43,7 +44,7 @@
 
             $('.modal.interview').modal('show');
 
-            $('.send-interview').on('click', function(interviewData) {
+            $('.send-interview').on('click', function() {
 
 
                 if ((document.getElementById('firstIntDate').validity.valid) &&
@@ -64,7 +65,7 @@
                             type: 'POST',
                             url: url,
                             data: newtimes,
-                            async: true,
+                            async: false,
                             success: function(res) {
                                 if (res) {
                                     $('#message').addClass('ui info message').text("We\'ve emailed the agent to arrange an interview"); // change to something better...
@@ -79,7 +80,7 @@
                             }
                         });
                     });
-                    
+
                 } else {
                     $('.ui.warning.message').text('Please choose at least one date, time and a location for the interview');
                 }
@@ -150,4 +151,4 @@
 
             });
         });
-    });
+});
