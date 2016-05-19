@@ -37,18 +37,13 @@ $(document).ready(function() {
             } else {
                 downloadFile(cvUrl, ext, (fileName) => {
                     if (ext === 'pdf') {
-                        var src = "/public/assets/ViewerJS/#../downloads/" + fileName;
-                        var iframeId = 'iframe-pdf';
-                        viewFile(fileName, relatedInfoObject, src, iframeId);
+                        var pdf = "/public/assets/ViewerJS/#../downloads/" + fileName;
+                        $('#iframe-word').remove();
+                        viewFile(fileName, relatedInfoObject, pdf, 'iframe-pdf');
                     } else {
-                        convertFile(fileName, (response) => {
-                            if (response === 'success') {
-                                const newFileName = fileName.slice(0, -ext.length) + 'pdf';
-                                viewFile(newFileName, relatedInfoObject);
-                            } else {
-                                alert('There was an error converting your file to pdf, we\'re working on this, in the mean time you can download the cv.');
-                            }
-                        });
+                        var word ="https://view.officeapps.live.com/op/embed.aspx?src=https://hrns.herokuapp.com/public/assets/downloads/"+fileName;
+                        $('#iframe-pdf').remove();
+                        viewFile(fileName, relatedInfoObject, word, 'iframe-word');
                     }
                 });
             }
@@ -84,19 +79,7 @@ $(document).ready(function() {
         });
     };
 
-    var convertFile = (fileName, callback) => {
-        console.log('inside convertfile');
-        $.ajax({
-            url: '/client/convert-file',
-            data: {
-                fileName: fileName
-            },
-            async: true,
-            success: function(response) {
-                callback(response);
-            }
-        });
-    };
+
 
     var viewFile = (fileName, relatedInfoObject, src, iframeId ) => {
         $('#'+ iframeId ).attr('src', src);
