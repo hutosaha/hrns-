@@ -98,7 +98,7 @@ $(document).ready(function() {
 
     var viewFile = (fileName, relatedInfoObject) => {
         var src = "/public/assets/ViewerJS/#../downloads/" + fileName;
-        $('iframe').attr('src', src);
+        $('#iframe').attr('src', src);
         $('.ui.basic.doc-viewer.modal').modal('show');
 
         const candidateName = relatedInfoObject.candidateName;
