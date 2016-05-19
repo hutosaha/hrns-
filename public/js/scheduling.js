@@ -5,7 +5,7 @@ $(function() {
     // replaces a link so the admin can't click the button
     $('#go-back').on('click', function() {
         var url = $(this).data('url');
-        console.log('boom url', url);
+     
 
         window.location.replace(url);
     });
