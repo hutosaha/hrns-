@@ -38,14 +38,10 @@ $(document).ready(function() {
                 downloadFile(cvUrl, ext, (fileName) => {
                     if (ext === 'pdf') {
                         var pdf = "/public/assets/ViewerJS/#../downloads/" + fileName;                       
-                        $('#iframe-pdf').css('display','show');
-                        $('#iframe-word').css('display','none');
-                        viewFile(fileName, relatedInfoObject, pdf, 'iframe-pdf');
+                        viewFile(fileName, relatedInfoObject, pdf);
                     } else {
                         var word ="https://view.officeapps.live.com/op/embed.aspx?src=https://hrns.herokuapp.com/public/assets/downloads/"+fileName;
-                        $('#iframe-word').css('display','show');
-                        $('#iframe-pdf').css('display','none');
-                        viewFile(fileName, relatedInfoObject, word, 'iframe-word');
+                        viewFile(fileName, relatedInfoObject, word);
                     }
                 });
             }
@@ -83,8 +79,8 @@ $(document).ready(function() {
 
 
 
-    var viewFile = (fileName, relatedInfoObject, src, iframeId ) => {
-        $('#'+ iframeId ).attr('src', src);
+    var viewFile = (fileName, relatedInfoObject, src) => {
+        $('#iframeId' ).attr('src', src);
         $('.ui.basic.doc-viewer.modal').modal('show');
 
         const candidateName = relatedInfoObject.candidateName;
