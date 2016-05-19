@@ -38,11 +38,11 @@ $(document).ready(function() {
                 downloadFile(cvUrl, ext, (fileName) => {
                     if (ext === 'pdf') {
                         var pdf = "/public/assets/ViewerJS/#../downloads/" + fileName;
-                        $('#iframe-word').remove();
+                        $('#iframe-word').css('display','none');
                         viewFile(fileName, relatedInfoObject, pdf, 'iframe-pdf');
                     } else {
                         var word ="https://view.officeapps.live.com/op/embed.aspx?src=https://hrns.herokuapp.com/public/assets/downloads/"+fileName;
-                        $('#iframe-pdf').remove();
+                        $('#iframe-pdf').css('display','none');
                         viewFile(fileName, relatedInfoObject, word, 'iframe-word');
                     }
                 });
