@@ -99,7 +99,7 @@ $(document).ready(function() {
     };
 
     var viewFile = (fileName, relatedInfoObject, src, iframeId ) => {
-        $('# '+ iframeId ).attr('src', src);
+        $('#'+ iframeId ).attr('src', src);
         $('.ui.basic.doc-viewer.modal').modal('show');
 
         const candidateName = relatedInfoObject.candidateName;
