@@ -2,7 +2,7 @@
 
 var $ = window.$;
 
-window.onbeforeunload = () => {
+/*window.onbeforeunload = () => {
     $.ajax({
         url: '/client/clear-downloads',
         async: true,
@@ -11,7 +11,7 @@ window.onbeforeunload = () => {
         }
     });
 };
-
+*/
 $(document).ready(function() {
 
     if ($('.listView').length === 0) { $('.message').html('There are no candidates yet!'); }
@@ -97,7 +97,7 @@ $(document).ready(function() {
     };
 
     var viewFile = (fileName, relatedInfoObject) => {
-        var src = "/public/assets/ViewerJS/#../Downloads/" + fileName;
+        var src = "/public/assets/ViewerJS/#../downloads/" + fileName;
         $('iframe').attr('src', src);
         $('.ui.basic.doc-viewer.modal').modal('show');
 
