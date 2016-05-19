@@ -37,7 +37,9 @@ $(document).ready(function() {
             } else {
                 downloadFile(cvUrl, ext, (fileName) => {
                     if (ext === 'pdf') {
-                        viewFile(fileName, relatedInfoObject);
+                        var src = "/public/assets/ViewerJS/#../downloads/" + fileName;
+                        var iframeId = 'iframe-pdf';
+                        viewFile(fileName, relatedInfoObject, src, iframeId);
                     } else {
                         convertFile(fileName, (response) => {
                             if (response === 'success') {
@@ -96,9 +98,8 @@ $(document).ready(function() {
         });
     };
 
-    var viewFile = (fileName, relatedInfoObject) => {
-        var src = "/public/assets/ViewerJS/#../downloads/" + fileName;
-        $('#iframe').attr('src', src);
+    var viewFile = (fileName, relatedInfoObject, src, iframeId ) => {
+        $('# '+ iframeId ).attr('src', src);
         $('.ui.basic.doc-viewer.modal').modal('show');
 
         const candidateName = relatedInfoObject.candidateName;
