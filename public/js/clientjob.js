@@ -44,7 +44,7 @@ $(document).ready(function() {
                                 const newFileName = fileName.slice(0, -ext.length) + 'pdf';
                                 viewFile(newFileName, relatedInfoObject);
                             } else {
-                                alert('An error has occurred, please refresh the page and try again.');
+                                alert('There was an error converting your file to pdf, we\'re working on this, in the mean time you can download the cv.');
                             }
                         });
                     }

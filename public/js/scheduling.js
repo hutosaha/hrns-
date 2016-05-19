@@ -68,7 +68,7 @@ $(function() {
                             type: 'POST',
                             url: url,
                             data: newtimes,
-                            async: false,
+                            async: true,
                             success: function(res) {
                                 if (res) {
                                     $('#message').addClass('ui info message').text("We\'ve emailed the agent to arrange an interview"); // change to something better...

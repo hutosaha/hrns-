@@ -63,15 +63,13 @@ h5,
 ================================*/
 .home.logo {
     position:absolute;
-    height: 45px;
-    margin-top: 2em; 
-    right:43%;
+    height: 31px;
+    margin-top: 1em; 
+    right:45%;
 
 }
 .signin {
-    position: absolute;
-    top:16%;
-    right:14%;
+    left:10%;
 }
 .top-padding {
     padding-top: 20em; 
@@ -79,12 +77,8 @@ h5,
 }
 
 .main-pic {
-  width: 100%;
-  height: 100%;
-  opacity: 0.2;
-  postion: 40%;
-  top:30%;
- 
+    height: auto;
+    width: 100%; 
 }
 
 .home-container {
@@ -97,10 +91,10 @@ h5,
 .intro-text {
     position: absolute;
     color:#ffffff;
-    top: 20%;
-    right:20%;
+    top: 15%;
+    right:10%;
     text-align: center;
-    max-width: 60%;   
+    max-width: 80%;   
 }
 
 .intro-text p {
@@ -113,7 +107,7 @@ h5,
 .home-navbar .container {
     margin: 0 1em;
     width: 120em;
-    height:120px;
+    height: 60px;
 }
 
 .ui.text.container {
@@ -138,6 +132,14 @@ h5,
 .ui.attached.segment.howitworks {
     min-height: 40em;
 }
+.ui.attached.segment.whyharness {
+   background-image: linear-gradient(to bottom, #20c9de, #0e98b9);
+   color:white;
+}
+.ui.attached.segment.aboutus {
+  background-color: #484848;
+  color:white;
+}
 
 
 .ui.header.howitworks  {
@@ -156,7 +158,7 @@ h5,
 }
 
 .ui.medium.circular.image {
-    border: solid 2px #15abc6;
+
     margin-bottom: 2em;
 }
 
@@ -193,10 +195,12 @@ h1.ui.huge.header {
     margin-top: 4em;
 }
 
-.ui.linkedin.button {
-    border-radius: 25px;
+.ui.linkedin.button  {
+    marign:2em;
+    border-radius: 0px;
+    background-color: #19b7ca;
+    
 }
-
 
 h1.ui.huge.header {
     text-align: center;
