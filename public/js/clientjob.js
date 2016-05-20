@@ -2,7 +2,7 @@
 
 var $ = window.$;
 
-/*window.onbeforeunload = () => {
+window.onbeforeunload = () => {
     $.ajax({
         url: '/client/clear-downloads',
         async: true,
@@ -11,7 +11,7 @@ var $ = window.$;
         }
     });
 };
-*/
+
 $(document).ready(function() {
 
     if ($('.listView').length === 0) { $('.message').html('There are no candidates yet!'); }
