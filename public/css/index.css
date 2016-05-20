@@ -62,11 +62,12 @@ h5,
   HOMEPAGE (/home)
 ================================*/
 
-.home.logo {
+.home.logo  {
     position: absolute;
     height: 31px;
     margin-top: 1em;
     right: 45%;
+    top:10%;
 }
 
 .signin {
@@ -97,15 +98,16 @@ h5,
 .intro-text {
     position: absolute;
     color: #ffffff;
-    top: 10%;
+    top: 12%;
     right: 10%;
     text-align: center;
     max-width: 80%;
+    margin-top: 4em;
 }
 
 .intro-text strong {
     font-weight: bolder;
-    font-size:  50px;
+    font-size:  40px;
     text-align: center;
 }
 
@@ -147,11 +149,20 @@ h5,
 .ui.attached.segment.whyharness {
     background-image: linear-gradient(to bottom, #20c9de, #0e98b9);
     color: white;
+
+}
+.whyharness {
+      margin:1em;
 }
 
 .ui.attached.segment.aboutus {
     background-color: #484848;
     color: white;
+    text-align: center;
+}
+.aboutus {
+    text-align: center;
+    margin: 2em;
 }
 
 .ui.header.howitworks {
@@ -193,7 +204,14 @@ h1.ui.huge.header {
     color: white;
     text-align: center;
 }
-
+footer { 
+    text-align: center;
+}
+.home-footer, .home-footer a, .home-footer p {
+    display: inline-block;
+    position: relative;
+    margin: 5px;
+}
 
 /*===========================
   Nav Bar
