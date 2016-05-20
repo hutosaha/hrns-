@@ -29,15 +29,16 @@ $(function() {
         }
 
      
-        $("input:radio").on('click', function() {
+        $("input:radio").on('change', function() {
             let interviewData ={};
+            let cvid =  $(this).attr('name');
             interviewData = {
-                cvid: $(this).attr('name'),
+                cvid: cvid,
                 stage: $(this).data('stage'),
-                agencyId: $(this).closest('.listView').data('agency-id'),
-                candidateName: $(this).closest('.listView').data('candidate-name'),
-                jobTitle: $(this).closest('.listView').data('job-title'),
-                vid: $(this).closest('.listView').data('vid')
+                agencyId: $('#'+cvid).data('agency-id'),
+                candidateName: $('#'+cvid).data('candidate-name'),
+                jobTitle: $('#'+cvid).data('job-title'),
+                vid: $('#'+cvid).data('vid')
             };
 
             let candidateName = $('form').find('input[name=candidateName]');
@@ -48,7 +49,7 @@ $(function() {
             $('.modal.interview').modal('show');
 
             $('.send-interview').on('click', function() {
-
+        
 
                 if ((document.getElementById('firstIntDate').validity.valid) &&
                     (document.getElementById('firstIntTime').validity.valid) &&
@@ -59,10 +60,14 @@ $(function() {
                     $('.modal.interview').modal('hide');
                     $('.ui.small.save-modal').modal('show');
 
-                    $('.ui.positive.button').on('click', function() {
-
+                    $('.ui.positive.button').on('click', function(event) {
+                        $('.ui.small.save-modal').modal('hide');
+                        event.stopPropagation();
+                     
+                        
                         var newtimes = $('form').serialize();
                         newtimes = newtimes + '&' + $.param(interviewData);
+                        console.log('newtime',newtimes);
                         var url = "/interview/proposed";
                         $.ajax({
                             type: 'POST',
@@ -72,6 +77,7 @@ $(function() {
                             success: function(res) {
                                 if (res) {
                                     $('#message').addClass('ui info message').text("We\'ve emailed the agent to arrange an interview"); // change to something better...
+                                    console.log('how many response');
                                     $('form').find("input, textarea").val("");
                                 } else {
                                     document.getElementById('message').innerHTML = 'Sorry, there was an error. Please try again!';
