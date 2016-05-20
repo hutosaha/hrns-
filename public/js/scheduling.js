@@ -28,17 +28,28 @@ $(function() {
 
         }
 
-        $('button').on('click', function(){
-            var formData = $(this).closest('form');
-                formData.seralise();
+
+        $("input:radio").on('click', function() {
+            let cvid = $(this).data('cvid');
+            $('#'+cvid).toggleClass('hide-element');
+            $('#'+cvid).modal('show');
+
+        });
+
+
+        $('.button.send-interview').on('click', function(event){
+                event.preventDefault();             
+                var formData = $(this).closest('form').serialize();
+
                 $.ajax({
                     type: 'POST',
                     url: '/interview/proposed',
                     data: formData,
                     async: true,
-                            success: function(res) {
-                                if (res) {
+                            success: function(cvid) {
+                                if (cvid) {
                                     $('#message').addClass('ui info message').text("We\'ve emailed the agent to arrange an interview"); // change to something better...
+                                    $('#'+cvid).toggleClass('hide-element');
                                     $('form').find("input, textarea").val("");
                                 } else {
                                     document.getElementById('message').innerHTML = 'Sorry, there was an error. Please try again!';
@@ -55,14 +66,6 @@ $(function() {
 
      
 
-     
-        $("input:radio").on('click', function() {
-            let cvid = $(this).data('cvid');
-            $('#'+cvid).toggleClass('hide-element');
-            $('#'+cvid).modal('show');
-
-        });
-        $('.stage.dropdown').dropdown('set selected','value');
 
         $('.reject-button').click(function() {
 
