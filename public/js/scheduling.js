@@ -29,9 +29,12 @@ $(function() {
         }
 
      
+
+     
         $("input:radio").on('click', function() {
             let cvid = $(this).data('cvid');
             $('#'+cvid).toggleClass('hide-element');
+            $('#'+cvid).modal('show');
 
         });
         $('.stage.dropdown').dropdown('set selected','value');

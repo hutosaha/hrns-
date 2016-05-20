@@ -90,68 +90,76 @@
             <button data-cvid="{{cvid}}" data-vid="{{vid}}" data-candidate-name="{{candidateName}}" data-current-stage="{{stage}}" data-agency-email="{{agencyEmail}}" data-agency-id="{{agencyId}}" class="ui inverted red button reject-button">Reject</button>
         </div>
     </div>
-    <div class=" sixteen column row  ">
-        <form class="ui form hide-element" id="{{cvid}}" action='/interview/proposed' method="POST">
-            <input type="hidden" name="candidateName" value="{{candidateName}}">
-            <input type="hidden" name="cvid" value="{{cvid}}">
-            <input type="hidden" name="vid" value="{{vid}}">
-            <input type="hidden" name="stage" id="{{cvid}}" vlaue="">
-            <input type="hidden" name="agencyId" value="{{agencyId}}">
-            <input type="hidden" name="jobTitle" value="{{jobTitle}}">
-            <h4 class="ui dividing header"> Proposed time, date and location</h4>
-            <div class="required inline fields">
-                <label for=" firstIntDate"> 1st Choice Date & Time</label>
-                <div class="required four wide field">
-                    <input id="firstIntDate" name="firstIntDate" class="datepicker" required>
-                </div>
-                <div class="required field">
-                    <input name="firstIntTime" id="firstIntTime" type="time" placeholder="19:00" required>
-                </div>
+    <div class="ui  modal interview hide-element" id="{{cvid}}" ">
+        <i class="close icon"></i>
+        <div class="header">
+            Arrange an Interview
+        </div>
+        <div class="ui content">
+            <div class=" sixteen column row  ">
+                <form class="ui form " action='/interview/proposed' method="POST">
+                    <input type="hidden" name="candidateName" value="{{candidateName}}">
+                    <input type="hidden" name="cvid" value="{{cvid}}">
+                    <input type="hidden" name="vid" value="{{vid}}">
+                    <input type="hidden" name="stage" id="{{cvid}}" vlaue="">
+                    <input type="hidden" name="agencyId" value="{{agencyId}}">
+                    <input type="hidden" name="jobTitle" value="{{jobTitle}}">
+                    <h4 class="ui dividing header"> Proposed time, date and location</h4>
+                    <div class="required inline fields">
+                        <label for=" firstIntDate"> 1st Choice Date & Time</label>
+                        <div class="required four wide field">
+                            <input id="firstIntDate" name="firstIntDate" class="datepicker" required>
+                        </div>
+                        <div class="required field">
+                            <input name="firstIntTime" id="firstIntTime" type="time" placeholder="19:00" required>
+                        </div>
+                    </div>
+                    <div class="inline fields">
+                        <label for="secondIntTime"> 2nd Choice Date & Time </label>
+                        <div class="four wide field">
+                            <input name="secondIntDate" class="datepicker">
+                        </div>
+                        <div class="field">
+                            <input name="secondIntTime" type="time"></input>
+                        </div>
+                    </div>
+                    <div class="inline fields">
+                        <label for="thirdIntTime"> 3rd Choice Date & Time</label>
+                        <div class="four wide field">
+                            <input name="thirdIntDate" class="datepicker">
+                        </div>
+                        <div class=" field ">
+                            <input name="thirdIntTime" type="time"></input>
+                        </div>
+                    </div>
+                    <div class="inline fields">
+                        <label>Full Interview Address:</label>
+                        <div class="required eight wide inline field">
+                            <input type="text" id="interviewAddress" name="interviewAddress" placeholder="Buckingham Palace, London SW1A 1AA " required></input>
+                        </div>
+                    </div>
+                    <div class="inline fields">
+                        <label for="stage"> Interview Stage:</label>
+                        <select name="stage" class="ui dropdown" required>
+                            <option class="item" placeholder="please choose the candidates stage" disabled selected value> </option>
+                            <option class="item" value="stageTwo">First</option>
+                            <option class="item" value="stageThree">Second</option>
+                            <option class="item" value="stageFour">Final</option>
+                        </select>
+                    </div>
+                    <div class="inline fields">
+                        <label>Aditional comments</label>
+                        <div class="twelve wide field">
+                            <textarea name="additionalComments" value="" rows="3" maxlength="2000" placeholder="e.g. bring portfolio, interview will be one hour, etc." pattern="{{frontendInput}}"></textarea>
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <h4 class="ui header warning message"></h4>
+                        <button type="submit" onclick="sendFormAsync()" class="ui green large button send-interview" data-candidate-name="{{candidateName}}" data-job-title="{{jobTitle}}">Send</button>
+                    </div>
+                </form>
             </div>
-            <div class="inline fields">
-                <label for="secondIntTime"> 2nd Choice Date & Time </label>
-                <div class="four wide field">
-                    <input name="secondIntDate" class="datepicker">
-                </div>
-                <div class="field">
-                    <input name="secondIntTime" type="time"></input>
-                </div>
-            </div>
-            <div class="inline fields">
-                <label for="thirdIntTime"> 3rd Choice Date & Time</label>
-                <div class="four wide field">
-                    <input name="thirdIntDate" class="datepicker">
-                </div>
-                <div class=" field ">
-                    <input name="thirdIntTime" type="time"></input>
-                </div>
-            </div>
-            <div class="inline fields">
-                <label>Full Interview Address:</label>
-                <div class="required eight wide inline field">
-                    <input type="text" id="interviewAddress" name="interviewAddress" placeholder="Buckingham Palace, London SW1A 1AA " required></input>
-                </div>
-            </div>
-            <div class="inline fields">
-                <label for="stage"> Interview Stage:</label>
-                <select name="stage" class="ui dropdown" required>
-                    <option class="item" placeholder="please choose the candidates stage"disabled selected value> 
-                    <option class="item" value="stageTwo">First</option>
-                    <option class="item" value="stageThree">Second</option>
-                    <option class="item" value="stageFour">Final</option>
-                </select>
-            </div>
-            <div class="inline fields">
-                <label>Aditional comments</label>
-                <div class="twelve wide field">
-                    <textarea name="additionalComments" value="" rows="3" maxlength="2000" placeholder="e.g. bring portfolio, interview will be one hour, etc." pattern="{{frontendInput}}"></textarea>
-                </div>
-            </div>
-            <div class="actions">
-                <h4 class="ui header warning message"></h4>
-                <button type="submit" class="ui green large button send-interview" data-candidate-name="{{candidateName}}" data-job-title="{{jobTitle}}" >Send</button>
-            </div>
-        </form>
+        </div>
     </div>
 </div>
 <div class="ui divider"></div>
