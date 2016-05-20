@@ -28,6 +28,19 @@ $(function() {
 
         }
 
+        $('button').on('click', function(){
+            var formData = $(this).closest('form');
+                formData.seralise();
+                $.ajax({
+                    type: 'POST',
+                    url: '/interview/proposed',
+                    data: formData,
+                    success:
+
+                })
+
+        });
+
      
 
      
