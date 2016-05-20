@@ -29,74 +29,12 @@ $(function() {
         }
 
      
-        $("input:radio").on('change', function() {
-            let interviewData ={};
-            let cvid =  $(this).attr('name');
-            interviewData = {
-                cvid: cvid,
-                stage: $(this).data('stage'),
-                agencyId: $('#'+cvid).data('agency-id'),
-                candidateName: $('#'+cvid).data('candidate-name'),
-                jobTitle: $('#'+cvid).data('job-title'),
-                vid: $('#'+cvid).data('vid')
-            };
-
-            let candidateName = $('form').find('input[name=candidateName]');
-            candidateName.value = interviewData.candidateName;
-
-            $('#message').removeClass('ui info message').text("");
-
-            $('.modal.interview').modal('show');
-
-            $('.send-interview').on('click', function() {
-        
-
-                if ((document.getElementById('firstIntDate').validity.valid) &&
-                    (document.getElementById('firstIntTime').validity.valid) &&
-                    (document.getElementById('interviewAddress').validity.valid)
-                ) {
-
-
-                    $('.modal.interview').modal('hide');
-                    $('.ui.small.save-modal').modal('show');
-
-                    $('.ui.positive.button').on('click', function(event) {
-                        $('.ui.small.save-modal').modal('hide');
-                        event.stopPropagation();
-                     
-                        
-                        var newtimes = $('form').serialize();
-                        newtimes = newtimes + '&' + $.param(interviewData);
-                        console.log('newtime',newtimes);
-                        var url = "/interview/proposed";
-                        $.ajax({
-                            type: 'POST',
-                            url: url,
-                            data: newtimes,
-                            async: true,
-                            success: function(res) {
-                                if (res) {
-                                    $('#message').addClass('ui info message').text("We\'ve emailed the agent to arrange an interview"); // change to something better...
-                                    console.log('how many response');
-                                    $('form').find("input, textarea").val("");
-                                } else {
-                                    document.getElementById('message').innerHTML = 'Sorry, there was an error. Please try again!';
-                                }
-                            },
-                            error: function(res) {
-                                console.log("ERROR", res);
-                                document.getElementById('message').innerHTML = 'Sorry, there was an error. Please try again!';
-                            }
-                        });
-                    });
-
-                } else {
-                    $('.ui.warning.message').text('Please choose at least one date, time and a location for the interview');
-                }
-
-            });
+        $("input:radio").on('click', function() {
+            let cvid = $(this).data('cvid');
+            $('#'+cvid).toggleClass('hide-element');
 
         });
+        $('.stage.dropdown').dropdown('set selected','value');
 
         $('.reject-button').click(function() {
 

@@ -1,116 +1,160 @@
 <h1 class="ui block header" data-company-name="{{companyName}}">{{companyName}} - {{jobTitle}} Vacancy Scheduling</h1>
 <div class="ui grid">
-  <div class="ui four wide column">
-
-    <button class="ui inverted blue button" id="go-back" data-url="/client/job/{{vid}}">Go Back</button>
-  </div>
-  <div class="ui eight wide column">
-    <h3 id="message"></h3>
-  </div>
+    <div class="ui four wide column">
+        <button class="ui inverted blue button" id="go-back" data-url="/client/job/{{vid}}">Go Back</button>
+    </div>
+    <div class="ui eight wide column">
+        <h3 id="message"></h3>
+    </div>
 </div>
-
 <div class="ui divider"></div>
-
 {{#unless data}}
-<h3 class="ui header">Doesn't look like there's any accepted candidates right now... Go back and accept some <a href="/client/job/{{vid}}">here!</a></h3>
-{{/unless}}
-
-{{#if data}}
+<h3 class="ui header">Doesn't look like there's any accepted candidates right now... Go back and accept some <a href="/client/job/{{vid}}">here!</a></h3> {{/unless}} {{#if data}}
 <div class="overview-heading">
     <div class="ui stackable grid">
-      <div class="three wide column text-overflow-element">
-        <h4>Name</h4>
-      </div>
-      <div class="two wide column text-overflow-element">
-        <h4>Salary</h4>
-      </div>
-      <div class="three wide column text-overflow-element">
-        <h4>Current Job Title</h4>
-      </div>
-      <div class="four wide column text-overflow-element text-centering">
-        <h4>Interview Stage</h4>
-      </div>
-      <div class="two wide column">
-        <h4>Rating</h4>
-      </div>
-      <div class="three wide column">
-      </div>
+        <div class="three wide column text-overflow-element">
+            <h4>Name</h4>
+        </div>
+        <div class="two wide column text-overflow-element">
+            <h4>Salary</h4>
+        </div>
+        <div class="three wide column text-overflow-element">
+            <h4>Current Job Title</h4>
+        </div>
+        <div class="four wide column text-overflow-element text-centering">
+            <h4>Interview Stage</h4>
+        </div>
+        <div class="two wide column">
+            <h4>Rating</h4>
+        </div>
+        <div class="three wide column">
+        </div>
     </div>
     <div class="ui stackable grid application-stages scheduling-header-margin">
-      <div class="eight wide column"></div>
-      <div class="one wide column accepted">
-        <h5 class="">Accepted</h5>
-      </div>
-      <div class="one wide column">
-        <h5>1st</h5>
-      </div>
-      <div class="one wide column">
-        <h5>2nd</h5>
-      </div>
-      <div class="one wide column">
-        <h5>Final</h5>
-      </div>
+        <div class="eight wide column"></div>
+        <div class="one wide column accepted">
+            <h5 class="">Accepted</h5>
+        </div>
+        <div class="one wide column">
+            <h5>1st</h5>
+        </div>
+        <div class="one wide column">
+            <h5>2nd</h5>
+        </div>
+        <div class="one wide column">
+            <h5>Final</h5>
+        </div>
     </div>
     <div class="ui divider"></div>
 </div>
-
 {{#each data}}
-<div class="ui stackable grid listView" id="{{cvid}}" data-candidate-name='{{candidateName}}' data-agency-email="{{agencyEmail}}" data-agency-id="{{agencyId}}" data-vid="{{vid}}" data-job-title="{{jobTitle}}" >
-  <div class="three wide column text-overflow-element">
-     <h5>{{candidateName}}  <a href="{{file_url}}" type="text" download>(CV)</a></h5>
-  </div>
-  <div class="two wide column text-overflow-element">
-    <h5>{{salary}}</h5>
-  </div>
-  <div class="three wide column text-overflow-element">
-    <h5>{{jobTitle}}</h5>
-  </div>
-  <div class="one wide column">
-    <div class="ui radio checkbox">
-      <input type="radio" name="{{cvid}}" data-stage="stageOne" data-cvid="{{cvid}}" {{stageOne stage}} >
-      <label></label>
+<div class="ui stackable grid listView">
+    <div class="row">
+        <div class="three wide column text-overflow-element">
+            <h5>{{candidateName}}  <a href="{{file_url}}" type="text" download>(CV)</a></h5>
+        </div>
+        <div class="two wide column text-overflow-element">
+            <h5>{{salary}}</h5>
+        </div>
+        <div class="three wide column text-overflow-element">
+            <h5>{{jobTitle}}</h5>
+        </div>
+        <div class="one wide column">
+            <div class="ui radio checkbox">
+                <input type="radio" name="{{cvid}}" data-stage="stageOne" data-cvid="{{cvid}}" {{stageOne stage}}>
+                <label></label>
+            </div>
+        </div>
+        <div class="one wide column">
+            <div class="ui radio checkbox">
+                <input type="radio" name="{{cvid}}" data-stage="stageTwo" data-cvid="{{cvid}}" {{stageTwo stage}}>
+                <label></label>
+            </div>
+        </div>
+        <div class="one wide column">
+            <div class="ui radio checkbox">
+                <input type="radio" name="{{cvid}}" data-stage="stageThree" data-cvid="{{cvid}}" {{stageThree stage}}>
+                <label></label>
+            </div>
+        </div>
+        <div class="one wide column">
+            <div class="ui radio checkbox">
+                <input type="radio" name="{{cvid}}" data-stage="stageFour" data-cvid="{{cvid}}" {{stageFour stage}}>
+                <label></label>
+            </div>
+        </div>
+        <div class="two wide column">
+            {{rating rating}}
+        </div>
+        <div class="two wide column">
+            <button data-cvid="{{cvid}}" data-vid="{{vid}}" data-candidate-name="{{candidateName}}" data-current-stage="{{stage}}" data-agency-email="{{agencyEmail}}" data-agency-id="{{agencyId}}" class="ui inverted red button reject-button">Reject</button>
+        </div>
     </div>
-  </div>
-  <div class="one wide column">
-    <div class="ui radio checkbox">
-      <input type="radio" name="{{cvid}}" data-stage="stageTwo" data-cvid="{{cvid}}" {{stageTwo stage}}>
-      <label></label>
+    <div class=" sixteen column row  ">
+        <form class="ui form hide-element" id="{{cvid}}" action='/interview/proposed' method="POST">
+            <input type="hidden" name="candidateName" value="{{candidateName}}">
+            <input type="hidden" name="cvid" value="{{cvid}}">
+            <input type="hidden" name="vid" value="{{vid}}">
+            <input type="hidden" name="stage" id="{{cvid}}" vlaue="">
+            <input type="hidden" name="agencyId" value="{{agencyId}}">
+            <input type="hidden" name="jobTitle" value="{{jobTitle}}">
+            <h4 class="ui dividing header"> Proposed time, date and location</h4>
+            <div class="required inline fields">
+                <label for=" firstIntDate"> 1st Choice Date & Time</label>
+                <div class="required four wide field">
+                    <input id="firstIntDate" name="firstIntDate" class="datepicker" required>
+                </div>
+                <div class="required field">
+                    <input name="firstIntTime" id="firstIntTime" type="time" placeholder="19:00" required>
+                </div>
+            </div>
+            <div class="inline fields">
+                <label for="secondIntTime"> 2nd Choice Date & Time </label>
+                <div class="four wide field">
+                    <input name="secondIntDate" class="datepicker">
+                </div>
+                <div class="field">
+                    <input name="secondIntTime" type="time"></input>
+                </div>
+            </div>
+            <div class="inline fields">
+                <label for="thirdIntTime"> 3rd Choice Date & Time</label>
+                <div class="four wide field">
+                    <input name="thirdIntDate" class="datepicker">
+                </div>
+                <div class=" field ">
+                    <input name="thirdIntTime" type="time"></input>
+                </div>
+            </div>
+            <div class="inline fields">
+                <label>Full Interview Address:</label>
+                <div class="required eight wide inline field">
+                    <input type="text" id="interviewAddress" name="interviewAddress" placeholder="Buckingham Palace, London SW1A 1AA " required></input>
+                </div>
+            </div>
+            <div class="inline fields">
+                <label for="stage"> Interview Stage:</label>
+                <select name="stage" class="ui dropdown" required>
+                    <option class="item" value="stageTwo">First</option>
+                    <option class="item" value="stageThree">Second</option>
+                    <option class="item" value="stageFour">Final</option>
+                </select>
+            </div>
+            <div class="inline fields">
+                <label>Aditional comments</label>
+                <div class="twelve wide field">
+                    <textarea name="additionalComments" value="" rows="3" maxlength="2000" placeholder="e.g. bring portfolio, interview will be one hour, etc." pattern="{{frontendInput}}"></textarea>
+                </div>
+            </div>
+            <div class="actions">
+                <h4 class="ui header warning message"></h4>
+                <button type="submit" class="ui green large button send-interview" data-candidate-name="{{candidateName}}" data-job-title="{{jobTitle}}" >Send</button>
+            </div>
+        </form>
     </div>
-  </div>
-  <div class="one wide column">
-    <div class="ui radio checkbox">
-      <input type="radio" name="{{cvid}}" data-stage="stageThree" data-cvid="{{cvid}}"{{stageThree stage}}>
-      <label></label>
-    </div>
-  </div>
-  <div class="one wide column">
-    <div class="ui radio checkbox">
-      <input type="radio" name="{{cvid}}" data-stage="stageFour" data-cvid="{{cvid}}" {{stageFour stage}}>
-      <label></label>
-    </div>
-  </div>
-  <div class="two wide column">
-    {{rating rating}}
-  </div>
-  <div class="two wide column">
-
-      <button
-        data-cvid="{{cvid}}"
-        data-vid="{{vid}}"
-        data-candidate-name="{{candidateName}}"
-        data-current-stage = "{{stage}}"
-        data-agency-email ="{{agencyEmail}}"
-        data-agency-id ="{{agencyId}}"
-        class="ui inverted red button reject-button">Reject</button>
-
-  </div>
- </div>
+</div>
 <div class="ui divider"></div>
-{{/each }}
-
-{{> rejectcandidatemodal}}
-{{> create-interview}}
-{{> savechanges}}
-
-{{/if }}
+{{/each }} {{> rejectcandidatemodal}} {{> savechanges}} {{/if }}
 <script type="text/javascript" src="/public/js/scheduling.js"></script>
+<script type="text/javascript" src="/public/js/jobCharacterCounter.js"></script>
+<script type="text/javascript" src="/public/js/datepicker.js"></script>
