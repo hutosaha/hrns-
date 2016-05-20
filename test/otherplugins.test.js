@@ -50,12 +50,14 @@ server.init(0, (err, server) => {
 
     testHeaderLocation(server, '/login/client', 'GET', '/clientsignup', 'redirects to client signup form', nonExistingUserCookie);
 
-    testPayload(server, '/logout', 'GET', 'You\'ve logged out!', 'payload has heading logged out');
+    testPayload(server, '/logout', 'GET', '<title>Harness</title>', 'payload returns home');
     testEndPoint(server, '/logout', 'GET', 200, 'auth user responds with response 200', clientCookie);
 
     testEndPoint(server, '/login/client', 'GET', 302, 'auth user redirects with:', clientCookie, null, 'testid');
  
     testEndPoint(server, '/sign_s3', 'GET', 200, 'endpoint responds with:', agencyCookie);
+
+    
 
     server.stop();
 

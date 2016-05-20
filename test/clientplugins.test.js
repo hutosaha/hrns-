@@ -16,6 +16,7 @@ server.init(0, (err, server) => {
 
     testEndPoint(server, '/client', 'GET', 200, 'authed GET responds with 200', clientCookie);
 
+
     testEndPoint(server, '/client/job/vid', 'GET', 200, 'authed GET responds with 200', clientCookie);
     testPayload(server, '/client/job/randomvid', 'GET', 'Sorry, something went wrong', 'payload contains view with:', clientCookie);
 
@@ -25,7 +26,7 @@ server.init(0, (err, server) => {
     // });
 
     testEndPoint(server, '/clientsignup', 'GET', 200, 'auth user responds with 200', clientCookie);
-    testEndPoint(server, '/clientsignup', 'GET', 401, 'unauth user responds with 401');
+    testEndPoint(server, '/clientsignup', 'GET', 302, 'unauth user redirected to login');
     testEndPoint(server, '/clientsignup', 'POST', 400, 'POST without payload responds with 400 - bad request', clientCookie);
     testEndPoint(server, '/clientsignup', 'POST', 200, 'POST with correct payload responds with 200', clientCookie, clientSignupPayload);
     testPayload(server, '/clientsignup', 'GET', 'Sign Up', 'payload response is:', nonExistingUserCookie);
@@ -33,6 +34,8 @@ server.init(0, (err, server) => {
 
     testEndPoint(server, '/submitjob', 'GET', 200, 'endpoint responds with:', clientCookie);
     // testEndPoint(server, '/submitjob', 'POST', 200, 'endpoint responds with:', clientCookie, jobPayload, 'testid'); /FAIL ACTUAL 400
+   // testEndPoint(server, '/client/download-file/https://harnesscvbucket.s3.amazonaws.com/a694ed00-1b6a-11e6-82e5-e1271374d0e5-ac09d1b0-15d9-11e6-976b-b5b20bd88088-Faces flat design (small).jpg', 'GET', 200, 'endpoint responds with:', clientCookie);
+ 
 
     server.stop();
 });

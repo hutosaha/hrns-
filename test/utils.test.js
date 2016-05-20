@@ -44,8 +44,8 @@ test('emailAdminForGenericCV callbacks as expected', (t) => {
   // });
 });
 
-test('clean payload deletes empty strings in an object', (t) => {
-    let payload = { name: 'Joe Bloggs', age: 10, food: '', sport: '' };
+test('clean payload deletes undefined strings or values in an object', (t) => {
+    let payload = { name: 'Joe Bloggs', age: 10, food: 'undefined', sport: 'undefined' };
     let expected = { name: 'Joe Bloggs', age: 10 };
     cleanPayload(payload);
     t.deepEqual(payload, expected, 'payload cleaned!');

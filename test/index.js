@@ -5,3 +5,4 @@ require('./agencyplugins.test.js');
 require('./candidateplugins.test.js');
 require('./clientplugins.test.js');
 require('./redis.test.js');
+require('./interview.test.js');

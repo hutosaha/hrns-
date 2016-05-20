@@ -20,7 +20,7 @@ server.init(0, (err, server) => {
     testPayload(server, '/agency/job/wrong-vid', 'GET', 'Sorry, something went wrong', 'error handles incorrect vid', agencyCookie);
 
     // testEndPoint(server, '/agencysignup', 'GET', 200, 'authed agency GET responds with 200', agencyCookie); // might require different cookie
-    testEndPoint(server, '/agencysignup', 'POST', 401, 'unauthed POST responds with 401');
+    testEndPoint(server, '/agencysignup', 'POST', 302, 'unauthed POST redirected to login');
     testEndPoint(server, '/agencysignup', 'POST', 400, 'POST without payload responds with 400 - bad request', agencyCookie);
     testEndPoint(server, '/agencysignup', 'POST', 400, 'POST with incorrect payload responds with 400', agencyCookie, incorrectAgencySignupPayload);
     testEndPoint(server, '/agencysignup', 'POST', 200, 'POST with correct payload responds with 200', agencyCookie, agencySignupPayload);
