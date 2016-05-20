@@ -35,9 +35,21 @@ $(function() {
                     type: 'POST',
                     url: '/interview/proposed',
                     data: formData,
-                    success:
+                    async: true,
+                            success: function(res) {
+                                if (res) {
+                                    $('#message').addClass('ui info message').text("We\'ve emailed the agent to arrange an interview"); // change to something better...
+                                    $('form').find("input, textarea").val("");
+                                } else {
+                                    document.getElementById('message').innerHTML = 'Sorry, there was an error. Please try again!';
+                                }
+                            },
+                            error: function(res) {
+                                console.log("ERROR", res);
+                                document.getElementById('message').innerHTML = 'Sorry, there was an error. Please try again!';
+                            }
 
-                })
+                });
 
         });
 
