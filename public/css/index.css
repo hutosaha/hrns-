@@ -436,6 +436,14 @@ Larger than smartphone
         right: 38%;
         top: 3%;
     }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+        font-weight: 100%;
+     
+    }
 }
 
 
@@ -462,14 +470,7 @@ Laptops
         height: 90px;
         line-height: 70px;
     }
-    h1,
-    h2,
-    h3,
-    h4,
-    h5 {
-        font-weight: 100;
-     
-    }
+
 }
 
 
