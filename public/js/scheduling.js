@@ -68,7 +68,6 @@ $(function() {
         return field ==''|| field == null;
     };
 
-
     let sendFormData = (formData) => {
         var data = formData.serialize();
         $.ajax({
@@ -93,12 +92,6 @@ $(function() {
         });
 
     };
-
-
-
-
-
-
 
     $('.reject-button').click(function() {
 
@@ -148,10 +141,9 @@ $(function() {
                 async: true,
                 success: function(res) {
                     if (res) {
-
-                        var element = document.getElementById(cvid);
-                        element.nextSibling.nextSibling.remove();
-                        element.remove();
+                        var rejectButton = document.getElementById(cvid);
+                        rejectButton.closest('.listView').remove();
+                        
 
                         if ($('.listView').length === 0) {
                             $('.message').html('There are no approved candidates at the moment... Come back when there are!');

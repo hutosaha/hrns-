@@ -109,7 +109,7 @@ $(document).ready(function() {
                 var reason = $('input[name="rejection-reason"]:checked').val();
 
                 $.ajax({
-                    url: '/client/job/reject',
+                    url: '/client/scheduling/reject',
                     data: {
                         candidateName: candidateName,
                         cvid: cvid,
@@ -224,7 +224,7 @@ $(document).ready(function() {
             var reason = $('input[name="rejection-reason"]:checked').val();
 
             $.ajax({
-                url: '/client/job/reject',
+                url: '/client/scheduling/reject',
                 data: {
                     candidateName: candidateName,
                     cvid: cvid,
