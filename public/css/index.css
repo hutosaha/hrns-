@@ -84,6 +84,7 @@ h5,
 
 .signin {
     left: 10%;
+    margin-top: 40px;
 }
 
 .top-padding {
@@ -92,11 +93,13 @@ h5,
 }
 
 .findout-more {
-    margin-top: 3em;
+    position:absolute;
+    top:140%;
+    right: 42%;
 }
 
 .main-pic {
-    height: 80%;
+    height: 46em;
     width: 100%;
 }
 
@@ -131,7 +134,8 @@ h5,
     marign: 5em;
     border-radius: 0px;
     background-color: #19b7ca;
-    width: 150px;
+    width: 170px;
+    height: 50px;
 }
 
 .ui.text.container {
@@ -143,20 +147,35 @@ h5,
     text-align: center;
     margin: 2em;
     width: 50em;
+
 }
 
 .ui.attached.segment.trustedby {
     background-color: #15abc6;
     min-height: 20em;
+    max-width:70%;
+
+
 }
 
 .ui.container.trustedby img {
     margin-top: 2em;
     margin-bottom: 2em;
+   
+
+}
+
+.container.howitworks,
+.container.whyharness,
+.container.aboutus {
+    text-align: center;
+    margin: auto;
+    width: 75%;
 }
 
 .ui.attached.segment.howitworks {
     min-height: 40em;
+   
 }
 
 .ui.attached.segment.whyharness {
@@ -171,12 +190,13 @@ h5,
 .ui.attached.segment.aboutus {
     background-color: #484848;
     color: white;
-    text-align: center;
+    text-align: center;   
 }
 
 .aboutus {
     text-align: center;
     margin: 2em;
+    font-size:102%;
 }
 
 .ui.header.howitworks {
@@ -427,7 +447,7 @@ Larger than smartphone
         margin-top: 2em;
     }
     .intro-text p {
-        font-size: 130%;
+        font-size: 1em;
     }
     .home.logo {
         position: absolute;
