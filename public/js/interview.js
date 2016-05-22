@@ -6,7 +6,7 @@ $(function() {
         var confirmedIntTime = $(this).data('confirmed-time');
         var confirmedIntDate = $(this).data('confirmed-date');
         var interviewId = $(this).data('interview-id');
-        var element = $(this);
+        var button = $(this);
 
 
         $('.ui.small.modal.save-modal').modal('show');
@@ -29,8 +29,8 @@ $(function() {
                     if (res) {
                         $('#message').addClass('ui massive info message')
                         .text("Congratulaitons! we\'ve emailed both parties, the interview is now confirmed, good luck!!"); // change to something better...
-                        element.removeClass('ui button confirm-date').addClass('ui green').text('Confirmed');
-                        $('.button.another-time').remove(); // remove 
+                        button.removeClass('ui button confirm-date').addClass('ui header green').text('Confirmed');
+                        $('.button').remove(); // remove 
                     } else {
                         $('#message').addClass('ui massive warning info message').text('Sorry, there was an error. Please try again!');
                     }

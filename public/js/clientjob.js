@@ -40,7 +40,7 @@ $(document).ready(function() {
                         var pdf = "/public/assets/ViewerJS/#../downloads/" + fileName;                       
                         viewFile(fileName, relatedInfoObject, pdf);
                     } else {
-                        var word ="https://view.officeapps.live.com/op/embed.aspx?src=https://hrns.herokuapp.com/public/assets/downloads/"+fileName;
+                        var word ="https://view.officeapps.live.com/op/embed.aspx?src=http://localhost:8000/public/assets/downloads/"+fileName;
                         viewFile(fileName, relatedInfoObject, word);
                     }
                 });
