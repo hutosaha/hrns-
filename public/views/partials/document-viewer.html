@@ -1,11 +1,11 @@
 <div class="ui basic doc-viewer modal">
     <i class="close icon"></i>
     <div class="header">
-       Would you like to accept this CV ?
+        Would you like to accept this CV ?
     </div>
     <div class="actions">
         <div class="two fluid ui inverted buttons">
-            <div class="ui red basic inverted button basic-modal-reject">
+            <div class="ui red basic inverted button basic-modal-reject" data-agency-email="{{agencyEmail}}" data-agency-id="{{agencyId}}" data-cvid="{{cvid}}" data-candidate-name="{{candidateName}}" data-job-title="{{jobTitle}}" data-vid="{{vid}}" data-file-name="{{file-name}}" data-content="We can only preview pdf files" data-url='{{file_url}}'>
                 <i class="remove icon"></i> Reject
             </div>
             <div class="ui green basic inverted button basic-modal-accept">
@@ -15,7 +15,7 @@
     </div>
     <div class="image content">
         <div class="image">
-          <iframe id="iframeId" src='' width='850' height='566' frameborder='0'>This is an embedded <a target='_blank' href='http://office.com'>Microsoft Office</a> document, powered by <a target='_blank' href='http://office.com/webapps'>Office Online</a>.</iframe>
+            <iframe id="iframeId" src='' width='850' height='566' frameborder='0'>This is an embedded <a target='_blank' href='http://office.com'>Microsoft Office</a> document, powered by <a target='_blank' href='http://office.com/webapps'>Office Online</a>.</iframe>
         </div>
     </div>
 </div>

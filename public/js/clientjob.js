@@ -16,8 +16,8 @@ $(document).ready(function() {
 
     if ($('.listView').length === 0) { $('.message').html('There are no candidates yet!'); }
 
-    $('.cv-viewer').click(function() {
-
+    $('.cv-viewer').on('click',function(e) {
+        e.preventDefault();
         const relatedInfoObject = {
             candidateName: $(this).data('candidate-name'),
             cvid: $(this).data('cvid'),
@@ -32,17 +32,14 @@ $(document).ready(function() {
         const ext = cvUrl.substr(cvUrl.lastIndexOf('.') + 1);
 
         isFileAlreadyDownloaded(cvUrl, (fileName) => {
+                var pdf = "/public/assets/ViewerJS/#../downloads/" + fileName;                       
+                var word ="https://view.officeapps.live.com/op/embed.aspx?src=https://hrns.herokuapp.com/public/assets/downloads/"+fileName;
             if (fileName !== 'notFound') {
-                ext === 'pdf' ? viewFile(fileName) : viewFile(fileName.slice(0, -ext.length) + 'pdf');
+                ext === 'pdf' ? viewFile(fileName,relatedInfoObject, pdf) : viewFile(fileName, relatedInfoObject, word);
             } else {
                 downloadFile(cvUrl, ext, (fileName) => {
-                    if (ext === 'pdf') {
-                        var pdf = "/public/assets/ViewerJS/#../downloads/" + fileName;                       
-                        viewFile(fileName, relatedInfoObject, pdf);
-                    } else {
-                        var word ="https://view.officeapps.live.com/op/embed.aspx?src=https://hrns.herokuapp.com/public/assets/downloads/"+fileName;
-                        viewFile(fileName, relatedInfoObject, word);
-                    }
+                ext === 'pdf' ? viewFile(fileName, relatedInfoObject, pdf) : viewFile(fileName, relatedInfoObject, word);
+                    
                 });
             }
         });
@@ -77,12 +74,11 @@ $(document).ready(function() {
         });
     };
 
-
-
     var viewFile = (fileName, relatedInfoObject, src) => {
         $('#iframeId' ).attr('src', src);
         $('.ui.basic.doc-viewer.modal').modal('show');
-
+        
+        console.log('RO2' ,relatedInfoObject);
         const candidateName = relatedInfoObject.candidateName;
         const cvid = relatedInfoObject.cvid;
         const vid = relatedInfoObject.vid;
@@ -100,43 +96,45 @@ $(document).ready(function() {
                 if (this.checked)
                     $inputs.not(this).prop('checked', !this.checked);
             });
+        }); 
 
-            $('.confirm-rejection-button').click(function() {
-                $('.first.modal.reject').modal('hide');
-                $('.second.modal.reject-modal').modal('show', '.first.modal .button');
-                $('.second.coupled.modal.accept-modal').modal('hide');
+        $('.confirm-rejection-button').off().on('click',function() {
+            $('.first.modal.reject').modal('hide');
+            $('.second.modal.reject-modal').modal('show', '.first.modal .button');
+            $('.second.coupled.modal.accept-modal').modal('hide');
 
-                var reason = $('input[name="rejection-reason"]:checked').val();
+            var reason = $('input[name="rejection-reason"]:checked').val();
 
-                $.ajax({
-                    url: '/client/scheduling/reject',
-                    data: {
-                        candidateName: candidateName,
-                        cvid: cvid,
-                        vid: vid,
-                        email: agencyEmail,
-                        reason: reason
-                    },
-                    async: true,
-                    success: function(res) {
-                        if (res) {
-                            var element = document.getElementById(cvid);
-                            element.remove();
-                            $('.ui.basic.doc-viewer.modal').modal('hide');
+            $.ajax({
+                url: '/client/scheduling/reject',
+                data: {
+                    candidateName: candidateName,
+                    cvid: cvid,
+                    vid: vid,
+                    email: agencyEmail,
+                    reason: reason,
+                    list: 'clientShortlist'
+                },
+                async: true,
+                success: function(res) {
+                    if (res) {
+                        var element = document.getElementById(cvid);
+                        element.remove();
+                        $('.ui.basic.doc-viewer.modal').modal('hide');
 
-                            if ($('.listView').length === 0) {
-                                $('.message').html('There are no candidates yet!');
-                            }
+                        if ($('.listView').length === 0) {
+                            $('.message').html('There are no candidates yet!');
                         }
                     }
-                });
-
+                }
             });
-        }); ///reject button on viewer
+
+        });
+        ///reject button on viewer
 
 
         $('.basic-modal-accept').click(function() {
-            console.log('being clicked');
+  
             $('.ui.basic.doc-viewer.modal').modal('hide');
             //  $('.accept-candidateName').html(candidateName);
 
@@ -156,8 +154,6 @@ $(document).ready(function() {
             });
 
             $('.modal-submit-acceptance-button').click(function() {
-
-
 
                 $.ajax({
                     url: '/client/job/accept',
