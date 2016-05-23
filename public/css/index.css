@@ -93,8 +93,8 @@ h5,
 }
 
 .findout-more {
-    position:absolute;
-    top:140%;
+    position: absolute;
+    top: 140%;
     right: 42%;
 }
 
@@ -147,22 +147,17 @@ h5,
     text-align: center;
     margin: 2em;
     width: 50em;
-
 }
 
 .ui.attached.segment.trustedby {
     background-color: #15abc6;
     min-height: 20em;
-    max-width:70%;
-
-
+    max-width: 70%;
 }
 
 .ui.container.trustedby img {
     margin-top: 2em;
     margin-bottom: 2em;
-   
-
 }
 
 .container.howitworks,
@@ -175,7 +170,6 @@ h5,
 
 .ui.attached.segment.howitworks {
     min-height: 40em;
-   
 }
 
 .ui.attached.segment.whyharness {
@@ -190,13 +184,13 @@ h5,
 .ui.attached.segment.aboutus {
     background-color: #484848;
     color: white;
-    text-align: center;   
+    text-align: center;
 }
 
 .aboutus {
     text-align: center;
     margin: 2em;
-    font-size:102%;
+    font-size: 102%;
 }
 
 .ui.header.howitworks {
@@ -434,7 +428,7 @@ MEDIA QUERIES
 Larger than smartphone
 ================================*/
 
-@media (max-width:1000px) {
+@media (max-width:1200px) {
     .section-container {
         padding: 1em;
         margin: 2em 2em;
@@ -456,6 +450,7 @@ Larger than smartphone
         right: 38%;
         top: 3%;
     }
+ 
 }
 
 
@@ -482,7 +477,6 @@ Laptops
         height: 90px;
         line-height: 70px;
     }
-
 }
 
 
@@ -490,11 +484,20 @@ Laptops
 Very Large Screen
 ================================*/
 
-@media only screen and (min-width: 1224px) {
+@media only screen and (min-width: 1524px) {
     .section-container {
         padding: 5em;
     }
     .section-container {
         max-width: 1224px;
+    }
+    .main-pic {
+        height: 60em;
+        width: 100%;
+    }
+    .findout-more {
+        position: absolute;
+        top: 200%;
+        right: 46%;
     }
 }
