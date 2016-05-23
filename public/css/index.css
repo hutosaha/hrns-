@@ -423,9 +423,17 @@ MEDIA QUERIES
 ================================
 ================================*/
 
+/*==============================
+ mobile view 
+================================*/
+
+
+
+@media only screen and (max-width: px) {
+
 
 /*==============================
-Larger than smartphone
+small than a 14inch laptop
 ================================*/
 
 @media (max-width:1200px) {
