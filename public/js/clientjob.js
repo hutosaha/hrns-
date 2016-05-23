@@ -230,7 +230,8 @@ $(document).ready(function() {
                     cvid: cvid,
                     vid: vid,
                     email: agencyEmail,
-                    reason: reason
+                    reason: reason,
+                    list: 'clientShortlist'
                 },
                 async: true,
                 success: function(res) {
