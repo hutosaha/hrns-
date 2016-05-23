@@ -146,7 +146,7 @@ $(function() {
                         
 
                         if ($('.listView').length === 0) {
-                            $('.message').html('There are no approved candidates at the moment... Come back when there are!');
+                            $('#message').html('There are no approved candidates at the moment... Come back when there are!');
                         }
                     }
                 }
