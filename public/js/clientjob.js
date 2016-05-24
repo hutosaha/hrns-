@@ -32,12 +32,16 @@ $(document).ready(function() {
         const ext = cvUrl.substr(cvUrl.lastIndexOf('.') + 1);
 
         isFileAlreadyDownloaded(cvUrl, (fileName) => {
-                var pdf = "/public/assets/ViewerJS/#../downloads/" + fileName;                       
-                var word ="https://view.officeapps.live.com/op/embed.aspx?src=https://hrns.herokuapp.com/public/assets/downloads/"+fileName;
+             
             if (fileName !== 'notFound') {
+                var pdf = "/public/assets/ViewerJS/#../downloads/" + fileName;                       
+                var word ="https://view.officeapps.live.com/op/embed.aspx?src=http://localhost:8000/public/assets/downloads/"+fileName;
                 ext === 'pdf' ? viewFile(fileName,relatedInfoObject, pdf) : viewFile(fileName, relatedInfoObject, word);
             } else {
                 downloadFile(cvUrl, ext, (fileName) => {
+                console.log('EXT', ext, fileName);
+                var pdf = "/public/assets/ViewerJS/#../downloads/" + fileName;                       
+                var word ="https://view.officeapps.live.com/op/embed.aspx?src=http://localhost:8000/public/assets/downloads/"+fileName;
                 ext === 'pdf' ? viewFile(fileName, relatedInfoObject, pdf) : viewFile(fileName, relatedInfoObject, word);
                     
                 });
@@ -69,6 +73,7 @@ $(document).ready(function() {
             },
             async: true,
             success: function(response) {
+                console.log('RESPONSE', response);
                 callback(response);
             }
         });
