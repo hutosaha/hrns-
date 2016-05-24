@@ -68,11 +68,17 @@ h5,
     font-size: 130%;
 }
 
+.ui.inverted.header.howitworks,
+.ui.inverted.header.whyharness,
+.ui.header.aboutus {
+    font-weight: 500;
+}
+
 .home.logo {
     position: absolute;
     height: 40px;
     margin: 1em;
-    right: 42%;
+    right: 40%;
     top: 3%;
 }
 
@@ -93,13 +99,17 @@ h5,
 }
 
 .findout-more {
-    position: absolute;
-    top: 140%;
-    right: 42%;
+    position: relative;
+    display: block;
+    top: 100px;
+}
+
+.large.angle.down.icon.scroll-down {
+    font-size: 500%;
 }
 
 .main-pic {
-    height: 46em;
+    height: 55em;
     width: 100%;
 }
 
@@ -136,6 +146,10 @@ h5,
     background-color: #19b7ca;
     width: 170px;
     height: 50px;
+}
+
+.ui.linkedin.button {
+    margin: 10px;
 }
 
 .ui.text.container {
@@ -181,10 +195,15 @@ h5,
     margin: 1em;
 }
 
+.ui.attached.segment {
+    border: none;
+}
+
 .ui.attached.segment.aboutus {
     background-color: #484848;
     color: white;
     text-align: center;
+    border: none;
 }
 
 .aboutus {
@@ -195,6 +214,7 @@ h5,
 
 .ui.header.howitworks {
     color: #15abc6;
+    font-weight: 500;
 }
 
 .image-round-container {
@@ -476,36 +496,7 @@ MEDIA QUERIES
 small than a 14inch laptop
 ================================*/
 
-@media (min-width:700px) and (max-width:1200px) {
-    .section-container {
-        padding: 1em;
-        margin: 2em 2em;
-    }
-    .intro-text {
-        top: 15%;
-        right: 25%;
-        text-align: center;
-        max-width: 50%;
-        margin-top: 2em;
-    }
-    .intro-text p {
-        font-size: 1em;
-    }
-    .home.logo {
-        position: absolute;
-        height: 40px;
-        margin: 1em;
-        right: 38%;
-        top: 3%;
-    }
-}
-
-
-/*==============================
-Laptops
-================================*/
-
-@media only screen and (min-width: 768px) {
+@media (min-width:1000px) {
     .section-container {
         padding: 3em;
         margin: 0 auto;
@@ -524,6 +515,56 @@ Laptops
         height: 90px;
         line-height: 70px;
     }
+    .section-container {
+        padding: 1em;
+        margin: 2em 2em;
+    }
+    .intro-text {
+        top: 15%;
+        right: 25%;
+        text-align: center;
+        max-width: 50%;
+        margin-top: 2em;
+    }
+    .home.logo {
+        position: absolute;
+        height: 40px;
+        margin: 1em;
+        right: 38%;
+        top: 3%;
+    }
+}
+
+
+/*==============================
+Laptops
+================================*/
+
+@media only screen and (min-device-width: 1200px) {
+    .main-pic {
+        height: 60em;
+        width: 100%;
+    }
+    .intro-text {
+        top: 25%;
+        right: 25%;
+        text-align: center;
+        max-width: 50%;
+        margin-top: 2em;
+    }
+ 
+    .home.logo {
+        position: absolute;
+        height: 40px;
+        margin: 1em;
+        right: 40%;
+        top: 3%;
+    }
+    .findout-more {
+        position: absolute;
+        top: 144%;
+        right: 42%;
+    }
 }
 
 
@@ -531,7 +572,14 @@ Laptops
 Very Large Screen
 ================================*/
 
-@media only screen and (min-width: 1524px) {
+@media only screen and (min-width: 1600px) {
+    .home.logo {
+        position: absolute;
+        height: 40px;
+        margin: 1em;
+        right: 42%;
+        top: 3%;
+    }
     .section-container {
         padding: 5em;
     }
@@ -544,7 +592,7 @@ Very Large Screen
     }
     .findout-more {
         position: absolute;
-        top: 200%;
-        right: 46%;
+        top: 170%;
+        right: 44%;
     }
 }
