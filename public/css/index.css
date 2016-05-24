@@ -105,7 +105,7 @@ h5,
 }
 
 .large.angle.down.icon.scroll-down {
-    font-size: 500%;
+    font-size: 300%;
 }
 
 .main-pic {
@@ -193,6 +193,15 @@ h5,
 
 .whyharness {
     margin: 1em;
+}
+
+.whyharness img {
+    margin-top:14px;
+}
+
+.grid.whyharness{ 
+    margin-left:-80px;
+
 }
 
 .ui.attached.segment {
@@ -448,7 +457,7 @@ MEDIA QUERIES
  mobile view 
 ================================*/
 
-@media(max-width:700px) {
+@media only screen and (min-device-width: 764px) {
     .section-container {
         padding: 1em;
         margin: 2em 2em;
@@ -460,23 +469,21 @@ MEDIA QUERIES
         max-width: 50%;
         margin-top: 2em;
     }
-    .intro-text p {
-        font-size: 1em;
-    }
+   
     .main-pic {
-        height: 100%;
+        height: 2em;
         width: auto;
     }
     .findout-more {
         position: absolute;
-        top: 200%;
-        right: 46%;
+        top: 180%;
+        right: 45%;
     }
     .home.logo {
         position: absolute;
         height: 30px;
         margin: 1em;
-        right: 73%;
+        right: 90%;
         top: 3%;
     }
     .ui.linkedin.button {
@@ -495,8 +502,7 @@ MEDIA QUERIES
 /*==============================
 small than a 14inch laptop
 ================================*/
-
-@media (min-width:1000px) {
+@media only screen and (max-device-width: 1000px) {
     .section-container {
         padding: 3em;
         margin: 0 auto;
@@ -510,7 +516,7 @@ small than a 14inch laptop
     .overview-heading {
         display: block;
     }
-    /* on live jobs page #80 */
+    on live jobs page #80
     .live-job-element {
         height: 90px;
         line-height: 70px;
@@ -520,7 +526,7 @@ small than a 14inch laptop
         margin: 2em 2em;
     }
     .intro-text {
-        top: 15%;
+        top: 10%;
         right: 25%;
         text-align: center;
         max-width: 50%;
@@ -533,20 +539,27 @@ small than a 14inch laptop
         right: 38%;
         top: 3%;
     }
+    .main-pic {
+        height: 40em;
+        width: 100%;
+    }
+    .findout-more {
+        position: absolute;
+        top: 10%;
+        right: 42%;
+    }
 }
-
-
 /*==============================
 Laptops
 ================================*/
 
 @media only screen and (min-device-width: 1200px) {
     .main-pic {
-        height: 60em;
+        height: 45em;
         width: 100%;
     }
     .intro-text {
-        top: 25%;
+        top: 20%;
         right: 25%;
         text-align: center;
         max-width: 50%;
@@ -562,7 +575,7 @@ Laptops
     }
     .findout-more {
         position: absolute;
-        top: 144%;
+        top: 115%;
         right: 42%;
     }
 }
@@ -595,4 +608,9 @@ Very Large Screen
         top: 170%;
         right: 44%;
     }
+    .grid.whyharness{ 
+        margin-left:-100px;
+
+    }
+
 }
