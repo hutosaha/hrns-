@@ -52,7 +52,7 @@ $(function() {
     
         let validated =  validate(fields);
         
-        if ( validated === '' || validated === null ){
+        if ( validated[0] === '' || validated[0] === null ){
             return  $('.message').addClass('ui info').text('We need the date, time, stage and location of the interview'); 
         } else {
             let formData = $('form[name='+cvid+']').each(function(){ $(this).find(':input');});
@@ -61,10 +61,10 @@ $(function() {
     });
 
     let validate = (fields) => {
-        return  fields.filter(check);
+        return  fields.filter(checkForEmpty);
     };
 
-    let check =(field) => {
+    let checkForEmpty =(field) => {
         return field ==''|| field == null;
     };
 
