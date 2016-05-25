@@ -369,11 +369,12 @@ Agency Login
 
 .submitted-margin {
     margin-right: 20px;
-    margin-left: -20px;
+    margin-left: -40px;
 }
 
 .submitted-green {
     color: green;
+    font-weight:600;
 }
 
 
