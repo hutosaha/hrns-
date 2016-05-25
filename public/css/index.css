@@ -389,10 +389,10 @@ Agency Login
     margin-top: -2em;
 }
 
-.overview-heading {
-    /* also on /client */
+/* .overview-heading {
+    also on /client
     display: none;
-}
+} */
 
 .scheduling-header-margin p {
     margin-left: -15px
