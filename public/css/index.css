@@ -1,12 +1,24 @@
+
 body,
-h1,
-h2,
-h3,
-h4,
-h5,
-.ui.header,
+p,
 .ui.button {
     font-family: 'Open Sans', sans-serif;
+    font-weight:100;
+}
+
+
+h1,
+h2,
+h5 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 800;
+}
+
+.overview-heading  h4:last-child {
+    font-weight: 600;
+}
+.grid.listView h5:last-child {
+    font-weight: 100;
 }
 
 .ui.inverted.menu {
@@ -311,7 +323,7 @@ h1.ui.huge.header {
     margin: 0;
     background: 0 0;
     /* text-transform: normal; */
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .ui.fixed.inverted.menu .item:before {
@@ -338,13 +350,20 @@ h1.ui.huge.header {
 Agency Login
   ===========================*/
 
-.agency.linkedin.button {
+.agencyHomeLogo {
+    position: relative;
+    margin: auto;
+    text-align: center;
+    top:30%;
+}
+
+.agencyButton {
     position: absolute;
     text-align: center;
-    width: auto;
+    width: 200px;
     top: 35%;
     left: 40%;
-    margin: auto;
+  
 }
 
 .home-navbar {
@@ -394,10 +413,12 @@ Agency Login
     display: none;
 } */
 
-.scheduling-header-margin p {
+.scheduling-header-margin h5 {
     margin-left: -15px
 }
-
+.scheduling-header-margin h5:last-child{
+    font-weight:100;
+}
 .ui.radio.checkbox {
     display: flex;
     justify-content: center;
