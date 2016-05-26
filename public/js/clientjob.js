@@ -158,7 +158,7 @@ $(document).ready(function() {
                 $('.first.modal.accept-modal').hide();
             });
 
-            $('.modal-submit-acceptance-button').click(function() {
+            $('.modal-submit-acceptance-button').off().on('click', function() {
 
                 $.ajax({
                     url: '/client/job/accept',
