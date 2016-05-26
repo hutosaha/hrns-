@@ -2,7 +2,7 @@
 
 var $ = window.$;
 
-/*window.onbeforeunload = () => {
+window.onbeforeunload = () => {
     $.ajax({
         url: '/client/clear-downloads',
         async: true,
@@ -10,7 +10,7 @@ var $ = window.$;
             console.log(response);
         }
     });
-};*/
+};
 
 $(document).ready(function() {
 
@@ -35,13 +35,13 @@ $(document).ready(function() {
              
             if (fileName !== 'notFound') {
                 var pdf = "/public/assets/ViewerJS/#../downloads/" + fileName;                       
-                var word ="https://view.officeapps.live.com/op/embed.aspx?src=https://hrns.herokuapp.com/public/assets/downloads/"+fileName;
+                var word ="https://view.officeapps.live.com/op/embed.aspx?src=https://harnesstalent.herokuapp.com/public/assets/downloads/"+fileName;
                 ext === 'pdf' ? viewFile(fileName,relatedInfoObject, pdf) : viewFile(fileName, relatedInfoObject, word);
             } else {
                 downloadFile(cvUrl, ext, (fileName) => {
                 console.log('EXT', ext, fileName);
                 var pdf = "/public/assets/ViewerJS/#../downloads/" + fileName;                       
-                var word ="https://view.officeapps.live.com/op/embed.aspx?src=https://hrns.herokuapp.com/public/assets/downloads/"+fileName;
+                var word ="https://view.officeapps.live.com/op/embed.aspx?src=https://harnesstalent.herokuapp.com/public/assets/downloads/"+fileName;
                 ext === 'pdf' ? viewFile(fileName, relatedInfoObject, pdf) : viewFile(fileName, relatedInfoObject, word);
                     
                 });
