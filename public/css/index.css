@@ -366,7 +366,8 @@ Agency Login
 }
 
 .accepted-margin {
-    margin-right: 12px;
+    margin-right: 20px;
+    margin-left: -18px;
 }
 
 .submitted-margin {
