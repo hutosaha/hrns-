@@ -371,8 +371,8 @@ Agency Login
 }
 
 .submitted-margin {
-    margin-right: 20px;
-    margin-left: -40px;
+    margin-right: 35px;
+    margin-left: -38px;
 }
 
 .submitted-green {
@@ -544,6 +544,9 @@ small than a 14inch laptop
     .main-pic {
         height: 45em;
         width: 100%;
+    }
+    .scheduling-header-margin p:last-child{
+        font-size:0.85em;
     }
 }
 
