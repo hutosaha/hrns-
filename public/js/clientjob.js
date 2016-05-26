@@ -2,7 +2,7 @@
 
 var $ = window.$;
 
-window.onbeforeunload = () => {
+/*window.onbeforeunload = () => {
     $.ajax({
         url: '/client/clear-downloads',
         async: true,
@@ -10,7 +10,7 @@ window.onbeforeunload = () => {
             console.log(response);
         }
     });
-};
+};*/
 
 $(document).ready(function() {
 
