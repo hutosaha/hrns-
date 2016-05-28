@@ -11,6 +11,10 @@ const adminCookie    = require('./utils/utils.js').adminCookie;
 const clientCookie   = require('./utils/utils.js').clientCookie;
 const notAdminCookie = require('./utils/utils.js').notAdminCookie;
 
+const ratingPayload  = { agencyEmail: 'test@test.com', rating:'gold', cvid: '112312143cvid', vid:'121312414vid'};
+const jobPayload     = { vid:'121312414vid', jobTitle: 'Tester', jobDescription: 'testing everything', jobCategory: 'test', teamCulture: 'anal', typesOfProjects: 'tests', teamSize: 5, skillOne: 'test', skillTwo: 'test again', skillThree: 'test more', personality: 'persistant', salary: 100000, searchProgress: 'slow', searchDeadline: '12\/12\/2016' };
+
+
 server.init(0, (err, server) => {
 
 
@@ -24,6 +28,15 @@ server.init(0, (err, server) => {
 
     testEndPoint(server, '/admin/job/123', 'GET', 200, 'admin gets 200 response', adminCookie);
     testEndPoint(server, '/admin/job/123', 'GET', 403, 'nonAdmin gets 403 response', notAdminCookie);
+
+    testEndPoint(server,'/admin/job/remove/123','GET', 200, 'server responds with new view', adminCookie);
+    testEndPoint(server,'/admin/job/reject','GET', 200, 'server responds with true', adminCookie);
+    
+    // testEndPoint(server,'/rating/','GET', 200, 'server responds with true', adminCookie, ratingPayload);
+    testEndPoint(server,'/admin/job/122131vid/test@test.com','GET', 200,'server responds with new view', adminCookie);
+    testEndPoint(server,'/approveuser/approve/VKADAKSD/test@test.com','GET', 200,'server responds with new view', adminCookie);
+
+   
 
     testEndPoint(server, '/approveuser/approve/id/me@me.com', 'GET', 302 ,'unauthed  redirected to login');
 

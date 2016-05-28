@@ -1,7 +1,7 @@
 'use strict';
 
 const test = require('tape');
-const moment = require('moment');
+//const moment = require('moment');
 
 const server = require('../lib/index.js');
 const redis = require('../lib/db/redis.js');
