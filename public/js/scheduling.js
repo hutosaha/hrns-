@@ -56,7 +56,7 @@ $(function() {
             return  $('.message').addClass('ui info').text('We need the date, time, stage and location of the interview'); 
         } else {
             let formData = $('form[name='+cvid+']').each(function(){ $(this).find(':input');});
-            return  sendFormData(formData);
+            return  sendFormData(formData ,cvid);
         }   
     });
 
@@ -68,7 +68,7 @@ $(function() {
         return field ==''|| field == null;
     };
 
-    let sendFormData = (formData) => {
+    let sendFormData = (formData, cvid) => {
         var data = formData.serialize();
         $.ajax({
             type: 'POST',
@@ -86,6 +86,7 @@ $(function() {
             },
             error: function(res) {
                 console.log("ERROR", res);
+                $('#' + cvid).modal('hide');
                 document.getElementById('message').innerHTML = 'Sorry, there was an error. Please try again!';
             }
 
