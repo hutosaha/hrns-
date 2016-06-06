@@ -1,1 +1,0 @@
-This is needed for pushin gto git otherwise the directory will be reported empty.

@@ -81,6 +81,7 @@ $(function() {
                     $('#' + cvid).modal('hide');
                     $('form[name='+cvid+']').find("input, textarea").val("");
                 } else {
+                    $('#' + cvid).modal('hide');
                     document.getElementById('message').innerHTML = 'Sorry, there was an error. Please try again!';
                 }
             },
