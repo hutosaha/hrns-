@@ -28,7 +28,7 @@ $(function() {
                 success: function(res) {
                     if (res) {
                         $('#message').addClass('ui massive info message')
-                        .text("Congratulaitons! we\'ve emailed both parties, the interview is now confirmed, good luck!!"); // change to something better...
+                        .text("Congratulations! We\'ve emailed both parties, the interview is now confirmed, good luck!"); // change to something better...
                         button.removeClass('ui button confirm-date').addClass('ui header green').text('Confirmed');
                         $('.button').remove(); // remove 
                     } else {
