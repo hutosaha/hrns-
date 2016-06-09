@@ -28,7 +28,8 @@ test('formatEmailToAdminForGenericCV correctly renders HTML', (t) => {
 
 test('emailAdminForGenericCV callbacks as expected', (t) => {
 
-  emailAdminForGenericCV({}, '', (res) => {
+  emailAdminForGenericCV(undefined, '', (res) => {
+    console.log('>>>>>>>>>>>>>>>>>>>>>>>',res);
     let expected = false;
     let actual = res;
     t.equal(actual, expected, 'handles failure');

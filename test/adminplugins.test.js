@@ -46,7 +46,6 @@ server.init(0, (err, server) => {
          testPayload(server, '/admin/job/test-adminjob', 'GET', 'developer', 'admin job page delivers vid job title', adminCookie);
 
     });*/
-
  /*
 
         client.hmset('test-vid-12345', { jobTitle: 'developer' }, () => {

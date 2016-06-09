@@ -10,7 +10,7 @@ const nonExistingUserCookie = require('./utils/utils.js').nonExistingUserCookie;
 
 const clientSignupPayload = { contactName: 'Huw Davies', email: 'me@me.com', contactNumber: '08372974723', companyName: 'Facebook Ltd.', companyDescription: 'Social media application', companySize: '500+', website: 'http://facebook.com', twitter: '@facebook' };
 const jobPayload          = { jobTitle: 'Tester', jobDescription: 'testing everything', jobCategory: 'test', teamCulture: 'anal', typesOfProjects: 'tests', teamSize: 5, skillOne: 'test', skillTwo: 'test again', skillThree: 'test more', personality: 'persistant', salary: 100000, searchProgress: 'slow', searchDeadline: '12\/12\/2016' };
-const jobQuery            = '?jobTitle=Tester&jobDescription=testing%20everything&jobCategory=test&teamCulture=anal&typesOfProjects=tests&teamSize=5&skillOne=test&skillTwo=test%20again&skillThree=test%20more&personality=persistant&salary=100000&searchProgress=slow&searchDeadline=12/12/2016';
+const jobQuery            = '?jobTitle=Tester&jobDescription=testing%20everything&jobCategory=test&teamCulture=anal&typesOfProjects=tests&teamSize=5&skillOne=test&skillTwo=test%20again&skillThree=test%20more&personality=persistant&salary=100000&searchProgress=slow&searchDeadline=12/12/2016&vid=12345&agencyId=123&agencyEmail=test@test.com&candidateName=Joe%20Bloggs';
 
 server.init(0, (err, server) => {
 
