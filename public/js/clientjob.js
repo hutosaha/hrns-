@@ -35,13 +35,13 @@ $(document).ready(function() {
              
             if (fileName !== 'notFound') {
                 var pdf = "/public/assets/ViewerJS/#../downloads/" + fileName;                       
-                var word ="https://view.officeapps.live.com/op/embed.aspx?src=http://localhost:8000/public/assets/downloads/"+fileName;
+                var word ="https://view.officeapps.live.com/op/embed.aspx?src=wprocess.env.DOMAIN/public/assets/downloads/"+fileName;
                 ext === 'pdf' ? viewFile(fileName,relatedInfoObject, pdf) : viewFile(fileName, relatedInfoObject, word);
             } else {
                 downloadFile(cvUrl, ext, (fileName) => {
                 console.log('EXT', ext, fileName);
                 var pdf = "/public/assets/ViewerJS/#../downloads/" + fileName;                       
-                var word ="https://view.officeapps.live.com/op/embed.aspx?src=http://localhost:8000/public/assets/downloads/"+fileName;
+                var word ="https://view.officeapps.live.com/op/embed.aspx?src=wprocess.env.DOMAIN/public/assets/downloads/"+fileName;
                 ext === 'pdf' ? viewFile(fileName, relatedInfoObject, pdf) : viewFile(fileName, relatedInfoObject, word);
                     
                 });
