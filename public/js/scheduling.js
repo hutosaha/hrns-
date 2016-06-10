@@ -26,8 +26,7 @@ $(function() {
         var vid = $('#go-back').data('url').split('/')[3]
             url =  "/admin/job/"+vid
         ;
-        });
-        
+           
     }else {
         url = $(this).data('url');
     }
