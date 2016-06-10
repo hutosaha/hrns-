@@ -2,9 +2,6 @@ var $ = window.$;
 
 $(function() {
 
-    // replaces a link so the admin can't click the button
-   
-
     // function for getting query string
     function getParameterByName(name, url) {
         if (!url) url = window.location.href;
@@ -16,24 +13,22 @@ $(function() {
         return decodeURIComponent(results[2].replace(/\+/g, " "));
     }
 
-    var url;
     if (getParameterByName('type') === 'admin') {
         // disable save changes, reject, and go back buttons for Admin. 
+        var vid = $('#go-back').data('url').split('/')[3]
+        $('#go-back').attr('data-url', "/admin/job/"+vid)
         $('.reject-button').remove();
         $('.right.menu h4').remove();
-        $('.send-interview').remove();
-
-        var vid = $('#go-back').data('url').split('/')[3]
-            url =  "/admin/job/"+vid
-        ;
-           
-    }else {
-        url = $(this).data('url');
+        $('.send-interview').remove();        
     }
 
-    $('#go-back').on('click', function(url) {
-           
-            window.location.replace(url);    
+    
+    // replaces a link so the admin can't click the button
+    $('#go-back').on('click', function() {
+        var url = $(this).data('url');
+
+
+        window.location.replace(url);
     });
 
 
