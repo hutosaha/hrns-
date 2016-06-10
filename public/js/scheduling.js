@@ -16,21 +16,26 @@ $(function() {
         return decodeURIComponent(results[2].replace(/\+/g, " "));
     }
 
+    var url;
     if (getParameterByName('type') === 'admin') {
         // disable save changes, reject, and go back buttons for Admin. 
-        var vid = $('#go-back').data('url').split('/')[3]
-        var url =  "/admin/job/"+vid
-        $('#go-back').attr('data-url', url)
         $('.reject-button').remove();
         $('.right.menu h4').remove();
         $('.send-interview').remove();
 
-         $('#go-back').on('click', function() {
-            var url = $(this).data('url');
-            window.location.replace(url);
+        var vid = $('#go-back').data('url').split('/')[3]
+            url =  "/admin/job/"+vid
+        ;
         });
         
+    }else {
+        url = $(this).data('url');
     }
+
+    $('#go-back').on('click', function(url) {
+           
+            window.location.replace(url);    
+    });
 
 
     $("input:radio").on('click', function() {
