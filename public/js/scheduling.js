@@ -24,11 +24,12 @@ $(function() {
     if (getParameterByName('type') === 'admin') {
         // disable save changes, reject, and go back buttons for Admin. 
         var vid = $('#go-back').data('url').split('/')[3]
-        $('#go-back').attr('data-url', "/admin/job/"+vid)
+        var url =  "/admin/job/"+vid
+        $('#go-back').attr('data-url', url)
         $('.reject-button').remove();
         $('.right.menu h4').remove();
         $('.send-interview').remove();
-        
+
         
     }
 
