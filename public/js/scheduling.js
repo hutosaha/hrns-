@@ -3,12 +3,7 @@ var $ = window.$;
 $(function() {
 
     // replaces a link so the admin can't click the button
-    $('#go-back').on('click', function() {
-        var url = $(this).data('url');
-
-
-        window.location.replace(url);
-    });
+   
 
     // function for getting query string
     function getParameterByName(name, url) {
@@ -30,6 +25,10 @@ $(function() {
         $('.right.menu h4').remove();
         $('.send-interview').remove();
 
+         $('#go-back').on('click', function() {
+            var url = $(this).data('url');
+            window.location.replace(url);
+        });
         
     }
 
