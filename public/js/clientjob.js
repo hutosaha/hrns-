@@ -5,7 +5,7 @@ var $ = window.$;
 
 
 $(document).ready(function() {
-    let clearDownloads = () => {
+    var clearDownloads = () => {
         $.ajax({
             url: '/client/clear-downloads',
             async: true,
