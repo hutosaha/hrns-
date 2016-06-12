@@ -121,7 +121,7 @@ $(function() {
             }
         });
 
-        $('.confirm-rejection-button').click(function() {
+        $('.confirm-rejection-button').off().on('click', function() {   // only allow one event to trigger ajax
             $('.first.modal.reject').modal('hide');
             $('.second.modal.reject-modal').modal('show', '.first.modal .button');
 
@@ -140,16 +140,19 @@ $(function() {
                     stage: currentStage
                 },
                 async: true,
-                success: function(res) {
-                    if (res) {
-                        var rejectButton = document.getElementById(cvid);
-                        rejectButton.closest('.listView').remove();
-                        
-
-                        if ($('.listView').length === 0) {
+                success: function(cvid) {
+                    if (cvid) {
+                       document.getElementById(cvid+'row').remove();
+                       window.location.reload(true);
+                       if ($('.row').length === 0) {
                             $('#message').html('There are no approved candidates at the moment... Come back when there are!');
                         }
                     }
+                },
+                error: function(res) {
+                    console.log("ERROR", res);
+                    $('#' + cvid).modal('hide');
+                    document.getElementById('message').innerHTML = 'Sorry, there was an error. Please try again!';
                 }
             });
 
