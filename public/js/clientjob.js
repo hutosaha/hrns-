@@ -2,21 +2,22 @@
 
 var $ = window.$;
 
-window.onbeforeunload = () => {
-    $.ajax({
-        url: '/client/clear-downloads',
-        async: true,
-        success: function(response) {
-            console.log(response);
-        }
-    });
-};
+
 
 $(document).ready(function() {
+    let clearDownloads = () => {
+        $.ajax({
+            url: '/client/clear-downloads',
+            async: true,
+            success: function(response) {
+                console.log(response);
+            }
+        });
+    };
 
     if ($('.listView').length === 0) { $('.message').html('There are no candidates yet!'); }
 
-    $('.cv-viewer').on('click',function(e) {
+    $('.cv-viewer').on('click', function(e) {
         e.preventDefault();
         const relatedInfoObject = {
             candidateName: $(this).data('candidate-name'),
@@ -32,18 +33,18 @@ $(document).ready(function() {
         const ext = cvUrl.substr(cvUrl.lastIndexOf('.') + 1);
 
         isFileAlreadyDownloaded(cvUrl, (fileName) => {
-             
+
             if (fileName !== 'notFound') {
-                var pdf = "/public/assets/ViewerJS/#../downloads/" + fileName;                       
-                var word ="https://view.officeapps.live.com/op/embed.aspx?src=http://localhost:8000/public/assets/downloads/"+fileName;
-                ext === 'pdf' ? viewFile(fileName,relatedInfoObject, pdf) : viewFile(fileName, relatedInfoObject, word);
+                var pdf = "/public/assets/ViewerJS/#../downloads/" + fileName;
+                var word = "https://view.officeapps.live.com/op/embed.aspx?src=http://localhost:8000/public/assets/downloads/" + fileName;
+                ext === 'pdf' ? viewFile(fileName, relatedInfoObject, pdf) : viewFile(fileName, relatedInfoObject, word);
             } else {
                 downloadFile(cvUrl, ext, (fileName) => {
-                console.log('EXT', ext, fileName);
-                var pdf = "/public/assets/ViewerJS/#../downloads/" + fileName;                       
-                var word ="https://view.officeapps.live.com/op/embed.aspx?src=http://localhost:8000/public/assets/downloads/"+fileName;
-                ext === 'pdf' ? viewFile(fileName, relatedInfoObject, pdf) : viewFile(fileName, relatedInfoObject, word);
-                    
+                    console.log('EXT', ext, fileName);
+                    var pdf = "/public/assets/ViewerJS/#../downloads/" + fileName;
+                    var word = "https://view.officeapps.live.com/op/embed.aspx?src=http://localhost:8000/public/assets/downloads/" + fileName;
+                    ext === 'pdf' ? viewFile(fileName, relatedInfoObject, pdf) : viewFile(fileName, relatedInfoObject, word);
+
                 });
             }
         });
@@ -80,10 +81,10 @@ $(document).ready(function() {
     };
 
     var viewFile = (fileName, relatedInfoObject, src) => {
-        $('#iframeId' ).attr('src', src);
+        $('#iframeId').attr('src', src);
         $('.ui.basic.doc-viewer.modal').modal('show');
-        
-        console.log('RO2' ,relatedInfoObject);
+
+        console.log('RO2', relatedInfoObject);
         const candidateName = relatedInfoObject.candidateName;
         const cvid = relatedInfoObject.cvid;
         const vid = relatedInfoObject.vid;
@@ -101,9 +102,9 @@ $(document).ready(function() {
                 if (this.checked)
                     $inputs.not(this).prop('checked', !this.checked);
             });
-        }); 
+        });
 
-        $('.confirm-rejection-button').off().on('click',function() {
+        $('.confirm-rejection-button').off().on('click', function() {
             $('.first.modal.reject').modal('hide');
             $('.second.modal.reject-modal').modal('show', '.first.modal .button');
             $('.second.coupled.modal.accept-modal').modal('hide');
@@ -139,7 +140,7 @@ $(document).ready(function() {
 
 
         $('.basic-modal-accept').click(function() {
-  
+            clearDownloads();
             $('.ui.basic.doc-viewer.modal').modal('hide');
             //  $('.accept-candidateName').html(candidateName);
 
@@ -190,8 +191,7 @@ $(document).ready(function() {
     // Currently need these as well inorder to be active before the cv viewer is clicked.
 
     $('.reject-button').click(function() { // reject button 
-
-
+        clearDownloads();
         const candidateName = $(this).data('candidate-name');
         const cvid = $(this).data('cvid');
         const vid = $(this).data('vid');
