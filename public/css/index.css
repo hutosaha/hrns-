@@ -416,6 +416,21 @@ MEDIA QUERIES
 ================================
 ================================*/
 
+@media only screen and (min-width:300px) and (max-width: 520px){
+   .main-pic {
+      display: none;
+    }
+     .home-container {
+        text-align: center;
+        width:auto;
+        postion: relative;
+        background-color: black;
+        height: 40em;
+    }
+
+
+}
+
 
 /*==============================
  mobile view 
@@ -429,19 +444,20 @@ MEDIA QUERIES
 
     .home-container {
         text-align: center;
-        height: 45em;
         width:auto;
         postion: relative;
         background-color: black;
     }
     .intro-text {
+        
+        max-width:80%;
         text-align: center;
         margin: auto;
         text-align: center;
         font-size: 0.75em;
-        width: 20em;
-        max-width: 100%;
-        top: 10%;
+        position: absolute;
+        top:15%;
+        right:10%;
     }
     .intro-text strong {
         font-size: 120%;
@@ -450,7 +466,7 @@ MEDIA QUERIES
         margin-top: 1em;
     }
     .main-pic {
-      display: none;
+      height:30em;
     }
     .image-round-container p:last-child {
         display: none;
@@ -474,7 +490,7 @@ MEDIA QUERIES
     .overview-heading {
         display: block;
     }
-    on live jobs page #80 .live-job-element {
+    .live-job-element {    /*  on live jobs page #80  */
         height: 90px;
         line-height: 70px;
     }
@@ -482,23 +498,22 @@ MEDIA QUERIES
         text-align: center;
         margin: auto;
         text-align: center;
-        font-size: 1em;
-        width: 20em;
+        font-size: 0.8em;
+        width: 40em;
         max-width: 100%;
-        right: 20%;
-        top: 10%;
+        right: 15%;
+        top: 12%;
     }
     .intro-text strong {
         font-size: 120%;
     }
     .findout-more {
-        margin-top: 1em;
+        margin-top: 0em;
     }
     .main-pic {
-        height: auto;
+        height: 30em;
         width: auto;
         position: center;
-        opacity: 0.5;
     }
     .image-round-container p:last-child {
         display: none;
@@ -523,15 +538,15 @@ small than a 14inch laptop
     .overview-heading {
         display: block;
     }
-    on live jobs page #80 .live-job-element {
+    .live-job-element { /*     on live jobs page #80  */
         height: 90px;
         line-height: 70px;
     }
     .intro-text {
         top: 15%;
-        right: 25%;
+        right: 20%;
         text-align: center;
-        max-width: 50%;
+        max-width: 60%;
         margin-top: 2em;
     }
     .home.logo {
@@ -542,11 +557,14 @@ small than a 14inch laptop
         top: 3%;
     }
     .main-pic {
-        height: 45em;
+        height: 40em;
         width: 100%;
     }
     .scheduling-header-margin p:last-child{
         font-size:0.85em;
+    }
+    .findout-more {
+        margin-top: 0em;
     }
 }
 
