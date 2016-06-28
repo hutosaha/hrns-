@@ -107,7 +107,7 @@ h5 {
 }
 
 .findout-more {
-    position: realtive;
+    position: relative;
     text-align: center;
     margin: auto;
     margin-top: 8em;
@@ -125,7 +125,7 @@ h5 {
 .home-container {
     text-align: center;
     max-height: 60em;
-    postion: relative;
+    position: relative;
     background-color: black;
 }
 
@@ -150,7 +150,7 @@ h5 {
 }
 
 .ui.linkedin.button {
-    marign: 5em;
+    margin: 5em;
     border-radius: 0px;
     background-color: #19b7ca;
     width: 170px;
@@ -420,10 +420,10 @@ MEDIA QUERIES
    .main-pic {
       display: none;
     }
-     .home-container {
+    .home-container {
         text-align: center;
         width:auto;
-        postion: relative;
+        position: relative;
         background-color: black;
         height: 40em;
     }
@@ -445,7 +445,7 @@ MEDIA QUERIES
     .home-container {
         text-align: center;
         width:auto;
-        postion: relative;
+        position: relative;
         background-color: black;
     }
     .intro-text {
@@ -501,8 +501,8 @@ MEDIA QUERIES
         font-size: 0.8em;
         width: 40em;
         max-width: 100%;
-        right: 15%;
-        top: 12%;
+        right: 18%;
+        top:20%;
     }
     .intro-text strong {
         font-size: 120%;
@@ -512,8 +512,7 @@ MEDIA QUERIES
     }
     .main-pic {
         height: 30em;
-        width: auto;
-        position: center;
+        width: 100%;
     }
     .image-round-container p:last-child {
         display: none;
