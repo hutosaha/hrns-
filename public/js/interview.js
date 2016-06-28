@@ -1,3 +1,6 @@
+
+"use strict";
+
 var $ = window.$;
 
 $(function() {
