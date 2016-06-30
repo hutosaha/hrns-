@@ -4,7 +4,7 @@ const test = require('tape');
 const client = require('../../lib/db/client.js');
 
 client.select(3, () => {
-    console.log('db 3');
+    console.log('db 3>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
 });
 
 let app = module.exports = {};
@@ -77,5 +77,5 @@ app.testPayload = (server, endpoint, method, expectedString, message, COOKIE, pa
                 t.end();
             });
         });
-    client.flushdb();
+        client.flushdb();
 };

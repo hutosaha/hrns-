@@ -29,7 +29,6 @@ test('formatEmailToAdminForGenericCV correctly renders HTML', (t) => {
 test('emailAdminForGenericCV callbacks as expected', (t) => {
 
   emailAdminForGenericCV(undefined, '', (res) => {
-    console.log('>>>>>>>>>>>>>>>>>>>>>>>',res);
     let expected = false;
     let actual = res;
     t.equal(actual, expected, 'handles failure');
@@ -73,7 +72,7 @@ test('sector helper correctly formats key values', (t) => {
     t.end();
 });
 
-test('format reason correctly formats reaons', (t) => {
+test('format reason correctly formats reasons', (t) => {
     let expected = 'The client said your candidate didn\'t have enough experience for the role';
     let actual = formatReason('not_enough');
     t.equal(actual, expected, 'works!');

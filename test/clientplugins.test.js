@@ -14,7 +14,7 @@ const jobQuery            = '?jobTitle=Tester&jobDescription=testing%20everythin
 
 server.init(0, (err, server) => {
 
-    client.select(3, function(){});
+    client.select(3, function(){
 
     testEndPoint(server, '/client', 'GET', 200, 'authed GET responds with 200', clientCookie);
 
@@ -40,12 +40,16 @@ server.init(0, (err, server) => {
     testEndPoint(server, '/client/job/accept'+jobQuery, 'GET', 200, 'endpoint responds with:', clientCookie, jobPayload); //split responds with null
     testEndPoint(server, '/client/file-exists?cvUrl=https://harnesscvbucket.s3.amazonaws.com/1212312332test.docx', 'GET', 200, 'endpoint responds with:', clientCookie); 
     //testEndPoint(server, '/client/clear-downloads', 'GET', 200, 'endpoint responds with:', clientCookie);  hangs tests and del dwonloads
+    
 
+    testEndPoint(server, '/client/scheduling/12345vid/testJob/testCompany', 'GET', 200, 'endpoint responds with:', clientCookie); 
+    testEndPoint(server, '/client/scheduling/reject', 'GET', 200, 'endpoint responds with', clientCookie);
 
+    });
 
 
     // testEndPoint(server, '/submitjob', 'POST', 200, 'endpoint responds with:', clientCookie, jobPayload, 'testid'); /FAIL ACTUAL 400
-   // testEndPoint(server, '/client/download-file/https://harnesscvbucket.s3.amazonaws.com/a694ed00-1b6a-11e6-82e5-e1271374d0e5-ac09d1b0-15d9-11e6-976b-b5b20bd88088-Faces flat design (small).jpg', 'GET', 200, 'endpoint responds with:', clientCookie);
+    // testEndPoint(server, '/client/download-file/https://harnesscvbucket.s3.amazonaws.com/a694ed00-1b6a-11e6-82e5-e1271374d0e5-ac09d1b0-15d9-11e6-976b-b5b20bd88088-Faces flat design (small).jpg', 'GET', 200, 'endpoint responds with:', clientCookie);
  
 
     server.stop();

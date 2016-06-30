@@ -34,6 +34,7 @@ server.init(0, (err, server) => {
 
         testEndPoint(server, '/interview/email/interviewId', 'GET', 200, 'authed GET responds with 200', clientCookie);
         testEndPoint(server, '/change/interview', 'POST', 200, 'authed GET responds with 200', clientCookie, interviewPayload);
+        
     server.stop();
 });
 
