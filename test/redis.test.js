@@ -102,9 +102,9 @@ server.init(1, (err, server) => {
             payload = {
                 firstName: 'Joe',
                 surname: 'Bloggs',
-                agencyContactName:'Joe Bloggs',
-                agencyContactNumber:'0222222222',
-                agencyCompanyName:'TEST A PLC',
+                agencyContactName: 'Joe Bloggs',
+                agencyContactNumber: '0222222222',
+                agencyCompanyName: 'TEST A PLC',
                 agencyEmail: 'test@test.com'
             };
             redis.addAgencySignUpDetails(payload, hash, () => {
@@ -144,17 +144,17 @@ server.init(1, (err, server) => {
             });
         });
         test('getSetMembers correctly retrieves set members', (t) => {
-                hash  = 'test12';
+            hash = 'test12';
             let hash2 = 'test13',
                 hash3 = 'test14',
                 testSet = 'testSet5';
-            client.sadd(testSet, hash, hash2, hash3 , (err, reply) => {
+            client.sadd(testSet, hash, hash2, hash3, (err, reply) => {
                 redis.getSetMembers(testSet, (res) => {
                     t.deepEqual(res.length, 3, 'correct set has been returned!');
                     t.end();
                 });
             });
-           
+
         });
 
         test('getVacancydetails ', (t) => {
@@ -197,10 +197,10 @@ server.init(1, (err, server) => {
                 vid: vid,
                 clientId: id,
                 dateSubmitted: 'Thu, Jun 9, 2016',
-                searchDeadline: 'Thu, Jun 29, 2016'
+                searchDeadline: 'Thu, Jun 29, 2016',
+                stage: 'stageOne'
             }
             redis.addJob(payload, id, vid, (res) => {
-                console.log('RES', res);
                 client.exists(vid, (err, reply) => {
                     t.equal(reply, 1, 'vid exists in database');
                 });
@@ -217,32 +217,33 @@ server.init(1, (err, server) => {
         test('getInterviewDetails adds new times to interview object', (t) => {
             let newTimes = {
                 firstIntDate: 'Thu, Jun 9, 2016',
-                firstIntTime: '12:12', 
+                firstIntTime: '12:12',
                 interviewAddress: 'Buckingham Palace',
                 interviewId: 'testinterviewId',
-                jobTitle:'Tester',
+                jobTitle: 'Tester',
                 candidateName: 'Joe Testy',
-                vid:'testvid',
-                cvid:'testcvid',
-                clientId:' test6',
+                vid: 'testvid',
+                cvid: 'testcvid',
+                clientId: ' test6',
                 agencyId: 'test7',
-                stage: 'stageTwo'
+                stage: 'stageOne',
+                confirmed: 'true'
             }
             redis.getInterviewDetails(newTimes, (res) => {
-                console.log('XXXXXXXXXXXXXXXX',res); ///// posibble error with getInterviewData agency details are undefined. 
+                //console.log('XXXXXXXXXXXXXXXX',res); ///// posibble error with getInterviewData agency details are undefined. 
                 let resLength = Object.keys(res).length;
-                t.equals(resLength, 18, 'newtimes agency and client detaisl pulled together');
+                t.equals(resLength, 19, 'newtimes agency and client detaisl pulled together');
                 t.end();
-
-            })
+            });
         });
 
         test('addcvagainstvacancy, does what it says', (t) => {
             let vid = 'testvid';
             let cvid = 'testcvid';
             let payload = {
-                file_url: 'https://harnesscvbucket.s3.amazonaws.com/' + cvid
+                file_url: 'https://harnesscvbucket.s3.amazonaws.com/' + cvid,
             };
+
             redis.addCVagainstVacancy(payload, cvid, vid, (res) => {
                 client.exists(cvid, (err, reply) => {
                     t.equal(reply, 1, 'cv exists in database');
@@ -255,19 +256,102 @@ server.init(1, (err, server) => {
         });
 
         test('adminApproveCV adds rating to the cvid  and adds cvid to client shortlist and removed from admin shortlist', (t) => {
-            let vid  = 'testvid';
+            let vid = 'testvid';
             let cvid = 'testcvid';
-            let rating ='gold';
+            let rating = 'gold';
+
 
             redis.adminApproveCV(cvid, vid, rating, (res) => {
-                client.hexists(cvid, 'rating',(err,reply) => {
-                    t.equal(reply,1, 'rating has been added to cvid exists');
+                client.hexists(cvid, 'rating', (err, reply) => {
+                    t.equal(reply, 1, 'rating has been added to cvid exists');
                 });
                 client.sismember(vid + 'clientShortlist', cvid, (err, reply) => {
-                    t.equal(reply,1, 'cvid added to client shortlist')
+                    t.equal(reply, 1, 'cvid added to client shortlist')
                 });
                 client.sismember(vid + 'adminShortlist', cvid, (err, reply) => {
-                    t.equal(reply,0, 'cvid removes from admin shortlist');
+                    t.equal(reply, 0, 'cvid removes from admin shortlist');
+                    t.end();
+                });
+
+            });
+        });
+
+        test('moveToNextInterviewStage moves the cvid from previous stage to new stage list', (t) => {
+            let cvid = 'testcvid';
+            let vid = 'testvid';
+            let nextStage = 'stageTwo';
+            let interviewId = 'testinterviewId';
+
+            client.saddAsync(vid + 'stageOne', cvid)
+                .then(() => {
+                    client.hsetAsync(cvid, 'stage', 'stageOne')
+                })
+                .then(() => {
+
+                    redis.moveToNextInterviewStage(cvid, vid, nextStage, interviewId, (err, reply) => {
+                        client.hget(cvid, 'stage', (err, reply) => {
+                            t.equal(reply, 'stageTwo', 'cvid hash stage key has been  updated to stageTwo')
+                        });
+                        client.hget(interviewId, 'confirmed', (err, reply) => {
+                            t.equal(reply, 'true', 'cvid hash stage key has been  updated to stageTwo')
+
+                        });
+                        client.sismember(vid + 'stageTwo', cvid, (err, reply) => {
+                            t.equal(reply, 1, 'cvid has been moved to nextStage set');
+
+                        });
+                        client.sismember(vid + 'stageOne', cvid, (err, reply) => {
+                            t.equal(reply, 0, 'cvid has been removed from previousStage set');
+                            t.end();
+                        });
+                    });
+                })
+        });
+
+        test('cleanupset removes hashes in set that no longer exist in the db',(t) => {
+            let set       = 'testset';
+            let hash      = { keyName: 'value'}
+            let hashKey   = 'testhash';
+            let dummyHash = 'dummyHash' ;
+
+            client.hmsetAsync(hashKey, hash)
+                .then(() => {
+                    client.saddAsync(set, hash, dummyHash)
+                })
+                .then(() => {
+                    redis.cleanUpSet(set , (err,reply) => { 
+                        client.exists(dummyHash, (err,reply) => {
+                            t.equal(reply, 0, 'check hash doesn\'t exists in db')
+                        })
+                        client.sismember(set, dummyHash, (err,reply) => {
+                            t.equal(reply,1, 'check that dummy hash isn\'t in set')
+                            t.end();
+                        })
+                    });
+                })
+        })
+
+        test('setHashKeyValue set the key value within in a hash and callsback true or false', (t) => {
+            let hash   = 'testset';
+            let expected =  { keyName:'value'} 
+            let key = 'keyName';
+            let value = 'value';
+
+            redis.setHashKeyValue(hash, key, value, (err,reply) => {
+                    client.hgetall(hash, (err, reply) => {
+                        t.deepEqual(reply, expected, 'sets the expected hash')
+                        t.end();   
+                    });                             
+            });
+        });
+
+        test('removeCV removes cv from stage set', (t) => {
+            let cvid = 'testcvid';
+            let set = 'testvidstageTwo';
+
+            redis.removeCV(cvid, set, (res) => {
+                client.sismember('testvidStageTwo', cvid, (err, reply) => {
+                    t.equal(reply, 0, 'remove cvid from stageTwo set')
                     t.end();
                 });
             });
@@ -277,7 +361,6 @@ server.init(1, (err, server) => {
             let id = 'testid';
             let vid = 'testvid';
             redis.removeVacancy(vid, id, (res) => {
-                console.log('RES', res);
                 client.exists(vid, (err, reply) => {
                     t.equal(reply, 0, 'cv exists in database');
                 });
@@ -296,19 +379,3 @@ server.init(1, (err, server) => {
     server.stop();
 });
 
-
-/* test('test hset', (t) => {
-       let id = 'testhashid';
-       let key = 'fieldname';
-       let value ='value';
-       redis.setHashKeyValue(id, key, value, (res) => {
-           console.log('RES', res);
-           client.exists(id, key,(err,reply) => {
-               t.equal(reply,1, 'hash key exists in db');
-               t.end();
-               //client.flushdb();
-               client.quit();
-           });
-
-       });
-  });*/
