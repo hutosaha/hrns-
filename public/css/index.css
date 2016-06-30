@@ -118,13 +118,14 @@ h5 {
 }
 
 .main-pic {
-    height: 55em;
+    height: 100%;
     width: 100%;
 }
 
 .home-container {
     text-align: center;
-    max-height: 60em;
+    margin-top: 58px;
+    width: 100%;
     position: relative;
     background-color: black;
 }
