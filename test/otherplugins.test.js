@@ -2,6 +2,7 @@
 
 const test   = require('tape');
 const Hapi   = require('hapi');
+const qs     = require('querystring');
 
 const server = require('../lib/index.js');
 const client = require('../lib/db/client.js');
@@ -54,13 +55,14 @@ server.init(0, (err, server) => {
     testEndPoint(server, '/logout', 'GET', 200, 'auth user responds with response 200', clientCookie);
 
     testEndPoint(server, '/login/client', 'GET', 302, 'auth user redirects with:', clientCookie, null, 'testid');
- 
-    testEndPoint(server, '/sign_s3', 'GET', 200, 'endpoint responds with:', agencyCookie);
-
+    let query = qs.stringify({ file_type: 'docx', file_name: 'Test'});
+    testEndPoint(server, '/sign_s3?'+query, 'GET', 200, 'endpoint responds with:', agencyCookie);
     
-
-    server.stop();
+    let cvUrl = qs.stringify({cvUrl:'CV-Web-Development(1).docx'});
+    //testEndPoint(server, '/client/download-file?'+cvUrl, 'GET', 200 , 'endpoint responds with:',clientCookie) opertaor fail.
+ 
 
     });
+       server.stop();
 
 });
