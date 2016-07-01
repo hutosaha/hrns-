@@ -1,3 +1,6 @@
+'use strict'; 
+
+const test = require('tape');
 const server = require('../lib/index.js');
 const client = require('../lib/db/client.js');
 
@@ -39,14 +42,15 @@ server.init(1, (err, server) => {
                         client.hmsetAsync('122123interviewId', interviewPayload);
                     })
                     .then(() => {
-                      //  testEndPoint(server, '/interview/proposed', 'POST', 200, 'serves 400', clientCookie, newTimes); 
-                        testEndPoint(server, '/interview/confirmed?confirmedIntTime=12:12&confirmedIntDate12/12/2015&interviewId=122123interviewId', 'GET', 200, 'authed GET responds with 200', clientCookie);
+                      //testEndPoint(server, '/interview/proposed', 'POST', 200, 'serves 200', clientCookie, newTimes); 
+                      //testEndPoint(server, '/interview/confirmed?confirmedIntTime=12:12&confirmedIntDate12/12/2015&interviewId=122123interviewId', 'GET', 200, 'authed GET responds with 200', clientCookie);
 
                     });
             });
 
         testEndPoint(server, '/interview/email/interviewId', 'GET', 200, 'authed GET responds with 200', clientCookie);
         testEndPoint(server, '/change/interview', 'POST', 200, 'authed GET responds with 200', clientCookie, interviewPayload);
+           
     });
     server.stop();
 });

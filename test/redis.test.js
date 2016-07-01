@@ -371,10 +371,18 @@ server.init(1, (err, server) => {
                 client.sismember('liveJobs', vid, (err, reply) => {
                     t.equal(reply, 0, 'cv is not in livejobs set');
                     t.end();
-                    client.quit();
+                  
                 });
             });
         });
+         test('trying to stop tests' , (t) => {
+            let result =1;
+            t.equal(result, 1, 'we have a passed')
+            t.end()
+            setTimeout( () => {
+                client.quit();
+            },3000);
+        })    
     });
     server.stop();
 });

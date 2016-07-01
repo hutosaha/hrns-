@@ -15,7 +15,7 @@ const cvPayload                    = { candidateName: 'Johnny Rotten', jobTitle:
 
 server.init(0, (err, server) => {
 
-    client.select(3, function(){});
+    client.select(3, ()=>{
 
     testPayload(server, '/agency/job/wrong-vid', 'GET', 'Sorry, something went wrong', 'error handles incorrect vid', agencyCookie);
 
@@ -45,7 +45,7 @@ server.init(0, (err, server) => {
     
     testEndPoint(server, '/submitvacancycv/12133123vid', 'POST', 200, 'submitCV against vacancy', agencyCookie, cvPayload);
 
-
+});
 
     server.stop();
 });

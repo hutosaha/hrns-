@@ -14,7 +14,7 @@ const jobQuery            = '?jobTitle=Tester&jobDescription=testing%20everythin
 
 server.init(0, (err, server) => {
 
-    client.select(3, function(){
+    client.select(3, () => {
 
     testEndPoint(server, '/client', 'GET', 200, 'authed GET responds with 200', clientCookie);
 
