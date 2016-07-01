@@ -5,6 +5,7 @@ const server = require('../lib/index.js');
 const client = require('../lib/db/client.js');
 
 const testEndPoint = require('./utils/utils.js').testEndPoint;
+const qs = require('querystring');
 //const testPayload  = require('./utils/utils.js').testPayload;
 
 const clientCookie = require('./utils/utils.js').clientCookie;
@@ -27,17 +28,20 @@ const jobPayload = {
     personality: 'persistant',
     salary: 100000,
     searchProgress: 'slow',
-    searchDeadline: '12\/12\/2016'
+    searchDeadline: '12\/12\/2016',
+    clientId: 'TESTCLIENTID'
 };
 
 
 const interviewPayload = {
-    cvid: '7805be70-1d8f-11e6-abf0-51e6e54c9703cvid',
+    cvid: 'testcvid',
     stage: 'stageOne',
     agencyId: '7PP6QGWdXN',
+    agencyEmail:'test@test.com',
+    clientEmail:'test@test.com',
     candidateName: 'John Wayne',
     jobTitle: 'porn star',
-    vid: 'efcd47b0-1b6a-11e6-82e5-e1271374d0e5vid',
+    vid: 'test-vid',
     firstIntDate: '23/05/2016',
     firstIntTime: '12:12',
     secondIntDate: '23/05/2016',
@@ -45,7 +49,9 @@ const interviewPayload = {
     thirdIntDate: '23/05/2016',
     thirdIntTime: '10:10',
     additionalComments: 'Meet under the clock',
-    interviewAddress: '12 Abbey Road'
+    interviewAddress: '12 Abbey Road',
+    confirmed: 'false',
+    interviewId: 'test2interviewId'
 };
 
 const newTimes = {
@@ -60,8 +66,17 @@ const newTimes = {
     jobTitle: 'TESTER',
     vid: 'test-vid',
     additionalComments: 'Meet under the clock',
-    interviewAddress: '12 Abbey Road'
+    interviewAddress: '12 Abbey Road',
+    agencyId:'TESTAGENCYID',
+   
 };
+
+const confirmedTime ={ 
+    confirmedIntTime: '12:12',
+    confirmedIntDate: '12/12/2015',
+    interviewAddress: '12 Abbey Road',
+    interviewId:  'test2interviewId'
+}
 
 server.init(0, (err, server) => {
     client.select(2, () => {
@@ -69,18 +84,20 @@ server.init(0, (err, server) => {
         client.hmsetAsync('test-vid', jobPayload)
             .then(() => {
                 client.hmsetAsync('TESTAGENCYID', agencySignupPayload)
-                    .then(() => {
-                       client.hmsetAsync('TESTCLIENTID', clientSignupPayload)
-                    })
-                    .then(() => {
-                        testEndPoint(server, '/interview/proposed', 'POST', 200, 'serves 200', clientCookie, newTimes);
-                        //testEndPoint(server, '/interview/confirmed?confirmedIntTime=12:12&confirmedIntDate12/12/2015&interviewId=122123interviewId', 'GET', 200, 'authed GET responds with 200', clientCookie);
+                client.hmsetAsync('TESTCLIENTID', clientSignupPayload)
+                client.hmsetAsync('test2interviewId', interviewPayload)
+            })
+            .then(() => {
+                testEndPoint(server, '/interview/proposed', 'POST', 200, 'serves 200', clientCookie, newTimes);
+                testEndPoint(server, '/interview/email/test2interviewId', 'GET', 200, 'authed GET responds with 200', clientCookie);
+                testEndPoint(server, '/interview/email/dummyinterviewId', 'GET', 200, 'authed GET responds with 200', clientCookie);
+                testEndPoint(server, '/change/interview', 'POST', 200, 'authed GET responds with 200', clientCookie, interviewPayload);
+                let query = qs.stringify(confirmedTime);
+                testEndPoint(server, '/interview/confirmed?'+query, 'GET', 200, 'authed GET responds with 200', clientCookie);            
 
-                    });
-            });
+            })
+            .catch();
 
-       // testEndPoint(server, '/interview/email/interviewId', 'GET', 200, 'authed GET responds with 200', clientCookie);
-        //testEndPoint(server, '/change/interview', 'POST', 200, 'authed GET responds with 200', clientCookie, interviewPayload);
 
     });
     server.stop();

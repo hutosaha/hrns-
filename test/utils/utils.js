@@ -30,7 +30,7 @@ app.testEndPoint = (server, endpoint, method, statusCode, message, COOKIE, paylo
             server.inject(options, (res) => {
                 t.equal(res.statusCode, statusCode, 'TEST ENDPOINT:- ' + message);
                 t.end();
-                client.flushdb();
+                //client.flushdb();
             });
         });
        
@@ -69,7 +69,7 @@ app.testPayload = (server, endpoint, method, expectedString, message, COOKIE, pa
                 let expected = true;
                 t.equal(actual, expected, 'TEST PAYLOAD:- ' + message + ' ' + expectedString);
                 t.end();
-                client.flushdb();
+                //client.flushdb();
             });
         });
        
