@@ -379,6 +379,6 @@ test('trying to stop tests', (t) => {
     setTimeout(() => {
         client.flushdb();
         client.quit();
-    }, 3000);
+    }, 5000);
 })
 
