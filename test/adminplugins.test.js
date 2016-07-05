@@ -12,8 +12,11 @@ const clientCookie   = require('./utils/utils.js').clientCookie;
 const notAdminCookie = require('./utils/utils.js').notAdminCookie;
 
 const ratingPayload  = { agencyEmail: 'test@test.com', rating:'gold', cvid: '112312143cvid', vid:'121312414vid'};
-const jobPayload     = { vid:'121312414vid', jobTitle: 'Tester', jobDescription: 'testing everything', jobCategory: 'test', teamCulture: 'anal', typesOfProjects: 'tests', teamSize: 5, skillOne: 'test', skillTwo: 'test again', skillThree: 'test more', personality: 'persistant', salary: 100000, searchProgress: 'slow', searchDeadline: '12\/12\/2016' };
+const jobPayload     = { vid:'test3Vid', clientId:'clientId', clientEmail: 'client@test.com', jobTitle: 'Tester', jobDescription: 'testing everything', jobCategory: 'test', teamCulture: 'anal', typesOfProjects: 'tests', teamSize: 5, skillOne: 'test', skillTwo: 'test again', skillThree: 'test more', personality: 'persistant', salary: 100000, searchProgress: 'slow', searchDeadline: '12\/12\/2016' };
+const cvPayload      = { cvid:'testCvid', candidateName: 'Johnny Rotten', jobTitle: 'muppet', email: 'test@test.com', contactNumber: '0823748237', salary: '30000', linkedInProfile: 'https://linkedin', file_name: 'testcv.doc', file_url: 'https://torhuw-hrns.s3.amazonaws.com/testcv.doc'};
 
+const vid  = 'test3Vid';
+const cvid = 'testCvid'
 
 server.init(0, (err, server) => {
 
@@ -25,15 +28,25 @@ server.init(0, (err, server) => {
     testEndPoint(server, '/admindashboard', 'GET', 302, 'unauth user responds redirected to login');
 
     testEndPoint(server, '/adminvacancies', 'GET', 200, 'admin viewing vacancies responds with 200', adminCookie);
-
-    testEndPoint(server, '/admin/job/123', 'GET', 200, 'admin gets 200 response', adminCookie);
+  
+    client.hmsetAsync(vid, jobPayload)
+        .then(()=>{
+            client.sadd(vid+'adminShortlist', vid)
+            client.hmset(cvid, cvPayload);
+        })
+        .then(()=>{
+            testEndPoint(server,'/admin/job/test3Vid', 'GET', 200, 'admin gets 200 response', adminCookie);        
+            testEndPoint(server,'/admin/job/dummyVid', 'GET', 200, 'admin gets 200 response', adminCookie);   
+            testEndPoint(server,'/admin/job/'+vid+'/client@test.com','GET', 200,'server responds with new view', adminCookie);            
+            testEndPoint(server, '/rating?agencyEmail=agency@test.com&rating=gold&cvid='+ cvid +'&vid='+vid, 'GET', 200, 'server responds with redirect',adminCookie);
+            testEndPoint(server,'/admin/job/reject?agencyEmail=test@test.com&cvid=testCvid&vid='+vid,'GET', 200, 'server responds with true', adminCookie);
+            testEndPoint(server,'/admin/job/remove/test3Vid','GET', 200, 'server responds with new view', adminCookie);
+        })
+        .catch();
+     
     testEndPoint(server, '/admin/job/123', 'GET', 403, 'nonAdmin gets 403 response', notAdminCookie);
 
-    testEndPoint(server,'/admin/job/remove/123','GET', 200, 'server responds with new view', adminCookie);
-    testEndPoint(server,'/admin/job/reject','GET', 200, 'server responds with true', adminCookie);
     
-    // testEndPoint(server,'/rating/','GET', 200, 'server responds with true', adminCookie, ratingPayload);
-    testEndPoint(server,'/admin/job/122131vid/test@test.com','GET', 200,'server responds with new view', adminCookie);
     testEndPoint(server,'/approveuser/approve/VKADAKSD/test@test.com','GET', 200,'server responds with new view', adminCookie);
 
    
@@ -41,32 +54,7 @@ server.init(0, (err, server) => {
     testEndPoint(server, '/approveuser/approve/id/me@me.com', 'GET', 302 ,'unauthed  redirected to login');
 
     testEndPoint(server, '/approveusers', 'GET', 200, 'authed GET responds with 200', adminCookie);
-/*
- /*   client.hmset('test-adminjob', { jobTitle: 'developer' }, () => {
-         testPayload(server, '/admin/job/test-adminjob', 'GET', 'developer', 'admin job page delivers vid job title', adminCookie);
 
-    });*/
- /*
-
-        client.hmset('test-vid-12345', { jobTitle: 'developer' }, () => {
-            test.only('returns status code', (t) => {
-                let options = {
-                    method: 'GET',
-                    url: '/admin/job/test-vid-12345',
-                    headers: { cookie: adminCookie }
-
-                };
-                server.inject(options, (res) => {
-                    console.log('PAYLOAD', res.payload);
-                    let actual = res.payload.indexOf('developer') > -1;
-                    let expected = true;
-                    t.equal(actual, expected, 'TEST PAYLOAD:-');
-                    // client.flushdb();
-                    t.end();0
-                });
-            });
-        });
-*/
 
     client.hset('id', 'type', 'agency', () => {
         client.sadd('approvedUsers', 'id', () => {
