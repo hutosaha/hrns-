@@ -38,7 +38,7 @@ $(function() {
                 var agencyEmail = $(this).data("agency-email");
 
                 $.ajax({
-                    url: '/rating/',
+                    url: '/rating',
                     data: {
                         cvid: cvid,
                         vid: vid,
