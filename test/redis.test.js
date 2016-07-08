@@ -7,6 +7,8 @@ const server = require('../lib/index.js');
 const redis = require('../lib/db/redis.js');
 const client = require('../lib/db/client.js');
 
+const jobPayload = { jobTitle: 'Tester', jobDescription: 'testing everything', jobCategory: 'test', teamCulture: 'startup', typesOfProjects: 'tests', teamSize: 5, skillOne: 'test', skillTwo: 'test again', skillThree: 'test more', personality: 'persistant', salary: 100000, searchProgress: 'slow', searchDeadline: '12\/12\/2016' };
+
 let hash, payload;
 
 
@@ -372,6 +374,24 @@ test('removeVacancy removes from livejobs and idjobs', (t) => {
         });
     });
 });
+
+test('addCvToHarnessTalent add to agencyId harness talentList HarnessTalenAdmin, creates cvid hash',(t) => {
+    let agencyId = 'agencyId';
+    let cvid     = 'testcvid';
+    jobPayload.agencyId =agencyId;
+
+    redis.addCvToHarnessTalent(cvid , jobPayload, (res) => {
+        client.sismember(agencyId+'HarnessTalentShortList', cvid , (err,reply) => {
+            t.equal(reply, 1, 'cvid has been added to agencyId harness talent set');
+        })
+        client.sismember(agencyId+'HarnessTalentShortList', cvid , (err,reply) => {
+            t.equal(reply, 1, 'cvid has been added to harness talent adminshortlist ');
+            t.end();
+        })
+    })
+
+})
+
 test('trying to stop tests', (t) => {
     let result = 1;
     t.equal(result, 1, 'we have a passed')
