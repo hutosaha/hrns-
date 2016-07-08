@@ -26,10 +26,13 @@ $(function() {
         $('.ui.first.coupled.modal.reject-modal').modal('show');
 
         let $inputs = $('input[name=rejection-reason]');
+        
         $('input[name=rejection-reason]').change(function() {
             if (this.checked)
                 $inputs.not(this).prop('checked', !this.checked);
         });
+
+        
    
 
 	    $('.button.confirm-rejection-button').click(() => {
@@ -37,7 +40,11 @@ $(function() {
 	        $('.second.modal.reject-modal').modal('show', '.first.modal .button');
 	        $('.second.coupled.modal.accept-modal').modal('hide');
 
-	        let reason = $('input[name="rejection-reason"]:checked').val();
+	       	let reason = $('input[name=rejection-other-reason]').val();
+
+	       	if(reason === ""){
+ 				reason = $('input[name="rejection-reason"]:checked').val();
+	       	}
 
             $.ajax({
                 url: '/harnesstalent/reject',
