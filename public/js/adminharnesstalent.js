@@ -30,9 +30,7 @@ $(function() {
         $('input[name=rejection-reason]').change(function() {
             if (this.checked)
                 $inputs.not(this).prop('checked', !this.checked);
-        });
-
-        
+        });       
    
 
 	    $('.button.confirm-rejection-button').click(() => {

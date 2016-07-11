@@ -375,7 +375,7 @@ test('removeVacancy removes from livejobs and idjobs', (t) => {
     });
 });
 
-test('addCvToHarnessTalent add to agencyId harness talentList HarnessTalenAdmin, creates cvid hash',(t) => {
+/*test('addCvToHarnessTalent add to agencyId harness talentList HarnessTalenAdmin, creates cvid hash',(t) => {
     let agencyId = 'agencyId';
     let cvid     = 'testcvid';
     jobPayload.agencyId =agencyId;
@@ -391,7 +391,7 @@ test('addCvToHarnessTalent add to agencyId harness talentList HarnessTalenAdmin,
     })
 
 })
-
+*/
 test('trying to stop tests', (t) => {
     let result = 1;
     t.equal(result, 1, 'we have a passed')
