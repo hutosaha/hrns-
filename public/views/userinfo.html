@@ -43,10 +43,10 @@
       <div class="hide-element hidden-group" id="{{id}}">
             <div class="ui stackable sixteen column grid">
                <div class="ui row">
-                    <div class="five wide column">
+                    <div class="two wide column">
                       <img class="ui company-logo" src="{{logo_url}}"/>
                     </div>
-                     <div class="five wide column text-overflow-element">
+                     <div class="two wide column text-overflow-element">
                       <h5>Sector</h5>
                       {{sector companySector}}
                     </div>
@@ -62,13 +62,13 @@
                       <a href="{{website}}"><p>{{website}}</p></a>
                       {{/if }}
                     </div>
-                    <div class="column text-overflow-element">
+                    <div class="three wide column text-overflow-element">
                       {{#if facebook}}
                       <h5>Facebook</h5>
                       <a href="{{facebook}}"><p>{{facebook}}</p></a>
                       {{/if }}
                     </div>
-                    <div class="column text-overflow-element">
+                    <div class="three wide column text-overflow-element">
                       {{#if linkedin}}
                       <h5>LinkedIn</h5>
                       <a href="{{linkedin}}"><p>{{linkedin}}</p></a>
@@ -99,20 +99,20 @@
     {{/unless}}
     {{#each agencies}}
         <div class="ui stackable grid">
-            <div class="ui six column row">
-              <div class="column text-overflow-element">
+            <div class="ui row">
+              <div class="three wide column text-overflow-element">
                 <h5>Company Name</h5>
                 <p>{{companyName}}</p>
               </div>
-              <div class="column text-overflow-element">
+              <div class="three wide column text-overflow-element">
                 <h5>Contact</h5>
                 <p>{{contactName}}</p>
               </div>
-              <div class="column text-overflow-element">
+              <div class="three wide column text-overflow-element">
                 <h5>Contact Number</h5>
                 <a href="tel:{{contactNumber}}"><p>{{contactNumber}}</p></a>
               </div>
-              <div class="column text-overflow-element">
+              <div class="four wide column text-overflow-element">
                 <h5>Email</h5>
                 <a href="mailto:{{email}}"><p>{{email}}</p></a>
               </div>
@@ -120,7 +120,7 @@
                 <h5>Size</h5>
                 <p>{{companySize}}</p>
               </div>
-              <div class="column text-overflow-element">
+              <div class="two wide column text-overflow-element">
                 <h5>Specialism</h5>
                 {{sector agencySpecialism}}
               </div>

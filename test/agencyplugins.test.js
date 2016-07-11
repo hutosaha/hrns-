@@ -11,11 +11,11 @@ const agencyLoginEndPoint = process.env.AGENCY_LOGIN_ENDPOINT;
 
 const incorrectAgencySignupPayload = { contactName: 2, companyName: 23, contactNumber: 'asdasd' };
 const agencySignupPayload          = { contactName: 'Joe Bloggs', companyName: 'google', contactNumber: '0823748237', email: 'fac@hotmail.com', companySize: '50-200', agencySpecialism: 'Creative' };
-//  const cvPayload                    = { candidateName: 'Johnny Rotten', jobTitle: 'muppet', email: 'test@test.com', contactNumber: '0823748237', salary: '30000', linkedInProfile: 'https://linkedin', file_name: 'testcv.doc', file_url: 'https://torhuw-hrns.s3.amazonaws.com/testcv.doc'};
+const cvPayload                    = { candidateName: 'Johnny Rotten', jobTitle: 'muppet', email: 'test@test.com', contactNumber: '0823748237', salary: '30000', linkedInProfile: 'https://linkedin', file_name: 'testcv.doc', file_url: 'https://torhuw-hrns.s3.amazonaws.com/testcv.doc'};
 
 server.init(0, (err, server) => {
 
-    client.select(3, function(){});
+    client.select(3, ()=>{
 
     testPayload(server, '/agency/job/wrong-vid', 'GET', 'Sorry, something went wrong', 'error handles incorrect vid', agencyCookie);
 
@@ -39,5 +39,13 @@ server.init(0, (err, server) => {
             testPayload(server, '/agency', 'GET', 'There are no vacancies', 'agency homepage apologies with no vacancies', agencyCookie);
           });
      });
+
+    testEndPoint(server, '/agency/myjobs', 'GET', 200, 'server responds with 200', agencyCookie); // need agency credentials 
+    testEndPoint(server, '/agency/myjobs/remove?vid=12131312vid', 'GET', 200, 'server responds with 200', agencyCookie); // need agency credentials 
+    
+    testEndPoint(server, '/submitvacancycv/12133123vid', 'POST', 200, 'submitCV against vacancy', agencyCookie, cvPayload);
+
+});
+
     server.stop();
 });

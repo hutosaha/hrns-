@@ -1,14 +1,8 @@
+"use strict";
+
 var $ = window.$;
 
 $(function() {
-
-    // replaces a link so the admin can't click the button
-    $('#go-back').on('click', function() {
-        var url = $(this).data('url');
-
-
-        window.location.replace(url);
-    });
 
     // function for getting query string
     function getParameterByName(name, url) {
@@ -23,10 +17,17 @@ $(function() {
 
     if (getParameterByName('type') === 'admin') {
         // disable save changes, reject, and go back buttons for Admin. 
-        $('button').addClass('disabled');
-        $('button').addClass('hide');
-
+        $('#go-back').remove();
+        $('.reject-button').remove();
+        $('.right.menu h4').remove();
+        $('.send-interview').remove();        
     }
+
+    // replaces a link so the admin can't click the button
+    $('#go-back').on('click', function() {
+        var url = $(this).data('url');
+        window.location.replace(url);
+    });
 
 
     $("input:radio").on('click', function() {
@@ -56,7 +57,7 @@ $(function() {
             return  $('.message').addClass('ui info').text('We need the date, time, stage and location of the interview'); 
         } else {
             let formData = $('form[name='+cvid+']').each(function(){ $(this).find(':input');});
-            return  sendFormData(formData);
+            return  sendFormData(formData ,cvid);
         }   
     });
 
@@ -68,7 +69,7 @@ $(function() {
         return field ==''|| field == null;
     };
 
-    let sendFormData = (formData) => {
+    let sendFormData = (formData, cvid) => {
         var data = formData.serialize();
         $.ajax({
             type: 'POST',
@@ -81,11 +82,13 @@ $(function() {
                     $('#' + cvid).modal('hide');
                     $('form[name='+cvid+']').find("input, textarea").val("");
                 } else {
+                    $('#' + cvid).modal('hide');
                     document.getElementById('message').innerHTML = 'Sorry, there was an error. Please try again!';
                 }
             },
             error: function(res) {
                 console.log("ERROR", res);
+                $('#' + cvid).modal('hide');
                 document.getElementById('message').innerHTML = 'Sorry, there was an error. Please try again!';
             }
 
@@ -120,7 +123,7 @@ $(function() {
             }
         });
 
-        $('.confirm-rejection-button').click(function() {
+        $('.confirm-rejection-button').off().on('click', function() {   // only allow one event to trigger ajax
             $('.first.modal.reject').modal('hide');
             $('.second.modal.reject-modal').modal('show', '.first.modal .button');
 
@@ -139,16 +142,19 @@ $(function() {
                     stage: currentStage
                 },
                 async: true,
-                success: function(res) {
-                    if (res) {
-                        var rejectButton = document.getElementById(cvid);
-                        rejectButton.closest('.listView').remove();
-                        
-
-                        if ($('.listView').length === 0) {
+                success: function(cvid) {
+                    if (cvid) {
+                       document.getElementById(cvid+'row').remove();
+                       window.location.reload(true);
+                       if ($('.row').length === 0) {
                             $('#message').html('There are no approved candidates at the moment... Come back when there are!');
                         }
                     }
+                },
+                error: function(res) {
+                    console.log("ERROR", res);
+                    $('#' + cvid).modal('hide');
+                    document.getElementById('message').innerHTML = 'Sorry, there was an error. Please try again!';
                 }
             });
 

@@ -6,23 +6,25 @@
             <img class="ui middle aligned small company-logo image" src="{{data.logo_url}}">
                                 
           </div>
-          <div class="column">
+      
+      </div>
+      <div class="ui row">
+          <div class="three wide column">
               <h5>Salary:</h5>
               <p>{{data.salary}}</p>
           </div>
-            <div class="column">
+            <div class="three wide column">
               <h5>Submitted:</h5>
               <p>{{data.dateSubmitted}}</p>
           </div>
           {{#if data.searchDeadline}}
-          <div class="column">
+          <div class="three wide column">
               <h5>Deadline:</h5>
               <p>{{data.searchDeadline}}</p>
           </div>
           {{/if}}
+       
       </div>
-
-
       <div class="ui one column row">
           <div class="column">
               <h5>Job Description:</h5>

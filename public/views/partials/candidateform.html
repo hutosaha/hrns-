@@ -1,27 +1,27 @@
 <div class="two fields">
     <div class="required field">
         <label for="candidateName"> Name </label>
-        <input type="text" name="candidateName" placeholder="Name" pattern="{{frontendInput}}"  maxlength="100" value="George Jefferson" required>
+        <input type="text" name="candidateName" placeholder="Name" pattern="{{frontendInput}}" maxlength="100" required>
     </div>
     <div class="required field">
         <label for="jobTitle"> Job Title </label>
-        <input type="text" name="jobTitle" placeholder="Job Title" pattern="{{frontendInput}}"  maxlength="100" value="developer" required>
+        <input type="text" name="jobTitle" placeholder="Job Title" pattern="{{frontendInput}}" maxlength="100" required>
     </div>
 </div>
 <div class="two fields">
     <div class="required field">
         <label for="email"> Email Address </label>
-        <input type="email" name="email" placeholder="Email address" maxlength="100" value="boo@test.com" required>
+        <input type="email" name="email" placeholder="Email address" maxlength="100" required>
     </div>
     <div class="required field">
         <label for='contactNumber'> Phone Number </label>
-        <input type="tel" name='contactNumber' placeholder="Phone Number" maxlength="20" pattern={{phoneNumber}} title="Please enter numbers only" value="07739399939" required>
+        <input type="tel" name='contactNumber' placeholder="Phone Number" maxlength="20" pattern={{phoneNumber}} title="Please enter numbers only" required>
     </div>
 </div>
 <div class="two fields">
-    <div class="required field">
-        <label for="salary"> Current Salary </label>
-        <input type="text" name="salary" placeholder="Current Salary" pattern="{{frontendInput}}"  maxlength="100" value="£60000" required>
+    <div class="required  field">
+        <label for="salary"> Current Salary (£)</label>
+        <input type="number" name="salary" pattern="{{frontendInput}}" title="No 'greater than' or 'less than' symbols" min="0" step="1000" maxlength="100" placeholder="e.g. £70,000" required>
     </div>
     <div class="field">
         <label for="linkedInProfile"> LinkedIn </label>
@@ -38,4 +38,3 @@
         <input type="submit" value="Submit" class="ui blue button">
     </div>
 </div>
-

@@ -9,8 +9,8 @@
 </div>
 <div class="ui divider"></div>
 {{#unless data}}
-<h3 class="ui header">Doesn't look like there's any accepted candidates right now... Go back and accept some <a href="/client/job/{{vid}}">here!</a></h3> {{/unless}} {{#if data}}
-<div class="overview-heading">
+<h3 class="ui header">Doesn't look like there's any accepted candidates right now...</h3> {{/unless}} {{#if data}}
+<div class="overview-heading">  <!-- This the headings  -->
     <div class="ui stackable grid">
         <div class="three wide column text-overflow-element">
             <h4>Name</h4>
@@ -19,7 +19,7 @@
             <h4>Salary</h4>
         </div>
         <div class="three wide column text-overflow-element">
-            <h4>Current Job Title</h4>
+            <h4>Agency Email</h4>
         </div>
         <div class="four wide column text-overflow-element text-centering">
             <h4>Interview Stage</h4>
@@ -33,7 +33,7 @@
     <div class="ui stackable grid application-stages scheduling-header-margin">
         <div class="eight wide column"></div>
         <div class="one wide column accepted">
-            <p class="">Accepted</p>
+            <p class="accepted">Accepted</p>
         </div>
         <div class="one wide column">
             <p>1st</p>
@@ -47,9 +47,10 @@
     </div>
     <div class="ui divider"></div>
 </div>
-{{#each data}}
-<div class="ui stackable grid listView">
-    <div class="row">
+
+<div class="ui stackable vertically divided grid listView" > 
+{{#each data}}  <!-- his is the data rows  -->
+    <div class="row " id ="{{cvid}}row">
         <div class="three wide column text-overflow-element">
             <h5>{{candidateName}}  <a href="{{file_url}}" type="text" download>(CV)</a></h5>
         </div>
@@ -57,7 +58,7 @@
             <h5>{{salary}}</h5>
         </div>
         <div class="three wide column text-overflow-element">
-            <h5>{{jobTitle}}</h5>
+            <h5>{{agencyEmail}}</h5>
         </div>
         <div class="one wide column">
             <div class="ui radio checkbox">
@@ -89,11 +90,13 @@
         <div class="two wide column">
             <button data-cvid="{{cvid}}" data-vid="{{vid}}" data-candidate-name="{{candidateName}}" data-current-stage="{{stage}}" data-agency-email="{{agencyEmail}}" data-agency-id="{{agencyId}}" class="ui inverted red button reject-button">Reject</button>
         </div>
+
     </div>
-    <div class="ui  modal interview hide-element" id="{{cvid}}" ">
+    <div class="ui  modal interview hide-element" id="{{cvid}}" "><!-- this is the interview form -->
+
         <i class="close icon"></i>
         <div class="header">
-            Arrange an Interview
+            Arrange an Interview for: &nbsp {{candidateName}}
         </div>
         <div class="ui content">
             <div class=" sixteen column row  ">
@@ -164,13 +167,13 @@
             </div>
         </div>
     </div>
+    
+    {{/each }} 
 </div>
-<div class="ui divider"></div>
-{{/each }} 
+
 {{> rejectcandidatemodal}} 
 {{> savechanges}} 
 {{/if }}
 <script type="text/javascript" src="/public/js/scheduling.js"></script>
 <script type="text/javascript" src="/public/js/jobCharacterCounter.js"></script>
 <script type="text/javascript" src="/public/js/datepicker.js"></script>
-<a href=""></a>

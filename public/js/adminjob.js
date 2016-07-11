@@ -6,8 +6,6 @@ $(function() {
     $('.ui.dropdown')
         .dropdown('set selected', 'value');
 
-    var allInputs = $(":input[type=hidden]");
-
 
     $('#submitRatings').on('click', function() {
 
@@ -28,6 +26,7 @@ $(function() {
         $('.ui.first.modal.confirmation-modal').modal('hide');
         $('.second.modal.confirmation-modal').modal('show', '.first.modal .button');
 
+        var allInputs = $(":input[type=hidden]");
         allInputs.each(function() {
 
             var rating = $(this).val();
@@ -39,7 +38,7 @@ $(function() {
                 var agencyEmail = $(this).data("agency-email");
 
                 $.ajax({
-                    url: '/rating/',
+                    url: '/rating',
                     data: {
                         cvid: cvid,
                         vid: vid,
@@ -67,7 +66,7 @@ $(function() {
                     }
                 });
             } else {
-                console.log('!Rating', rating);
+               console.log('Has No Rating')
             }
         });
     });
@@ -123,14 +122,6 @@ $(function() {
                     console.log(thrownError);
                 }
             });
-
-
         });
-
-
-
     });
-
-
-
 });
