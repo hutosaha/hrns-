@@ -9,7 +9,7 @@
 - Mail client: Mailgun
 - 0Auth2: Linkedin 
 
-### Languages, Framworks and Libaries
+### Languages, Frameworks and Libaries
 - Node.js
 - Hapi.js
 - Semantic.ui
