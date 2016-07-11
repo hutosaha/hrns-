@@ -109,16 +109,19 @@
                     <h4 class="ui dividing header"> Proposed time, date and location</h4>
                      <h4 class="message"></h4>
                     <div class="inline fields">
-                        <label for="firstIntTime"> 1st Choice Date & Time </label>
-                        <div class="five wide field">
-                            <input name="firstIntDate" class="datepicker" required>
-                        </div>
-                        <div class="field">
-                            <input name="firstIntTime" type="time" required></input>
+                        <div class="required sixteen wide field">
+                            <label for="firstIntTime"> 1st Choice Date & Time </label>
+                            <div class="five wide field">
+                                <input name="firstIntDate" class="datepicker" required>
+                            </div>
+                            <div class="field">
+                                <input name="firstIntTime" type="time" required></input>
+                            </div>
                         </div>
                     </div>
 
                     <div class="inline fields">
+
                         <label for="secondIntTime"> 2nd Choice Date & Time </label>
                         <div class="five wide field">
                             <input name="secondIntDate" class="datepicker">
@@ -137,9 +140,11 @@
                         </div>
                     </div>
                     <div class="inline fields">
-                        <label>Full Interview Address:</label>
-                        <div class="required eight wide inline field">
+                        <div class="required eight wide field">
+                            <label>Full Interview Address:</label>
+                            <div class="required eight wide inline field">
                             <input type="text" id="interviewAddress" name="interviewAddress" placeholder="Buckingham Palace, London SW1A 1AA " required></input>
+                            </div>
                         </div>
                     </div>
                     <div class="inline fields">
