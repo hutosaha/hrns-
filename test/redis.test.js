@@ -307,7 +307,7 @@ test('moveToNextInterviewStage moves the cvid from previous stage to new stage l
         })
 });
 
-test('cleanupset removes hashes in set that no longer exist in the db', (t) => {
+/*test('cleanupset removes hashes in set that no longer exist in the db', (t) => {
     let set = 'testset';
     let hash = { keyName: 'value' }
     let hashKey = 'testhash';
@@ -329,7 +329,7 @@ test('cleanupset removes hashes in set that no longer exist in the db', (t) => {
             });
         })
 })
-
+*/
 test('setHashKeyValue set the key value within in a hash and callsback true or false', (t) => {
     let hash = 'testset';
     let expected = { keyName: 'value' }
@@ -399,6 +399,6 @@ test('trying to stop tests', (t) => {
     setTimeout(() => {
         client.flushdb();
         client.quit();
-    }, 5000);
+    }, 10000);
 })
 
