@@ -48,7 +48,7 @@
     <div class="ui divider"></div>
 </div>
 
-<div class="ui stackable vertically divided grid listView" > 
+<div class="ui stackable vertically divided grid listView" >
 {{#each data}}  <!-- his is the data rows  -->
     <div class="row " id ="{{cvid}}row">
         <div class="three wide column text-overflow-element">
@@ -108,14 +108,16 @@
                     <input type="hidden" name="jobTitle" value="{{jobTitle}}">
                     <h4 class="ui dividing header"> Proposed time, date and location</h4>
                      <h4 class="message"></h4>
-                    <div class="inline fields">
+                     <div class="inline fields">
+                       <div class="required sixteen wide field">
                         <label for="firstIntTime"> 1st Choice Date & Time </label>
-                        <div class="five wide field">
+                          <div class="five wide field">
                             <input name="firstIntDate" class="datepicker" required>
-                        </div>
+                          </div>
                         <div class="field">
                             <input name="firstIntTime" type="time" required></input>
                         </div>
+                      </div>
                     </div>
 
                     <div class="inline fields">
@@ -137,10 +139,12 @@
                         </div>
                     </div>
                     <div class="inline fields">
+                      <div class="required eight wide field">
                         <label>Full Interview Address:</label>
                         <div class="required eight wide inline field">
                             <input type="text" id="interviewAddress" name="interviewAddress" placeholder="Buckingham Palace, London SW1A 1AA " required></input>
                         </div>
+                      </div>
                     </div>
                     <div class="inline fields">
                       <div class="required six wide field">
@@ -160,19 +164,19 @@
                         </div>
                     </div>
                     <div class="actions">
-                       
+
                         <button type="submit"  class="ui green large button send-interview" data-candidate-name="{{candidateName}}" data-job-title="{{jobTitle}}" data-cvid="{{cvid}}">Send</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-    
-    {{/each }} 
+
+    {{/each }}
 </div>
 
-{{> rejectcandidatemodal}} 
-{{> savechanges}} 
+{{> rejectcandidatemodal}}
+{{> savechanges}}
 {{/if }}
 <script type="text/javascript" src="/public/js/scheduling.js"></script>
 <script type="text/javascript" src="/public/js/jobCharacterCounter.js"></script>
