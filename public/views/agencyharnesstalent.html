@@ -4,27 +4,30 @@
 <h3 class="ui message">{{{message}}} </h3>
 {{/if }}
 
-{{#if data}}
+
 <div class="overview-heading">
+
     <div class="ui stackable grid">
       <div class="three wide column text-overflow-element">
-        <h4>Name</h4>
+      {{#if data}}  <h4>Name</h4>{{/if }}
+      </div>
+
+      <div class="two wide column text-overflow-element">
+        {{#if data}}<h4>Job Title</h4>{{/if }}
       </div>
       <div class="two wide column text-overflow-element">
-        <h4>Job Title</h4>
-      </div>
-      <div class="two wide column text-overflow-element">
-        <h4>Company</h4>
+        {{#if data}}<h4>Company</h4>{{/if }}
       </div>
       <div class="two wide column text-overflow-element text-centering">
-        <h4>Fee</h4>
+        {{#if data}}<h4>Fee</h4>{{/if }}
       </div>
       <div class="three wide column text-overflow-element">
-         <h4>Interview Requested</h4>
+        {{#if data}} <h4>Interview Requested</h4>{{/if }}
       </div>
       <div class="four wide column text-overflow-element">
         <a href="/agency/submitcandidate"><button class="ui large blue button">Submit Candidate</button></a>
       </div>
+
     </div>
     <div class="ui divider"></div>
 </div>
@@ -42,19 +45,20 @@
   </div>
   <div class="two wide column">
     <p>{{fee}}</p>
-  </div> 
+  </div>
    <div class="two wide column">
     <p>{{fee}}</p>
-  </div> 
+  </div>
   <div class="two wide column">
     <p>{{dateSubmitted}}</p>
-  </div> 
+  </div>
+  {{#if data}}
   <div class="two wide column client-button">
     <a href="#1">
       <button class="ui inverted tiny blue button">Request Interview</button>
     </a>
   </div>
+  {{/if }}
 </div>
 <div class="ui divider"></div>
 {{/each}}
-{{/if }}
