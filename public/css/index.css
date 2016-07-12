@@ -321,6 +321,12 @@ Agency Login
 }
 
 
+
+.ui.form .two.fields>.field, .ui.form .two.fields>.fields {
+    width:63%;
+}
+
+
 /*===========================
   Vacancy partial
   ===========================*/

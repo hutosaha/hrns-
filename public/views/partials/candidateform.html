@@ -30,6 +30,20 @@
     </div>
 </div>
 <div class="two fields">
+    <div class="required field">
+    <label for="contractType" >Contract Type</label>
+        <select name="contractType" class="ui dropdown">
+            <option value="permanent">Permanent</option>
+            <option value="contract">Contract</option>
+            <option value="both">Both</option>
+        </select>
+    </div>
+    <div class="field">
+        <label for='location'> Location </label>
+        <input type="text" name='location' placeholder="town or city" maxlength="20"  title="please enter the nearest town or city" required>
+    </div>
+</div>
+<div class="two fields">
     <div class="required  field">
         <label for="salary"> Current Salary (£)</label>
         <input type="number" name="salary" pattern="{{frontendInput}}" title="No 'greater than' or 'less than' symbols" min="0" step="1000" maxlength="100" placeholder="e.g. £70,000" required>
