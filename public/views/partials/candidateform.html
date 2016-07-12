@@ -10,12 +10,37 @@
 </div>
 <div class="two fields">
     <div class="required field">
+        <label for="company">Company</label>
+        <input type="text" name="company" placeholder="employer or company name" pattern="{{frontendInput}}" maxlength="100" required>
+    </div>
+    <div class="required field">
+        <label for="jobCategory">Job Category</label>
+        <input type="text" name="jobCategory" placeholder="Industry or sector" pattern="{{frontendInput}}" maxlength="100" required>
+    </div>
+
+</div>
+<div class="two fields">
+    <div class="required field">
         <label for="email"> Email Address </label>
         <input type="email" name="email" placeholder="Email address" maxlength="100" required>
     </div>
     <div class="required field">
         <label for='contactNumber'> Phone Number </label>
         <input type="tel" name='contactNumber' placeholder="Phone Number" maxlength="20" pattern={{phoneNumber}} title="Please enter numbers only" required>
+    </div>
+</div>
+<div class="two fields">
+    <div class="required field">
+    <label for="contractType" >Contract Type</label>
+        <select name="contractType" class="ui dropdown">
+            <option value="permanent">Permanent</option>
+            <option value="contract">Contract</option>
+            <option value="both">Both</option>
+        </select>
+    </div>
+    <div class="required field">
+        <label for='location'> Location </label>
+        <input type="text" name='location' placeholder="town or city" maxlength="20"  title="please enter the nearest town or city" required>
     </div>
 </div>
 <div class="two fields">

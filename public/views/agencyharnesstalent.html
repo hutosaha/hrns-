@@ -1,0 +1,72 @@
+<h1 class="ui block header">Harness Talent <p class="sub-heading">Welcome to Harness talent, the elite top 5% of avaialble, pre-qualified, candidates.</p>  </h1>
+<div class="ui divider"></div>
+{{#if message}}
+<h3 class="ui message">{{{message}}} </h3>
+{{/if }}
+
+
+<div class="overview-heading">
+
+    <div class="ui stackable grid">
+      <div class="three column row">
+            <div class="column"></div>
+            <div class="seven wide column text-overflow-element">
+                <a href="/agency/submitcandidate"><button class="ui large blue button">Submit New Candidate</button></a>
+            </div>
+            <div class="column"></div>
+      </div>
+      <div class="ui divider"></div>
+
+      <div class="row">
+        <div class="three wide column text-overflow-element">
+        {{#if data}}  <h4>Name</h4>{{/if }}
+        </div>
+
+        <div class="three wide column text-overflow-element">
+          {{#if data}}<h4>Job Title</h4>{{/if }}
+        </div>
+        <div class="two wide column text-overflow-element">
+          {{#if data}}<h4>Company</h4>{{/if }}
+        </div>
+        <div class="two wide column text-overflow-element">
+          {{#if data}}<h4>Fee</h4>{{/if }}
+        </div>
+        <div class="three wide column text-overflow-element">
+          {{#if data}} <h4>Submission date</h4>{{/if }}
+        </div>
+           <div class="two wide column text-overflow-element">
+          {{#if data}} <h4>Interviews Requested</h4>{{/if }}
+        </div>
+      </div>
+
+    </div>
+    <div class="ui divider"></div>
+</div>
+
+{{#each data}}
+<div class="ui stackable grid listView client-list">
+<div class="row">
+  <div class="three wide column">
+      <p>{{candidateName}}</p>
+  </div>
+  <div class="three wide column">
+    <p>{{jobTitle}}</p>
+  </div>
+  <div class="two wide column">
+    <p>{{company}}</p>
+  </div>
+  <div class="two wide column">
+    <p>{{fee}}</p>
+  </div>
+
+  <div class="three wide column">
+    <p>{{dateSubmitted}}</p>
+  </div>
+  <div class="two wide column">
+      <p>{{interviewsRequested}}</p>
+  </div>
+</div>
+
+</div>
+<div class="ui divider"></div>
+  {{/each}}
