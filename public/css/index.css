@@ -322,7 +322,7 @@ Agency Login
 
 
 /*===========================
-Agency 
+Agency
   ===========================*/
 
 .ui.form .two.fields>.field, .ui.form .two.fields>.fields {
@@ -332,8 +332,9 @@ Agency
 .sub-heading {
     font-size: 0.45em;
     padding-top: 1em;
-    padding-right: 1em;
-    float:right;
+    position: absolute;
+    right: 24%;
+    top: 32%;
 }
 
 
@@ -450,7 +451,7 @@ MEDIA QUERIES
 
 
 /*==============================
- mobile view 
+ mobile view
 ================================*/
 
 @media only screen and (min-width: 300px) and (max-width: 667px) {
@@ -466,7 +467,7 @@ MEDIA QUERIES
         background-color: black;
     }
     .intro-text {
-        
+
         max-width:80%;
         text-align: center;
         margin: auto;
