@@ -321,9 +321,19 @@ Agency Login
 }
 
 
+/*===========================
+Agency 
+  ===========================*/
 
 .ui.form .two.fields>.field, .ui.form .two.fields>.fields {
     width:63%;
+}
+
+.sub-heading {
+    font-size: 0.45em;
+    padding-top: 1em;
+    padding-right: 1em;
+    float:right;
 }
 
 
