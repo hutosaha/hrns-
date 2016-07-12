@@ -9,27 +9,31 @@
             <div class="grouped fields">
                 <div class="field">
                     <div class="ui checkbox">
-                        <input type="checkbox" name="rejection-reason"  class="" value="not_enough" checked>
+                        <input type="checkbox" name="rejection-reason" class="" value="not_enough" checked>
                         <label>Not enough experience</label>
                     </div>
                 </div>
                 <br>
                 <div class="field">
                     <div class="ui checkbox">
-                        <input type="checkbox" name="rejection-reason"  class="" value="not_right">
+                        <input type="checkbox" name="rejection-reason" class="" value="not_right">
                         <label>Experience not quite right</label>
                     </div>
                 </div>
-                <br>
             </div>
+            <br>
+            <div class="field">
+                <div class="ui input">
+                    <input type="text" name="rejection-other-reason" class="" placeholder="Other reason...type here">
+                </div>
+            </div>
+            <br>
         </div>
     </div>
     <div class="actions">
-      
         <button class="ui primary button confirm-rejection-button" type="button">Confirm rejection</button>
     </div>
 </div>
-
 <div class="ui small second coupled modal reject-modal">
     <div class="header">
         Rejection confirmed
@@ -40,7 +44,6 @@
         </div>
     </div>
     <div class="actions">
-
         <div class="ui approve button">
             <i class="checkmark icon"></i> All Done
         </div>

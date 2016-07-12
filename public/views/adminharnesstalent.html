@@ -1,0 +1,49 @@
+<h1 class="ui block header">Harness Talent</h1>
+
+<div class="ui divider"></div>
+<h3 class="ui info message" id="message">{{message}}</h3>
+<div id="candidates">
+    {{#each data}}
+    <div class="ui stackable grid listView" id="{{cvid}}row">
+        <div class="ui five column row">
+            <div class="column text-overflow-element">
+                <h5>{{agencyName}}</h5>
+            </div>
+            <div class="column text-overflow-element">
+                <h5>{{candidateName}}</h5>
+            </div>
+            <div class="column text-overflow-element">
+                <h5>{{jobTitle}}</h5>
+            </div>
+            <div class="column text-overflow-element">
+                <h5>{{salary}}</h5>
+            </div>
+            <div class="column">
+                <button data-agency-email="{{agencyEmail}}" id="{{cvid}}" class="ui inverted blue button accept">Accept</button>
+            </div>
+        </div>
+        <div class="ui five column row">
+            <div class="column text-overflow-element">
+                {{#if linkedInProfile}}
+                <a href="{{linkedInProfile}}"><h5>{{linkedInProfile}}</h5></a> {{/if }}
+            </div>
+            <div class="column text-overflow-element">
+                <a href="tel:{{contactNumber}}"><h5>{{contactNumber}}</h5></a>
+            </div>
+            <div class="column text-overflow-element">
+                <a href="mailto:{{email}}"><h5>{{email}}</h5></a>
+            </div>
+            <div class="column">
+                <a href="{{file_url}}" type="text" download><h5>Download CV</h5></a>
+            </div>
+            <div class="column">
+                <button data-agency-email="{{agencyEmail}}" data-vid="{{vid}}" id="{{cvid}}" class="ui inverted red button reject">Reject</button>
+            </div>
+        </div>
+        <div class="ui divider"></div>
+    </div>
+    {{/each}}
+</div>
+{{> rejectcandidatemodal}} 
+{{> savechanges}}
+<script type="text/javascript" src="/public/js/adminharnesstalent.js"></script>

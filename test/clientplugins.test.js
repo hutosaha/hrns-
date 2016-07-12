@@ -43,7 +43,8 @@ server.init(0, (err, server) => {
         
 
         testEndPoint(server, '/client/scheduling/12345vid/testJob/testCompany', 'GET', 200, 'endpoint responds with:', clientCookie); 
-        testEndPoint(server, '/client/scheduling/reject', 'GET', 200, 'endpoint responds with', clientCookie);
+        var query = 'reason=Not%20enough%20experience&vid=testvid&cvid=testcvid&list=testclientShortlist'
+        testEndPoint(server, '/client/scheduling/reject?'+query, 'GET', 200, 'endpoint responds with', clientCookie);
 
     });
 
