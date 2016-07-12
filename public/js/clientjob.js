@@ -2,8 +2,6 @@
 
 var $ = window.$;
 
-
-
 $(document).ready(function() {
     var clearDownloads = () => {
         $.ajax({
@@ -223,7 +221,11 @@ $(document).ready(function() {
             $('.second.modal.reject-modal').modal('show', '.first.modal .button');
             $('.second.coupled.modal.accept-modal').modal('hide');
 
-            var reason = $('input[name="rejection-reason"]:checked').val();
+            let reason = $('input[name=rejection-other-reason]').val(); /// add other reason for rejection.
+
+            if(reason === ""){
+                reason = $('input[name="rejection-reason"]:checked').val();
+            }
 
             $.ajax({
                 url: '/client/scheduling/reject',

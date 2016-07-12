@@ -1,0 +1,60 @@
+<h1 class="ui block header">Harness Talent  </h1>
+<div class="ui divider"></div>
+{{#if message}}
+<h3 class="ui message">{{{message}}} </h3>
+{{/if }}
+
+{{#if data}}
+<div class="overview-heading">
+    <div class="ui stackable grid">
+      <div class="three wide column text-overflow-element">
+        <h4>Name</h4>
+      </div>
+      <div class="two wide column text-overflow-element">
+        <h4>Job Title</h4>
+      </div>
+      <div class="two wide column text-overflow-element">
+        <h4>Company</h4>
+      </div>
+      <div class="two wide column text-overflow-element text-centering">
+        <h4>Fee</h4>
+      </div>
+      <div class="three wide column text-overflow-element">
+         <h4>Interview Requested</h4>
+      </div>
+      <div class="four wide column text-overflow-element">
+        <button class="ui large blue button">Submit Candidate</button>
+      </div>
+    </div>
+    <div class="ui divider"></div>
+</div>
+
+{{#each data}}
+<div class="ui stackable grid listView client-list">
+  <div class="three wide column">
+      <p>{{candidateName}}</p>
+  </div>
+  <div class="three wide column">
+    <p>{{jobTitle}}</p>
+  </div>
+  <div class="two wide column">
+    <p>{{company}}</p>
+  </div>
+  <div class="two wide column">
+    <p>{{fee}}</p>
+  </div> 
+   <div class="two wide column">
+    <p>{{fee}}</p>
+  </div> 
+  <div class="two wide column">
+    <p>{{dateSubmitted}}</p>
+  </div> 
+  <div class="two wide column client-button">
+    <a href="#1">
+      <button class="ui inverted tiny blue button">Request Interview</button>
+    </a>
+  </div>
+</div>
+<div class="ui divider"></div>
+{{/each}}
+{{/if }}
