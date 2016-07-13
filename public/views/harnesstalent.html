@@ -1,46 +1,118 @@
+
+
 <h1 class="ui block header">Harness Talent</h1>
 <div class="ui divider"></div>
 {{#if message}}
 <h3 class="ui message">{{{message}}} </h3>
 {{/if }}
+<div class="searchbar">
+    <div class="ui stackable grid">
+      <div class="two wide column text-overflow-element">
+   
+      </div>
+      <div class="two wide column text-overflow-element">
+          <select name="jobTitle" class="ui dropdown">
+            <option value="Junior Developer">Junior Developer</option>
+            <option value="Senior Developer">Senior Developer</option>
+            <option value="Lead Developer">Lead Developer</option>
+        </select>
+      </div>
+      <div class="two wide column text-overflow-element">
+           <select name="company" class="ui dropdown">
+            <option value="Ford">Ford</option>
+            <option value="Apple">Apple</option>
+            <option value="Mustang">Mustang</option>
+        </select>
+      </div>
+      <div class="two wide column text-overflow-element">
+           <select name="jobCategory" class="ui dropdown">
+            <option value="Sales">Sales</option>
+            <option value="Startup">Startup</option>
+            <option value="Development">Development</option>
+        </select>
+      </div>
+      <div class="two wide column text-overflow-element">
+           <select name="city" class="ui dropdown">
+            <option value="Glasgow">Glasgow</option>
+            <option value="London">London</option>
+            <option value="Manchester">Manchester</option>
+        </select>
+      </div>
+      <div class="two wide column text-overflow-element">
+         <select name="salary" class="ui dropdown">
+            <option value="20-30,000">20-30,000</option>
+            <option value="30-50,000">30-50,000</option>
+            <option value="50-100,000">50-100,000</option>
+        </select>
+      </div>
+      <div class="two wide column text-overflow-element">
+         <select name="contractType" class="ui dropdown">
+            <option value="permanent">Permanent</option>
+            <option value="contract">Contract</option>
+            <option value="both">Both</option>
+        </select>
+      </div>
+      <div class="two wide column text-overflow-element">
+          <button class="ui inverted tiny green button search">Search</button>
+      </div>
+    </div>
+    <div class="ui divider"></div>
+</div>
 
 {{#if data}}
 <div class="overview-heading">
     <div class="ui stackable grid">
-      <div class="three wide column text-overflow-element">
+      <div class="two wide column text-overflow-element">
         <h4>Name</h4>
       </div>
-      <div class="three wide column text-overflow-element">
+      <div class="two wide column text-overflow-element">
         <h4>Job Title</h4>
       </div>
-      <div class="three wide column text-overflow-element">
+      <div class="two wide column text-overflow-element">
         <h4>Company</h4>
       </div>
-      <div class="three wide column text-overflow-element text-centering">
+      <div class="two wide column text-overflow-element">
         <h4>Job Category</h4>
       </div>
-      <div class="four wide column text-overflow-element">
-          <button class="ui inverted tiny yellow button">Worked For</button>
+      <div class="two wide column text-overflow-element">
+        <h4>City</h4>
       </div>
+      <div class="two wide column text-overflow-element">
+        <h4>Salary</h4>
+      </div>
+      <div class="two wide column text-overflow-element">
+        <h4>Contract Type</h4>
+      </div>
+    
     </div>
     <div class="ui divider"></div>
 </div>
 
 {{#each data}}
 <div class="ui stackable grid listView client-list">
-  <div class="three wide column">
+
+  <div class="two wide column">
       <p>{{candidateName}}</p>
   </div>
-  <div class="three wide column">
+  <div class="two wide column">
     <p>{{jobTitle}}</p>
   </div>
-  <div class="three wide column">
+  <div class="two wide column">
     <p>{{company}}</p>
   </div>
-  <div class="three wide column">
+  <div class="two wide column">
     <p>{{jobCategory}}</p>
-  </div> 
-  <div class="four wide column client-button">
+  </div>
+  <div class="two wide column">
+    <p>{{location}}</p>
+  </div>
+  <div class="two wide column">
+    <p>{{salary}}</p>
+  </div>
+  <div class="two wide column">
+    <p>{{contractType}}</p>
+  </div>
+  <div class="two wide column client-button">
     <a href="#1">
       <button class="ui inverted tiny blue button">Request Interview</button>
     </a>
@@ -49,3 +121,55 @@
 <div class="ui divider"></div>
 {{/each}}
 {{/if }}
+
+<script src=https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js type=text/handlebars></script>
+
+<script type="text/javascript">
+      'use strict';
+
+      var $ = window.$;    
+
+      (function(){
+
+          var CANDIDATES = {
+                fetch :function(query){
+                  $.ajax({
+                    url: 'harnesstalent/'+query,
+                    success: function(arrayOfCandidates){
+                      console.log(arrayOfCandidates)
+                    }
+                  })
+                },
+                attachTemplate: function(){
+                  var template =Handlebars.compile(this.template);
+                  //this.container.append(template(this.candidates));
+                }
+
+
+             }
+
+
+           $('.search').on('click',function(){
+
+              var queryObj = { 
+                 jobTitle : $('select[name=jobTitle]').val(),
+                 company  :$('select[name=company]').val(),
+                 jobCategory :$('select[name=jobCategory]').val(),
+                 city : $('select[name=city]').val(),
+                 salary : $('select[name=salary]').val(),
+                 contractType : $('select[name=contractType]').val()
+               }
+
+              var query = $.param(queryObj);
+              CANDIDATES.fetch(query)
+
+
+           })
+
+
+
+      })();
+
+
+
+</script>
