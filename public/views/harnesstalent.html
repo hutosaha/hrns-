@@ -12,7 +12,7 @@
       </div>
       <div class="two wide column text-overflow-element">
           <select name="jobTitle" class="ui dropdown">
-            <option value="Junior Developer">Junior Developer</option>
+            <option value="Developer">Developer</option>
             <option value="Senior Developer">Senior Developer</option>
             <option value="Lead Developer">Lead Developer</option>
         </select>
@@ -62,6 +62,7 @@
 {{#if data}}
 <div class="overview-heading">
     <div class="ui stackable grid">
+      <div class="column"></div>
       <div class="two wide column text-overflow-element">
         <h4>Name</h4>
       </div>
@@ -87,42 +88,91 @@
     </div>
     <div class="ui divider"></div>
 </div>
+<div id="candidates-container">
+    {{#each data}}
+    <div class="ui stackable grid listView client-list">
+       <div class="columnrs">
+                <button class="tiny ui inverted teal icon button cv-viewer" 
+                  data-agency-email="{{agencyEmail}}" data-agency-id="{{agencyId}}" data-cvid="{{cvid}}" data-candidate-name="{{candidateName}}" data-job-title="{{jobTitle}}"  data-vid="{{vid}}"  data-file-name="{{file-name}}" data-content="We can only preview pdf files" data-url='{{file_url}}'      
+                 >CV Viewer</button>     
+            </div>
 
-{{#each data}}
-<div class="ui stackable grid listView client-list">
-
-  <div class="two wide column">
-      <p>{{candidateName}}</p>
-  </div>
-  <div class="two wide column">
-    <p>{{jobTitle}}</p>
-  </div>
-  <div class="two wide column">
-    <p>{{company}}</p>
-  </div>
-  <div class="two wide column">
-    <p>{{jobCategory}}</p>
-  </div>
-  <div class="two wide column">
-    <p>{{location}}</p>
-  </div>
-  <div class="two wide column">
-    <p>{{salary}}</p>
-  </div>
-  <div class="two wide column">
-    <p>{{contractType}}</p>
-  </div>
-  <div class="two wide column client-button">
-    <a href="#1">
-      <button class="ui inverted tiny blue button">Request Interview</button>
-    </a>
-  </div>
+      <div class="two wide column">
+          <p>{{candidateName}}</p>
+      </div>
+      <div class="two wide column">
+        <p>{{jobTitle}}</p>
+      </div>
+      <div class="two wide column">
+        <p>{{company}}</p>
+      </div>
+      <div class="two wide column">
+        <p>{{jobCategory}}</p>
+      </div>
+      <div class="two wide column">
+        <p>{{location}}</p>
+      </div>
+      <div class="two wide column">
+        <p>{{salary}}</p>
+      </div>
+      <div class="two wide column">
+        <p>{{contractType}}</p>
+      </div>
+      <div class="column client-button">
+        <a href="#1">
+          <button class="ui inverted tiny blue button">Request Interview</button>
+        </a>
+      </div>
+    </div>
+    <div class="ui divider"></div>
+    {{/each}}
+    {{/if }}
 </div>
-<div class="ui divider"></div>
-{{/each}}
-{{/if }}
 
-<script src=https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js type=text/handlebars></script>
+
+<script id="candidates-list" type="text/x-handlebars-template">
+        {{#each arrayOfcandidates}}
+        <div class="ui stackable grid listView client-list">
+           <div class="columnrs">
+                    <button class="tiny ui inverted teal icon button cv-viewer" 
+                      data-agency-email="{{agencyEmail}}" data-agency-id="{{agencyId}}" data-cvid="{{cvid}}" data-candidate-name="{{candidateName}}" data-job-title="{{jobTitle}}"  data-vid="{{vid}}"  data-file-name="{{file-name}}" data-content="We can only preview pdf files" data-url='{{file_url}}'      
+                     >CV Viewer</button>     
+                </div>
+
+          <div class="two wide column">
+              <p>{{candidateName}}</p>
+          </div>
+          <div class="two wide column">
+            <p>{{jobTitle}}</p>
+          </div>
+          <div class="two wide column">
+            <p>{{company}}</p>
+          </div>
+          <div class="two wide column">
+            <p>{{jobCategory}}</p>
+          </div>
+          <div class="two wide column">
+            <p>{{location}}</p>
+          </div>
+          <div class="two wide column">
+            <p>{{salary}}</p>
+          </div>
+          <div class="two wide column">
+            <p>{{contractType}}</p>
+          </div>
+          <div class="column client-button">
+            <a href="#1">
+              <button class="ui inverted tiny blue button">Request Interview</button>
+            </a>
+          </div>
+        </div>
+        <div class="ui divider"></div>
+        {{/each }}
+</script>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
 
 <script type="text/javascript">
       'use strict';
@@ -133,18 +183,26 @@
 
           var CANDIDATES = {
                 fetch :function(query){
+                  var self = this;
                   $.ajax({
-                    url: 'harnesstalent/'+query,
+                    url: '/harnesstalent/results',
+                    data: query,
                     success: function(arrayOfCandidates){
-                      console.log(arrayOfCandidates)
+                      console.log('RESULTS FORM BE',arrayOfCandidates)
+                      self.attachTemplate(arrayOfCandidates);
+
                     }
                   })
                 },
-                attachTemplate: function(){
-                  var template =Handlebars.compile(this.template);
+                attachTemplate: function(arrayOfCandidates){
+                  var source   = $('#candidates-list').html()
+                  var template = Handlebars.compile(source);
+                  var populatedHTML     =template(arrayOfCandidates[0]); 
+                  console.log('>>>>>>>>>>>>>>>>>>',populatedHTML);
+                  //$('#candidates-container').html('');
+                  $('#candidates-container').html(populatedHTML);
                   //this.container.append(template(this.candidates));
-                }
-
+                }       
 
              }
 
@@ -162,6 +220,7 @@
 
               var query = $.param(queryObj);
               CANDIDATES.fetch(query)
+            
 
 
            })
