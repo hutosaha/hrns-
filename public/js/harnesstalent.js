@@ -16,6 +16,9 @@ var $ = window.$;
                 url: '/harnesstalent/results',
                 data: query,
                 success: function(arrayOfCandidates) {
+                    if(arrayOfCandidates === false){
+                        $('.ui.message').text('There is no talent');
+                    }
                     console.log('RESULTS FORM BE', arrayOfCandidates);
                     var source = $('#candidates-template').html()
                     var template = Handlebars.compile(source);
