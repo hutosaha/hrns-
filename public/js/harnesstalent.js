@@ -21,7 +21,7 @@ var $ = window.$;
                     var context = arrayOfCandidates;
                     var populatedHTML = template(context);
                     $('#candidates-container').html(populatedHTML)
-                    DOCUMENTVIEWER.inti();
+                    DOCUMENTVIEWER.init();
                 }
             })
         },
