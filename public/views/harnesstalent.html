@@ -1,69 +1,265 @@
-<h1 class="ui block header">Harness Talent</h1>
-<div class="ui divider"></div>
-{{#if message}}
-<h3 class="ui message">{{{message}}} </h3>
-{{/if }}
+<!DOCTYPE html>
+<html>
 
-{{#if data}}
-<div class="overview-heading">
-    <div class="ui stackable grid">
-      <div class="two wide column text-overflow-element">
-        <h4>Name</h4>
-      </div>
-      <div class="two wide column text-overflow-element">
-        <h4>Job Title</h4>
-      </div>
-      <div class="two wide column text-overflow-element">
-        <h4>Company</h4>
-      </div>
-      <div class="two wide column text-overflow-element">
-        <h4>Job Category</h4>
-      </div>
-      <div class="two wide column text-overflow-element">
-        <h4>City</h4>
-      </div>
-      <div class="two wide column text-overflow-element">
-        <h4>Salary</h4>
-      </div>
-      <div class="two wide column text-overflow-element">
-        <h4>Contract Type</h4>
-      </div>
-      <div class="two wide column text-overflow-element">
-          <button class="ui inverted tiny yellow button">Worked For</button>
-      </div>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-2.2.2.min.js" integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.0/jquery-ui.min.js" integrity="sha256-lCF+55kMUF+3fO/3BiXui4eiUKcQmtr7ecKSeLVDxIQ=" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/png" href="/favicon.png" sizes="96x96">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.css" />
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/themes/smoothness/jquery-ui.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:100,400,800' rel='stylesheet' type='text/css'>
+    <!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,800' rel='stylesheet' type='text/css'> -->
+    <link rel="stylesheet" type="text/css" href="/public/css/index.css">
+</head>
+
+<body>
+    <div class="ui container top-padding">
+        <nav class="ui fixed inverted menu">
+            <div class="ui container">
+                <a class="item" href="/"><img height="28" class="large logo" src="https://cloud.githubusercontent.com/assets/13098199/14913438/fed406cc-0dfa-11e6-9a90-274a2f64c187.png"></a>
+                <div class="right menu">
+                    <a class="item" href="/client"><h4 class="header item">My Jobs</h4></a>
+                    <a class="item" href="/submitjob"><h4 class="header item">Submit a job</h4></a>
+                </div>
+                <div class="right menu">
+                    <a class="item" href="/client/harnesstalent"><h4 class="header item"> Harness Talent</h4></a>
+                    <a class="item " href="/logout"><h4 class="header item">Logout</h4></a>
+                </div>
+            </div>
+        </nav>
+        <br>
+        <br>
+        <h1 class="ui block header">Harness Talent</h1>
+        <div class="ui divider"></div>
+        <h3 class="ui message"></h3>
+        <div class="searchbar">
+            <div class="ui stackable grid">
+                <div class="two wide column text-overflow-element">
+                    <button class="ui inverted tiny orange button reset">Reset</button>
+                </div>
+                <div class="two wide column ">
+                    <select name="jobTitle" class="ui dropdown">
+                        <option value="Developer">Developer</option>
+                        <option value="Senior Developer">Senior Developer</option>
+                        <option value="Lead Developer">Lead Developer</option>
+                    </select>
+                </div>
+                <div class="two wide column ">
+                    <select name="company" class="ui dropdown">
+                        <option value="Ford">Ford</option>
+                        <option value="Apple">Apple</option>
+                        <option value="Mustang">Mustang</option>
+                    </select>
+                </div>
+                <div class="two wide column ">
+                    <select name="jobCategory" class="ui dropdown">
+                        <option value="Sales">Sales</option>
+                        <option value="Startup">Startup</option>
+                        <option value="Development">Development</option>
+                    </select>
+                </div>
+                <div class="two wide column ">
+                    <select name="city" class="ui dropdown">
+                        <option value="Glasgow">Glasgow</option>
+                        <option value="London">London</option>
+                        <option value="Manchester">Manchester</option>
+                    </select>
+                </div>
+                <div class="two wide column ">
+                    <select name="salary" class="ui dropdown">
+                        <option value="20-30,000">20-30,000</option>
+                        <option value="30-50,000">30-50,000</option>
+                        <option value="50-100,000">50-100,000</option>
+                    </select>
+                </div>
+                <div class="two wide column ">
+                    <select name="contractType" class="ui dropdown">
+                        <option value="permanent">Permanent</option>
+                        <option value="contract">Contract</option>
+                        <option value="both">Both</option>
+                    </select>
+                </div>
+                <div class="two wide column ">
+                    <button class="ui inverted tiny green button search">Search</button>
+                </div>
+            </div>
+            <div class="ui divider"></div>
+        </div>
+        <div class="overview-heading">
+            <div class="ui stackable grid">
+                <div class="column"></div>
+                <div class="two wide column text-overflow-element">
+                    <h4>Name</h4>
+                </div>
+                <div class="two wide column text-overflow-element">
+                    <h4>Job Title</h4>
+                </div>
+                <div class="two wide column text-overflow-element">
+                    <h4>Company</h4>
+                </div>
+                <div class="two wide column text-overflow-element">
+                    <h4>Job Category</h4>
+                </div>
+                <div class="two wide column text-overflow-element">
+                    <h4>City</h4>
+                </div>
+                <div class="two wide column text-overflow-element">
+                    <h4>Salary</h4>
+                </div>
+                <div class="two wide column text-overflow-element">
+                    <h4>Contract Type</h4>
+                </div>
+            </div>
+            <div class="ui divider"></div>
+        </div>
+        <div id="candidates-container"></div>
+    </div>
+
+    <div class="ui basic doc-viewer modal">
+        <i class="close icon"></i>
+        <div class="header">
+            To view in full screen and download, use the viewer button.
+        </div>
+        <div class="image content">
+            <div class="image">
+                <iframe id="iframeId" src='' width='850' height='566' frameborder='0'>This is an embedded <a target='_blank' href='http://office.com'>Microsoft Office</a> document, powered by <a target='_blank' href='http://office.com/webapps'>Office Online</a>.</iframe>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+</body>
+
+</html>
+<script id="candidates-template" type="text/x-handlebars-template">
+    {{#each this}}
+    <div class="ui stackable grid listView client-list">
+        <div class="column">
+            <button class="tiny ui inverted teal icon button cv-viewer" data-agency-email="{{agencyEmail}}" data-agency-id="{{agencyId}}" data-cvid="{{cvid}}" data-candidate-name="{{candidateName}}" data-job-title="{{jobTitle}}" data-vid="{{vid}}" data-file-name="{{file-name}}"
+                data-content="We can only preview pdf files" data-url='{{file_url}}'>CV Viewer</button>
+        </div>
+        <div class="two wide column">
+            <p>{{candidateName}}</p>
+        </div>
+        <div class="two wide column">
+            <p>{{jobTitle}}</p>
+        </div>
+        <div class="two wide column">
+            <p>{{company}}</p>
+        </div>
+        <div class="two wide column">
+            <p>{{jobCategory}}</p>
+        </div>
+        <div class="two wide column">
+            <p>{{location}}</p>
+        </div>
+        <div class="two wide column">
+            <p>{{salary}}</p>
+        </div>
+        <div class="two wide column">
+            <p>{{contractType}}</p>
+        </div>
+        <div class="column client-button">
+            <button class="ui inverted tiny blue button interviewRequest " data-cvid="{{cvid}}">Request Interview</button>
+        </div>
     </div>
     <div class="ui divider"></div>
-</div>
+    <div class="ui  modal interview hide-element" id="{{cvid}}">
 
-{{#each data}}
-<div class="ui stackable grid listView client-list">
-  <div class="two wide column">
-      <p>{{candidateName}}</p>
-  </div>
-  <div class="two wide column">
-    <p>{{jobTitle}}</p>
-  </div>
-  <div class="two wide column">
-    <p>{{company}}</p>
-  </div>
-  <div class="two wide column">
-    <p>{{jobCategory}}</p>
-  </div>
-  <div class="two wide column">
-    <p>{{location}}</p>
-  </div>
-  <div class="two wide column">
-    <p>{{salary}}</p>
-  </div>
-  <div class="two wide column">
-    <p>{{contractType}}</p>
-  </div>
-  <div class="two wide column client-button">
-    <a href="#1">
-      <button class="ui inverted tiny blue button">Request Interview</button>
-    </a>
-  </div>
-</div>
-<div class="ui divider"></div>
-{{/each}}
-{{/if }}
+        <i class="close icon"></i>
+        <div class="header">
+            Arrange an Interview for: &nbsp {{candidateName}}
+        </div>
+        <div class="ui content">
+            <div class=" sixteen column row  ">
+            <form class="ui form " name="{{cvid}}">
+                    <input type="hidden" name="candidateName" value="{{candidateName}}">
+                    <input type="hidden" name="cvid" value="{{cvid}}">
+                    <input type="hidden" name="vid" value="{{vid}}">
+                    <input type="hidden" name="agencyId" value="{{agencyId}}">
+                    <input type="hidden" name="jobTitle" value="{{jobTitle}}">
+                    <h4 class="ui dividing header"> Proposed time, date and location</h4>
+                    <h4 class="message"></h4>
+
+                    <div class="inline fields">
+                        <div class="required sixteen wide field">
+                            <label for="firstIntTime"> 1st Choice Date & Time </label>
+                            <div class="five wide field">
+                                <input name="firstIntDate" class="datepicker" required>
+                            </div>
+                            <div class="field">
+                                <input name="firstIntTime" type="time" required></input>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="inline fields">
+
+                        <label for="secondIntTime"> 2nd Choice Date & Time </label>
+                        <div class="five wide field">
+                            <input name="secondIntDate" class="datepicker">
+                        </div>
+                        <div class="field">
+                            <input name="secondIntTime" type="time"></input>
+                        </div>
+                    </div>
+
+                    <div class="inline fields">
+                        <label for="thirdIntTime"> 3rd Choice Date & Time</label>
+                        <div class="five wide field">
+                            <input name="thirdIntDate" class="datepicker">
+                        </div>
+                        <div class=" field ">
+                            <input name="thirdIntTime" type="time"></input>
+                        </div>
+                    </div>
+
+                    <div class="inline fields">
+                        <div class="required eight wide field">
+                            <label>Full Interview Address:</label>
+                            <div class="required eight wide inline field">
+
+                                <input type="text" id="interviewAddress" name="interviewAddress" placeholder="Buckingham Palace, London SW1A 1AA " required></input>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class=" sixteen column row">
+                        <div class="inline field">
+                          <label>Upload job description.</label>
+                            <div class="field">
+                              <input name="jobDescription" type="file" class="file_input" />
+                              <input type="hidden" class="file_url" name="jobDescription_url" />
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <br>  
+                    <div class="inline field">
+                      <label>Aditional comments</label>
+                          <div class="eight wide field">
+                            <textarea name="additionalComments" value="" width="500px" rows="3" maxlength="2000" placeholder="e.g. bring portfolio, interview will be one hour, etc." pattern="{{frontendInput}}"></textarea>
+                          </div>
+                    </div>
+
+
+                  <div class="actions">
+                    <button type="submit" class="ui green large button send-interview" data-candidate-name="{{candidateName}}" data-job-title="{{jobTitle}}" data-cvid="{{cvid}}">Send</button>
+                  </div>
+            </form>
+        </div>
+      </div>
+    </div>
+    {{/each }}
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
+
+<script type="text/javascript" src="../public/js/document-viewer.js"></script>
+<script type="text/javascript" src="../public/js/harnesstalent.js"></script>
