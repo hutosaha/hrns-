@@ -15,9 +15,26 @@
     </div>
     <div class="required field">
         <label for="jobCategory">Job Category</label>
-        <input type="text" name="jobCategory" placeholder="Industry or sector" pattern="{{frontendInput}}" maxlength="100" required>
-    </div>
 
+        <select class="ui dropdown" name="jobCategory" id="">
+            <option class="header">UX, UI & Digital Design</option>
+            <option value="UX Designer">UX Designer</option>
+            <option value="UI Designer">UI Designer</option>
+            <option value="Information Architect">Information Architect</option>
+            <option value="UX Researcher">UX Researcher</option>
+            <option value="Digital Designer">Digital Designer</option>
+            <option value="UX Leadership">UX Leadership</option>
+            <option value="UI Leadership">UI Leadership</option>
+            <option class="header">BI, Data Science & Analytics</option>
+            <option value="Data Scientist">Data Scientist</option>
+            <option value="Data Analyst">Data Analyst</option>
+            <option value="Insight Analyst">Insight Analyst</option>
+            <option value="BI Analyst">BI Analyst</option>
+            <option value="BI Developer">BI Developer</option>
+            <option value="Business Analyst">Business Analyst</option>
+            <option value="BI Leadership">BI Leadership</option>        
+        </select> 
+    </div>
 </div>
 <div class="two fields">
     <div class="required field">
@@ -40,7 +57,11 @@
     </div>
     <div class="required field">
         <label for='location'> Location </label>
-        <input type="text" name='location' placeholder="town or city" maxlength="20"  title="please enter the nearest town or city" required>
+        <select name="location" class="ui dropdown">
+                    <option value="London">London</option>
+                    <option value="Bristol">Bristol</option>
+                    <option value="Berlin">Berlin</option>
+        </select>
     </div>
 </div>
 <div class="two fields">
