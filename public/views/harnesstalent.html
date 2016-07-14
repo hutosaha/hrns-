@@ -39,50 +39,51 @@
         <div class="searchbar">
             <div class="ui stackable grid">
                 <div class="two wide column text-overflow-element">
+                    <button class="ui inverted tiny orange button reset">Reset</button>
                 </div>
-                <div class="two wide column text-overflow-element">
+                <div class="two wide column ">
                     <select name="jobTitle" class="ui dropdown">
                         <option value="Developer">Developer</option>
                         <option value="Senior Developer">Senior Developer</option>
                         <option value="Lead Developer">Lead Developer</option>
                     </select>
                 </div>
-                <div class="two wide column text-overflow-element">
+                <div class="two wide column ">
                     <select name="company" class="ui dropdown">
                         <option value="Ford">Ford</option>
                         <option value="Apple">Apple</option>
                         <option value="Mustang">Mustang</option>
                     </select>
                 </div>
-                <div class="two wide column text-overflow-element">
+                <div class="two wide column ">
                     <select name="jobCategory" class="ui dropdown">
                         <option value="Sales">Sales</option>
                         <option value="Startup">Startup</option>
                         <option value="Development">Development</option>
                     </select>
                 </div>
-                <div class="two wide column text-overflow-element">
+                <div class="two wide column ">
                     <select name="city" class="ui dropdown">
                         <option value="Glasgow">Glasgow</option>
                         <option value="London">London</option>
                         <option value="Manchester">Manchester</option>
                     </select>
                 </div>
-                <div class="two wide column text-overflow-element">
+                <div class="two wide column ">
                     <select name="salary" class="ui dropdown">
                         <option value="20-30,000">20-30,000</option>
                         <option value="30-50,000">30-50,000</option>
                         <option value="50-100,000">50-100,000</option>
                     </select>
                 </div>
-                <div class="two wide column text-overflow-element">
+                <div class="two wide column ">
                     <select name="contractType" class="ui dropdown">
                         <option value="permanent">Permanent</option>
                         <option value="contract">Contract</option>
                         <option value="both">Both</option>
                     </select>
                 </div>
-                <div class="two wide column text-overflow-element">
+                <div class="two wide column ">
                     <button class="ui inverted tiny green button search">Search</button>
                 </div>
             </div>
@@ -117,12 +118,29 @@
         </div>
         <div id="candidates-container"></div>
     </div>
+
+    <div class="ui basic doc-viewer modal">
+          <i class="close icon"></i>
+          <div class="header">
+              To view in full screen and download, use the viewer button.
+          </div>
+          <div class="image content">
+              <div class="image">
+                  <iframe id="iframeId" src='' width='850' height='566' frameborder='0'>This is an embedded <a target='_blank' href='http://office.com'>Microsoft Office</a> document, powered by <a target='_blank' href='http://office.com/webapps'>Office Online</a>.</iframe>
+              </div>
+          </div>
+    </div>
+
+
+
+
+    
 </body>
 </html>
 <script id="candidates-template" type="text/x-handlebars-template">
     {{#each this}}
     <div class="ui stackable grid listView client-list">
-        <div class="columnrs">
+        <div class="column">
             <button class="tiny ui inverted teal icon button cv-viewer" data-agency-email="{{agencyEmail}}" data-agency-id="{{agencyId}}" data-cvid="{{cvid}}" data-candidate-name="{{candidateName}}" data-job-title="{{jobTitle}}" data-vid="{{vid}}" data-file-name="{{file-name}}" data-content="We can only preview pdf files" data-url='{{file_url}}'>CV Viewer</button>
         </div>
         <div class="two wide column">
@@ -156,5 +174,6 @@
     {{/each }}
 </script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
-<script type="text/javascript" src="../public/js/harnesstalent.js">
-</script>
+
+<script type="text/javascript" src="../public/js/harnesstalent.js"></script>
+<script type="text/javascript" src="../public/js/document-viewer.js"></script>

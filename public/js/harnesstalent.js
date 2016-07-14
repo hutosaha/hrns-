@@ -8,9 +8,9 @@ var $ = window.$;
         init: function() {
             this.fetch();
             this.search();
+            this.reset();
         },
-        fetch: function(query) {
-            var self = this;
+        fetch: function(query) {         
             $.ajax({
                 url: '/harnesstalent/results',
                 data: query,
@@ -21,6 +21,7 @@ var $ = window.$;
                     var context = arrayOfCandidates;
                     var populatedHTML = template(context);
                     $('#candidates-container').html(populatedHTML)
+                    DOCUMENTVIEWER.inti();
                 }
             })
         },
@@ -38,7 +39,14 @@ var $ = window.$;
                 var query = $.param(queryObj);
                 CANDIDATES.fetch(query)
             })
+        },
+        reset: function(){
+             $('.reset').on('click', function() {
+                console.log('HELLLOO')
+                CANDIDATES.fetch();
+            });
         }
     }
     CANDIDATES.init();
+  
 })();
