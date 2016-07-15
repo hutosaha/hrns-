@@ -65,6 +65,59 @@ var $ = window.$;
 
           });
         }
+        sendInterviewRequest: function(){
+                var self = $.this
+                
+                $('.button.send-interview').on('click', function(e) {
+                    e.preventDefault();
+                    const cvid = $(this).data('cvid');
+                    let form =  document.forms[cvid];
+                    let firstTime = form['firstIntTime'].value;
+                    let firstDate = form['firstIntDate'].value;
+                    let interviewAddress = form['interviewAddress'].value;
+                    let stage = form['stage'].value;
+                    let fields = [firstDate, firstTime, interviewAddress, stage];
+    
+                    let validated =  validate(fields);
+        
+                    if ( validated[0] === '' || validated[0] === null ){
+                        return  $('.message').addClass('ui info').text('We need the date, time, stage and location of the interview'); 
+                    } else {
+                        let formData = $('form[name='+cvid+']').each(function(){ $(this).find(':input');});
+                        return  sendFormData(formData ,cvid);
+                    }   
+                });
+        },
+        validate: function(fields){
+            return  fields.filter(checkForEmpty);
+        },
+        checkForEmpty: function(field){
+             return field ==''|| field == null;
+        },
+        sendFormData: function(formData, cvid){
+            var data = formData.serialize();
+                $.ajax({
+                    type: 'POST',
+                    url: '/interview/proposed',
+                    data: data,
+                    async: true,
+                    success: function(cvid) {
+                        if (cvid) {
+                            $('#message').addClass('ui info message').text("We\'ve emailed the agent to arrange an interview"); // change to something better...
+                            $('#' + cvid).modal('hide');
+                            $('form[name='+cvid+']').find("input, textarea").val("");
+                        } else {
+                            $('#' + cvid).modal('hide');
+                            document.getElementById('message').innerHTML = 'Sorry, there was an error. Please try again!';
+                        }
+                    },
+                    error: function(res) {
+                        console.log("ERROR", res);
+                        $('#' + cvid).modal('hide');
+                        document.getElementById('message').innerHTML = 'Sorry, there was an error. Please try again!';
+                    }
+            });
+        }
     };
     CANDIDATES.init();
 
