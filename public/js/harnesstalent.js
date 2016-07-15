@@ -41,7 +41,7 @@ var $ = window.$;
                     jobTitle: $('select[name=jobTitle]').val(),
                     company: $('select[name=company]').val(),
                     jobCategory: $('select[name=jobCategory]').val(),
-                    city: $('select[name=city]').val(),
+                    location: $('select[name=location]').val(),
                     salary: $('select[name=salary]').val(),
                     contractType: $('select[name=contractType]').val()
                 };
