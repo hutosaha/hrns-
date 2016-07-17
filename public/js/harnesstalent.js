@@ -11,6 +11,14 @@ var $ = window.$;
             this.reset();
             this.interviewRequest();
         },
+        queryObject: {
+                    jobTitle: $('select[name=jobTitle]').val(),
+                    company: $('select[name=company]').val(),
+                    jobCategory: $('select[name=jobCategory]').val(),
+                    location: $('select[name=location]').val(),
+                    salary: $('select[name=salary]').val(),
+                    contractType: $('select[name=contractType]').val()
+                },
         fetch: function(query) {
             $.ajax({
                 url: '/harnesstalent/results',
@@ -35,8 +43,9 @@ var $ = window.$;
             });
         },
         search: function() {
+            let self =this;
             $('.search').on('click', function() {
-
+                console.log(self.queryObject, '>>>>>>>>>>>>');
                 var queryObj = {
                     jobTitle: $('select[name=jobTitle]').val(),
                     company: $('select[name=company]').val(),
@@ -44,29 +53,30 @@ var $ = window.$;
                     location: $('select[name=location]').val(),
                     salary: $('select[name=salary]').val(),
                     contractType: $('select[name=contractType]').val()
-                };
-                var query = $.param(queryObj);
+                }
+                let query = $.param(queryObj);
                 CANDIDATES.fetch(query);
             });
         },
         reset: function(){
+             var self = this;
              $('.reset').on('click', function() {
+                for(var key in self.queryObject){
+                    self.queryObject[key] = 'All'
+                }
                 CANDIDATES.fetch();
             });
         },
         interviewRequest: function(){
-          console.log('oi oi being abit sniffy');
-          $('.interviewRequest').on('click', function(){
-            console.log('butoooooon');
-            let cvid = $(this).data('cvid');
-            $('#' + cvid).toggleClass('hide-element');
-            $('.ui.message.info').removeClass('.ui.info');
-            $('#' + cvid).modal('show');
-
-          });
-        }
+            $('.interviewRequest').on('click', function(){
+                let cvid = $(this).data('cvid');
+                $('#' + cvid).toggleClass('hide-element');
+                $('.ui.message.info').removeClass('.ui.info');
+                $('#' + cvid).modal('show');
+            });
+        },
         sendInterviewRequest: function(){
-                var self = $.this
+                var self = this;
                 
                 $('.button.send-interview').on('click', function(e) {
                     e.preventDefault();
@@ -78,18 +88,19 @@ var $ = window.$;
                     let stage = form['stage'].value;
                     let fields = [firstDate, firstTime, interviewAddress, stage];
     
-                    let validated =  validate(fields);
+                    let validated =  self.validate(fields);
         
                     if ( validated[0] === '' || validated[0] === null ){
                         return  $('.message').addClass('ui info').text('We need the date, time, stage and location of the interview'); 
                     } else {
                         let formData = $('form[name='+cvid+']').each(function(){ $(this).find(':input');});
-                        return  sendFormData(formData ,cvid);
+                        return  self.sendFormData(formData ,cvid);
                     }   
                 });
         },
         validate: function(fields){
-            return  fields.filter(checkForEmpty);
+            var self = this;
+            return  fields.filter(self.checkForEmpty);
         },
         checkForEmpty: function(field){
              return field ==''|| field == null;
