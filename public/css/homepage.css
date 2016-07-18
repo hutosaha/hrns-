@@ -134,7 +134,7 @@ video {
 }
 
 .productsImage {
-    background-image: url('./public/assets/images/london-view.jpg');
+    background-image: url('../assets/images/london-view.jpg');
     background-image: cover;
     background-size: 100% 60em;
     background-repeat: no-repeat;
