@@ -105,13 +105,12 @@ video {
 }
 
 .products {
-    background-image: url('../assets/images/blackbg-flatfaces.jpg');
-    background-color: black;
+ 
     padding: 1em;
 }
 
 .products.grid {
-    background-color: black;
+
     padding: 2em;
 }
 
@@ -145,9 +144,27 @@ video {
 
 }
 
+#products {
+    background-image: url('../assets/images/interview-mac.jpg');
+    background-image: cover;
+    background-size: 100% 60em;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
+    background-color: black;
+}
+
 .productsWord {
     position: absolute;
-    top: 50%;
+    bottom: 50%;
+    right:27%;
+}
+
+.productNumber {
+    font-size: 6em !important;
+    font-weight: 800;
+    color: #ce1010 !important;
+    opacity: 0.75;
 }
 
 .productsContent {
@@ -239,17 +256,31 @@ video {
                 </div>
                 <div class="row">
                     <div class="column productsContent">
-                        <h1 class="ui massive inverted header">1</h1>
+                        <h1 class="ui massive inverted header productNumber">1</h1>
                         <span class="ui massive inverted header productsWord">DATA SCIENCE</span>
                     </div>
-                    <div class="column"><h1 class="ui massive inverted header">2</h1>
-                    <span class="ui massive inverted header">UX & DIGITAL DESIGN</div>
-                    <div class="column">3. PRODUCT MANAGEMENT</div>
+                    <div class="column productsContent">
+                        <h1 class="ui massive inverted header productNumber">2</h1>
+                        <span class="ui massive inverted header productsWord">UX & DIGITAL DESIGN</span>
+                    </div>
+                    <div class="column productsContent">
+                        <h1 class="ui massive inverted header productNumber">3</h1>
+                        <span class="ui massive inverted header productsWord">PRODUCT MANAGEMENT</span>
+                    </div>
                 </div>
                 <div class="row">
-                    <div class="column">4. BUSINESS INTELLIGENCE</div>
-                    <div class="column">5. DEVELOPMENT</div>
-                    <div class="column">6. PROJECT MANAGEMENT</div>
+                     <div class="column productsContent">
+                        <h1 class="ui massive inverted header productNumber">4</h1>
+                        <span class="ui massive inverted header productsWord">BUSINESS INTELLIGENCE</span>
+                    </div>
+                    <div class="column productsContent">
+                        <h1 class="ui massive inverted header productNumber">5</h1>
+                        <span class="ui massive inverted header productsWord">DEVELOPMENT</span>
+                    </div>
+                    <div class="column productsContent">
+                        <h1 class="ui massive inverted header productNumber">6</h1>
+                        <span class="ui massive inverted header productsWord">PROJECT MANAGEMENT</span>
+                    </div>
                 </div>
                 <div class="row">
                     <a href="#" class="ui huge teal button">GET IN TOUCH</a>
