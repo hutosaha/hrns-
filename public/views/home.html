@@ -12,15 +12,19 @@
     <link rel="icon" type="image/png" href="/favicon.png" sizes="96x96">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.css" />
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/themes/smoothness/jquery-ui.css">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:100,400,800' rel='stylesheet' type='text/css'>
-    <!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,800' rel='stylesheet' type='text/css'> -->
+<!--     <link href='https://fonts.googleapis.com/css?family=Open+Sans:100,400,800' rel='stylesheet' type='text/css'>
+     -->  
+    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="/public/css/index.css">
 </head>
 <style type="text/css">
+
+* {
+     font-family: 'Raleway', sans-serif !important;
+}
 body {
     margin: 0;
     background: #000;
-    font-family: helvetica;
 }
 
 video {
@@ -132,26 +136,36 @@ video {
     background-color: #15ABC8;
 }
 
-#contactUs, #products, #aboutUs {
+#contactUs, #aboutUs {
     background-color: #1B1C1F!important;
     color:white;
     padding-top: 1em;
     padding-bottom: 1em;
 }
+#products {
+    background-color: #1B1C1F!important;
+    color:white;
+    padding-top: 1em;
+}
+
 #testimonials{
     background-color: #00B5AE!important;
     padding-bottom: 1em;
-
 }
 
-#products {
+.productsImage {
     background-image: url('../assets/images/london-view.jpg');
     background-image: cover;
     background-size: 100% 60em;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center; 
-    background-color: black;
+    background-color: black;   
+}
+
+
+.products {
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 .productsWord {
@@ -170,6 +184,10 @@ video {
 .productsContent {
     position: relative;
 
+}
+.aboutUs img {
+    height:700px;
+    width:500px;
 }
 </style>
 
@@ -223,7 +241,7 @@ video {
             <div class="ui equal width center aligned padded grid">
                 <div class="row aboutUs black">
                     <div class="column">
-                        <img src="../assets/images/blackbg-flatfaces.jpg">
+                        <img src="../assets/images/coffee-design.jpg">
                     </div>
                     <div class="column">
                         <div class="ui large grey header">ABOUT US</div>
@@ -238,6 +256,7 @@ video {
             </div>      
     </section>
     <section id="products">
+      <div class="productsImage">
         <div class="ui container">
             <div class="ui equal width center aligned padded products grid">
                 <div class="row">
@@ -287,6 +306,7 @@ video {
                 </div>
             </div>
         </div>
+      </div>
     </section>
     <section class="container">
         <div class="ui stackable teal grid ">
