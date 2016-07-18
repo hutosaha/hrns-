@@ -21,12 +21,12 @@
         <nav class="ui fixed inverted menu">
             <div class="ui container">
                 <a class="item" href="/"><img height="28" class="large logo" src="https://cloud.githubusercontent.com/assets/13098199/14913438/fed406cc-0dfa-11e6-9a90-274a2f64c187.png"></a>
-                <div class="right menu">
+                <div class="right menu client-menus">
                     <a class="item" href="/client"><h4 class="header item">My Jobs</h4></a>
                     <a class="item" href="/submitjob"><h4 class="header item">Submit a job</h4></a>
                 </div>
                 <div class="right menu">
-                    <a class="item" href="/client/harnesstalent"><h4 class="header item"> Harness Talent</h4></a>
+                    <a class="item" href="/harnesstalent"><h4 class="header item"> Harness Talent</h4></a>
                     <a class="item " href="/logout"><h4 class="header item">Logout</h4></a>
                 </div>
             </div>
@@ -43,6 +43,7 @@
                 </div>
                 <div class="two wide column ">
                     <select name="jobTitle" class="ui dropdown">
+                        <option value="All">All</option>
                         <option value="Developer">Developer</option>
                         <option value="Senior Developer">Senior Developer</option>
                         <option value="Lead Developer">Lead Developer</option>
@@ -50,6 +51,7 @@
                 </div>
                 <div class="two wide column ">
                     <select name="company" class="ui dropdown">
+                        <option value="All">All</option>
                         <option value="Ford">Ford</option>
                         <option value="Apple">Apple</option>
                         <option value="Mustang">Mustang</option>
@@ -57,6 +59,7 @@
                 </div>
                 <div class="two wide column ">
                     <select name="jobCategory" class="ui dropdown">
+                          <option value="All">All</option>
                           <option class="header">UX, UI & Digital Design</option>
                           <option value="UX Designer">UX Designer</option>
                           <option value="UI Designer">UI Designer</option>
@@ -76,7 +79,8 @@
                     </select>
                 </div>
                 <div class="two wide column ">
-                    <select name="city" class="ui dropdown">
+                    <select name="location" class="ui dropdown">                                    
+                        <option value="All">All</option>
                         <option value="London">London</option>
                         <option value="Bristol">Bristol</option>
                         <option value="Berlin">Berlin</option>
@@ -84,6 +88,7 @@
                 </div>
                 <div class="two wide column ">
                     <select name="salary" class="ui dropdown">
+                        <option value="All">All</option>
                         <option value="20-30,000">20-30,000</option>
                         <option value="30-50,000">30-50,000</option>
                         <option value="50-100,000">50-100,000</option>
@@ -91,6 +96,7 @@
                 </div>
                 <div class="two wide column ">
                     <select name="contractType" class="ui dropdown">
+                        <option value="All">All</option>
                         <option value="permanent">Permanent</option>
                         <option value="contract">Contract</option>
                         <option value="both">Both</option>
