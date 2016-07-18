@@ -1,0 +1,179 @@
+
+h1,h2, p, h4 {
+     font-family: 'Raleway', sans-serif !important;
+}
+body {
+    margin: 0;
+    background: #000;
+}
+
+video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+    transition: 1s opacity;
+    opacity: 0.5;
+}
+
+.home-page {
+    font-size: 1.5em !important;
+    /*     position: fixed;
+ */
+}
+
+.home-page a {
+    color: white !important;
+}
+
+.home-page-logo {
+    font-weight: 800 !important;
+    font-family: helvetica;
+    font-size: 1.5em;
+    margin: 2em;
+    padding: 0 1em !important;
+}
+
+.intro {
+    padding-top: 15em;
+    padding-bottom: 15em;
+}
+
+.intro h1,
+.intro h4 {
+    color: white !important;
+}
+
+.intro h1 {
+    font-size: 6em !important;
+}
+
+.intro h4,
+.testimonials h4 {
+    font-size: 2em !important;
+}
+
+.testimonials h4 {
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+
+.aboutUs p,
+.products p {
+    font-size: 1.5em;
+}
+
+.aboutUs p,
+.aboutUs div,
+.products p,
+.products div {
+    text-align: left;
+    color: white;
+}
+
+.products h1 {
+    font-size: 4em;
+    font-weight: 100;
+    color: white;
+    margin: 0;
+    text-align: center;
+}
+
+.products p {
+    margin: 1em !important;
+}
+
+.products {
+
+    padding: 1em;
+}
+
+.products.grid {
+
+    padding: 2em;
+}
+
+.whyharness {
+    color: white;
+    text-align: center;
+    padding-top: 1em;
+}
+
+#whyharness {
+    padding-top: 2em;
+}
+
+.container {
+    margin: 1em;
+}
+
+.harnessBlue {
+    background-color: #15ABC8;
+}
+
+#contactUs, #aboutUs {
+    background-color: #1B1C1F!important;
+    color:white;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+#products {
+    background-color: #1B1C1F!important;
+    color:white;
+    padding-top: 1em;
+}
+
+#testimonials{
+    background-color: #00B5AE!important;
+    padding-bottom: 1em;
+}
+
+.productsImage {
+    background-image: url('./public/assets/images/london-view.jpg');
+    background-image: cover;
+    background-size: 100% 60em;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
+    background-color: black;   
+}
+
+
+.products {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.productsWord {
+    position: absolute;
+    bottom: 50%;
+    right:27%;
+}
+
+.productNumber {
+    font-size: 6em !important;
+    font-weight: 800;
+    color: #ce1010 !important;
+    opacity: 0.75;
+}
+
+.productsContent {
+    position: relative;
+
+}
+
+.aboutUs img {
+    height:700px;
+    width:500px;
+}
+
+.numt {
+  text-decoration: none;
+  color: white;
+
+
+}
