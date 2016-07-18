@@ -11,18 +11,30 @@ var $ = window.$;
             this.reset();
             this.interviewRequest();
         },
+        queryObject: {
+                    jobTitle: $('select[name=jobTitle]').val(),
+                    company: $('select[name=company]').val(),
+                    jobCategory: $('select[name=jobCategory]').val(),
+                    location: $('select[name=location]').val(),
+                    salary: $('select[name=salary]').val(),
+                    contractType: $('select[name=contractType]').val()
+                },
         fetch: function(query) {
             $.ajax({
                 url: '/harnesstalent/results',
                 data: query,
-                success: function(arrayOfCandidates) {
-                    if(arrayOfCandidates === false){
+                success: function(response) {
+                    if(response === false){
                         $('.ui.message').text('There is no talent');
                     }
-                    console.log('RESULTS FORM BE', arrayOfCandidates);
+                    console.log('RESULTS FORM BE', response);
                     var source = $('#candidates-template').html()
                     var template = Handlebars.compile(source);
-                    var context = arrayOfCandidates;
+                    var context = response.array;
+                    var userType = response.userType;
+                    if(userType === 'admin'){
+                        $('.client-menus').remove();
+                    }
                     var populatedHTML = template(context);
                     $('#candidates-container').html(populatedHTML);
                     DOCUMENTVIEWER.init();
@@ -31,35 +43,91 @@ var $ = window.$;
             });
         },
         search: function() {
+            let self =this;
             $('.search').on('click', function() {
-
+                console.log(self.queryObject, '>>>>>>>>>>>>');
                 var queryObj = {
                     jobTitle: $('select[name=jobTitle]').val(),
                     company: $('select[name=company]').val(),
                     jobCategory: $('select[name=jobCategory]').val(),
-                    city: $('select[name=city]').val(),
+                    location: $('select[name=location]').val(),
                     salary: $('select[name=salary]').val(),
                     contractType: $('select[name=contractType]').val()
-                };
-                var query = $.param(queryObj);
+                }
+                let query = $.param(queryObj);
                 CANDIDATES.fetch(query);
             });
         },
         reset: function(){
+             var self = this;
              $('.reset').on('click', function() {
+                for(var key in self.queryObject){
+                    self.queryObject[key] = 'All'
+                }
                 CANDIDATES.fetch();
             });
         },
         interviewRequest: function(){
-          console.log('oi oi being abit sniffy');
-          $('.interviewRequest').on('click', function(){
-            console.log('butoooooon');
-            let cvid = $(this).data('cvid');
-            $('#' + cvid).toggleClass('hide-element');
-            $('.ui.message.info').removeClass('.ui.info');
-            $('#' + cvid).modal('show');
-
-          });
+            $('.interviewRequest').on('click', function(){
+                let cvid = $(this).data('cvid');
+                $('#' + cvid).toggleClass('hide-element');
+                $('.ui.message.info').removeClass('.ui.info');
+                $('#' + cvid).modal('show');
+            });
+        },
+        sendInterviewRequest: function(){
+                var self = this;
+                
+                $('.button.send-interview').on('click', function(e) {
+                    e.preventDefault();
+                    const cvid = $(this).data('cvid');
+                    let form =  document.forms[cvid];
+                    let firstTime = form['firstIntTime'].value;
+                    let firstDate = form['firstIntDate'].value;
+                    let interviewAddress = form['interviewAddress'].value;
+                    let stage = form['stage'].value;
+                    let fields = [firstDate, firstTime, interviewAddress, stage];
+    
+                    let validated =  self.validate(fields);
+        
+                    if ( validated[0] === '' || validated[0] === null ){
+                        return  $('.message').addClass('ui info').text('We need the date, time, stage and location of the interview'); 
+                    } else {
+                        let formData = $('form[name='+cvid+']').each(function(){ $(this).find(':input');});
+                        return  self.sendFormData(formData ,cvid);
+                    }   
+                });
+        },
+        validate: function(fields){
+            var self = this;
+            return  fields.filter(self.checkForEmpty);
+        },
+        checkForEmpty: function(field){
+             return field ==''|| field == null;
+        },
+        sendFormData: function(formData, cvid){
+            var data = formData.serialize();
+                $.ajax({
+                    type: 'POST',
+                    url: '/interview/proposed',
+                    data: data,
+                    async: true,
+                    success: function(cvid) {
+                        if (cvid) {
+                            $('#message').addClass('ui info message').text("We\'ve emailed the agent to arrange an interview"); // change to something better...
+                            $('#' + cvid).modal('hide');
+                            $('form[name='+cvid+']').find("input, textarea").val("");
+                        } else {
+                            $('#' + cvid).modal('hide');
+                            document.getElementById('message').innerHTML = 'Sorry, there was an error. Please try again!';
+                        }
+                    },
+                    error: function(res) {
+                        console.log("ERROR", res);
+                        $('#' + cvid).modal('hide');
+                        document.getElementById('message').innerHTML = 'Sorry, there was an error. Please try again!';
+                    }
+            });
         }
     };
     CANDIDATES.init();
