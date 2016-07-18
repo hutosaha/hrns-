@@ -17,9 +17,11 @@
     <link rel="stylesheet" type="text/css" href="/public/css/index.css">
 </head>
 <style type="text/css">
+
 body {
     margin: 0;
     background: #000;
+    font-family: helvetica;
 }
 
 video {
@@ -140,15 +142,16 @@ video {
 <source src="your-movie_WebM.webm"> -->
     </video>
     <div class="ui secondary fixed menu home-page">
-        <a class="item home-page-logo">HARNESS</a>
-        <div class="right menu">
-            <a class="ui item">Home</a>
-            <a class="ui item">About Us</a>
-            <a class="ui item">Our Products</a>
-            <a class="ui item">Why Harness?
-	        <a class="ui item">I'm a recruiter</a>
+        <a class="item home-page-logo"><img src="../assets/images/whiteLogo.png" width="500px" height="100px"></a>
+        <div class="right menu">h
+            <a href="/" class="ui item">Home</a>
+            <a  href="#aboutUs"   class="ui item">About Us</a>
+            <a  href="#products"  class="ui item">Our Products</a>
+            <a  href="whyHarness" class="ui item">Why Harness?
+	        <a  href="#recruiter" class="ui item">I'm a recruiter</a>
         </div>
     </div>
+    <section id="banner">
     <div class="ui page grid">
         <div class="row">
             <div class="intro">
@@ -162,6 +165,8 @@ video {
             </div>
         </div>
     </div>
+    </section>
+    <section>
     <div class="ui equal width center aligned padded grid">
         <div class="row teal testimonials">
             <div class="twelve wide centeteal column">
@@ -183,6 +188,8 @@ video {
             </div>
         </div>
     </div>
+    </section>
+    <section id="products">
     <div class="ui equal width center aligned padded products grid">
         <div class="row">
             <div class="introduction">
@@ -212,6 +219,7 @@ video {
             <a href="#" class="ui huge teal button">GET IN TOUCH</a>
         </div>
     </div>
+    </section>
     <section class="container">
         <div class="ui stackable teal grid ">
             <div class="row centered teal">
@@ -273,9 +281,18 @@ video {
             </div>
         </div>
     </section>
-    <section class="container">
-        <div class="ui stackable black grid ">
+    <section class="container" id="contactUs">
+        <div class="ui stackable equal width center aligned black grid ">
             <div class="row centered black">
+            	<div class="column">
+					<div class="contactDetails">	
+						<p>Name: Ben Briely</p>
+						<p>Address some where</p>
+						<p>Mobile</p>
+						<p>Email</p>
+					</div>
+                </div>
+            	<dvi class="column">
                 <div class="ui inverted segment">
                     <div class="ui inverted form">
                         <div class="two fields">
@@ -295,6 +312,8 @@ video {
                             </div>
                         </div>
                         <div class="ui submit button">Submit</div>
+                    </div>
+                    
                     </div>
                 </div>
             </div>
