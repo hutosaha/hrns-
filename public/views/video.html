@@ -17,7 +17,6 @@
     <link rel="stylesheet" type="text/css" href="/public/css/index.css">
 </head>
 <style type="text/css">
-
 body {
     margin: 0;
     background: #000;
@@ -51,8 +50,8 @@ video {
 .home-page-logo {
     font-weight: 800 !important;
     font-family: helvetica;
-    font-size: 2em;
-    margin: 0;
+    font-size: 4em;
+    margin: 2em;
     padding: 0 1em !important;
 }
 
@@ -133,6 +132,28 @@ video {
 .harnessBlue {
     background-color: #15ABC8;
 }
+
+#contactUs, #products, #aboutUs {
+    background-color: #1B1C1F!important;
+    color:white;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+#testimonials{
+    background-color: #00B5AE!important;
+    padding-bottom: 1em;
+
+}
+
+.productsWord {
+    position: absolute;
+    top: 50%;
+}
+
+.productsContent {
+    position: relative;
+
+}
 </style>
 
 <body>
@@ -142,157 +163,187 @@ video {
 <source src="your-movie_WebM.webm"> -->
     </video>
     <div class="ui secondary fixed menu home-page">
-        <a class="item home-page-logo"><img src="../assets/images/whiteLogo.png" width="500px" height="100px"></a>
-        <div class="right menu">h
-            <a href="/" class="ui item">Home</a>
-            <a  href="#aboutUs"   class="ui item">About Us</a>
-            <a  href="#products"  class="ui item">Our Products</a>
-            <a  href="whyHarness" class="ui item">Why Harness?
-	        <a  href="#recruiter" class="ui item">I'm a recruiter</a>
+
+        <a class="item home-page-logo"><img src="../assets/images/whiteLogo.png"></a>
+        <div class="right menu">
+            <a href="#/" class="ui item">Home</a>
+            <a href="#aboutUs" class="ui item">About Us</a>
+            <a href="#products" class="ui item">Our Products</a>
+            <a href="whyHarness" class="ui item">Why Harness?</a>
+            <a  href="#recruiter" class="ui item">I'm a recruiter</a>
         </div>
     </div>
+
     <section id="banner">
-    <div class="ui page grid">
-        <div class="row">
-            <div class="intro">
-                <h1>
-						Find your human.
-					</h1>
-                <div class="hidden divider"></div>
-                <h4>Harness is the newest, most effective hiring tool to access the top 5% of qualified, available tech talent in the market, all in the click of a button.</h4>
-                <a href="#" class="ui massive basic teal  button">I'm hiring</a>
-                <a href="#" class="ui massive teal button">I'm candidate</a>
+        <div class="ui page grid">
+            <div class="row">
+                <div class="intro">
+                    <h1>
+                        Find your human.
+                    </h1>
+                    <div class="hidden divider"></div>
+                    <h4>Harness is the newest, most effective hiring tool to access the top 5% of qualified, available tech talent in the market, all in the click of a button.</h4>
+                    <a href="#" class="ui massive basic teal  button">I'm hiring</a>
+                    <a href="#" class="ui massive teal button">I'm candidate</a>
+                </div>
             </div>
         </div>
-    </div>
     </section>
-    <section>
-    <div class="ui equal width center aligned padded grid">
-        <div class="row teal testimonials">
-            <div class="twelve wide centeteal column">
-                <h4>"When first hearing about Harness I was instantly excited to finally see an innovative product come to the market to support the changing times in talent acquisition."</h4>
-                <strong>Talent Manager, Buzzfeed</strong>
+    <section id="testimonials">
+        <div class="ui container">
+            <div class="ui equal width center aligned padded grid">
+                <div class="row teal testimonials">
+                    <div class="twelve wide centered column">
+                        <h4>"When first hearing about Harness I was instantly excited to finally see an innovative product come to the market to support the changing times in talent acquisition."</h4>
+                        <strong>Talent Manager, Buzzfeed</strong>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="row aboutUs black">
-            <div class="column">
-                <img src="../assets/images/blackbg-flatfaces.jpg">
-            </div>
-            <div class="column">
-                <div class="ui large grey header">ABOUT US</div>
-                <div class="ui huge inverted header">Algorythm meets Human Rythm</div>
-                <p>We combine the expert eye of in-industry experts (Human Rythm), with the analytics of data science (Algorithm) to ensure you get the very best candidates - passive and actively looking</p>
-                <p>As designers, developers, IT professionals and recruiters, we got fed up with how hard it is to quickly access the very best tech & digital candidates in the market.</p>
-                <p>So, two brothers and pretty goood looking Product Designer decided it was time to put it right; so we created Harness, to help Agencies, Hiring Clients and Candidates work better together; saving time, money and effort for all involved.</p>
-                <p>It's a hiring solution for the digital economy.</p>
-            </div>
-        </div>
-    </div>
+    </section>
+    <section id="aboutUs">
+            <div class="ui container">
+            <div class="ui equal width center aligned padded grid">
+                <div class="row aboutUs black">
+                    <div class="column">
+                        <img src="../assets/images/blackbg-flatfaces.jpg">
+                    </div>
+                    <div class="column">
+                        <div class="ui large grey header">ABOUT US</div>
+                        <div class="ui huge inverted header">Algorythm meets Human Rythm</div>
+                        <p>We combine the expert eye of in-industry experts (Human Rythm), with the analytics of data science (Algorithm) to ensure you get the very best candidates - passive and actively looking</p>
+                        <p>As designers, developers, IT professionals and recruiters, we got fed up with how hard it is to quickly access the very best tech & digital candidates in the market.</p>
+                        <p>So, two brothers and pretty goood looking Product Designer decided it was time to put it right; so we created Harness, to help Agencies, Hiring Clients and Candidates work better together; saving time, money and effort for all involved.</p>
+                        <p>It's a hiring solution for the digital economy.</p>
+                    </div>
+                </div>
+            </div> 
+            </div>      
     </section>
     <section id="products">
-    <div class="ui equal width center aligned padded products grid">
-        <div class="row">
-            <div class="introduction">
-                <h1>Our products:</h1>
-                <h1>changing the game</h1>
+        <div class="ui container">
+            <div class="ui equal width center aligned padded products grid">
+                <div class="row">
+                    <div class="introduction">
+                        <h1>Our products:</h1>
+                        <h1>changing the game</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <h2 class="ui inverted header">Harness Hire</h2>
+                    <p>Our premium product, Harness Hire allows you to enter details of who you need to hire, hit “Submit” and simply sit back and relax while we do the hard work. We will identify, qualify and select the best candidates from 1000’s of professional networks globally. Because we have some of the best, specialist boutique recruiters working for us, you will see those passive, and actively looking candidates – something normal hiring tools cannot do. Simply click to interview, let’s us do the rest.</p>
+                </div>
+                <div class="row">
+                    <h2 class="ui inverted header">Harness Talent</h2>
+                    <p>Not sure who you need to hire, but would like to see what the very best have to offer? Harness Talent allows you to search a curated list of elite candidates – all of which are qualified, available to interview and have proven track records of delivery. Simply click to interview and only pay for those candidates you hire!</p>
+                </div>
+                <div class="row">
+                    <div class="column productsContent">
+                        <h1 class="ui massive inverted header">1</h1>
+                        <span class="ui massive inverted header productsWord">DATA SCIENCE</span>
+                    </div>
+                    <div class="column"><h1 class="ui massive inverted header">2</h1>
+                    <span class="ui massive inverted header">UX & DIGITAL DESIGN</div>
+                    <div class="column">3. PRODUCT MANAGEMENT</div>
+                </div>
+                <div class="row">
+                    <div class="column">4. BUSINESS INTELLIGENCE</div>
+                    <div class="column">5. DEVELOPMENT</div>
+                    <div class="column">6. PROJECT MANAGEMENT</div>
+                </div>
+                <div class="row">
+                    <a href="#" class="ui huge teal button">GET IN TOUCH</a>
+                </div>
             </div>
         </div>
-        <div class="row">
-            <h2 class="ui inverted header">Harness Hire</h2>
-            <p>Our premium product, Harness Hire allows you to enter details of who you need to hire, hit “Submit” and simply sit back and relax while we do the hard work. We will identify, qualify and select the best candidates from 1000’s of professional networks globally. Because we have some of the best, specialist boutique recruiters working for us, you will see those passive, and actively looking candidates – something normal hiring tools cannot do. Simply click to interview, let’s us do the rest.</p>
-        </div>
-        <div class="row">
-            <h2 class="ui inverted header">Harness Talent</h2>
-            <p>Not sure who you need to hire, but would like to see what the very best have to offer? Harness Talent allows you to search a curated list of elite candidates – all of which are qualified, available to interview and have proven track records of delivery. Simply click to interview and only pay for those candidates you hire!</p>
-        </div>
-        <div class="row">
-            <div class="column">1. DATA SCIENCE</div>
-            <div class="column">2. UX & DIGITAL DESIGN</div>
-            <div class="column">3. PRODUCT MANAGEMENT</div>
-        </div>
-        <div class="row">
-            <div class="column">4. BUSINESS INTELLIGENCE</div>
-            <div class="column">5. DEVELOPMENT</div>
-            <div class="column">6. PROJECT MANAGEMENT</div>
-        </div>
-        <div class="row">
-            <a href="#" class="ui huge teal button">GET IN TOUCH</a>
-        </div>
-    </div>
     </section>
     <section class="container">
         <div class="ui stackable teal grid ">
             <div class="row centered teal">
                 <h1 class="ui inverted header" id="whyharness"> WHY HARNESS?</h1>
             </div>
-            <div class="row teal">
-                <div class="two wide column">
-                    <img class="ui tiny right floated image" src="../assets/images/harness-easier-01.svg">
-                </div>
-                <div class="left aligned fourteen wide column">
-                    <h3 class="ui  ">EASIER</h3>
-                    <p>All you do is enter who you need. Literally, that's it. No endless cold calls, multiple recruiter briefings, candidate chasing, sending 100's of LinkedIn messages, trawling through CV boards... </p>
-                </div>
-            </div>
-            <div class="row teal">
-                <div class="two wide column">
-                    <img class="ui tiny right floated image" src="../assets/images/harness-quicker-01.svg">
-                </div>
-                <div class="left aligned fourteen wide column">
-                    <h3 class="ui ">QUICKER</h3>
-                    <p>Harness requires you to do nothing but review high quality, relevant and available CV's in one simple place. Zero admin. We cut through the nonsense of recruiting, and free you up to do important stuff! </p>
+            <div class="nine column row teal">
+                <div class="ui container">
+                    <div class="two wide column">
+                        <img class="ui tiny right floated image" src="../assets/images/harness-easier-01.svg">
+                    </div>
+                    <div class="left aligned fourteen wide column">
+                        <h3 class="ui  ">EASIER</h3>
+                        <p>All you do is enter who you need. Literally, that's it. No endless cold calls, multiple recruiter briefings, candidate chasing, sending 100's of LinkedIn messages, trawling through CV boards... </p>
+                    </div>
                 </div>
             </div>
             <div class="row teal">
-                <div class="two wide column">
-                    <img class="ui tiny right floated image" src="../assets/images/harness-quality-01.svg">
-                </div>
-                <div class="left aligned fourteen wide column">
-                    <h3>QUALITY</h3>
-                    <p>Where else can you guarantee every inch of the market has been scouteal for the best tech talent? Our exclusive, curated network means no stone goes unturned in finding you the perfect candidate. </p>
-                </div>
-            </div>
-            <div class="row teal">
-                <div class="two wide column">
-                    <img class="ui tiny right floated image" src="../assets/images/harness-flexible-01.svg">
-                </div>
-                <div class="left aligned fourteen wide column">
-                    <h3>FLEXIBLE</h3>
-                    <p>Don't need to hire this month? Then don't pay! We only charge you when you need us. Think of us as your super in-house recruiter, we're there when you need us. Otherwise, we'll just be chilling.</p>
+                <div class="ui container">
+                    <div class="two wide column">
+                        <img class="ui tiny right floated image" src="../assets/images/harness-quicker-01.svg">
+                    </div>
+                    <div class="left aligned fourteen wide column">
+                        <h3 class="ui ">QUICKER</h3>
+                        <p>Harness requires you to do nothing but review high quality, relevant and available CV's in one simple place. Zero admin. We cut through the nonsense of recruiting, and free you up to do important stuff! </p>
+                    </div>
                 </div>
             </div>
             <div class="row teal">
-                <div class="two wide column">
-                    <img class="ui tiny right floated image" src="../assets/images/harness-funer-01.svg">
-                </div>
-                <div class="left aligned fourteen wide column">
-                    <h3>FUN-ER</h3>
-                    <p>That's right, recruitment can be fun! We allow you to focus on the fun and important parts of hiring; meeting, greeting and qualifying the future employees of your business! No boring bits. Guaranteed. </p>
+                <div class="ui container">
+                    <div class="two wide column">
+                        <img class="ui tiny right floated image" src="../assets/images/harness-quality-01.svg">
+                    </div>
+                    <div class="left aligned fourteen wide column">
+                        <h3>QUALITY</h3>
+                        <p>Where else can you guarantee every inch of the market has been scouteal for the best tech talent? Our exclusive, curated network means no stone goes unturned in finding you the perfect candidate. </p>
+                    </div>
                 </div>
             </div>
             <div class="row teal">
-                <div class="two wide column">
-                    <img class="ui tiny right floated image" src="../assets/images/harness-value-01.svg">
+                <div class="ui container">
+                    <div class="two wide column">
+                        <img class="ui tiny right floated image" src="../assets/images/harness-flexible-01.svg">
+                    </div>
+                    <div class="left aligned fourteen wide column">
+                        <h3>FLEXIBLE</h3>
+                        <p>Don't need to hire this month? Then don't pay! We only charge you when you need us. Think of us as your super in-house recruiter, we're there when you need us. Otherwise, we'll just be chilling.</p>
+                    </div>
                 </div>
-                <div class="left aligned fourteen wide column">
-                    <h3>VALUE</h3>
-                    <p>Recruiting the top 5% top tech talent doesn't have to cost the earth, we make sure of it. 90% of what you pay us only happens when you find the candidate you love! OMG. No seriously, it's true.</p>
+            </div>
+            <div class="row teal">
+                <div class="ui container">
+                    <div class="two wide column">
+                        <img class="ui tiny right floated image" src="../assets/images/harness-funer-01.svg">
+                    </div>
+                    <div class="left aligned fourteen wide column">
+                        <h3>FUN-ER</h3>
+                        <p>That's right, recruitment can be fun! We allow you to focus on the fun and important parts of hiring; meeting, greeting and qualifying the future employees of your business! No boring bits. Guaranteed. </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row teal">
+                <div class="ui container">
+                    <div class="two wide column">
+                        <img class="ui tiny right floated image" src="../assets/images/harness-value-01.svg">
+                    </div>
+                    <div class="left aligned fourteen wide column">
+                        <h3>VALUE</h3>
+                        <p>Recruiting the top 5% top tech talent doesn't have to cost the earth, we make sure of it. 90% of what you pay us only happens when you find the candidate you love! OMG. No seriously, it's true.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    <section class="container" id="contactUs">
-        <div class="ui stackable equal width center aligned black grid ">
-            <div class="row centered black">
-            	<div class="column">
-					<div class="contactDetails">	
-						<p>Name: Ben Briely</p>
-						<p>Address some where</p>
-						<p>Mobile</p>
-						<p>Email</p>
-					</div>
+    <section id="contactUs">
+    
+        <div class="ui container">
+            <div class="ui grid">
+            <div class="row">
+            <div class="six wide column">
+                <div class="contactDetails">
+                    <p>Name: Ben Briely</p>
+                    <p>Address some where</p>
+                    <p>Mobile</p>
+                    <p>Email</p>
                 </div>
-            	<dvi class="column">
+            </div>
+            <div class="six wide column">
                 <div class="ui inverted segment">
                     <div class="ui inverted form">
                         <div class="two fields">
@@ -313,10 +364,10 @@ video {
                         </div>
                         <div class="ui submit button">Submit</div>
                     </div>
-                    
-                    </div>
                 </div>
             </div>
+            </div>
+        </div>
         </div>
     </section>
 </body>
