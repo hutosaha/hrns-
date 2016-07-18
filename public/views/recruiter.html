@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-2.2.2.min.js" integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.0/jquery-ui.min.js" integrity="sha256-lCF+55kMUF+3fO/3BiXui4eiUKcQmtr7ecKSeLVDxIQ=" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/png" href="/favicon.png" sizes="96x96">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.css" />
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/themes/smoothness/jquery-ui.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:100,400,800' rel='stylesheet' type='text/css'>
+    <!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,800' rel='stylesheet' type='text/css'> -->
+    <link rel="stylesheet" type="text/css" href="/public/css/index.css">
+</head>
+<style type="text/css">
+body {
+    margin: 0;
+    background: #000;
+}
+
+video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+    transition: 1s opacity;
+    opacity: 0.5;
+}
+
+.home-page {
+    font-size: 1.5em !important;
+    /*     position: fixed;
+ */
+}
+
+.home-page a {
+    color: white !important;
+}
+
+.home-page-logo {
+    font-weight: 800 !important;
+    font-family: helvetica;
+    font-size: 2em;
+    margin: 0;
+    padding: 0 1em !important;
+}
+
+.intro {
+    padding-top: 15em;
+    padding-bottom: 15em;
+}
+
+.intro h1,
+.intro h4 {
+    color: white !important;
+}
+
+.intro h1 {
+    font-size: 6em !important;
+}
+
+.intro h4,
+.testimonials h4 {
+    font-size: 2em !important;
+}
+
+.testimonials h4 {
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+
+.aboutUs p,
+.products p {
+    font-size: 1.5em;
+}
+
+.aboutUs p,
+.aboutUs div,
+.products p,
+.products div {
+    text-align: left;
+    color: white;
+}
+
+.products h1 {
+    font-size: 4em;
+    font-weight: 100;
+    color: white;
+    margin: 0;
+    text-align: center;
+}
+
+.products p {
+    margin: 1em !important;
+}
+
+.products {
+    background-image: url('../assets/images/office.jpg');
+    background-color: #CCC;
+    padding: 1em;
+    background: #CCC;
+ filter: alpha(opacity=60);
+ /* IE */
+ -moz-opacity: 0.6;
+ /* Mozilla */
+ opacity: 0.6;
+}
+
+.products.grid {
+    background-color: black;
+    padding: 2em;
+}
+
+.whyharness {
+    color: white;
+    text-align: center;
+    padding-top: 1em;
+}
+
+#whyharness {
+    padding-top: 2em;
+}
+
+.container {
+    margin: 1em;
+}
+
+.harnessBlue {
+    background-color: #15ABC8;
+}
+</style>
+
+<body>
+    <video autoplay id="the-video" preload="" loop>
+        <source src="../assets/videos/high_five.mov">
+        <!--   <source src="your-movie_Ogg.ogv">
+<source src="your-movie_WebM.webm"> -->
+    </video>
+    <div class="ui secondary fixed menu home-page">
+        <a class="item home-page-logo">HARNESS</a>
+        <div class="right menu">
+            <a href="./" class="ui item">Home</a>
+            <a href="./home.html#aboutUs" class="ui item">About Us</a>
+            <a href="./home.html#products" class="ui item">Our Products</a>
+            <a href="./home.html#whyHarness" class="ui item">Why Harness?</a>
+        </div>
+    </div>
+    <div class="ui page grid">
+        <div class="row">
+            <div class="intro">
+              <div class="ui equal width center aligned padded products grid">
+                  <div class="row">
+                      <div class="introduction">
+
+                  <h2>We get it</h2>
+                  <p>Being a recruiter is a tough gig.....</p>
+                  <p>The drop outs, the offer turn-downs, the radio silence from clients, the sending-cv’s-into-a-black hole, the 1000 agency conference call…</p>            ​
+                  <p>The list goes on, but fear not. Harness are to help.</p>
+
+                  <h3>The Math</h3>
+                  <p>Did you know, the average tech recruiter generates £50 per hour in recruitment fees?
+                  Now, we’re no mathematicians, but that’s around £10,000 per month, so roughly one fee per month.  So, what if we said we could improve that hourly rate to £5,000 per hour? We reckon we can, and here’s how.
+                  Around 95% of candidates that we as recruiters meet, greet, qualify, wine and dine, never actually make us any fees. So, what can you do with them? We want you to HARNESS them.</p>
+                  <p>Becoming a partner of Harness, (and it’s not easy) means you will secure your agency exclusive access to two ground breaking products</p>
+                  ​
+                  <h3>1. Harness Hire</h3>
+                  <p>Live vacancies with some of the biggest, smallest and most exciting companies in the world – within a controlled environment, so you always know who you are up against, offering you more opportunities to speak to your candidates about (beats the weekend chat) and a chance at making more fees.</p>
+
+                  <h3>2. Harness Talent</h3>
+                  <p>You will like this. Harness Talent is a unique agency tool that could increase your productivity per head 10 fold, by making sure you get paid for every candidate you meet, greet and qualify.</p>
+
+                  <p>You see we believe good recruiters should be paid for building relationships with the very best candidates in the market – so simply upload them into Harness, and if our clients (some of the top companies in the world) are interested, you will be informed, you arrange the interview, and you take the fee! Oh, and it only takes 23 seconds to upload them.</p>
+                  </div>
+              </div>
+              </div>
+                <div class="hidden divider"></div>
+
+            </div>
+        </div>
+    </div>
+    <div class="ui equal width center aligned padded grid">
+        <div class="row teal testimonials">
+            <div class="twelve wide centeteal column">
+                <h4>"When first hearing about Harness I was instantly excited to finally see an innovative product come to the market to support the changing times in talent acquisition."</h4>
+                <strong>Talent Manager, Buzzfeed</strong>
+            </div>
+        </div>
+
+</body>
+
+</html>
