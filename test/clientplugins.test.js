@@ -48,17 +48,12 @@ server.init(0, (err, server) => {
         testEndPoint(server, '/client/scheduling/reject?'+query, 'GET', 200, 'endpoint responds with', clientCookie);
         testEndPoint(server, '/harnesstalent', 'GET', 200, 'endpoint responds with', clientCookie);
         
-        var query = 'salaryMin=20000&location=London&jobTitle=All&jobCategory=All&company=All&salaryMax=100000&contractType=All';
-        testEndPoint(server, '/harnesstalent/results?' + query, 'GET', 200, 'endpoint responds with', clientCookie);
 
-        client.hmset()
+
         
         // We need to set up harness talent list with three candidates. hashes/object also need to be added to the database 
         //we will the test the harnesstalent/results endpoint to see if the returned array matches the query. 
 
-
-
-        testEndPoint(server, '/harnesstalent/results?' + query, 'GET', 200, 'endpoint responds with', clientCookie);        
 
     });
     // testEndPoint(server, '/submitjob', 'POST', 200, 'endpoint responds with:', clientCookie, jobPayload, 'testid'); /FAIL ACTUAL 400
