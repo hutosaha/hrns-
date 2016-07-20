@@ -17,6 +17,7 @@ h4 {
 p {
   font-size: 26px;
 }
+
 body {
     margin: 0;
     background: #000;
@@ -96,35 +97,30 @@ video {
 }
 
 
+.products h2 {
+  font-weight: lighter;
+  font-size: 40px;
+  text-align: center;
+}
+.products h3 {
+  font-weight: 400;
+  font-size: 40px;
+  text-align: center;
+}
 
-.products p,
-.products div {
-    text-align: left;
+#products {
+    background-color: #1B1C1F;
+    padding-top: 1em;
     color: white;
 }
 
-.products h1 {
-    font-size: 4em;
-    font-weight: 100;
-    color: white;
-    margin: 0;
-    text-align: center;
+.introduction {
+  text-align: center;
 }
 
-.products p {
-    margin: 1em !important;
+.products .tm{
+  text-align: left !important;
 }
-
-.products {
-
-    padding: 1em;
-}
-
-.products.grid {
-
-    padding: 2em;
-}
-
 
 
 .whyharness {
@@ -172,10 +168,7 @@ video {
   width: 100%;
 }
 
-#products {
-    background-color: #1B1C1F;
-    padding-top: 1em;
-}
+
 
 .productsWord {
     position: absolute;
