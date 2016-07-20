@@ -67,10 +67,13 @@ video {
   width: 1000px;
 
 }
-
+.testimonials h2 {
+  font-size: 33px;
+  font-weight: bold;
+}
 .testimonials h4 {
-    padding-top: 2em;
-    padding-bottom: 2em;
+    padding-top: .5em;
+    padding-bottom: .5em;
 }
 
 
