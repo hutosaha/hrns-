@@ -1,4 +1,3 @@
-
 h1,h2 {
      font-family: 'Raleway', sans-serif !important;
      color: white !important;
@@ -12,20 +11,16 @@ h4, p {
   font-weight: 100 !important;
   color: white !important;
 }
-
-
-h4{
+h4 {
   font-size: 37px;
 }
-
-p{
+p {
   font-size: 26px;
 }
 body {
     margin: 0;
     background: #000;
 }
-
 video {
     position: fixed;
     top: 50%;
@@ -62,6 +57,7 @@ video {
     padding: 0 1em !important;
 }
 
+
 .intro {
     padding-top: 15em;
     padding-bottom: 15em;
@@ -75,6 +71,8 @@ video {
   width: 1000px;
 
 }
+
+
 .testimonials h2 {
   font-size: 33px;
   font-weight: bold;
@@ -83,6 +81,8 @@ video {
     padding-top: .5em;
     padding-bottom: .5em;
 }
+
+
 
 .aboutUs h5 {
   color: grey;
@@ -94,8 +94,9 @@ video {
 .aboutUs h4 {
   text-align: left;
 }
-.aboutUs p,
-.aboutUs div,
+
+
+
 .products p,
 .products div {
     text-align: left;
@@ -124,6 +125,8 @@ video {
     padding: 2em;
 }
 
+
+
 .whyharness {
     color: white;
     text-align: center;
@@ -148,11 +151,7 @@ video {
     padding-top: 1em;
     padding-bottom: 1em;
 }
-#products {
-    background-color: #1B1C1F!important;
-    color:white;
-    padding-top: 1em;
-}
+
 
 #testimonials{
     background-color: #00B5AE!important;
@@ -168,10 +167,14 @@ video {
     background-position: center;
     background-color: black;
 }
+.overlayproducts{
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+}
 
-
-.products {
-    background-color: rgba(0, 0, 0, 0.3);
+#products {
+    background-color: #1B1C1F;
+    padding-top: 1em;
 }
 
 .productsWord {
