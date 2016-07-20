@@ -1,26 +1,41 @@
-h1,h2 {
-     font-family: 'Raleway', sans-serif !important;
-     color: white !important;
+
+body {
+  font-family: 'Raleway', sans-serif !important;
+  color: white !important;
+
 }
+
 h1 {
-  font-size: 116px !important;
-  font-weight: 1500 !important;
+  font-size: 6em !important;
+  font-weight: bold !important;
 }
+h2{
+  font-size: 3em;
+}
+
+h3{
+  font-size: 2.5em;
+}
+
 h4, p {
   font-family: 'Raleway' !important;
-  font-weight: 100 !important;
-  color: white !important;
+  font-weight: 400 !important;
 }
 h4 {
-  font-size: 37px;
+  font-size: 2em;
 }
 p {
-  font-size: 26px;
+  font-size: 1.5em;
 }
 
 body {
     margin: 0;
     background: #000;
+}
+
+section {
+  margin:0;
+  padding:0;
 }
 video {
     position: fixed;
@@ -36,8 +51,13 @@ video {
     opacity: 0.3;
 }
 
+.container {
+    margin: 0em 20em;
+    padding-bottom: 2em;
+}
+
 .home-page {
-    font-size: 1.5em !important;
+    font-size: 1.2em !important;
 }
 
 .home-page a {
@@ -62,107 +82,51 @@ video {
 .intro {
     padding-top: 15em;
     padding-bottom: 15em;
+    margin:auto;
+    text-align: justify;
+    margin-left:4em;  
 }
 
 .intro h1 {
-    width: 1000px;
+  margin:0em auto;
 }
-
 .intro h4{
-  width: 1000px;
+  width:26em;
+}
 
+#aboutUs{
+  background: url(../assets/images/using-tablet.jpg);
+  background-color: black;
+  background-color: #1B1C1F!important;
 }
 
 
-.testimonials h2 {
-  font-size: 33px;
-  font-weight: bold;
-}
-.testimonials h4 {
-    padding-top: .5em;
-    padding-bottom: .5em;
-}
-
-
-
-.aboutUs h5 {
+#aboutUs h3, #products h3 {
   color: grey;
-  text-align: left;
-  font-size: 35px;
   font-weight: lighter;
 }
 
 .aboutUs h4 ,.aboutUs p {
-  text-align: left;
-}
-
-.products h2 {
-  font-weight: lighter;
-  font-size: 40px;
   text-align: center;
-}
-.products h3 {
-  font-weight: 400;
-  font-size: 40px;
-  text-align: center;
-}
-
-
-#products {
-    background-color: #1B1C1F;
-    padding-top: 1em;
-    color: white;
 }
 
 .introduction {
   text-align: center;
   margin:auto;
+  margin-top: 2em;
 }
-
-.whyharness {
-    color: white;
-    text-align: center;
-    padding-top: 50em;
-}
-
-#whyHarness {
-    padding-top: 1em !important;
-      font-size: 37px !important;
-}
-
-.container {
-    margin: 1em;
-}
-
-.harnessBlue {
-    background-color: #15ABC8;
-}
-
-#contactUs, #aboutUs {
-    background-color: #1B1C1F!important;
-    color:white;
-    padding-top: 1em;
-    padding-bottom: 1em;
-}
-
 
 #testimonials{
     background-color: #00B5AE!important;
     padding-bottom: 1em;
 }
 
-.productsImage {
-    background-image: url('../assets/images/group-planning.jpg');
-    background-image: cover;
-    background-size: 100% 60em;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
+#products {
+    background: url('../assets/images/group-planning.jpg');
     background-color: black;
-}
-.overlayproducts{
-  background-color: rgba(0, 0, 0, 0.7);
-  width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+
 }
 
 .productsWord {
@@ -198,6 +162,12 @@ video {
   text-align: left !important;
 }
 
+#whyHarness {
+   background-color: #00b5ad!important;
+   margin-bottom:1em;
+}
+
+
 .getintouch {
   margin: auto;
   text-align: center;
@@ -205,14 +175,30 @@ video {
   margin: 3em auto;
 }
 
-
-.aboutUs img {
-    height:700px;
-    width:500px;
+sup {
+  font-size: small;
 }
 
-.numt {
+.numtel {
   text-decoration: none;
   color: white;
 
 }
+
+#contactUs{
+    background-color: #1B1C1F!important;
+}
+
+.overlayproducts, .overlayaboutUs{
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 100%;
+}
+
+.overflowHidden { 
+  overflow: hidden;
+ }
+
+ .title {
+   margin:2em;
+
+ }
