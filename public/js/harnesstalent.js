@@ -10,6 +10,7 @@ var $ = window.$;
             this.search();
             this.reset();
             this.interviewRequest();
+            this.datepicker();
         },
         queryObject: {
                     jobTitle: $('select[name=jobTitle]').val(),
@@ -75,6 +76,7 @@ var $ = window.$;
                 $('#' + cvid).toggleClass('hide-element');
                 $('.ui.message.info').removeClass('.ui.info');
                 $('#' + cvid).modal('show');
+                $( ".datepicker" ).datepicker({dateFormat: 'DD, d MM, yy'});
             });
         },
         sendInterviewRequest: function(){
@@ -130,6 +132,9 @@ var $ = window.$;
                         document.getElementById('message').innerHTML = 'Sorry, there was an error. Please try again!';
                     }
             });
+        },
+        datepicker: function(){
+             $( ".datepicker" ).datepicker({dateFormat: 'DD, d MM, yy'});
         }
     };
     CANDIDATES.init();

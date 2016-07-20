@@ -92,10 +92,9 @@ video {
   font-weight: lighter;
 }
 
-.aboutUs h4 {
+.aboutUs h4 ,.aboutUs p {
   text-align: left;
 }
-
 
 .products h2 {
   font-weight: lighter;
@@ -118,17 +117,6 @@ video {
 .introduction {
   text-align: center;
   margin:auto;
-}
-
-.products .tm{
-  text-align: left !important;
-}
-
-.getintouch {
-  margin: auto;
-  text-align: center;
-  padding-bottom: 2em;
-  margin: 3em auto;
 }
 
 .whyharness {
@@ -189,6 +177,9 @@ video {
    right:35%;
 }
 
+.dev {
+  right: 32%;
+}
 .productNumber {
     font-size: 6em !important;
     font-weight: 800;
@@ -201,6 +192,19 @@ video {
     text-align: center;
     padding-bottom: 3em;
 }
+
+
+.products .tm{
+  text-align: left !important;
+}
+
+.getintouch {
+  margin: auto;
+  text-align: center;
+  padding-bottom: 2em;
+  margin: 3em auto;
+}
+
 
 .aboutUs img {
     height:700px;
