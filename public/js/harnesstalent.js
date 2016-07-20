@@ -64,7 +64,7 @@ var $ = window.$;
              var self = this;
              $('.reset').on('click', function() {
                 for(var key in self.queryObject){
-                    self.queryObject[key] = 'All'
+                    $('select[name='+key+']').val('All');         
                 }
                 CANDIDATES.fetch();
             });
