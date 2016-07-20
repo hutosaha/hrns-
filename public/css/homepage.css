@@ -126,11 +126,12 @@ video {
 .whyharness {
     color: white;
     text-align: center;
-    padding-top: 1em;
+    padding-top: 50em;
 }
 
-#whyharness {
-    padding-top: 2em;
+#whyHarness {
+    padding-top: 1em !important;
+      font-size: 37px !important;
 }
 
 .container {
