@@ -1,6 +1,17 @@
 
-h1,h2, p, h4 {
+h1,h2 {
      font-family: 'Raleway', sans-serif !important;
+     color: white !important;
+}
+h1 {
+  font-size: 116px !important;
+  font-weight: 1500 !important;
+}
+h4, p {
+  font-family: 'Raleway' !important;
+  font-weight: 100 !important;
+  color: white !important;
+  font-size: 37px;
 }
 body {
     margin: 0;
@@ -18,7 +29,7 @@ video {
     z-index: -100;
     transform: translateX(-50%) translateY(-50%);
     transition: 1s opacity;
-    opacity: 0.5;
+    opacity: 0.3;
 }
 
 .home-page {
@@ -48,18 +59,13 @@ video {
     padding-bottom: 15em;
 }
 
-.intro h1,
-.intro h4 {
-    color: white !important;
-}
-
 .intro h1 {
-    font-size: 6em !important;
+    width: 1000px;
 }
 
-.intro h4,
-.testimonials h4 {
-    font-size: 2em !important;
+.intro h4{
+  width: 1000px;
+
 }
 
 .testimonials h4 {
@@ -67,10 +73,6 @@ video {
     padding-bottom: 2em;
 }
 
-.aboutUs p,
-.products p {
-    font-size: 1.5em;
-}
 
 .aboutUs p,
 .aboutUs div,
@@ -178,6 +180,5 @@ video {
 .numt {
   text-decoration: none;
   color: white;
-
 
 }
