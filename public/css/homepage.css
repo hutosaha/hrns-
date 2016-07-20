@@ -178,7 +178,7 @@ video {
 
 .productsWord {
     position: absolute;
-    bottom: 50%;
+    bottom: 60%;
     right:27%;
 }
 .businessI {
@@ -199,7 +199,6 @@ video {
     position: relative;
     text-align: center;
     padding-bottom: 3em;
-
 }
 
 .aboutUs img {
