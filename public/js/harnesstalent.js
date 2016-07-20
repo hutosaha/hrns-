@@ -16,7 +16,8 @@ var $ = window.$;
                     company: $('select[name=company]').val(),
                     jobCategory: $('select[name=jobCategory]').val(),
                     location: $('select[name=location]').val(),
-                    salary: $('select[name=salary]').val(),
+                    salaryMin: $('select[name=salaryMin]').val(),
+                    salaryMax: $('select[name=salaryMax]').val(),
                     contractType: $('select[name=contractType]').val()
                 },
         fetch: function(query) {
@@ -51,7 +52,8 @@ var $ = window.$;
                     company: $('select[name=company]').val(),
                     jobCategory: $('select[name=jobCategory]').val(),
                     location: $('select[name=location]').val(),
-                    salary: $('select[name=salary]').val(),
+                    salaryMin: $('select[name=salaryMin]').val(),
+                    salaryMax: $('select[name=salaryMax]').val(),
                     contractType: $('select[name=contractType]').val()
                 }
                 let query = $.param(queryObj);

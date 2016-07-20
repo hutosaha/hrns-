@@ -159,7 +159,7 @@ $(document).ready(function() {
             });
 
             $('.modal-submit-acceptance-button').off().on('click', function() {
-
+                $('.first.coupled.modal.accept-modal').hide(); /// need the confirmation 
                 $.ajax({
                     url: '/client/job/accept',
                     data: {
