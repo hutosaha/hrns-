@@ -108,6 +108,7 @@ video {
   text-align: center;
 }
 
+
 #products {
     background-color: #1B1C1F;
     padding-top: 1em;
@@ -116,12 +117,19 @@ video {
 
 .introduction {
   text-align: center;
+  margin:auto;
 }
 
 .products .tm{
   text-align: left !important;
 }
 
+.getintouch {
+  margin: auto;
+  text-align: center;
+  padding-bottom: 2em;
+  margin: 3em auto;
+}
 
 .whyharness {
     color: white;
@@ -169,24 +177,29 @@ video {
   width: 100%;
 }
 
-
-
 .productsWord {
     position: absolute;
-    bottom: 50%;
+    bottom: 60%;
     right:27%;
+}
+.businessI {
+    right: 20%;
+}
+.dataS {
+   right:35%;
 }
 
 .productNumber {
     font-size: 6em !important;
     font-weight: 800;
-    color: #ce1010 !important;
+    color: teal!important;
     opacity: 0.75;
 }
 
 .productsContent {
     position: relative;
-
+    text-align: center;
+    padding-bottom: 3em;
 }
 
 .aboutUs img {
