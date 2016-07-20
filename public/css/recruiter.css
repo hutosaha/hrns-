@@ -38,7 +38,7 @@ video {
 
 .intro {
     padding-top: 15em;
-    padding-bottom: 15em;
+
 }
 
 .intro h1,
@@ -56,8 +56,8 @@ video {
 }
 
 .testimonials h4 {
-    padding-top: 2em;
-    padding-bottom: 2em;
+    padding-top: 1em;
+
 }
 
 .aboutUs p,
