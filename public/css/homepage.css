@@ -11,7 +11,15 @@ h4, p {
   font-family: 'Raleway' !important;
   font-weight: 100 !important;
   color: white !important;
+}
+
+
+h4{
   font-size: 37px;
+}
+
+p{
+  font-size: 26px;
 }
 body {
     margin: 0;
@@ -76,7 +84,16 @@ video {
     padding-bottom: .5em;
 }
 
+.aboutUs h5 {
+  color: grey;
+  text-align: left;
+  font-size: 35px;
+  font-weight: lighter;
+}
 
+.aboutUs h4 {
+  text-align: left;
+}
 .aboutUs p,
 .aboutUs div,
 .products p,
