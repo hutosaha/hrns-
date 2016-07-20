@@ -1,0 +1,200 @@
+h1,h2 {
+     font-family: 'Raleway', sans-serif !important;
+     color: white !important;
+}
+h1 {
+  font-size: 116px !important;
+  font-weight: 1500 !important;
+}
+h4, p {
+  font-family: 'Raleway' !important;
+  font-weight: 100 !important;
+  color: white !important;
+}
+h4 {
+  font-size: 37px;
+}
+p {
+  font-size: 26px;
+}
+
+body {
+    margin: 0;
+    background: #000;
+}
+video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+    transition: 1s opacity;
+    opacity: 0.3;
+}
+
+.home-page {
+    font-size: 1.5em !important;
+}
+
+.home-page a {
+    color: white !important;
+}
+
+.home-page-logo {
+    font-family: helvetica;
+    font-size: 1.5em;
+    margin: 2em;
+    padding: 0 1em !important;
+}
+
+.home-page-logo img{
+    font-family: helvetica;
+    font-size: 1em;
+    margin: 2em;
+    padding: 0 1em !important;
+}
+
+
+.intro {
+    padding-top: 15em;
+    padding-bottom: 15em;
+}
+
+.intro h1 {
+    width: 1000px;
+}
+
+.intro h4{
+  width: 1000px;
+
+}
+
+
+.testimonials h2 {
+  font-size: 33px;
+  font-weight: bold;
+}
+.testimonials h4 {
+    padding-top: .5em;
+    padding-bottom: .5em;
+}
+
+
+
+.aboutUs h5 {
+  color: grey;
+  text-align: left;
+  font-size: 35px;
+  font-weight: lighter;
+}
+
+.aboutUs h4 {
+  text-align: left;
+}
+
+
+.products h2 {
+  font-weight: lighter;
+  font-size: 40px;
+  text-align: center;
+}
+.products h3 {
+  font-weight: 400;
+  font-size: 40px;
+  text-align: center;
+}
+
+#products {
+    background-color: #1B1C1F;
+    padding-top: 1em;
+    color: white;
+}
+
+.introduction {
+  text-align: center;
+}
+
+.products .tm{
+  text-align: left !important;
+}
+
+
+.whyharness {
+    color: white;
+    text-align: center;
+    padding-top: 1em;
+}
+
+#whyharness {
+    padding-top: 2em;
+}
+
+.container {
+    margin: 1em;
+}
+
+.harnessBlue {
+    background-color: #15ABC8;
+}
+
+#contactUs, #aboutUs {
+    background-color: #1B1C1F!important;
+    color:white;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+
+#testimonials{
+    background-color: #00B5AE!important;
+    padding-bottom: 1em;
+}
+
+.productsImage {
+    background-image: url('../assets/images/group-planning.jpg');
+    background-image: cover;
+    background-size: 100% 60em;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-color: black;
+}
+.overlayproducts{
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+}
+
+
+
+.productsWord {
+    position: absolute;
+    bottom: 50%;
+    right:27%;
+}
+
+.productNumber {
+    font-size: 6em !important;
+    font-weight: 800;
+    color: #ce1010 !important;
+    opacity: 0.75;
+}
+
+.productsContent {
+    position: relative;
+
+}
+
+.aboutUs img {
+    height:700px;
+    width:500px;
+}
+
+.numt {
+  text-decoration: none;
+  color: white;
+
+}

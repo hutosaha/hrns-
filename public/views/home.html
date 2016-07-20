@@ -13,192 +13,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.css" />
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/themes/smoothness/jquery-ui.css">
 <!--     <link href='https://fonts.googleapis.com/css?family=Open+Sans:100,400,800' rel='stylesheet' type='text/css'>
-     -->  
-    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="public/css/index.css">
+     -->
+    <link href='https://fonts.googleapis.com/css?family=Raleway|Raleway+Dots' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,100|Raleway+Dots' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../public/css/index.css">
+    <link rel="stylesheet" type="text/css" href="../public/css/homepage.css">
 </head>
-<style type="text/css">
-
-h1,h2, p, h4 {
-     font-family: 'Raleway', sans-serif !important;
-}
-body {
-    margin: 0;
-    background: #000;
-}
-
-video {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: -100;
-    transform: translateX(-50%) translateY(-50%);
-    transition: 1s opacity;
-    opacity: 0.5;
-}
-
-.home-page {
-    font-size: 1.5em !important;
-    /*     position: fixed;
- */
-}
-
-.home-page a {
-    color: white !important;
-}
-
-.home-page-logo {
-    font-weight: 800 !important;
-    font-family: helvetica;
-    font-size: 1.5em;
-    margin: 2em;
-    padding: 0 1em !important;
-}
-
-.intro {
-    padding-top: 15em;
-    padding-bottom: 15em;
-}
-
-.intro h1,
-.intro h4 {
-    color: white !important;
-}
-
-.intro h1 {
-    font-size: 6em !important;
-}
-
-.intro h4,
-.testimonials h4 {
-    font-size: 2em !important;
-}
-
-.testimonials h4 {
-    padding-top: 2em;
-    padding-bottom: 2em;
-}
-
-.aboutUs p,
-.products p {
-    font-size: 1.5em;
-}
-
-.aboutUs p,
-.aboutUs div,
-.products p,
-.products div {
-    text-align: left;
-    color: white;
-}
-
-.products h1 {
-    font-size: 4em;
-    font-weight: 100;
-    color: white;
-    margin: 0;
-    text-align: center;
-}
-
-.products p {
-    margin: 1em !important;
-}
-
-.products {
-
-    padding: 1em;
-}
-
-.products.grid {
-
-    padding: 2em;
-}
-
-.whyharness {
-    color: white;
-    text-align: center;
-    padding-top: 1em;
-}
-
-#whyharness {
-    padding-top: 2em;
-}
-
-.container {
-    margin: 1em;
-}
-
-.harnessBlue {
-    background-color: #15ABC8;
-}
-
-#contactUs, #aboutUs {
-    background-color: #1B1C1F!important;
-    color:white;
-    padding-top: 1em;
-    padding-bottom: 1em;
-}
-#products {
-    background-color: #1B1C1F!important;
-    color:white;
-    padding-top: 1em;
-}
-
-#testimonials{
-    background-color: #00B5AE!important;
-    padding-bottom: 1em;
-}
-
-.productsImage {
-    background-image: url('./public/assets/images/london-view.jpg');
-    background-image: cover;
-    background-size: 100% 60em;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center; 
-    background-color: black;   
-}
-
-
-.products {
-    background-color: rgba(0, 0, 0, 0.3);
-}
-
-.productsWord {
-    position: absolute;
-    bottom: 50%;
-    right:27%;
-}
-
-.productNumber {
-    font-size: 6em !important;
-    font-weight: 800;
-    color: #ce1010 !important;
-    opacity: 0.75;
-}
-
-.productsContent {
-    position: relative;
-
-}
-
-.aboutUs img {
-    height:700px;
-    width:500px;
-}
-
-.numt {
-  text-decoration: none;
-  color: white;
-
-
-}
-</style>
-
 <body>
     <video autoplay id="the-video" preload="" loop>
         <source src="./public/assets/videos/high_five.mov">
@@ -209,20 +29,22 @@ video {
 
         <a class="item home-page-logo" href="#banner"><img src="./public/assets/images/whiteLogo.png"></a>
         <div class="right menu">
-            <a href="#banner" class="ui item">Home</a>
+
             <a href="#aboutUs" class="ui item">About Us</a>
             <a href="#products" class="ui item">Our Products</a>
             <a href="#whyHarness" class="ui item">Why Harness?</a>
             <a  href="./public/views/recruiter.html" class="ui item">I'm a recruiter</a>
+            <a href="#contactUs" class="ui item">Contact Us</a>
         </div>
     </div>
 
     <section id="banner">
         <div class="ui page grid">
             <div class="row">
+              <div class="ui container">
                 <div class="intro">
                     <h1>
-                        Find your human.
+                    Find your human.
                     </h1>
                     <div class="hidden divider"></div>
                     <h4>Harness is the newest, most effective hiring tool to access the top 5% of qualified, available tech talent in the market, all in the click of a button.</h4>
@@ -230,6 +52,7 @@ video {
                     <a href="/login/candidate" class="ui massive teal button">I'm candidate</a>
                 </div>
             </div>
+          </div>
         </div>
     </section>
     <section id="testimonials">
@@ -238,7 +61,7 @@ video {
                 <div class="row teal testimonials">
                     <div class="twelve wide centered column">
                         <h4>"When first hearing about Harness I was instantly excited to finally see an innovative product come to the market to support the changing times in talent acquisition."</h4>
-                        <strong>Talent Manager, Buzzfeed</strong>
+                        <h2>Talent Manager, Buzzfeed</h2>
                     </div>
                 </div>
             </div>
@@ -249,11 +72,11 @@ video {
             <div class="ui equal width center aligned padded grid">
                 <div class="row aboutUs black">
                     <div class="column">
-                        <img src="./public/assets/images/coffee-design.jpg">
+                        <img src="../public/assets/images/two-guys.jpg">
                     </div>
                     <div class="column">
-                        <div class="ui large grey header">ABOUT US</div>
-                        <div class="ui huge inverted header">Algorythm meets Human Rythm</div>
+                        <h5>ABOUT US</h5>
+                        <h4>Algorythm meets Human Rythm</h4>
                         <p>We combine the expert eye of in-industry experts (Human Rythm), with the analytics of data science (Algorithm) to ensure you get the very best candidates - passive and actively looking</p>
                         <p>As designers, developers, IT professionals and recruiters, we got fed up with how hard it is to quickly access the very best tech & digital candidates in the market.</p>
                         <p>So, two brothers and pretty goood looking Product Designer decided it was time to put it right; so we created Harness, to help Agencies, Hiring Clients and Candidates work better together; saving time, money and effort for all involved.</p>
@@ -265,20 +88,21 @@ video {
     </section>
     <section id="products">
       <div class="productsImage">
+        <div class="overlayproducts">
         <div class="ui container">
-            <div class="ui equal width center aligned padded products grid">
+            <div class="ui equal width grid products ">
                 <div class="row">
                     <div class="introduction">
-                        <h1>Our products:</h1>
-                        <h1>changing the game</h1>
+                        <h2>Our products:</h2>
+                        <h3>changing the game</h3>
                     </div>
                 </div>
                 <div class="row">
-                    <h2 class="ui inverted header">Harness Hire</h2>
+                    <h2 class="ui inverted header left tm">Harness Hire<sup>TM</sup></h2>
                     <p>Our premium product, Harness Hire allows you to enter details of who you need to hire, hit “Submit” and simply sit back and relax while we do the hard work. We will identify, qualify and select the best candidates from 1000’s of professional networks globally. Because we have some of the best, specialist boutique recruiters working for us, you will see those passive, and actively looking candidates – something normal hiring tools cannot do. Simply click to interview, let’s us do the rest.</p>
                 </div>
                 <div class="row">
-                    <h2 class="ui inverted header">Harness Talent</h2>
+                    <h2 class="ui inverted header left tm">Harness Talent<sup>TM</sup></h2>
                     <p>Not sure who you need to hire, but would like to see what the very best have to offer? Harness Talent allows you to search a curated list of elite candidates – all of which are qualified, available to interview and have proven track records of delivery. Simply click to interview and only pay for those candidates you hire!</p>
                 </div>
                 <div class="row">
@@ -314,6 +138,7 @@ video {
                 </div>
             </div>
         </div>
+      </div>
       </div>
     </section>
     <section class="container">
@@ -396,10 +221,10 @@ video {
             <div class="row">
             <div class="ten wide column">
                 <div class="contactDetails ui inverted segment">
-                    <h2>BEN BRIELY</h2>
+                    <h2>BEN BRIERLEY</h2>
                     <p>FOUNDING DIRECTOR</p>
                     <br><br>
-                    <p> www.harnesstalent.com</p>
+                    <p> hello@harnesstalent.com</p>
                     <p> Sailix Ltd. 3rd Floor, 207 Regent St. London W1B 3HH.</p>
                     <a class="numt" href="tel:02037523043"><p> 02037523043</p></a>
                     <a class="numt" href="tel:07469249766"><p> 07469249766</p></a>
@@ -412,7 +237,7 @@ video {
 <i class="huge google plus icon"></i>
 <i class="huge youtube play icon"></i>
 
-        <h2>TECHNOLOGY TALENT. DIGITALLY REMASTERED.</h2>
+        <h2>ALGORYTHM MEETS HUMAN RYTHM.</h2>
                 </div>
             </div>
             <div class="six wide column">
