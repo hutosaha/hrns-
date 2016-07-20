@@ -36,6 +36,13 @@ video {
     padding: 0 1em !important;
 }
 
+.home-page-logo img{
+    font-family: helvetica;
+    font-size: 1em;
+    margin: 2em;
+    padding: 0 1em !important;
+}
+
 .intro {
     padding-top: 15em;
     padding-bottom: 15em;
@@ -136,8 +143,8 @@ video {
     background-size: 100% 60em;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-position: center; 
-    background-color: black;   
+    background-position: center;
+    background-color: black;
 }
 
 
