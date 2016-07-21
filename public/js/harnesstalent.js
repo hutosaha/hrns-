@@ -9,7 +9,7 @@ var $ = window.$;
             this.fetch();
             this.search();
             this.reset();
-            this.interviewRequest();
+            this.interviewRequest()     
         },
         queryObject: {
                     jobTitle: $('select[name=jobTitle]').val(),
@@ -46,7 +46,7 @@ var $ = window.$;
         search: function() {
             let self =this;
             $('.search').on('click', function() {
-                console.log(self.queryObject, '>>>>>>>>>>>>');
+            
                 var queryObj = {
                     jobTitle: $('select[name=jobTitle]').val(),
                     company: $('select[name=company]').val(),
@@ -70,26 +70,28 @@ var $ = window.$;
             });
         },
         interviewRequest: function(){
+            let self =this;
             $('.interviewRequest').on('click', function(){
                 let cvid = $(this).data('cvid');
                 $('#' + cvid).toggleClass('hide-element');
                 $('.ui.message.info').removeClass('.ui.info');
                 $('#' + cvid).modal('show');
+                $( ".datepicker" ).datepicker({dateFormat: 'DD, d MM, yy'});
+                self.sendInterviewRequest();
             });
         },
         sendInterviewRequest: function(){
                 var self = this;
                 
-                $('.button.send-interview').on('click', function(e) {
+                $('.button.send-interview').off().on('click', function(e) {
                     e.preventDefault();
                     const cvid = $(this).data('cvid');
                     let form =  document.forms[cvid];
                     let firstTime = form['firstIntTime'].value;
                     let firstDate = form['firstIntDate'].value;
                     let interviewAddress = form['interviewAddress'].value;
-                    let stage = form['stage'].value;
-                    let fields = [firstDate, firstTime, interviewAddress, stage];
-    
+                    //let stage = form['stage'].value;
+                    let fields = [firstDate, firstTime, interviewAddress];    
                     let validated =  self.validate(fields);
         
                     if ( validated[0] === '' || validated[0] === null ){
@@ -109,6 +111,7 @@ var $ = window.$;
         },
         sendFormData: function(formData, cvid){
             var data = formData.serialize();
+            console.log('DATA', data);
                 $.ajax({
                     type: 'POST',
                     url: '/interview/proposed',
@@ -116,20 +119,23 @@ var $ = window.$;
                     async: true,
                     success: function(cvid) {
                         if (cvid) {
-                            $('#message').addClass('ui info message').text("We\'ve emailed the agent to arrange an interview"); // change to something better...
+                            $('.message').addClass('ui info message').text("We\'ve emailed the agent to arrange an interview"); // change to something better...
                             $('#' + cvid).modal('hide');
                             $('form[name='+cvid+']').find("input, textarea").val("");
                         } else {
                             $('#' + cvid).modal('hide');
-                            document.getElementById('message').innerHTML = 'Sorry, there was an error. Please try again!';
+                            $('.message').innerHTML = 'Sorry, there was an error. Please try again!';
                         }
                     },
                     error: function(res) {
                         console.log("ERROR", res);
                         $('#' + cvid).modal('hide');
-                        document.getElementById('message').innerHTML = 'Sorry, there was an error. Please try again!';
+                        $('.message').innerHTML = 'Sorry, there was an error. Please try again!';
                     }
             });
+        },
+        datepicker: function(){
+             $( ".datepicker" ).datepicker({dateFormat: 'DD, d MM, yy'});
         }
     };
     CANDIDATES.init();
