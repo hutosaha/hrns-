@@ -138,17 +138,22 @@ video {
 .productsWord {
     position: absolute;
     bottom: 60%;
-    right:27%;
+    right:13%;
+}
+
+.uxdd {
+  right: 19%;
+  bottom: 60%;
 }
 .businessI {
-    right: 20%;
+    right: 15%;
 }
 .dataS {
-   right:35%;
+   right:30%;
 }
 
 .dev {
-  right: 32%;
+  right: 29%;
 }
 .productNumber {
     font-size: 6em !important;
