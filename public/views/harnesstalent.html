@@ -14,6 +14,7 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:100,400,800' rel='stylesheet' type='text/css'>
     <!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,800' rel='stylesheet' type='text/css'> -->
     <link rel="stylesheet" type="text/css" href="/public/css/index.css">
+    <link rel="stylesheet" type="text/css" href="/public/css/harnesstalent.css">
     <script type="text/javascript" src="../public/js/datepicker.js"></script>
 </head>
 
@@ -39,10 +40,11 @@
         <h3 class="ui message"></h3>
         <div class="searchbar">
             <div class="ui stackable grid">
-                <div class="two wide column text-overflow-element">
+                <div class="column">
                     <button class="ui inverted tiny orange button reset">Reset</button>
                 </div>
-                <div class="two wide column ">
+                <div class="two wide column drop1">
+                  <label for="company" class="jobtitl"> Job Title </label>
                     <select name="jobTitle" class="ui dropdown">
                         <option value="All">All</option>
                         <option value="Developer">Developer</option>
@@ -50,15 +52,18 @@
                         <option value="Lead Developer">Lead Developer</option>
                     </select>
                 </div>
-                <div class="two wide column ">
+                <div class=" two wide column drop2">
+                  <label for="company" class="company"> Company </label>
                     <select name="company" class="ui dropdown">
                         <option value="All">All</option>
                         <option value="Ford">Ford</option>
                         <option value="Apple">Apple</option>
                         <option value="Mustang">Mustang</option>
                     </select>
+
                 </div>
-                <div class="two wide column ">
+                <div class="two wide column drop3">
+                  <label for="company" class="jobcat"> Job Category </label>
                     <select name="jobCategory" class="ui dropdown">
                           <option value="All">All</option>
                           <option class="header">UX, UI & Digital Design</option>
@@ -79,15 +84,17 @@
                           <option value="BI Leadership">BI Leadership</option>
                     </select>
                 </div>
-                <div class="two wide column ">
-                    <select name="location" class="ui dropdown">                                  
+                <div class="two wide column drop4">
+                  <label for="company"> Location </label>
+                    <select name="location" class="ui dropdown">
                         <option value="All">All</option>
                         <option value="London">London</option>
                         <option value="Bristol">Bristol</option>
                         <option value="Berlin">Berlin</option>
                     </select>
                 </div>
-                <div class="column ">
+                <div class=" two wide column drop5">
+                  <label for="company"> Salary Min </label>
                     <select name="salaryMin" class="ui dropdown">
                         <option value="All">All</option>
                         <option value="20000">20,000</option>
@@ -101,7 +108,8 @@
                         <option value="1000000">100,000</option>
                     </select>
                 </div>
-                 <div class="column ">
+                 <div class="two wide column drop6">
+                   <label for="company"> Salary Max</label>
                     <select name="salaryMax" class="ui dropdown">
                         <option value="All">All</option>
                         <option value="30000">30,000</option>
@@ -114,7 +122,8 @@
                         <option value="100000">100,000</option>
                     </select>
                 </div>
-                <div class="two wide column ">
+                <div class="two wide column drop7">
+                  <label for="company"> Contract Type </label>
                     <select name="contractType" class="ui dropdown">
                         <option value="All">All</option>
                         <option value="permanent">Permanent</option>
@@ -122,39 +131,14 @@
                         <option value="both">Both</option>
                     </select>
                 </div>
-                <div class="two wide column ">
+                <div class="column">
                     <button class="ui inverted tiny green button search">Search</button>
                 </div>
             </div>
             <div class="ui divider"></div>
         </div>
         <div class="overview-heading">
-            <div class="ui stackable grid">
-                <div class="column"></div>
-                <div class="two wide column text-overflow-element">
-                    <h4>Name</h4>
-                </div>
-                <div class="two wide column text-overflow-element">
-                    <h4>Job Title</h4>
-                </div>
-                <div class="two wide column text-overflow-element">
-                    <h4>Company</h4>
-                </div>
-                <div class="two wide column text-overflow-element">
-                    <h4>Job Category</h4>
-                </div>
-                <div class="two wide column text-overflow-element">
-                    <h4>City</h4>
-                </div>
-                <div class="two wide column text-overflow-element">
-                    <h4>Salary</h4>
-                </div>
-                <div class="two wide column text-overflow-element">
-                    <h4>Contract Type</h4>
-                </div>
-            </div>
-            <div class="ui divider"></div>
-        </div>
+
         <div id="candidates-container"></div>
     </div>
 
@@ -304,7 +288,7 @@
                         </div>
                     </div>
                     <br>
-                    <br>  
+                    <br>
                     <div class="inline field">
                       <label>Aditional comments</label>
                           <div class="eight wide field">
@@ -327,4 +311,3 @@
 <script type="text/javascript" src="../public/js/aws.js"></script>
 <script type="text/javascript" src="../public/js/document-viewer.js"></script>
 <script type="text/javascript" src="../public/js/harnesstalent.js"></script>
-
