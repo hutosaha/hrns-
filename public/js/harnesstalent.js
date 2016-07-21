@@ -77,6 +77,7 @@ var $ = window.$;
                 $('.ui.message.info').removeClass('.ui.info');
                 $('#' + cvid).modal('show');
                 $( ".datepicker" ).datepicker({dateFormat: 'DD, d MM, yy'});
+                AWS.init();
                 self.sendInterviewRequest();
             });
         },

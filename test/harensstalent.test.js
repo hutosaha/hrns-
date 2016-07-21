@@ -73,8 +73,12 @@ server.init(0, (err, server) => {
             .then(() => {
                 var query = 'salaryMin=20000&location=London&jobTitle=All&jobCategory=All&company=All&salaryMax=50000';
                 testEndPoint(server, '/harnesstalent/results?' + query, 'GET', 200, 'endpoint responds with', clientCookie);
+                //testEndPoint(server, '/harnesstalent/interview/proposed' + query, 'GET', 200, 'endpoint responds with', clientCookie);
+
             })
             .catch();
+
+
 
 
     });
