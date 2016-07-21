@@ -114,7 +114,7 @@ var $ = window.$;
             console.log('DATA', data);
                 $.ajax({
                     type: 'POST',
-                    url: '/interview/proposed',
+                    url: '/harnesstalent/interview/proposed',
                     data: data,
                     async: true,
                     success: function(cvid) {
