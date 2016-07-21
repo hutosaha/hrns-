@@ -77,6 +77,7 @@ var $ = window.$;
                 $('.ui.message.info').removeClass('.ui.info');
                 $('#' + cvid).modal('show');
                 $( ".datepicker" ).datepicker({dateFormat: 'DD, d MM, yy'});
+                AWS.init();
                 self.sendInterviewRequest();
             });
         },
@@ -111,7 +112,7 @@ var $ = window.$;
         },
         sendFormData: function(formData, cvid){
             var data = formData.serialize();
-            console.log('DATA', data);
+            //console.log('DATA', data);
                 $.ajax({
                     type: 'POST',
                     url: '/harnesstalent/interview/proposed',
