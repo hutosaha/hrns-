@@ -1,0 +1,40 @@
+.label .comapny {
+
+}
+.label .jobcat{
+
+}
+label {} 
+
+.jobtitl{
+  width: 100% !important;
+  right: 12% !important;
+}
+.drop1 select {
+  right: -120% !important;
+  width: 111% !important;
+
+}
+.drop2 select {
+  right: -121% !important;
+  width: 111% !important;
+}
+.drop3 select {
+  right: -121%;
+  width: 111% !important;
+}
+.drop4 {
+  right: -12% !important;
+  width: 0% !important;
+}
+.drop5 {
+  right: -8% !important;
+  width: 0% !important;
+
+}
+.drop6 {
+  right: -3% !important;
+}
+.drop7 {
+  right: 1% !important;
+}

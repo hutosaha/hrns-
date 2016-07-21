@@ -135,26 +135,142 @@ video {
 
 }
 
-.productsWord {
-    position: absolute;
+
+@media only screen and (min-width:1000px){
+  .productsWord {
+      position: absolute;
+      bottom: 60%;
+      right:-5%;
+  }
+  .uxdd {
+    right: 8%;
     bottom: 60%;
-    right:13%;
+  }
+  .businessI {
+      right: 3%;
+  }
+  .dataS {
+     right:21%;
+     bottom: 60%;
+  }
+  .dev {
+    right: 21%;
+  }
 }
 
-.uxdd {
-  right: 19%;
-  bottom: 60%;
-}
-.businessI {
-    right: 15%;
-}
-.dataS {
-   right:30%;
+
+@media only screen and (min-width:1100px){
+  .productsWord {
+      position: absolute;
+      bottom: 60%;
+      right:22%;
+  }
+  .uxdd {
+    right: 8%;
+    bottom: 60%;
+  }
+  .businessI {
+      right: 3%;
+  }
+  .dataS {
+     right:21%;
+     bottom: 60%;
+  }
+  .dev {
+    right: 21%;
+  }
 }
 
-.dev {
-  right: 29%;
+
+@media only screen and (min-width:1200px){
+  .productsWord {
+      position: absolute;
+      bottom: 60%;
+      right:25%;
+  }
+  .uxdd {
+    right: 28%;
+    bottom: 60%;
+  }
+  .businessI {
+      right: 25%;
+  }
+  .dataS {
+     right:35%;
+  }
+  .dev {
+    right: 35%;
+  }
 }
+
+@media only screen and (min-width:1400px){
+  .productsWord {
+      position: absolute;
+      bottom: 60%;
+      right:17%;
+  }
+  .uxdd {
+    right: 22%;
+    bottom: 60%;
+  }
+  .businessI {
+      right: 14%;
+  }
+  .dataS {
+     right:28%;
+  }
+  .dev {
+    right: 30%;
+  }
+}
+
+@media only screen and (min-width:1600px){
+  .productsWord {
+      position: absolute;
+      bottom: 60%;
+      right:20%;
+  }
+  .uxdd {
+    right: 28%;
+    bottom: 60%;
+  }
+  .businessI {
+      right: 25%;
+  }
+  .dataS {
+     right:35%;
+  }
+  .dev {
+    right: 35%;
+  }
+}
+
+
+@media only screen and (min-width:1800px){
+  .productsWord {
+      position: absolute;
+      bottom: 60%;
+      right:29%;
+  }
+  .uxdd {
+    right: 32%;
+    bottom: 60%;
+  }
+  .businessI {
+      right: 29%;
+  }
+  .dataS {
+     right:38%;
+  }
+  .dev {
+    right: 37%;
+  }
+}
+
+
+
+
+
 .productNumber {
     font-size: 6em !important;
     font-weight: 800;
