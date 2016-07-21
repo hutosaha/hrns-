@@ -32,6 +32,12 @@ body {
     margin: 0;
     background: #000;
 }
+.humantitle{
+  font-size: 3.25em !important;
+  font-weight: 900 !important;
+  width: 23em !important;
+
+}
 
 section {
   margin:0;
@@ -53,7 +59,6 @@ video {
 
 .container {
     margin: 0em 20em;
-    padding-bottom: 2em;
 }
 
 .home-page {
@@ -84,14 +89,14 @@ video {
     padding-bottom: 15em;
     margin:auto;
     text-align: justify;
-    margin-left:4em;  
+    margin-left:4em;
 }
 
 .intro h1 {
   margin:0em auto;
 }
 .intro h4{
-  width:26em;
+  width:27.5em;
 }
 
 #aboutUs{
@@ -118,7 +123,7 @@ video {
 
 #testimonials{
     background-color: #00B5AE!important;
-    padding-bottom: 1em;
+    padding-bottom: 0em;
 }
 
 #products {
@@ -194,7 +199,7 @@ sup {
   width: 100%;
 }
 
-.overflowHidden { 
+.overflowHidden {
   overflow: hidden;
  }
 
