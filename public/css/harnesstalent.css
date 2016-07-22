@@ -1,40 +1,33 @@
-.label .comapny {
-
-}
-.label .jobcat{
-
-}
-label {} 
-
 .jobtitl{
   width: 100% !important;
   right: 12% !important;
 }
-.drop1 select {
-  right: -120% !important;
-  width: 111% !important;
+.jobcat{
+  right: 4% !important;
+  width: 118% !important;
+}
+.location , .jobtitle {
+  width: 114% !important;
+}
+.companycss{
+width: 111% !important;
+}
+.contract{
+  width: 149% !important;
+}
+.saldayrate {
+padding-bottom: 0% !important;
+font-weight: bold;
+}
 
-}
-.drop2 select {
-  right: -121% !important;
-  width: 111% !important;
-}
-.drop3 select {
-  right: -121%;
-  width: 111% !important;
-}
-.drop4 {
-  right: -12% !important;
-  width: 0% !important;
-}
-.drop5 {
-  right: -8% !important;
-  width: 0% !important;
 
+
+.searchbar select {
+  font-size: .75em;
 }
-.drop6 {
-  right: -3% !important;
+.searchbar label {
+  font-weight: bold;
 }
-.drop7 {
-  right: 1% !important;
+.search {
+  right: -166% !important;
 }

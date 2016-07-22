@@ -40,21 +40,29 @@
         <h3 class="ui message"></h3>
         <div class="searchbar">
             <div class="ui stackable grid">
+            <div class="sixteen wide row saldayrate">
+              <div class="eleven wide column"></div>
+              <div class="four wide column"> Salary or Day Rate</div>
+            </div>
+              <div class="row">
                 <div class="column">
-                    <button class="ui inverted tiny orange button reset">Reset</button>
+                    <button class="ui inverted mini orange button reset">Reset</button>
                 </div>
-                <div class="two wide column drop1">
-                  <label for="company" class="jobtitl"> Job Title </label>
-                    <select name="jobTitle" class="ui dropdown">
+                <div class=" two wide column">
+                  <label for="company" class="name"> Name </label>
+                </div>
+                <div class="two wide column">
+                  <label for="Job jobTitle">Job Title </label>
+                    <select name="jobTitle" class="ui dropdown jobtitle">
                         <option value="All">All</option>
                         <option value="Developer">Developer</option>
                         <option value="Senior Developer">Senior Developer</option>
                         <option value="Lead Developer">Lead Developer</option>
                     </select>
                 </div>
-                <div class=" two wide column drop2">
+                <div class=" two wide column ">
                   <label for="company" class="company"> Company </label>
-                    <select name="company" class="ui dropdown">
+                    <select name="company" class="ui dropdown companycss">
                         <option value="All">All</option>
                         <option value="Ford">Ford</option>
                         <option value="Apple">Apple</option>
@@ -62,9 +70,9 @@
                     </select>
 
                 </div>
-                <div class="two wide column drop3">
-                  <label for="company" class="jobcat"> Job Category </label>
-                    <select name="jobCategory" class="ui dropdown">
+                <div class="two wide column ">
+                  <label for="jobCategory"> Job Category </label>
+                    <select name="jobCategory" class="ui dropdown jobcat">
                           <option value="All">All</option>
                           <option class="header">UX, UI & Digital Design</option>
                           <option value="UX Designer">UX Designer</option>
@@ -84,17 +92,17 @@
                           <option value="BI Leadership">BI Leadership</option>
                     </select>
                 </div>
-                <div class="two wide column drop4">
-                  <label for="company"> Location </label>
-                    <select name="location" class="ui dropdown">
+                <div class="two wide column ">
+                  <label for="location"> Location </label>
+                    <select name="location" class="ui dropdown location">
                         <option value="All">All</option>
                         <option value="London">London</option>
                         <option value="Bristol">Bristol</option>
                         <option value="Berlin">Berlin</option>
                     </select>
                 </div>
-                <div class=" two wide column drop5">
-                  <label for="company"> Salary Min </label>
+                <div class=" column ">
+                  <label for="salaryMin">Min </label>
                     <select name="salaryMin" class="ui dropdown">
                         <option value="All">All</option>
                         <option value="20000">20,000</option>
@@ -108,8 +116,8 @@
                         <option value="1000000">100,000</option>
                     </select>
                 </div>
-                 <div class="two wide column drop6">
-                   <label for="company"> Salary Max</label>
+                 <div class="column ">
+                   <label for="salaryMax">Max</label>
                     <select name="salaryMax" class="ui dropdown">
                         <option value="All">All</option>
                         <option value="30000">30,000</option>
@@ -122,9 +130,9 @@
                         <option value="100000">100,000</option>
                     </select>
                 </div>
-                <div class="two wide column drop7">
-                  <label for="company"> Contract Type </label>
-                    <select name="contractType" class="ui dropdown">
+                <div class="column ">
+                  <label for="contractType">Contract</label>
+                    <select name="contractType" class="ui dropdown contract">
                         <option value="All">All</option>
                         <option value="permanent">Permanent</option>
                         <option value="contract">Contract</option>
@@ -134,6 +142,7 @@
                 <div class="column">
                     <button class="ui inverted tiny green button search">Search</button>
                 </div>
+              </div>
             </div>
             <div class="ui divider"></div>
         </div>
@@ -249,7 +258,7 @@
                             <div class="five wide field">
                                 <input name="jobLocation" type="text">
                             </div>
-                        </div>                        
+                        </div>
                     </div>
 
                     <div class="inline fields">
@@ -267,14 +276,14 @@
                         </div>
                     </div>
 
-                    <div class="inline fields"> 
+                    <div class="inline fields">
                             <div class="required twelve wide field">
                                 <label>Full Interview Address:</label>
                                 <div class="required twelve wide field">
                                     <input type="text" id="interviewAddress" name="interviewAddress" placeholder="Buckingham Palace, London SW1A 1AA " required></input>
                                 </div>
                             </div>
-                     
+
                     </div>
 
                     <div class=" sixteen column row">
