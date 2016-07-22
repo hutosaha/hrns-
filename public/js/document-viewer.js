@@ -4,8 +4,8 @@ var $ = window.$;
 
 var DOCUMENTVIEWER = {
     init: function() {
-        this.clearDownloads();
         this.cvViewer();
+        this.clearDownloads();
     },
     clearDownloads: function() {
         $.ajax({
@@ -17,9 +17,9 @@ var DOCUMENTVIEWER = {
         });
     },
     cvViewer: function() {
-
+        let self = this;
         $('.cv-viewer').on('click', function(e) {
-            console.log('hello i\'m clicked');
+
             e.preventDefault();
             const relatedInfoObject = {
                 candidateName: $(this).data('candidate-name'),
@@ -34,19 +34,19 @@ var DOCUMENTVIEWER = {
 
             const ext = cvUrl.substr(cvUrl.lastIndexOf('.') + 1);
 
-            DOCUMENTVIEWER.isFileAlreadyDownloaded(cvUrl, (fileName) => {
+            self.isFileAlreadyDownloaded(cvUrl, (fileName) => {
 
                 if (fileName !== 'notFound') {
 
                     var pdf = "/public/assets/ViewerJS/#../downloads/" + fileName;
                     var word = "https://view.officeapps.live.com/op/embed.aspx?src=www.harnesstalent.com/public/assets/downloads/" + fileName;
-                    ext === 'pdf' ? DOCUMENTVIEWER.viewFile(fileName, relatedInfoObject, pdf) : DOCUMENTVIEWER.viewFile(fileName, relatedInfoObject, word);
+                    ext === 'pdf' ? self.viewFile(fileName, relatedInfoObject, pdf) : self.viewFile(fileName, relatedInfoObject, word);
                 } else {
-                    DOCUMENTVIEWER.downloadFile(cvUrl, ext, (fileName) => {
+                    self.downloadFile(cvUrl, ext, (fileName) => {
                         console.log('EXT', ext, fileName);
                         var pdf = "/public/assets/ViewerJS/#../downloads/" + fileName;
                         var word = "https://view.officeapps.live.com/op/embed.aspx?src=www.harnesstalent.com/public/assets/downloads/" + fileName;
-                        ext === 'pdf' ? DOCUMENTVIEWER.viewFile(fileName, relatedInfoObject, pdf) : DOCUMENTVIEWER.viewFile(fileName, relatedInfoObject, word);
+                        ext === 'pdf' ? self.viewFile(fileName, relatedInfoObject, pdf) : self.viewFile(fileName, relatedInfoObject, word);
 
                     });
                 }
@@ -84,13 +84,103 @@ var DOCUMENTVIEWER = {
         $('#iframeId').attr('src', src);
         $('.ui.basic.doc-viewer.modal').modal('show');
 
-        console.log('RO2', relatedInfoObject);
         const candidateName = relatedInfoObject.candidateName;
         const cvid = relatedInfoObject.cvid;
         const vid = relatedInfoObject.vid;
         const agencyEmail = relatedInfoObject.agencyEmail;
         const agencyId = relatedInfoObject.agencyId;
-        const jobTitle = relatedInfoObject.jobTitle;         
+        const jobTitle = relatedInfoObject.jobTitle;
+
+        $('.basic-modal-reject').click(function() {
+
+            $('.first.modal.reject-modal')
+                .modal('show');
+
+            var $inputs = $('input[name=rejection-reason]');
+            $('input[name=rejection-reason]').change(function() {
+                if (this.checked)
+                    $inputs.not(this).prop('checked', !this.checked);
+            });
+        });
+
+        $('.confirm-rejection-button').off().on('click', function() {
+            $('.first.modal.reject').modal('hide');
+            $('.second.modal.reject-modal').modal('show', '.first.modal .button');
+            $('.second.coupled.modal.accept-modal').modal('hide');
+
+            var reason = $('input[name="rejection-reason"]:checked').val();
+
+            $.ajax({
+                url: '/client/scheduling/reject',
+                data: {
+                    candidateName: candidateName,
+                    cvid: cvid,
+                    vid: vid,
+                    email: agencyEmail,
+                    reason: reason,
+                    list: 'clientShortlist'
+                },
+                async: true,
+                success: function(res) {
+                    if (res) {
+                        var element = document.getElementById(cvid);
+                        element.remove();
+                        $('.ui.basic.doc-viewer.modal').modal('hide');
+
+                        if ($('.listView').length === 0) {
+                            $('.message').html('There are no candidates yet!');
+                        }
+                    }
+                }
+            });
+
+        });
+        ///reject button on viewer
+
+
+        $('.basic-modal-accept').click(function() {
+
+            $('.ui.basic.doc-viewer.modal').modal('hide');
+            //  $('.accept-candidateName').html(candidateName);
+
+            $('.coupled.modal.accept-modal')
+                .modal({
+                    allowMultiple: false
+                });
+            // attach events to buttons
+            $('.second.modal.accept-modal')
+                .modal('attach events', '.first.modal .button');
+            // show first now
+            $('.first.modal.accept-modal')
+                .modal('show');
+
+            $('.modal-submit-acceptance-button').click(function() {
+                $('.first.coupled.modal.accept-modal').hide(); /// need the confirmation 
+                $.ajax({
+                    url: '/client/job/accept',
+                    data: {
+                        candidateName: candidateName,
+                        cvid: cvid,
+                        vid: vid,
+                        email: agencyEmail,
+                        agencyId: agencyId,
+                        jobTitle: jobTitle
+                    },
+                    async: true,
+                    success: function(res) {
+                        if (res) {
+                            $('.doc-viewer.modal').hide();
+                            var element = document.getElementById(cvid);
+                            element.remove();
+                            if ($('.listView').length === 0) {
+                                $('.message').html('There are no new candidates for this position.');
+                            }
+                        }
+                    }
+                });
+            });
+        });
+        // accept button viewer 
     }
 
 }
