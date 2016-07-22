@@ -291,10 +291,15 @@ Agency Login
   ===========================*/
 
 .agencyHomeLogo {
-    position: relative;
+    position: ;
     margin: auto;
-    text-align: center;
     top: 30%;
+}
+
+.harnessphoto {
+position: absolute;
+top: 1%;
+left: 1%
 }
 
 .agencyButton {
@@ -312,7 +317,11 @@ Agency Login
 .agency.background {
     margin: auto;
     top: 50%;
-    background-color: black;
+}
+
+.main-pic {
+  opacity: 0.4
+
 }
 
 .agency.wrapper {
@@ -625,7 +634,7 @@ Very Large Screen
         top: 3%;
     }
     .main-pic {
-        height: 60em;
+        height: 80em;
         width: 100%;
     }
     .findout-more {
