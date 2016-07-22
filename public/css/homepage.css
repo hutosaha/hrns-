@@ -111,7 +111,7 @@ video {
   text-align: center;
   margin:auto;
   margin-top: 2em;
-  
+
 }
 
 #testimonials{
@@ -126,6 +126,65 @@ video {
     background-size: cover;
 
 }
+
+.productNumber {
+    font-size: 6em !important;
+    font-weight: 800;
+    color: teal!important;
+    opacity: 0.75;
+}
+
+.productsContent {
+    position: relative;
+    text-align: center;
+    padding-bottom: 3em;
+}
+
+
+.products .tm{
+  text-align: left !important;
+}
+
+#whyHarness {
+   background-color: #00b5ad!important;
+   margin-bottom:1em;
+}
+
+
+.getintouch {
+  margin: auto;
+  text-align: center;
+  padding-bottom: 2em;
+  margin: 3em auto;
+}
+
+sup {
+  font-size: small;
+}
+
+.numtel {
+  text-decoration: none;
+  color: white;
+
+}
+
+#contactUs{
+    background-color: #1B1C1F!important;
+}
+
+.overlayproducts, .overlayaboutUs{
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 100%;
+}
+
+.overflowHidden {
+  overflow: hidden;
+ }
+
+ .title {
+   margin:2em;
+
+ }
 
 
 .productNumber {
@@ -211,7 +270,6 @@ sup {
 
 
 @media only screen and (min-width:1100px){
-
   .uxdd {
     right: 8%;
     bottom: 60%;
@@ -292,4 +350,3 @@ sup {
     right: 37%;
   }
 }
-
