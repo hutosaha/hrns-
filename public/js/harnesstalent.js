@@ -123,7 +123,7 @@ var $ = window.$;
                         if (cvid) {
                             $('.message').addClass('ui info message').text("We\'ve emailed the agent to arrange an interview"); // change to something better...
                             $('#' + cvid).modal('hide');
-                            $('button[data-cvid='+cvid+']').text('Requested Interview').addClass('orange');
+                            $('button[data-cvid='+cvid+'].interviewRequest').text('Requested Interview').addClass('orange');
                             $('form[name='+cvid+']').find("input, textarea").val("");
                         } else {
                             $('#' + cvid).modal('hide');
