@@ -84,60 +84,11 @@ var DOCUMENTVIEWER = {
         $('#iframeId').attr('src', src);
         $('.ui.basic.doc-viewer.modal').modal('show');
 
-        const candidateName = relatedInfoObject.candidateName;
-        const cvid = relatedInfoObject.cvid;
-        const vid = relatedInfoObject.vid;
-        const agencyEmail = relatedInfoObject.agencyEmail;
-        const agencyId = relatedInfoObject.agencyId;
-        const jobTitle = relatedInfoObject.jobTitle;
-
-        $('.basic-modal-reject').click(function() {
-
-            $('.first.modal.reject-modal')
-                .modal('show');
-
-            var $inputs = $('input[name=rejection-reason]');
-            $('input[name=rejection-reason]').change(function() {
-                if (this.checked)
-                    $inputs.not(this).prop('checked', !this.checked);
-            });
-        });
-
-        $('.confirm-rejection-button').off().on('click', function() {
-            $('.first.modal.reject').modal('hide');
-            $('.second.modal.reject-modal').modal('show', '.first.modal .button');
-            $('.second.coupled.modal.accept-modal').modal('hide');
-
-            var reason = $('input[name="rejection-reason"]:checked').val();
-
-            $.ajax({
-                url: '/client/scheduling/reject',
-                data: {
-                    candidateName: candidateName,
-                    cvid: cvid,
-                    vid: vid,
-                    email: agencyEmail,
-                    reason: reason,
-                    list: 'clientShortlist'
-                },
-                async: true,
-                success: function(res) {
-                    if (res) {
-                        var element = document.getElementById(cvid);
-                        element.remove();
-                        $('.ui.basic.doc-viewer.modal').modal('hide');
-
-                        if ($('.listView').length === 0) {
-                            $('.message').html('There are no candidates yet!');
-                        }
-                    }
-                }
-            });
-
-        });
-        ///reject button on viewer
-
-
+        this.acceptButton(relatedInfoObject);
+        this.rejectButton(relatedInfoObject);
+    },
+    acceptButton: function(relatedInfoObject) {
+        let cvid = relatedInfoObject.cvid;
         $('.basic-modal-accept').click(function() {
 
             $('.ui.basic.doc-viewer.modal').modal('hide');
@@ -158,14 +109,7 @@ var DOCUMENTVIEWER = {
                 $('.first.coupled.modal.accept-modal').hide(); /// need the confirmation 
                 $.ajax({
                     url: '/client/job/accept',
-                    data: {
-                        candidateName: candidateName,
-                        cvid: cvid,
-                        vid: vid,
-                        email: agencyEmail,
-                        agencyId: agencyId,
-                        jobTitle: jobTitle
-                    },
+                    data: relatedInfoObject,
                     async: true,
                     success: function(res) {
                         if (res) {
@@ -180,7 +124,50 @@ var DOCUMENTVIEWER = {
                 });
             });
         });
-        // accept button viewer 
+    },
+    rejectButton: function(relatedInfoObject) {
+        let cvid = relatedInfoObject.cvid;
+
+        $('.basic-modal-reject').click(function() {
+
+            $('.first.modal.reject-modal')
+                .modal('show');
+
+            var $inputs = $('input[name=rejection-reason]');
+            $('input[name=rejection-reason]').change(function() {
+                if (this.checked)
+                    $inputs.not(this).prop('checked', !this.checked);
+            });
+        });
+
+        $('.confirm-rejection-button').off().on('click', function() {
+            $('.first.modal.reject').modal('hide');
+            $('.second.modal.reject-modal').modal('show', '.first.modal .button');
+            $('.second.coupled.modal.accept-modal').modal('hide');
+
+            var reason = $('input[name="rejection-reason"]:checked').val();
+
+            relatedInfoObject.list = 'clientShorlist';
+            relatedInfoObject.reason = reason;
+
+            $.ajax({
+                url: '/client/scheduling/reject',
+                data: relatedInfoObject,
+                async: true,
+                success: function(res) {
+                    if (res) {
+                        var element = document.getElementById(cvid);
+                        element.remove();
+                        $('.ui.basic.doc-viewer.modal').modal('hide');
+
+                        if ($('.listView').length === 0) {
+                            $('.message').html('There are no candidates yet!');
+                        }
+                    }
+                }
+            });
+        });
+
     }
 
 }
