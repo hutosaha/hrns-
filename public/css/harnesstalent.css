@@ -24,6 +24,8 @@ font-weight: bold;
 
 .searchbar select {
   font-size: .75em;
+  background-color: white;
+  border-radius: 5px;
 }
 .searchbar label {
   font-weight: bold;
