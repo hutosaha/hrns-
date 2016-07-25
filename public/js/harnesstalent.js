@@ -9,7 +9,7 @@ var $ = window.$;
             this.fetch();
             this.search();
             this.reset();
-            this.interviewRequest()     
+            this.interviewRequest()
         },
         queryObject: {
                     jobTitle: $('select[name=jobTitle]').val(),
@@ -39,14 +39,14 @@ var $ = window.$;
                     var populatedHTML = template(context);
                     $('#candidates-container').html(populatedHTML);
                     DOCUMENTVIEWER.init();
-                    CANDIDATES.interviewRequest();                    
+                    CANDIDATES.interviewRequest();
                 }
             });
         },
         search: function() {
             let self =this;
             $('.search').on('click', function() {
-            
+
                 var queryObj = {
                     jobTitle: $('select[name=jobTitle]').val(),
                     company: $('select[name=company]').val(),
@@ -64,7 +64,7 @@ var $ = window.$;
              var self = this;
              $('.reset').on('click', function() {
                 for(var key in self.queryObject){
-                    $('select[name='+key+']').val('All');         
+                    $('select[name='+key+']').val('All');
                 }
                 CANDIDATES.fetch();
             });
@@ -84,7 +84,7 @@ var $ = window.$;
         },
         sendInterviewRequest: function(){
                 var self = this;
-                
+
                 $('.button.send-interview').off().on('click', function(e) {
                     e.preventDefault();
                     const cvid = $(this).data('cvid');
@@ -93,15 +93,15 @@ var $ = window.$;
                     let firstDate = form['firstIntDate'].value;
                     let interviewAddress = form['interviewAddress'].value;
                     //let stage = form['stage'].value;
-                    let fields = [firstDate, firstTime, interviewAddress];    
+                    let fields = [firstDate, firstTime, interviewAddress];
                     let validated =  self.validate(fields);
-        
+
                     if ( validated[0] === '' || validated[0] === null ){
-                        return  $('.message').addClass('ui info').text('We need the date, time, stage and location of the interview'); 
+                        return  $('.message').addClass('ui info').text('We need the date, time, stage and location of the interview');
                     } else {
                         let formData = $('form[name='+cvid+']').each(function(){ $(this).find(':input');});
                         return  self.sendFormData(formData ,cvid);
-                    }   
+                    }
                 });
         },
         validate: function(fields){
@@ -123,7 +123,7 @@ var $ = window.$;
                         if (cvid) {
                             $('.message').addClass('ui info message').text("We\'ve emailed the agent to arrange an interview"); // change to something better...
                             $('#' + cvid).modal('hide');
-                            $('button[data-cvid='+cvid+'].interviewRequest').text('Requested Interview').addClass('orange');
+                            $('button[data-cvid='+cvid+'].interviewRequest').text('Interview Requested').addClass('orange');
                             $('form[name='+cvid+']').find("input, textarea").val("");
                         } else {
                             $('#' + cvid).modal('hide');
