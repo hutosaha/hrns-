@@ -113,7 +113,7 @@ server.init(0, (err, server) => {
                                 testEndPoint(server, '/harnesstalent/results', 'GET', 200, 'endpoint responds with', clientCookie);
                             
                                 const expectedObject = {
-                                    array: [ candidate1Payload, candidate2Payload, candidate3Payload],
+                                    array: [ candidate3Payload, candidate2Payload, candidate1Payload],
                                     userType:'admin'
                                 }
                                 testPayloadObject(server,'/harnesstalent/results','GET', expectedObject , 'empty payload responds with',clientCookie);
