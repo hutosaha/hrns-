@@ -72,6 +72,7 @@ var $ = window.$;
         interviewRequest: function(){
             let self =this;
             $('.interviewRequest').on('click', function(){
+                $('.message').text('');
                 let cvid = $(this).data('cvid');
                 $('#' + cvid).toggleClass('hide-element');
                 $('.ui.message.info').removeClass('.ui.info');
@@ -122,6 +123,7 @@ var $ = window.$;
                         if (cvid) {
                             $('.message').addClass('ui info message').text("We\'ve emailed the agent to arrange an interview"); // change to something better...
                             $('#' + cvid).modal('hide');
+                            $('button[data-cvid='+cvid+'].interviewRequest').text('Requested Interview').addClass('orange');
                             $('form[name='+cvid+']').find("input, textarea").val("");
                         } else {
                             $('#' + cvid).modal('hide');
