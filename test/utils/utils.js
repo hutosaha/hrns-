@@ -71,6 +71,23 @@ app.testPayload = (server, endpoint, method, expectedString, message, COOKIE, pa
                 t.end();
                 //client.flushdb();
             });
-        });
-       
+        });       
+};
+
+app.testPayloadObject = (server, endpoint, method, expectedObject, message, COOKIE, payload) => {
+        test(method + ' ' + endpoint + ' ' + 'returns status code', (t) => {
+            options = {
+                method: method,
+                url: endpoint,
+                headers: { cookie: COOKIE },
+                payload: payload
+            };
+            server.inject(options, (res) => {
+                let actual = JSON.parse(res.payload);
+                let expected = expectedObject;
+                t.deepEqual(actual, expected, 'TEST PAYLOAD:- ' + message );
+                t.end();
+                //client.flushdb();
+            });
+        });       
 };
