@@ -5,6 +5,8 @@ const server = require('../lib/index.js');
 const client = require('../lib/db/client.js');
 
 const testEndPoint = require('./utils/utils.js').testEndPoint;
+const testPayload  = require('./utils/utils.js').testPayload;
+const testPayloadObject = require('./utils/utils.js').testPayloadObject;
 const qs = require('querystring');
 //const testPayload  = require('./utils/utils.js').testPayload;
 
@@ -108,10 +110,18 @@ server.init(0, (err, server) => {
                             client.sadd('HarnessTalent', 'candidate3id');
                         })
                         .then(() => {
-                                var query = 'salaryMin=20000&location=London&jobTitle=All&jobCategory=All&company=All&salaryMax=50000';
+                                testEndPoint(server, '/harnesstalent/results', 'GET', 200, 'endpoint responds with', clientCookie);
+                            
+                                const expectedObject = {
+                                    array: [ candidate1Payload, candidate2Payload, candidate3Payload],
+                                    userType:'admin'
+                                }
+                                testPayloadObject(server,'/harnesstalent/results','GET', expectedObject , 'empty payload responds with',clientCookie);
+                                
+                                const query = 'salaryMin=20000&location=London&jobTitle=All&jobCategory=All&company=All&salaryMax=50000';
                                 testEndPoint(server, '/harnesstalent/results?' + query, 'GET', 200, 'endpoint responds with', clientCookie);
 
-                                var payload = {
+                                const payload = {
                                     candidateName: 'Tormod Smith',
                                     cvid : 'testcvid',
                                     vid : 'testvid',
