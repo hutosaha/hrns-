@@ -18,7 +18,7 @@ var DOCUMENTVIEWER = {
     },
     cvViewer: function() {
         let self = this;
-        $('.cv-viewer').on('click', function(e) {
+        $('.doc-viewer').on('click', function(e) {
 
             e.preventDefault();
             const relatedInfoObject = {
@@ -75,7 +75,6 @@ var DOCUMENTVIEWER = {
             },
             async: true,
             success: function(response) {
-                console.log('RESPONSE', response);
                 callback(response);
             }
         });

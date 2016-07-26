@@ -5,6 +5,7 @@ var $ = window.$;
 
 $(function() {
 
+    DOCUMENTVIEWER.init();
     $('.ui.button.confirm-time').on('click', function() {
         var confirmedIntTime = $(this).data('confirmed-time');
         var confirmedIntDate = $(this).data('confirmed-date');
