@@ -4,7 +4,7 @@ const removecv = require('./lib/db/redis.js').removecv;
 const emailAdminHarnessTalentCv = require('./lib/plugins/utils/mailgun.js').emailAdminHarnessTalentCv;
 const mailgun = require('./lib/plugins/utils/mailgun.js');
 
-console.log('I am in the Cron!!!')
+console.log('I am in the Cron!!!');
 
 getSetMembersInfo('HarnessTalent', (array) => {
 
