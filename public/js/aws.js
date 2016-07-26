@@ -53,7 +53,7 @@ var AWS ={
         let self =this;
         $('input[type=file]').on('change', function(event){
             var files, file, file_url, preview;
-            console.log('Boom');
+          
             $('input[type=submit]').prop('disabled', true);
             files = event.target.files;
             file = files[0];
