@@ -230,7 +230,6 @@ client.select(3, () => {
                     confirmed: 'true'
                 }
                 redis.getInterviewDetails(newTimes, (res) => {
-                    //console.log('XXXXXXXXXXXXXXXX',res); ///// posibble error with getInterviewData agency details are undefined. 
                     let resLength = Object.keys(res).length;
                     t.equals(resLength, 19, 'newtimes agency and client detaisl pulled together');
                     t.end();

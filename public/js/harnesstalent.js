@@ -28,7 +28,7 @@ var $ = window.$;
                     if(response === false){
                         $('.ui.message').text('There is no talent');
                     }
-                    console.log('RESULTS FORM BE', response);
+                    
                     var source = $('#candidates-template').html()
                     var template = Handlebars.compile(source);
                     var context = response.array;
