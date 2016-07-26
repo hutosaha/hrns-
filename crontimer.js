@@ -17,11 +17,12 @@ getSetMembersInfo('HarnessTalent', (array) => {
             const expirationDate = moment(dateSubmitted).add(35, 'days').calendar();
             const deletionDate = moment(dateSubmitted).add(42, 'days').calendar();
             const todaysDate = moment().calendar();
-            console.log(dateSubmitted, expirationDate);
+
+            console.log(dateSubmitted, expirationDate, todaysDate);
 
             switch (true) {
-                case (todaysDate === expirationDate):
-                    console.log('email sent');
+                case (todaysDate === todaysDate):
+                console.log('email sent');
                     emailAdminHarnessTalentCv.to = 'tormodsmith@gmail.com'; //REPLACE WITH AGENTSEMAIL!
                     return mailgun.messages().send(emailAdminHarnessTalentCv);
                 case (todaysDate === deletionDate):
