@@ -1,0 +1,77 @@
+<h1 class="ui block header" data-company-name="{{companyName}}">Interviews Currently Pending </h1>
+<div class="ui grid">
+    <div class="ui four wide column">
+        <button class="ui inverted blue button" id="go-back" data-url="/">Go Back</button>
+    </div>
+</div>
+<div class="ui divider"></div>
+<div class="ui stackable vertically divided grid listView">
+
+    <!-- his is the data rows  -->
+    <div class="row">
+        <div class="three wide column text-overflow-element">
+            <h5>Candidate Name</h5>
+        </div>
+        <div class="two wide column">
+            <h5>Job Title</h5>
+        </div>
+        <div class="two wide column">
+            <h5>First Date</h5>
+        </div>
+        <div class="one wide column">
+            <h5>First Time</h5>
+        </div>
+        <div class="one wide column">
+            <h5>Second Date</h5>
+        </div>
+        <div class="one wide column">
+            <h5>Second Time</h5>
+        </div>
+        <div class="one wide column">
+            <h5>Third Date</h5>
+        </div>
+        <div class="one wide column">
+            <h5>Third Time</h5>
+        </div>
+        <div class="four wide column">
+            <h5>Interview Address</h5>
+        </div>
+    </div>
+  
+</div>
+<div class="ui stackable vertically divided grid listView">
+    {{#each data}}
+    <!-- his is the data rows  -->
+    <div class="row">
+        <div class="three wide column text-overflow-element">
+            <h5>{{candidateName}}</h5>
+        </div>
+        <div class="two wide column">
+            <h5>{{jobTitle}}</h5>
+        </div>
+        <div class="one wide column">
+            <h5>{{firstIntDate}}</h5>
+        </div>
+        <div class="one wide column">
+            <h5>{{firstIntTime}}</h5>
+        </div>
+        <div class="one wide column">
+            <h5>{{secondIntDate}}</h5>
+        </div>
+        <div class="one wide column">
+            <h5>{{secondIntTime}}</h5>
+        </div>
+        <div class="one wide column">
+            <h5>{{thirdIntDate}}</h5>
+        </div>
+        <div class="one wide column">
+            <h5>{{thirdIntTime}}</h5>
+        </div>
+        <div class="four wide column">
+            <h5>{{interviewAddress}}</h5>
+        </div>
+    </div>
+    {{/each }}
+</div>
+
+</div>
