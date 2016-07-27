@@ -29,15 +29,21 @@ var $ = window.$;
                         $('.ui.message').text('There is no talent');
                     }
                     console.log('RESPONSE',response);                    
-                    var source   = $('#candidates-template').html()
-                    var template = Handlebars.compile(source);
-                    var context  = response.array;
-                    var userType = response.userType;
+                    var harnessTalent   = $('#candidates-template').html()
+                    var companyNames    = $('#companies-template').html()
+                    var HTtemplate      = Handlebars.compile(harnessTalent);
+                    var CompaniesTemplate  = Handlebars.compile(companyNames);
+
+                    var context   = response.array;
+                    var companies = response.companies;
+                    var userType  = response.userType;
                     if(userType === 'admin'){
                         $('.client-menus').remove();
                     }
-                    var populatedHTML = template(context);
-                    $('#candidates-container').html(populatedHTML);
+                    var harnesstalentHTML = HTtemplate(context);
+                    var companiesHTML     = CompaniesTemplate(companies);
+                    $('#candidates-container').html(harnesstalentHTML);
+                    $('#companies-container').html(companiesHTML);
                     DOCUMENTVIEWER.init();
                     CANDIDATES.interviewRequest();
                 }
