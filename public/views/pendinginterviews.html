@@ -1,7 +1,7 @@
 <h1 class="ui block header" data-company-name="{{companyName}}">Interviews Currently Pending </h1>
 <div class="ui grid">
     <div class="ui four wide column">
-        <button class="ui inverted blue button" id="go-back" data-url="/">Go Back</button>
+          <button onclick="window.history.back()" class="ui inverted blue button" id="go-back">Go Back</button>
     </div>
 </div>
 <div class="ui divider"></div>
@@ -37,7 +37,7 @@
             <h5>Interview Address</h5>
         </div>
     </div>
-  
+
 </div>
 <div class="ui stackable vertically divided grid listView">
     {{#each data}}
