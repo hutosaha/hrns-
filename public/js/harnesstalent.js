@@ -28,10 +28,10 @@ var $ = window.$;
                     if(response === false){
                         $('.ui.message').text('There is no talent');
                     }
-                    
-                    var source = $('#candidates-template').html()
+                    console.log('RESPONSE',response);                    
+                    var source   = $('#candidates-template').html()
                     var template = Handlebars.compile(source);
-                    var context = response.array;
+                    var context  = response.array;
                     var userType = response.userType;
                     if(userType === 'admin'){
                         $('.client-menus').remove();
