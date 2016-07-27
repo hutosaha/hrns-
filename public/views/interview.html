@@ -51,22 +51,26 @@
 		<div class="ui three wide column">
 			<h3>Vacany Details:</h3>
 		</div>
-		<div class="ui three wide column">
+		<div class="ui two wide column">
 			<p>{{jobTitle}}</p>
 		</div>
-		<div class="ui column">
+		<div class="ui two wide column">
 			<p>{{salary}}</p>
 		</div>
-		<div class="ui three wide column">
+		<div class="ui four wide column">
 			<p>{{jobLocation}}</p>
 		</div>
 		{{#if jobDescription_url}}
-		<div class="ui three wide column">
-			<a href="{{jobDescription_url}}" type="text" download>Download Job Description</a>
+		<div class="ui two wide column">
+			 <button class="mini ui inverted teal icon button doc-viewer" data-vid="{{vid}}" data-file-name="{{file-name}}"
+               data-url='{{jobDescription_url}}'>View Job Description</button>
+               <br>
+               <br>
+             <a href="{{jobDescription_url}}" type="text" download><button class="mini ui inverted teal icon button doc-viewer">Download</button></a>
 		</div>
 		{{/if }}
 		{{#if contractType}}
-		<div class="ui three wide column">
+		<div class="ui two wide column">
 			<p>{{contractType}}</p>
 		</div>
 		{{/if }}
@@ -130,7 +134,18 @@
 		>Suggest Another Time</div>
 	</div>
 </div>
+<div class="ui basic doc-viewer modal">
+    <i class="close icon"></i>
+    <div class="header">
+        To view in full screen and download, use the viewer button.
+    </div>
+    <div class="image content">
+        <div class="image">
+            <iframe id="iframeId" src='' width='850' height='566' frameborder='0'>This is an embedded <a target='_blank' href='http://office.com'>Microsoft Office</a> document, powered by <a target='_blank' href='http://office.com/webapps'>Office Online</a>.</iframe>
+        </div>
+    </div>
+</div>
 {{> savechanges}}
 {{> create-interview}}
-
+<script type="text/javascript" src="/public/js/document-viewer.js"></script>
 <script type="text/javascript" src="/public/js/interview.js"></script>
