@@ -12,7 +12,6 @@ getSetMembersInfo('HarnessTalent', (array) => {
         array.forEach(function(arrayItem) {
           console.log(arrayItem);
             const cvid = arrayItem.cvid;
-            console.log('ffffffffffffff',cvid);
             const agentsEmail = arrayItem.agencyEmail;
             const dateSubmitted = arrayItem.dateSubmitted;
             const expirationDate = moment(dateSubmitted).add(35, 'days').calendar();
@@ -37,12 +36,11 @@ getSetMembersInfo('HarnessTalent', (array) => {
                       }
                 });
                 case (todaysDate === todaysDate):
-                        console.log('Candidate removed from HarnessTalent');
                 return client.srem('HarnessTalent', cvid, (err, reply)=>{
                     if(err){
                         console.log(err);
                     } else {
-                        console.log(reply);
+                        console.log('Candidate removed from HarnessTalent' ,reply);
                     }
                 }); // delete from harness talent list
             }
