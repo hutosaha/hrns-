@@ -28,7 +28,7 @@ var $ = window.$;
                     if(response === false){
                         $('.ui.message').text('There is no talent');
                     }
-                    console.log('RESPONSE',response);                    
+                    console.log('REPONSE', response);
                     var harnessTalent   = $('#candidates-template').html()
                     var companyNames    = $('#companies-template').html()
                     var HTtemplate      = Handlebars.compile(harnessTalent);
