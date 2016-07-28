@@ -7,7 +7,8 @@ body {
 
 
 h2{
-  font-size: 3em;
+  font-size: 2.7em;
+  font-weight: 400;
 }
 
 h3{
@@ -84,8 +85,8 @@ video {
 
 
 .humantitle{
-  font-size: 2.6em;
-  font-weight: 900 !important;
+  font-size: 2.7em;
+  font-weight: 600 !important;
 }
 
 
