@@ -1,77 +1,72 @@
 <h1 class="ui block header" data-company-name="{{companyName}}">Interviews Currently Pending </h1>
 <div class="ui grid">
     <div class="ui four wide column">
-          <button onclick="window.history.back()" class="ui inverted blue button" id="go-back">Go Back</button>
+        <button onclick="window.history.back()" class="ui inverted blue button" id="go-back">Go Back</button>
     </div>
 </div>
 <div class="ui divider"></div>
 <div class="ui stackable vertically divided grid listView">
 
-    <!-- his is the data rows  -->
-    <div class="row">
-        <div class="three wide column text-overflow-element">
-            <h5>Candidate Name</h5>
+    <!-- his is the title rows  -->
+
+
+    <div class="sixteen column row">
+        <div class="four wide column text-overflow-element">
+            <h4 class="ui header">Candidate Name</h4>
         </div>
-        <div class="two wide column">
-            <h5>Job Title</h5>
-        </div>
-        <div class="two wide column">
-            <h5>First Date</h5>
-        </div>
-        <div class="one wide column">
-            <h5>First Time</h5>
-        </div>
-        <div class="one wide column">
-            <h5>Second Date</h5>
-        </div>
-        <div class="one wide column">
-            <h5>Second Time</h5>
-        </div>
-        <div class="one wide column">
-            <h5>Third Date</h5>
-        </div>
-        <div class="one wide column">
-            <h5>Third Time</h5>
+        <div class="three wide column">
+            <h4 class="ui header">Job Title</h4>
         </div>
         <div class="four wide column">
-            <h5>Interview Address</h5>
+          <h4 class="ui header"> Suggested Date and Time</h4>
+        </div>
+        <div class="two wide column">
+            <h4 class="ui header">Stage</h4>
+        </div>
+        <div class="three wide column">
+            <h4 class="ui header">Interview Address</h4>
         </div>
     </div>
-
 </div>
+<div class="ui divider"></div>
 <div class="ui stackable vertically divided grid listView">
     {{#each data}}
     <!-- his is the data rows  -->
-    <div class="row">
-        <div class="three wide column text-overflow-element">
+    <div class="sixteen column row">
+        <div class="four wide column text-overflow-element">
             <h5>{{candidateName}}</h5>
         </div>
-        <div class="two wide column">
+        <div class="three wide column">
             <h5>{{jobTitle}}</h5>
         </div>
-        <div class="one wide column">
-            <h5>{{firstIntDate}}</h5>
-        </div>
-        <div class="one wide column">
-            <h5>{{firstIntTime}}</h5>
-        </div>
-        <div class="one wide column">
-            <h5>{{secondIntDate}}</h5>
-        </div>
-        <div class="one wide column">
-            <h5>{{secondIntTime}}</h5>
-        </div>
-        <div class="one wide column">
-            <h5>{{thirdIntDate}}</h5>
-        </div>
-        <div class="one wide column">
-            <h5>{{thirdIntTime}}</h5>
-        </div>
         <div class="four wide column">
+            <div class="row">
+                <div class="two wide column">
+                    <h5>1: {{firstIntDate}}&nbsp; {{firstIntTime}}</h5></div>
+
+            </div>
+            <br>
+            <div class="row">
+              {{#if data.secondIntDate}}
+                <div class="two wide column">2: {{secondIntDate}}&nbsp; {{secondIntTime}}</div>
+                {{/if}}
+
+            </div>
+            <br>
+            <div class="row">
+              {{#if data.thirdIntDate}}
+                <div class="two wide column">3: {{thirdIntDate}}&nbsp; {{thirdIntTime}}</div>
+                {{/if}}
+
+            </div>
+        </div>
+        <div class="two wide column">
+            <h5>{{stage stage}}</h5>
+        </div>
+        <div class="three wide column">
             <h5>{{interviewAddress}}</h5>
         </div>
     </div>
     {{/each }}
 </div>
-
 </div>
