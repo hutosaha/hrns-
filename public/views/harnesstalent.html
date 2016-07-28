@@ -72,17 +72,11 @@
                       </select>
                 </div>
                 <div class=" two wide column ">
-                  <label for="company" class="company"> Company </label>
-                    <select name="company" class="ui dropdown companycss">
-                        <option value="All">All</option>
-                        <option value="Argos">Argos</option>
-                        <option value="Farfetch">Farfetch</option>
-                        <option value="Mark & Spencer">Mark & Spencer</option>
-                        <option value="Red Bull">Red Bull</option>
-                        <option value="Rocket Internet">Rocket Internet</option>
-                        <option value="Style.com">Style.com</option>
-                        <option value="Sony">Sony</option>
-                    </select>
+                  <div id="companies-container">
+                      
+
+                  </div>
+                  
 
                 </div>
                 <div class="two wide column ">
@@ -177,6 +171,17 @@
 </body>
 
 </html>
+
+<script id="companies-template"  type="text/x-handlebars-template">
+      <label for="company" class="company"> Company </label>
+        <select name="company" class="ui dropdown companycss">
+            <option value="All">All</option>
+           {{#each this}}
+           <option value="{{this}}">{{this}}</option>
+           {{/each }}
+        </select>   
+
+</script>
 <script id="candidates-template" type="text/x-handlebars-template">
     {{#each this}}
     <div class="ui stackable grid listView client-list">
