@@ -14,7 +14,7 @@ var  $ = window.$;
 
   var body = encodeURIComponent(' Hi Harness, \n\n ' + text + '\n\n' + 'Kind regards, \n\n ' + firstName + lastName + '\n\n' + email + ' ' + phoneNumber );
   window.open('mailto:' + mailto + '?subject=harness%20contact%20form&body=' + body );
-
+  window.close
 });
 
 }
