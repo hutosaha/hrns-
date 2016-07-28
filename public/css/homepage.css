@@ -143,11 +143,6 @@ video {
     opacity: 0.75;
 }
 
-.productsContent {
-    position: relative;
-    text-align: center;
-    padding-bottom: 3em;
-}
 
 .productNumber {
     font-size: 6em !important;
@@ -159,7 +154,7 @@ video {
 .productsContent {
     position: relative;
     text-align: center;
-    padding-bottom: 3em;
+  
 }
 
 
@@ -195,10 +190,6 @@ sup {
 
 }
 
-#contactUs{
-    background-color: #1B1C1F!important;
-}
-
 .overlayproducts, .overlayaboutUs{
   background-color: rgba(0, 0, 0, 0.8);
   width: 100%;
@@ -212,7 +203,6 @@ sup {
    margin:2em;
 
  }
-
 
 
 #whyHarness {
@@ -257,7 +247,7 @@ sup {
  }
 
  .section-title {
-   margin:2em;
+   margin:1em;
    text-align: center;
 
  }
