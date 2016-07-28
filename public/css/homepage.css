@@ -96,6 +96,9 @@ video {
   background-color: black;
   background-color: #1B1C1F!important;
   padding-bottom: 1em;
+  background-repeat: no-repeat;
+  height: 100vh;
+  background-size: cover;
 }
 
 
@@ -237,6 +240,7 @@ sup {
 .overlayproducts, .overlayaboutUs{
   background-color: rgba(0, 0, 0, 0.8);
   width: 100%;
+  height: 100vh;
 }
 
 .overflowHidden {
