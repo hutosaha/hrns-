@@ -17,7 +17,6 @@ getSetMembersInfo('HarnessTalent', (array) => {
             const todaysDate = moment().calendar();
             switch (true) {
                 case (todaysDate === todaysDate):
-                console.log('email sent');
                     emailAdminHarnessTalentCv.to = 'tormodsmith@gmail.com'; //REPLACE WITH AGENTSEMAIL!
                     return mailgun.messages().send(emailAdminHarnessTalentCv);
                 case (todaysDate === deletionDate):
