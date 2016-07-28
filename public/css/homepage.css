@@ -99,7 +99,7 @@ video {
 }
 
 
-#aboutUs h3, #products h3 {
+#aboutUs h3, #products h3 , #whyHarness h3{
   color: grey;
   font-weight: lighter;
 }
@@ -244,6 +244,7 @@ sup {
 
  .section-title {
    margin:2em;
+   text-align: center;
 
  }
 
