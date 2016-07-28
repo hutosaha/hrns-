@@ -1,0 +1,7 @@
+  <label for="company" class="company"> Company </label>
+        <select name="company" class="ui dropdown companycss">
+            <option value="All">All</option>
+           {{#each this}}
+           <option value="{{this}}">{{this}}</option>
+           {{/each }}
+        </select>   
