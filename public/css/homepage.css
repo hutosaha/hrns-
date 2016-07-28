@@ -107,10 +107,12 @@ video {
   font-weight: lighter;
 }
 
-.aboutUs h4 ,.aboutUs p {
-  text-align: center;
+.aboutUs h4 , .aboutUs p {
+  text-align: justify !important;
 }
-
+.aboutjustify{
+  text-align: justify;
+}
 .introduction {
   text-align: center;
   margin:auto;
