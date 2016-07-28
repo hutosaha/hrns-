@@ -406,6 +406,10 @@ Agency
     font-weight:600;
 }
 
+#buttsize {
+  margin-left: 96px;
+  height: 39px
+}
 
 /*===========================
   CLIENT PAGE
