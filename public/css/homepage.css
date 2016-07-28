@@ -7,7 +7,8 @@ body {
 
 
 h2{
-  font-size: 3em;
+  font-size: 2.7em;
+  font-weight: 400;
 }
 
 h3{
@@ -84,8 +85,8 @@ video {
 
 
 .humantitle{
-  font-size: 2.6em;
-  font-weight: 900 !important;
+  font-size: 2.7em;
+  font-weight: 600 !important;
 }
 
 
@@ -95,18 +96,23 @@ video {
   background-color: black;
   background-color: #1B1C1F!important;
   padding-bottom: 1em;
+  background-repeat: no-repeat;
+  height: 100vh;
+  background-size: cover;
 }
 
 
-#aboutUs h3, #products h3 {
+#aboutUs h3, #products h3 , #whyHarness h3{
   color: grey;
   font-weight: lighter;
 }
 
-.aboutUs h4 ,.aboutUs p {
-  text-align: center;
+.aboutUs h4 , .aboutUs p {
+  text-align: justify !important;
 }
-
+.aboutjustify{
+  text-align: justify;
+}
 .introduction {
   text-align: center;
   margin:auto;
@@ -116,7 +122,7 @@ video {
 
 #testimonials{
     background-color: #00B5AE!important;
-    padding-bottom: 0em;
+    padding-bottom: 1em;
 }
 
 #products {
@@ -138,6 +144,24 @@ video {
     position: relative;
     text-align: center;
     padding-bottom: 3em;
+}
+
+.productNumber {
+    font-size: 6em !important;
+    font-weight: 800;
+    color: teal!important;
+    opacity: 1;
+}
+
+.productsContent {
+    position: relative;
+    text-align: center;
+    padding-bottom: 3em;
+}
+
+
+.products .tm{
+  text-align: left !important;
 }
 
 
@@ -187,23 +211,6 @@ sup {
  }
 
 
-.productNumber {
-    font-size: 6em !important;
-    font-weight: 800;
-    color: teal!important;
-    opacity: 0.75;
-}
-
-.productsContent {
-    position: relative;
-    text-align: center;
-    padding-bottom: 3em;
-}
-
-
-.products .tm{
-  text-align: left !important;
-}
 
 #whyHarness {
    background-color: #00b5ad!important;
@@ -235,6 +242,7 @@ sup {
 .overlayproducts, .overlayaboutUs{
   background-color: rgba(0, 0, 0, 0.8);
   width: 100%;
+  height: 100vh;
 }
 
 .overflowHidden {
@@ -243,6 +251,7 @@ sup {
 
  .section-title {
    margin:2em;
+   text-align: center;
 
  }
 
@@ -250,7 +259,7 @@ sup {
   .productsWord {
       position: absolute;
       bottom: 60%;
-      right:-5%;
+      right:5%;
   }
   .uxdd {
     right: 8%;
@@ -278,7 +287,7 @@ sup {
       right: 3%;
   }
   .dataS {
-     right:21%;
+     right:25%;
      bottom: 60%;
   }
   .dev {
