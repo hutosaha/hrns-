@@ -141,6 +141,24 @@ video {
     padding-bottom: 3em;
 }
 
+.productNumber {
+    font-size: 6em !important;
+    font-weight: 800;
+    color: teal!important;
+    opacity: 1;
+}
+
+.productsContent {
+    position: relative;
+    text-align: center;
+    padding-bottom: 3em;
+}
+
+
+.products .tm{
+  text-align: left !important;
+}
+
 
 .products .tm{
   text-align: left !important;
@@ -188,23 +206,6 @@ sup {
  }
 
 
-.productNumber {
-    font-size: 6em !important;
-    font-weight: 800;
-    color: teal!important;
-    opacity: 0.75;
-}
-
-.productsContent {
-    position: relative;
-    text-align: center;
-    padding-bottom: 3em;
-}
-
-
-.products .tm{
-  text-align: left !important;
-}
 
 #whyHarness {
    background-color: #00b5ad!important;
@@ -252,7 +253,7 @@ sup {
   .productsWord {
       position: absolute;
       bottom: 60%;
-      right:-5%;
+      right:5%;
   }
   .uxdd {
     right: 8%;
@@ -280,7 +281,7 @@ sup {
       right: 3%;
   }
   .dataS {
-     right:21%;
+     right:25%;
      bottom: 60%;
   }
   .dev {
