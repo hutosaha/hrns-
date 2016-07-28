@@ -35,6 +35,7 @@ body {
 section {
   margin:0;
   padding:0;
+
 }
 video {
     position: fixed;
@@ -50,7 +51,7 @@ video {
     opacity: 0.3;
 }
 
-#banner {
+#banner, #aboutUS, #products, #whyHarness {
   height: 100vh;
 }
 
