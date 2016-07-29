@@ -22,7 +22,7 @@ const candidate1Payload = {
     location: 'London',
     salary: '30000',
     linkedInProfile: '',
-    file_url: 'tesctcv.txt'
+    file_url: 'tesctcv.txt',        
 }
 
 const candidate2Payload = {
@@ -65,6 +65,23 @@ const newCandidatePayload = {
     linkedInProfile: '',
     file_url: 'tesctcv.txt'
 }
+
+const existingDiffAgencyCandidatePayload = {
+    candidateName: 'Joe Bloggs',
+    jobCategory: 'UX',
+    company: 'Ford',
+    jobTitle: 'UX Designer',
+    email: 'test@test.com',
+    contactNumber: '0230420492',
+    contractType: 'permanent',
+    location: 'London',
+    salary: '30000',
+    linkedInProfile: '',
+    file_url: 'tesctcv.txt',
+     agencyId: 'agencyId2',
+}
+
+
 
 
 const agencyPayload = {
@@ -145,6 +162,9 @@ server.init(0, (err, server) => {
                                     }  
                                 testEndPoint(server, '/harnesstalent/interview/proposed', 'POST', 200, ' ht proposed interview endpoint responds with', clientCookie, payload);
                                 testEndPoint(server, '/agency/submitcandidate', 'POST', 200, 'Server responds with 200', agencyCookie, newCandidatePayload );
+                                testEndPoint(server, '/agency/submitcandidate', 'POST', 200, 'Server responds with 200', agencyCookie, candidate1Payload );
+                                //testEndPoint(server, '/agency/submitcandidate', 'POST', 200, 'Server responds with 200', agencyCookie, existingDiffAgencyCandidatePayload );
+
 
                         })
                         .catch();
