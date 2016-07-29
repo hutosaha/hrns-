@@ -24,7 +24,7 @@ server.init(0, (err, server) => {
     testEndPoint(server, '/agencysignup', 'POST', 302, 'unauthed POST redirected to login');
     testEndPoint(server, '/agencysignup', 'POST', 400, 'POST without payload responds with 400 - bad request', agencyCookie);
     testEndPoint(server, '/agencysignup', 'POST', 400, 'POST with incorrect payload responds with 400', agencyCookie, incorrectAgencySignupPayload);
-    testEndPoint(server, '/agencysignup', 'POST', 200, 'POST with correct payload responds with 200', agencyCookie, agencySignupPayload);
+    testEndPoint(server, '/agencysignup', 'POST', 200, 'agency signup', agencyCookie, agencySignupPayload);
 
     testPayload(server, '/' + agencyLoginEndPoint, 'GET', 'Agency Login', 'correctly returns agency login view');
 
@@ -41,9 +41,9 @@ server.init(0, (err, server) => {
           });
      });
 
-    testEndPoint(server, '/agency/myjobs', 'GET', 200, 'server responds with 200', agencyCookie); // need agency credentials 
-    testEndPoint(server, '/agency/myjobs/remove?vid=12131312vid', 'GET', 200, 'server responds with 200', agencyCookie); // need agency credentials 
-    
+    testEndPoint(server, '/agency/myjobs', 'GET', 200, 'server responds with 200', agencyCookie); // need agency credentials
+    testEndPoint(server, '/agency/myjobs/remove?vid=12131312vid', 'GET', 200, 'server responds with 200', agencyCookie); // need agency credentials
+
     testEndPoint(server, '/agency/submitcandidate', 'POST', 200, 'Server responds with 200', agencyCookie,candidatePayload )
     ///testEndPoint(server, '/submitvacancycv/12133123vid', 'POST', 200, 'submitCV against vacancy', agencyCookie, cvPayload);
 
