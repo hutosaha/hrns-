@@ -136,8 +136,8 @@ server.init(0, (err, server) => {
 
                                 testEndPoint(server, '/harnesstalent/interview/proposed', 'POST', 200, ' ht proposed interview endpoint responds with', clientCookie, payload);
                                 testEndPoint(server, '/admin/newharnesstalent', 'GET', 200, ' gets into newharness talent endpoint', adminCookie);
-                                testEndPoint(server, '/harnesstalent/accpeted/testcvid', 'GET', 200, ' gets into naccepted test endpoint', adminCookie);
-                                testEndPoint(server, '/harnesstalent/reject?cvid=testcvid', 'GET', 200, ' gets into rejected test endpoint', adminCookie);
+                                // testEndPoint(server, '/harnesstalent/accpeted/testcvid', 'GET', 200, ' gets into naccepted test endpoint', adminCookie);
+                                // testEndPoint(server, '/harnesstalent/reject?cvid=testcvid', 'GET', 200, ' gets into rejected test endpoint', adminCookie);
 
                         })
                         .catch();

@@ -399,6 +399,6 @@ client.select(3, () => {
                 setTimeout(() => {
                     client.flushdb();
                     client.quit();
-                }, 8000);
+                }, 5000);
             })
         });
