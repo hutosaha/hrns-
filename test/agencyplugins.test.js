@@ -26,6 +26,7 @@ server.init(0, (err, server) => {
     testEndPoint(server, '/agencysignup', 'POST', 400, 'POST with incorrect payload responds with 400', agencyCookie, incorrectAgencySignupPayload);
     testEndPoint(server, '/agencysignup', 'POST', 200, 'agency signup', agencyCookie, agencySignupPayload);
 
+
     testPayload(server, '/' + agencyLoginEndPoint, 'GET', 'Agency Login', 'correctly returns agency login view');
 
     //testEndPoint(server, '/submitvacancycv/vid','POST', 200, 'endpoint responds with:', agencyCookie, cvPayload);// FAILING TEST HMSET CONTAINS UNDEFINED ARUGMENT.
@@ -41,10 +42,12 @@ server.init(0, (err, server) => {
           });
      });
 
+
     testEndPoint(server, '/agency/myjobs', 'GET', 200, 'server responds with 200', agencyCookie); // need agency credentials
     testEndPoint(server, '/agency/myjobs/remove?vid=12131312vid', 'GET', 200, 'server responds with 200', agencyCookie); // need agency credentials
 
     testEndPoint(server, '/agency/submitcandidate', 'POST', 200, 'Server responds with 200', agencyCookie,candidatePayload )
+ 
     ///testEndPoint(server, '/submitvacancycv/12133123vid', 'POST', 200, 'submitCV against vacancy', agencyCookie, cvPayload);
 
 });
