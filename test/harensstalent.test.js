@@ -139,6 +139,7 @@ server.init(0, (err, server) => {
                         .then(() => {
                             client.sadd('HarnessTalent', 'candidate2id');
                             client.sadd('HarnessTalent', 'candidate3id');
+                            client.sadd('HarnessTalent', 'testcvid');
                         })
                         .then(() => {
                                 var query = 'salaryMin=20000&location=London&jobTitle=All&jobCategory=All&company=All&salaryMax=50000';
@@ -164,6 +165,7 @@ server.init(0, (err, server) => {
                                 testEndPoint(server, '/agency/submitcandidate', 'POST', 200, 'Server responds with 200', agencyCookie, newCandidatePayload );
                                 testEndPoint(server, '/agency/submitcandidate', 'POST', 200, 'Server responds with 200', agencyCookie, candidate1Payload );
                                 //testEndPoint(server, '/agency/submitcandidate', 'POST', 200, 'Server responds with 200', agencyCookie, existingDiffAgencyCandidatePayload );
+                                testEndPoint(server, '/agency/resubmitcandidate/testcvid', 'GET', 200, 'Server responds with 200', agencyCookie);
 
 
                         })
