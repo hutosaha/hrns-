@@ -6,6 +6,11 @@ const utils = require('../lib/plugins/utils/app.js');
 
 const rating                         = require('../public/views/helpers/rating.js');
 const sector                         = require('../public/views/helpers/sector.js');
+const stage                          = require('../public/views/helpers/stageconversion.js');
+// const stageOne                       = require('../public/views/helpers/stageOne.js');
+// const stageTwo                       = require('../public/views/helpers/stageTwo.js');
+// const stageThree                     = require('../public/views/helpers/stageThree.js');
+// const stageFour                      = require('../public/views/helpers/stageFour.js');
 const formatEmailToAdminForGenericCV = utils.formatEmailToAdminForGenericCV;
 const emailAdminForGenericCV         = utils.emailAdminForGenericCV;
 const formatCandidateKeys            = utils.formatCandidateKeys;
@@ -62,6 +67,44 @@ test('rating helper correctly formats key values', (t) => {
     t.end();
 });
 
+test('format reason correctly formats reasons', (t) => {
+    let expected = 'The client said your candidate didn\'t have enough experience for the role';
+    let actual = formatReason('not_enough');
+    t.equal(actual, expected, 'works!');
+    expected = '';
+    actual = formatReason('foo');
+    t.equal(actual, expected, 'works!');
+    t.end();
+});
+//
+test('stage helper correctly formats key values', (t) => {
+    let expected = { string: 'Accepted' };
+    let actual = stage('stageOne');
+    t.deepEqual(actual, expected, 'works!');
+    t.end();
+
+});
+test('stage helper correctly formats key values', (t) => {
+    let expected = { string: '1' };
+    let actual = stage('stageTwo');
+    t.deepEqual(actual, expected, 'works!');
+    t.end();
+
+});
+test('stage helper correctly formats key values', (t) => {
+    let expected = { string: '2' };
+    let actual = stage('stageThree');
+    t.deepEqual(actual, expected, 'works!');
+    t.end();
+
+});
+test('stage helper correctly formats key values', (t) => {
+    let expected = { string: 'Final' };
+    let actual = stage('stageFour');
+    t.deepEqual(actual, expected, 'works!');
+    t.end();
+
+});
 test('sector helper correctly formats key values', (t) => {
     let expected = { string: '<p>Project Management</p>' };
     let actual = sector('projectManagement');
@@ -71,13 +114,12 @@ test('sector helper correctly formats key values', (t) => {
     t.deepEqual(actual, expected, 'works!');
     t.end();
 });
-
-test('format reason correctly formats reasons', (t) => {
-    let expected = 'The client said your candidate didn\'t have enough experience for the role';
-    let actual = formatReason('not_enough');
-    t.equal(actual, expected, 'works!');
-    expected = '';
-    actual = formatReason('foo');
-    t.equal(actual, expected, 'works!');
+test('sector helper correctly formats key values', (t) => {
+    let expected = { string: '<p>Project Management</p>' };
+    let actual = sector('projectManagement');
+    t.deepEqual(actual, expected, 'works!');
+    expected = { string: '<p>None specified</p>' };
+    actual = sector('foo');
+    t.deepEqual(actual, expected, 'works!');
     t.end();
 });
