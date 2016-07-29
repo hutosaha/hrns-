@@ -8,6 +8,7 @@ const testEndPoint = require('./utils/utils.js').testEndPoint;
 const qs = require('querystring');
 //const testPayload  = require('./utils/utils.js').testPayload;
 
+const agencyCookie    = require('./utils/utils.js').agencyCookie;
 const clientCookie = require('./utils/utils.js').clientCookie;
 //const nonExistingUserCookie = require('./utils/utils.js').nonExistingUserCookie;
 const candidate1Payload = {
@@ -50,6 +51,21 @@ const candidate3Payload = {
     linkedInProfile: '',
     file_url: 'tesctcv.txt'
 }
+
+const newCandidatePayload = {
+    candidateName: 'Geoff Bloggs',
+    jobCategory: 'UX',
+    company: 'Ford',
+    jobTitle: 'UX Designer',
+    email: 'test@test.com',
+    contactNumber: '0230420492',
+    contractType: 'permanent',
+    location: 'London',
+    salary: '30000',
+    linkedInProfile: '',
+    file_url: 'tesctcv.txt'
+}
+
 
 const agencyPayload = {
     contactName: 'Joe Bloggs',
@@ -128,6 +144,7 @@ server.init(0, (err, server) => {
 
                                     }  
                                 testEndPoint(server, '/harnesstalent/interview/proposed', 'POST', 200, ' ht proposed interview endpoint responds with', clientCookie, payload);
+                                testEndPoint(server, '/agency/submitcandidate', 'POST', 200, 'Server responds with 200', agencyCookie, newCandidatePayload );
 
                         })
                         .catch();
