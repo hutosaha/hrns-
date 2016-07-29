@@ -5,5 +5,5 @@ require('./candidateplugins.test.js');
 require('./clientplugins.test.js');
 require('./harensstalent.test.js');
 require('./adminplugins.test.js');
-//require('./interview.test.js');
+// require('./interview.test.js');
 require('./redis.test.js');

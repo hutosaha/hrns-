@@ -9,6 +9,7 @@ const qs = require('querystring');
 //const testPayload  = require('./utils/utils.js').testPayload;
 
 const clientCookie = require('./utils/utils.js').clientCookie;
+const adminCookie = require('./utils/utils.js').adminCookie;
 //const nonExistingUserCookie = require('./utils/utils.js').nonExistingUserCookie;
 const candidate1Payload = {
     candidateName: 'Joe Bloggs',
@@ -82,7 +83,7 @@ const cvPayload = {
     linkedInProfile: 'https://linkedin',
     file_name: 'testcv.doc',
     file_url: 'https://torhuw-hrns.s3.amazonaws.com/testcv.doc',
-    cvid: ' :testcvid',
+    cvid: 'testcvid',
     agencyId: 'agencyTestId'
 };
 
@@ -106,6 +107,10 @@ server.init(0, (err, server) => {
                         .then(() => {
                             client.sadd('HarnessTalent', 'candidate2id');
                             client.sadd('HarnessTalent', 'candidate3id');
+                            client.sadd('HarnessTalentAdminShortList', 'candidate1id');
+                            client.sadd('HarnessTalentAdminShortList', 'candidate2id');
+                            client.sadd('HarnessTalentAdminShortList', 'candidate3id');
+                            client.sadd('agencyTestIdHarnessTalentShortlist', 'testcvid');
                         })
                         .then(() => {
                                 var query = 'salaryMin=20000&location=London&jobTitle=All&jobCategory=All&company=All&salaryMax=50000';
@@ -126,12 +131,17 @@ server.init(0, (err, server) => {
                                     jobDescription_url :' https://Fharnesscvbucket.s3.amazonaws.com/F041d8e90-CV.docx',
                                     additionalComments : 'Bring your  A  game '
 
-                                    }  
+                                  };
+
+
                                 testEndPoint(server, '/harnesstalent/interview/proposed', 'POST', 200, ' ht proposed interview endpoint responds with', clientCookie, payload);
+                                testEndPoint(server, '/admin/newharnesstalent', 'GET', 200, ' gets into newharness talent endpoint', adminCookie);
+                                // testEndPoint(server, '/harnesstalent/accpeted/testcvid', 'GET', 200, ' gets into naccepted test endpoint', adminCookie);
+                                // testEndPoint(server, '/harnesstalent/reject?cvid=testcvid', 'GET', 200, ' gets into rejected test endpoint', adminCookie);
 
                         })
                         .catch();
 
-                        }); 
+                        });
                 server.stop();
             });

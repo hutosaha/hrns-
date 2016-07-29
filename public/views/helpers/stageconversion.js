@@ -1,6 +1,8 @@
+
 'use strict';
 
 const Handlebars = require('handlebars');
+
 
 module.exports = (stage) => {
   let result = {
@@ -11,4 +13,4 @@ module.exports = (stage) => {
   };
 
   return new Handlebars.SafeString(result[stage]);
-};
+ };
