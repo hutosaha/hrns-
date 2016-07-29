@@ -6,7 +6,7 @@ const utils = require('../lib/plugins/utils/app.js');
 
 const rating                         = require('../public/views/helpers/rating.js');
 const sector                         = require('../public/views/helpers/sector.js');
-const stage                          = require('../public/views/helpers/stage1.js');
+const stage                          = require('../public/views/helpers/stageconversion.js');
 // const stageOne                       = require('../public/views/helpers/stageOne.js');
 // const stageTwo                       = require('../public/views/helpers/stageTwo.js');
 // const stageThree                     = require('../public/views/helpers/stageThree.js');
