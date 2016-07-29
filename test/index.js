@@ -1,6 +1,6 @@
 require('./utils.test.js');
 require('./otherplugins.test.js');
-require('./agencyplugins.test.js');
+// require('./agencyplugins.test.js');
 require('./candidateplugins.test.js');
 require('./clientplugins.test.js');
 require('./harensstalent.test.js');
