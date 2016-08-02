@@ -5,11 +5,10 @@ var $ = window.$;
 var DOCUMENTVIEWER = {
     init: function() {
         this.cvViewer();
-        //this.clearDownloads(); this is now implemented as part of the scheduled daily cronjob. 
     },
     clearDownloads: function() {
         $.ajax({
-            url: '/client/clear-downloads',
+            url: '/client/clear-downloads', // refactored to be used in cronjob. 
             async: true,
             success: function(response) {
                 console.log(response);
