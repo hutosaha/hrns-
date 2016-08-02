@@ -5,7 +5,7 @@ var $ = window.$;
 var DOCUMENTVIEWER = {
     init: function() {
         this.cvViewer();
-        this.clearDownloads();
+        //this.clearDownloads(); this is now implemented as part of the scheduled daily cronjob. 
     },
     clearDownloads: function() {
         $.ajax({
@@ -32,9 +32,8 @@ var DOCUMENTVIEWER = {
             const cvUrl = $(this).data('url');
             //const msDocumentTypes = ['doc', 'docx'];
 
-            const ext = cvUrl.substr(cvUrl.lastIndexOf('.') + 1);
-
             self.isFileAlreadyDownloaded(cvUrl, (fileName) => {
+                const ext = cvUrl.substr(cvUrl.lastIndexOf('.') + 1);
 
                 if (fileName !== 'notFound') {
 
@@ -170,12 +169,5 @@ var DOCUMENTVIEWER = {
     }
 
 }
-
-
-
-
-
-
-
 
 // Currently need these as well inorder to be active before the cv viewer is clicked.
