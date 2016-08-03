@@ -6,6 +6,6 @@ require('./clientplugins.test.js');
 require('./adminplugins.test.js');
 require('./harensstalent.test.js');
 require('./redis.test.js');
-require('./interview.test.js');
+//require('./interview.test.js');
 require('./redis.test.js');
 
