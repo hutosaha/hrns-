@@ -5,11 +5,10 @@ var $ = window.$;
 var DOCUMENTVIEWER = {
     init: function() {
         this.cvViewer();
-        this.clearDownloads();
     },
     clearDownloads: function() {
         $.ajax({
-            url: '/client/clear-downloads',
+            url: '/client/clear-downloads', // refactored to be used in cronjob. 
             async: true,
             success: function(response) {
                 console.log(response);
@@ -32,9 +31,8 @@ var DOCUMENTVIEWER = {
             const cvUrl = $(this).data('url');
             //const msDocumentTypes = ['doc', 'docx'];
 
-            const ext = cvUrl.substr(cvUrl.lastIndexOf('.') + 1);
-
             self.isFileAlreadyDownloaded(cvUrl, (fileName) => {
+                const ext = cvUrl.substr(cvUrl.lastIndexOf('.') + 1);
 
                 if (fileName !== 'notFound') {
 
@@ -170,12 +168,5 @@ var DOCUMENTVIEWER = {
     }
 
 }
-
-
-
-
-
-
-
 
 // Currently need these as well inorder to be active before the cv viewer is clicked.
