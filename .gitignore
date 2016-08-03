@@ -41,7 +41,7 @@ dump.rdb
 
 // REDIS_URL=redis://h:p19nqokqvnaqveef6rlh1ubb6ne@ec2-54-227-250-102.compute-1.amazonaws.com:12199
 
-server.crt
-server.csr
-server.key
-server.pass.key
+.crt
+.csr
+.key
+.pass.key

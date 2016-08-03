@@ -39,7 +39,7 @@ getSetMembersInfo('HarnessTalent', (array) => {
                         console.log(body);
                     }
                 });
-            case (todaysDate === todaysDate):
+            case (todaysDate === deletionDate):
                 return client.srem('HarnessTalent', cvid, (err, reply) => {
                     if (err) {
                         console.log(err);
