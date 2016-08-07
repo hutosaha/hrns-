@@ -1,6 +1,5 @@
 require('./utils.test.js');
 require('./otherplugins.test.js');
-
 require('./candidateplugins.test.js');
 require('./clientplugins.test.js');
 require('./adminplugins.test.js');
