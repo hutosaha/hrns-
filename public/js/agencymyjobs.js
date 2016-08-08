@@ -11,7 +11,7 @@ var $ = window.$;
 
     $('.remove-button').click(function() {
        
-        let vid = $(this).data('vid');
+        var vid = $(this).data('vid');
      
 
         $('.first.modal.reject-modal')
