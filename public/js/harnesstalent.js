@@ -1,4 +1,3 @@
-'use strict';
 
 var $ = window.$;
 
@@ -48,7 +47,7 @@ var $ = window.$;
             });
         },
         search: function() {
-            let self =this;
+            var self =this;
             $('.search').on('click', function() {
 
                 var queryObj = {
@@ -60,7 +59,7 @@ var $ = window.$;
                     salaryMax: $('select[name=salaryMax]').val(),
                     contractType: $('select[name=contractType]').val()
                 }
-                let query = $.param(queryObj);
+                var query = $.param(queryObj);
                 CANDIDATES.fetch(query);
             });
         },
@@ -74,10 +73,10 @@ var $ = window.$;
             });
         },
         interviewRequest: function(){
-            let self =this;
+            var self =this;
             $('.interviewRequest').on('click', function(){
                 $('.message').text('');
-                let cvid = $(this).data('cvid');
+                var cvid = $(this).data('cvid');
                 $('#' + cvid).toggleClass('hide-element');
                 $('.ui.message.info').removeClass('.ui.info');
                 $('#' + cvid).modal('show');
@@ -91,19 +90,19 @@ var $ = window.$;
 
                 $('.button.send-interview').off().on('click', function(e) {
                     e.preventDefault();
-                    const cvid = $(this).data('cvid');
-                    let form =  document.forms[cvid];
-                    let firstTime = form['firstIntTime'].value;
-                    let firstDate = form['firstIntDate'].value;
-                    let interviewAddress = form['interviewAddress'].value;
-                    //let stage = form['stage'].value;
-                    let fields = [firstDate, firstTime, interviewAddress];
-                    let validated =  self.validate(fields);
+                    var cvid = $(this).data('cvid');
+                    var form =  document.forms[cvid];
+                    var firstTime = form['firstIntTime'].value;
+                    var firstDate = form['firstIntDate'].value;
+                    var interviewAddress = form['interviewAddress'].value;
+                    //var stage = form['stage'].value;
+                    var fields = [firstDate, firstTime, interviewAddress];
+                    var validated =  self.validate(fields);
 
                     if ( validated[0] === '' || validated[0] === null ){
                         return  $('.message').addClass('ui info').text('We need the date, time, stage and location of the interview');
                     } else {
-                        let formData = $('form[name='+cvid+']').each(function(){ $(this).find(':input');});
+                        var formData = $('form[name='+cvid+']').each(function(){ $(this).find(':input');});
                         return  self.sendFormData(formData ,cvid);
                     }
                 });
