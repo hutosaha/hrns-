@@ -12,7 +12,7 @@ var AWS ={
         filesize <= 4 ? callback("accept") : alert("File size exceeds 4MB limit.");
     },
     get_signed_request: function(file, file_url, preview) {
-        let self =this;
+        var self =this;
         var xhr = new XMLHttpRequest();
         xhr.open("GET", "/sign_s3?file_name="+ file.name + "&file_type=" + file.type);
         xhr.onreadystatechange = function() {
@@ -50,7 +50,7 @@ var AWS ={
         xhr.send(file);
     },
     getFile: function() {
-        let self =this;
+        var self =this;
         $('input[type=file]').on('change', function(event){
             var files, file, file_url, preview;
           
@@ -61,7 +61,7 @@ var AWS ={
             preview =$(this).parent().parent().parent().find('img');
 
             if (file) {
-              self.check_file_size(file, (response) => {
+              self.check_file_size(file, function(response){
                 if (response === "accept") {
                   self.get_signed_request(file, file_url, preview);
                 }

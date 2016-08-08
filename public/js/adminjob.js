@@ -79,9 +79,9 @@ $(function() {
 
     $('.button.reject').on('click', function() {
 
-        let cvid = $(this).data('cvid');
-        let vid = $(this).data('vid');
-        let agencyEmail = $(this).data('agency-email');
+        var cvid = $(this).data('cvid');
+        var vid = $(this).data('vid');
+        var agencyEmail = $(this).data('agency-email');
 
         $('.first.modal.reject-modal')
             .modal('show');

@@ -9,12 +9,12 @@ $(document).ready(function() {
 
     $('.reject-button').click(function() { // reject button 
       
-        const candidateName = $(this).data('candidate-name');
-        const cvid = $(this).data('cvid');
-        const vid = $(this).data('vid');
-        const agencyEmail = $(this).data('agency-email');
-        //const agencyId = $(this).data('agency-id');
-        //const jobTitle = $(this).data('job-title');
+        var candidateName = $(this).data('candidate-name');
+        var cvid = $(this).data('cvid');
+        var vid = $(this).data('vid');
+        var agencyEmail = $(this).data('agency-email');
+        //var agencyId = $(this).data('agency-id');
+        //var jobTitle = $(this).data('job-title');
 
         if (candidateName) { $('#modal-heading').html('Sorry to hear you want to reject ' + candidateName); }
 
@@ -39,7 +39,7 @@ $(document).ready(function() {
             $('.second.modal.reject-modal').modal('show', '.first.modal .button');
             $('.second.coupled.modal.accept-modal').modal('hide');
 
-            let reason = $('input[name=rejection-other-reason]').val(); /// add other reason for rejection.
+            var reason = $('input[name=rejection-other-reason]').val(); /// add other reason for rejection.
 
             if (reason === "") {
                 reason = $('input[name="rejection-reason"]:checked').val();

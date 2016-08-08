@@ -16,11 +16,11 @@ var DOCUMENTVIEWER = {
         });
     },
     cvViewer: function() {
-        let self = this;
+        var self = this;
         $('.doc-viewer').on('click', function(e) {
 
             e.preventDefault();
-            const relatedInfoObject = {
+            var relatedInfoObject = {
                 candidateName: $(this).data('candidate-name'),
                 cvid: $(this).data('cvid'),
                 vid: $(this).data('vid'),
@@ -28,11 +28,11 @@ var DOCUMENTVIEWER = {
                 agencyId: $(this).data('agency-id'),
                 jobTitle: $(this).data('job-title')
             };
-            const cvUrl = $(this).data('url');
-            //const msDocumentTypes = ['doc', 'docx'];
+            var cvUrl = $(this).data('url');
+            //var msDocumentTypes = ['doc', 'docx'];
 
-            self.isFileAlreadyDownloaded(cvUrl, (fileName) => {
-                const ext = cvUrl.substr(cvUrl.lastIndexOf('.') + 1);
+            self.isFileAlreadyDownloaded(cvUrl, function(fileName){
+                var ext = cvUrl.substr(cvUrl.lastIndexOf('.') + 1);
 
                 if (fileName !== 'notFound') {
 
@@ -40,7 +40,7 @@ var DOCUMENTVIEWER = {
                     var word = "https://view.officeapps.live.com/op/embed.aspx?src=www.harnesstalent.com/public/assets/downloads/" + fileName;
                     ext === 'pdf' ? self.viewFile(fileName, relatedInfoObject, pdf) : self.viewFile(fileName, relatedInfoObject, word);
                 } else {
-                    self.downloadFile(cvUrl, ext, (fileName) => {
+                    self.downloadFile(cvUrl, ext, function(fileName){
                         console.log('EXT', ext, fileName);
                         var pdf = "/public/assets/ViewerJS/#../downloads/" + fileName;
                         var word = "https://view.officeapps.live.com/op/embed.aspx?src=www.harnesstalent.com/public/assets/downloads/" + fileName;
@@ -85,7 +85,7 @@ var DOCUMENTVIEWER = {
         this.rejectButton(relatedInfoObject);
     },
     acceptButton: function(relatedInfoObject) {
-        let cvid = relatedInfoObject.cvid;
+        var cvid = relatedInfoObject.cvid;
         $('.basic-modal-accept').click(function() {
 
             $('.ui.basic.doc-viewer.modal').modal('hide');
@@ -123,7 +123,7 @@ var DOCUMENTVIEWER = {
         });
     },
     rejectButton: function(relatedInfoObject) {
-        let cvid = relatedInfoObject.cvid;
+        var cvid = relatedInfoObject.cvid;
 
         $('.basic-modal-reject').click(function() {
 

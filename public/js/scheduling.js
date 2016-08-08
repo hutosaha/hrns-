@@ -31,7 +31,7 @@ $(function() {
 
 
     $("input:radio").on('click', function() {
-        let cvid = $(this).data('cvid');
+        var cvid = $(this).data('cvid');
         $('#' + cvid).toggleClass('hide-element');
         $('.ui.message.info').removeClass('.ui.info');
         $('#' + cvid).modal('show');
@@ -43,33 +43,33 @@ $(function() {
 
     $('.button.send-interview').on('click', function(e) {
         e.preventDefault();
-        const cvid = $(this).data('cvid');
-        let form =  document.forms[cvid];
-        let firstTime = form['firstIntTime'].value;
-        let firstDate = form['firstIntDate'].value;
-        let interviewAddress = form['interviewAddress'].value;
-        let stage = form['stage'].value;
-        let fields = [firstDate, firstTime, interviewAddress, stage];
+        var cvid = $(this).data('cvid');
+        var form =  document.forms[cvid];
+        var firstTime = form['firstIntTime'].value;
+        var firstDate = form['firstIntDate'].value;
+        var interviewAddress = form['interviewAddress'].value;
+        var stage = form['stage'].value;
+        var fields = [firstDate, firstTime, interviewAddress, stage];
     
-        let validated =  validate(fields);
+        var validated =  validate(fields);
         
         if ( validated[0] === '' || validated[0] === null ){
             return  $('.message').addClass('ui info').text('We need the date, time, stage and location of the interview'); 
         } else {
-            let formData = $('form[name='+cvid+']').each(function(){ $(this).find(':input');});
+            var formData = $('form[name='+cvid+']').each(function(){ $(this).find(':input');});
             return  sendFormData(formData ,cvid);
         }   
     });
 
-    let validate = (fields) => {
+    function validate(fields) {
         return  fields.filter(checkForEmpty);
     };
 
-    let checkForEmpty =(field) => {
+    function checkForEmpty(field) {
         return field ==''|| field == null;
     };
 
-    let sendFormData = (formData, cvid) => {
+    var sendFormData = function(formData, cvid) {
         var data = formData.serialize();
         $.ajax({
             type: 'POST',
