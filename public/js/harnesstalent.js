@@ -39,7 +39,7 @@ var $ = window.$;
                     var HTtemplate      = Handlebars.templates.candidatesTemplate(filteredCandidates);
                     var CompaniesTemplate  = Handlebars.templates.companies(companies);
 
-                   $('#candidates-container').html(HTtemplate);
+                    $('#candidates-container').html(HTtemplate);
                     $('#companies-container').html(CompaniesTemplate);
                     DOCUMENTVIEWER.init();
                     CANDIDATES.interviewRequest();
