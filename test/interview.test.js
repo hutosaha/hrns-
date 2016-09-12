@@ -118,7 +118,7 @@ server.init(0, (err, server) => {
                 testEndPoint(server, '/interview/proposed', 'POST', 200, 'serves 200', clientCookie, newTimes);
                 testEndPoint(server, '/interview/email/test2interviewId', 'GET', 200, 'authed GET responds with 200', clientCookie);
                 testEndPoint(server, '/interview/email/dummyinterviewId', 'GET', 200, 'authed GET responds with 200', clientCookie);
-                //testEndPoint(server, '/change/interview', 'POST', 200, 'authed GET responds with 200', clientCookie, interviewPayload);
+                testEndPoint(server, '/change/interview', 'POST', 200, 'authed GET responds with 200', clientCookie, interviewPayload);
                 let query = qs.stringify(confirmedTime);                
                 testEndPoint(server, '/interview/confirmed?'+query, 'GET', 200, 'authed GET responds with 200', clientCookie);           
                 

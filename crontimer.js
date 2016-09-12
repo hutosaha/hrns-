@@ -11,25 +11,26 @@ const client = require('./lib/db/client.js');
 
 console.log('I am in the Cron!!!');
 
-getSetMembersInfo('HarnessTalent', (array) => {
+getSetMembersInfo('HarnessTalent', (candidates) => {
 
-    array.forEach(function(arrayItem) {
-        console.log(arrayItem);
-        const cvid = arrayItem.cvid;
-        const agentsEmail = arrayItem.agencyEmail;
-        const dateSubmitted = arrayItem.dateSubmitted;
+    candidates.forEach(function(candidate) {
+        console.log(candidate);
+        const cvid = candidate.cvid;
+        const agentsEmail = candidate.agencyEmail;
+        const dateSubmitted = candidate.dateSubmitted;
         const expirationDate = moment(dateSubmitted).add(35, 'days').calendar();
         const deletionDate = moment(dateSubmitted).add(42, 'days').calendar();
         console.log(deletionDate);
+        
         const todaysDate = moment().calendar();
         switch (true) {
             case (todaysDate === expirationDate):
                 var context = Object.assign({}, emailAgencyHarnessTalentExpiration);
                 context.html = context.html
-                    .replace('-candidateName-', arrayItem.candidateName)
-                    .replace('-agencyName-', arrayItem.agencyName);
+                    .replace('-candidateName-', candidate.candidateName)
+                    .replace('-agencyName-', candidate.agencyName);
                 context.subject = context.subject
-                    .replace('-candidateName-', arrayItem.candidateName);
+                    .replace('-candidateName-', candidate.candidateName);
                 context.to = agentsEmail;
                 //REPLACE WITH AGENTSEMAIL!
                 return mailgun.messages().send(context, (err, body) => {
