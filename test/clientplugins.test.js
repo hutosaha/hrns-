@@ -14,11 +14,10 @@ const jobPayload = {
     jobTitle: 'Tester',
     jobDescription: 'testing everything',
     jobCategory: 'test',
-    teamCulture: 'anal',
+    teamCulture: 'Fun',
     typesOfProjects: 'tests',
     teamSize: 5,
     skillOne: 'test',
-    vid: 'test-vid',
     skillTwo: 'test again',
     skillThree: 'test more',
     personality: 'persistant',
@@ -28,6 +27,23 @@ const jobPayload = {
     clientId: 'TESTCLIENTID',
     vid:'test-vid',
     companyName:' Google'
+};
+
+const jobFormPayload = {
+    jobTitle: 'Tester',
+    jobDescription: 'testing everything',
+    jobCategory: 'test',
+    teamCulture: 'Fun',
+    typesOfProjects: 'tests',
+    teamSize: 5,
+    skillOne: 'test',
+    skillTwo: 'test again',
+    skillThree: 'test more',
+    personality: 'persistant',
+    salary: 10000,
+    package:'health insurance',
+    searchProgress: 'slow',
+    searchDeadline: '12\/12\/2016'
 };
 
 
@@ -80,8 +96,9 @@ server.init(0, (err, server) => {
                 console.log('ERROR with client plugin tests')
             })   
       });
+    //not passing validation joi schema check payload. 
+    //testEndPoint(server, '/submitjob', 'POST', 200, 'endpoint responds with:', clientCookie, jobFormPayload, 'testid'); 
 
-    // testEndPoint(server, '/submitjob', 'POST', 200, 'endpoint responds with:', clientCookie, jobPayload, 'testid'); /FAIL ACTUAL 400
     // testEndPoint(server, '/client/download-file/https://harnesscvbucket.s3.amazonaws.com/a694ed00-1b6a-11e6-82e5-e1271374d0e5-ac09d1b0-15d9-11e6-976b-b5b20bd88088-Faces flat design (small).jpg', 'GET', 200, 'endpoint responds with:', clientCookie);
     
     // fix this
