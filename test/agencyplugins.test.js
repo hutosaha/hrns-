@@ -29,7 +29,7 @@ const cvPayload = {
 };
 
 
-const candidatePayload             = { candidateName: 'Johnny Rotten', jobTitle: 'muppet', company: 'testcompany', jobCategory: 'testing', email: 'test@test.com', contactNumber: '0823748237', salary: '30000', contractType: 'perm', location:'Glasgow',  linkedInProfile: 'https://linkedin', file_name: 'testcv.doc', file_url: 'https://torhuw-hrns.s3.amazonaws.com/testcv.doc'};
+const candidatePayload  = { candidateName: 'Johnny Rotten', jobTitle: 'muppet', company: 'testcompany', jobCategory: 'testing', email: 'test@test.com', contactNumber: '0823748237', salary: '30000', contractType: 'perm', location:'Glasgow',  linkedInProfile: 'https://linkedin', file_name: 'testcv.doc', file_url: 'https://torhuw-hrns.s3.amazonaws.com/testcv.doc'};
 
 const jobPayload = {
     jobTitle: 'Tester',
