@@ -80,8 +80,6 @@ app.clientPayload = {
     clientId: 'iIkUSpzijO'
 };
 
-
-
 app.jobFormPayload = {
     jobTitle: 'Tester',
     jobDescription: 'testing everything',
@@ -132,9 +130,7 @@ app.cvPayload = {
     agencyId: 'agencyTestId'
 };
 
-
-
- app.jobPayload = {
+app.jobPayload = {
     vid: 'test3Vid',
     clientId: 'clientId',
     clientEmail: 'tormodsmith@gmail.com',
@@ -203,8 +199,6 @@ app.testEndPoint = (server, endpoint, method, statusCode, message, COOKIE, paylo
         });
        
  };
-
-
 
 app.testHeaderLocation = (server, endpoint, method, expectedHeaders, message, COOKIE, credentialsid) => {
 

@@ -109,7 +109,9 @@ server.init(0, (err, server) => {
                 testEndPoint(server, '/interview/confirmed?'+query, 'GET', 200, 'authed GET responds with 200 HarnessTalent', clientCookie);
 
             })
-            .catch();
+            .catch(() =>{
+                console.log('Error with interview tests')
+            });
 
 
     });
