@@ -52,7 +52,7 @@ server.init(0, (err, server) => {
                 client.sadd('approvedUsers', 'id');
             })
             .then(() => {
-            /*    testEndPoint(server, '/admindashboard', 'GET', 200, 'auth user responds with response 200', clientCookie);
+                testEndPoint(server, '/admindashboard', 'GET', 200, 'auth user responds with response 200', clientCookie);
                 testEndPoint(server, '/admindashboard', 'GET', 200, 'nonAdmin responds with 200', notAdminCookie);
                 testPayload(server, '/admindashboard', 'GET', 'it doesn\' look like you\'re an admin!', 'correct message displayed to non-Admin', notAdminCookie);
                 testEndPoint(server, '/admindashboard', 'GET', 302, 'unauth user responds redirected to login');
@@ -67,7 +67,7 @@ server.init(0, (err, server) => {
                 testEndPoint(server, '/approveuser/approve/id/me@me.com', 'GET', 302, 'unauthed  redirected to login');
                 testEndPoint(server, '/approveusers', 'GET', 200, 'authed GET responds with 200', adminCookie);
                 testEndPoint(server, '/userinfo/client', 'GET', 200, 'endpoint responds with:', adminCookie);
-                testEndPoint(server, '/userinfo/agencies', 'GET', 200, 'endpoint responds with:', adminCookie);*/
+                testEndPoint(server, '/userinfo/agencies', 'GET', 200, 'endpoint responds with:', adminCookie);
                 testEndPoint(server, '/admin/job/remove/test3Vid', 'GET', 200, 'server responds with new view', adminCookie);
 
             })
