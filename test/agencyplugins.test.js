@@ -10,47 +10,11 @@ const candidateCookie = require('./utils/utils.js').candidateCookie;
 const agencyLoginEndPoint = process.env.AGENCY_LOGIN_ENDPOINT;
 
 const incorrectAgencySignupPayload = { contactName: 2, companyName: 23, contactNumber: 'asdasd' };
-const agencySignupPayload          = { contactName: 'Joe Bloggs', companyName: 'Sailix', contactNumber: '0823748237', email: 'fac@hotmail.com', companySize: '50-200', agencySpecialism: 'Creative' };
-const agencyPayload                = { agencyId:'testAgencyId', contactName: 'Joe Bloggs', companyName: 'Sailix', contactNumber: '0823748237', email: 'fac@hotmail.com', companySize: '50-200', agencySpecialism: 'Creative' };
+const agencySignupPayload  = require('utils/utils.js').agencySignupPayload;
 
-const cvPayload = {
-    candidateName: 'Johnny Rotten',
-    jobTitle: 'muppet',
-    company:'Go Getters',
-    jobCategory:'UX,UI, design',
-    email: 'tormodsmith@gmail.com',
-    contactNumber: '0823748237',
-    salary: '30000',
-    contractType:'contract',
-    location:'Memphis',
-    linkedInProfile: 'https://linkedin',
-    file_name: 'testcv.doc',
-    file_url: 'https://torhuw-hrns.s3.amazonaws.com/testcv.doc'
-};
-
-
-const candidatePayload  = { candidateName: 'Johnny Rotten', jobTitle: 'muppet', company: 'testcompany', jobCategory: 'testing', email: 'test@test.com', contactNumber: '0823748237', salary: '30000', contractType: 'perm', location:'Glasgow',  linkedInProfile: 'https://linkedin', file_name: 'testcv.doc', file_url: 'https://torhuw-hrns.s3.amazonaws.com/testcv.doc'};
-
-const jobPayload = {
-    jobTitle: 'Tester',
-    jobDescription: 'testing everything',
-    jobCategory: 'test',
-    teamCulture: 'anal',
-    typesOfProjects: 'tests',
-    teamSize: 5,
-    skillOne: 'test',
-    vid: 'test-vid',
-    skillTwo: 'test again',
-    skillThree: 'test more',
-    personality: 'persistant',
-    salary: 100000,
-    searchProgress: 'slow',
-    searchDeadline: '12\/12\/2016',
-    clientId: 'TESTCLIENTID',
-    vid:'test-vid',
-    companyName:' Google'
-};
-
+const agencyPayload = require('./utils/utils.js').agencyPayload;
+const cvPayload = require('./utils/utils.js').cvPayload;
+const jobPayload = require('./utils/utils.js').jobPayload;
 
 server.init(0, (err, server) => {
 
@@ -92,7 +56,7 @@ server.init(0, (err, server) => {
 
         testEndPoint(server, '/agency/myjobs', 'GET', 200, 'server responds with 200', agencyCookie); // need agency credentials
         testEndPoint(server, '/agency/myjobs/remove?vid=12131312vid', 'GET', 200, 'server responds with 200', agencyCookie); // need agency credentials
-        testEndPoint(server, '/agency/submitcandidate', 'POST', 200, 'Server responds with 200', agencyCookie,candidatePayload )
+        testEndPoint(server, '/agency/submitcandidate', 'POST', 200, 'Server responds with 200', agencyCookie,cvPayload );
      
     ///testEndPoint(server, '/submitvacancycv/12133123vid', 'POST', 200, 'submitCV against vacancy', agencyCookie, cvPayload);
 

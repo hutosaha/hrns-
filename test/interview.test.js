@@ -11,27 +11,10 @@ const qs = require('querystring');
 const clientCookie = require('./utils/utils.js').clientCookie;
 //const nonExistingUserCookie = require('./utils/utils.js').nonExistingUserCookie;
 
-const clientSignupPayload = { clientId: 'TESTCLIENTID', contactName: 'Huw Davies', email: 'me@me.com', contactNumber: '08372974723', companyName: 'Facebook Ltd.', companyDescription: 'Social media application', companySize: '500+', website: 'http://facebook.com', twitter: '@facebook' };
-const agencySignupPayload = { agencyId: 'TESTAGENCYID', contactName: 'Joe Bloggs', companyName: 'google', contactNumber: '0823748237', email: 'fac@hotmail.com', companySize: '50-200', agencySpecialism: 'Creative' };
+const clientPayload = require('utils/utils.js').clientPayload;
+const agencyPayload = require('utils/utils.js').agencyPayload;
 
-const jobPayload = {
-    jobTitle: 'Tester',
-    jobDescription: 'testing everything',
-    jobCategory: 'test',
-    teamCulture: 'Vibrant',
-    typesOfProjects: 'tests',
-    teamSize: 5,
-    skillOne: 'test',
-    vid: 'test-vid',
-    skillTwo: 'test again',
-    skillThree: 'test more',
-    personality: 'persistant',
-    salary: 100000,
-    searchProgress: 'slow',
-    searchDeadline: '12\/12\/2016',
-    clientId: 'TESTCLIENTID'
-};
-
+const jobPayload = require('utils/utils.js').jobPayload;
 
 const interviewPayload = {
     cvid: 'testcvid',
@@ -109,8 +92,8 @@ server.init(0, (err, server) => {
 
         client.hmsetAsync('test-vid', jobPayload)
             .then(() => {
-                client.hmsetAsync('TESTAGENCYID', agencySignupPayload)
-                client.hmsetAsync('TESTCLIENTID', clientSignupPayload)
+                client.hmsetAsync('testAgencyId', agencySignupPayload)
+                client.hmsetAsync('iIkUSpzijO', clientSignupPayload)
                 client.hmsetAsync('test2interviewId', interviewPayload)
                 client.hmsetAsync('testHTinterviewId' , interviewPayloadHT) ;
             })

@@ -8,59 +8,11 @@ const testPayload  = require('./utils/utils.js').testPayload;
 const clientCookie          = require('./utils/utils.js').clientCookie;
 const nonExistingUserCookie = require('./utils/utils.js').nonExistingUserCookie;
 
-const clientSignupPayload = { contactName: 'Huw Davies', email: 'me@me.com', contactNumber: '08372974723', companyName: 'Facebook Ltd.', companyDescription: 'Social media application', companySize: '500+', website: 'http://facebook.com', twitter: '@facebook' };
+const clientSignupPayload = require('./utils/utils.js').clientSignupPayload;
+const jobFormPayload =  require('./utils/utils.js').jobFormPayload;
+const jobPayload          =require('./utils/utils.js').vidPayload;
 
-const jobPayload = {
-    jobTitle: 'Tester',
-    jobDescription: 'testing everything',
-    jobCategory: 'test',
-    teamCulture: 'Fun',
-    typesOfProjects: 'tests',
-    teamSize: 5,
-    skillOne: 'test',
-    skillTwo: 'test again',
-    skillThree: 'test more',
-    personality: 'persistant',
-    salary: 100000,
-    searchProgress: 'slow',
-    searchDeadline: '12\/12\/2016',
-    clientId: 'TESTCLIENTID',
-    vid:'test-vid',
-    companyName:' Google'
-};
-
-const jobFormPayload = {
-    jobTitle: 'Tester',
-    jobDescription: 'testing everything',
-    jobCategory: 'test',
-    teamCulture: 'Fun',
-    typesOfProjects: 'tests',
-    teamSize: 5,
-    skillOne: 'test',
-    skillTwo: 'test again',
-    skillThree: 'test more',
-    personality: 'persistant',
-    salary: 10000,
-    package:'health insurance',
-    searchProgress: 'slow',
-    searchDeadline: '12\/12\/2016'
-};
-
-
-const cvPayload = {
-    candidateName: 'Johnny Rotten',
-    jobTitle: 'muppet',
-    company:'Go Getters',
-    jobCategory:'UX,UI, design',
-    email: 'tormodsmith@gmail.com',
-    contactNumber: '0823748237',
-    salary: '30000',
-    contractType:'contract',
-    location:'Memphis',
-    linkedInProfile: 'https://linkedin',
-    file_name: 'testcv.doc',
-    file_url: 'https://torhuw-hrns.s3.amazonaws.com/testcv.doc'
-};
+const cvPayload =require('./utils/utils.js')cvPayload;
 
 const jobQuery = '?jobTitle=Tester&jobDescription=testing%20everything&jobCategory=test&teamCulture=anal&typesOfProjects=tests&teamSize=5&skillOne=test&skillTwo=test%20again&skillThree=test%20more&personality=persistant&salary=100000&searchProgress=slow&searchDeadline=12/12/2016&vid=12345&agencyId=123&email=tormodsmith@gmail.com&candidateName=Joe%20Bloggs';
 const query    = 'reason=Not%20enough%20experience&vid=testvid&email=tormodsmith@gmail.com&cvid=test-cvid&list=testclientShortlist';

@@ -15,6 +15,174 @@ app.clientCookie          = 'user=Fe26.2**2b6d0a38ebadc2ad33da3736dd9d0516bd57a1
 app.agencyCookie          = 'user=Fe26.2**2f9bfa92d78c3aea2756bb7244cd0fa697f5fe80041c83ddb83e6ac0d5ceb807*qalsdmnPb1L3CcqkGsBy9w*q7ySwPNBUUj_ZfQ93ZQioe-Wd825_7Io9usc1qqjLcjIXmBReXgtHYsgJlcwzmtgEGJnPQ8UCf5uTB8kX0zScgLUn5vDc_ts6pJp9pirKgDfGMfvDMpfEBLREa1vcqsoqtUIxcrfpqWVaZg6O8sxD7JIVK_2oiW_jNASu1yp38QHP3IqEluRG6XSUZjVHTGRPjfBP3azBb6LKY6bvnr4bDIGyfuV_FYHicUqH0C8z9rOTex5aFf5ci2zGmu6S6B15Ei0Td86antu-8h0g1aUvapLXoTmEW6mFMR4k1Lv8yPcu9mK6T7dz66xFbVn15csX7QtQ37FxcXcg2pVsZN8lv36xSIw9fNUeQegqMyW7ayoUdiQ-NG9ai-q1zd-09vyzEcAnjcotZf58ZQoRQA4xPh1D-ygCG8IdE-6JcNaPHWmL2GUUSr7FeIsy2JcqmJu8m0HTSYV8iP1lMmoBac6_ulaMDaWpF0WHBm3WThLrh-ddfP98KRJKLsPXEcOFsMr1ZsD7VgJmV-L5ptq7dHGXNPbfCls6FkugPJb7hEen_EJkL6fB5KtzuYeqvDHG2OT3pw_ZyseQbDk21u1AeyELViYDkxh5lGTwk4Rth3lGj84ulpMFzP7xA-JSjuzUtylXPcujgPNpTeFlBM-rB1Z7U_8GY5X-twQZ9AExH7u8CbYpb0DDZNq-OKTpTJoj8do5eOcB4jtqWMxvOrOjwrdCOLV1AGmPnuwAcR4LcbgSzZEm4gPyD0GNc3VK4jItktyZAJAYamyqB25uOtDKczaIMgJkce_TuIPHzSLvR3Lh3xG3xQZqi2uqe3bLeQ6g3b-HpdKd0ulMMMWm8dzzbify7TXyWxq7PlKxEV0lyGKu6e5j8-sB3KyVc9QeV95ylHp7wKkBy6EUAxUExLnWgarz5AMnyA5ysIVD0aiiLDr4SB2JuDOTQdNxMQeS8itqfUB**c1f925a797b4a0fa3c64a9b9e513687b58cf40e888ea74694f788eaaeb264393*Fo3IsFp8deYH297vYIIyPprFlbTFuQ-suuj6hBru_xw';
 app.adminCookie           = 'user=Fe26.2**55d530dcf02516745c8f48d776ec265c893e558b28321b7bbecd37edae1486a2*IgCzPs0w_wsHkvYt7zTmJQ*A8BQ21XGPkO3MW2ICp5ASeVBNdxdr9Xagw3Ar4zsqor1EfmOzQz2lQAQ_m5DigY1g3sAvGn8ZseYaUpfc-MYTckfZz5s9EJGds32CZbL7ixQA00mKT5QYCe4yEjXN2tlvpipobJz25tPsv-5sb4mTGKygyN4kgpJr-In2y-vbmivN-t-dJD3uElx_U5myKf-HF1sCpUc55KdlV7p-gzbEr8vZ_k1pYaGAOrFYRncfZCEmHxQwP8yvDeb1FJaIsebhpzGIXZhEqTnxDHcObifWayDRXWHW10vARs5PXO-UvnbtgN5TeM5PR2tdFX9X_cPOdkIIKQvrvgYcEgG4Yw4Qsnndty4eUJIAsrbQIpze7cjujszlVJOgMdTnzYSpsfCq1e1ckBdonj1qbfdQqhO8POet_Xc44ayEhl5f96tXNUTJ_dlvKNzKVhmbxg11tXAYpxuFEt0nQOXsDzXFK8kiiE6VF71WA_NTSnUWnLgKF6o_e1HCaPvMQ4sCAJO4T4hCydzzNOQ9UNJSWX8GK1W59xp0dxuZTx9WLdLJoI2sKf6N3bt_7S3OCcN5SqosjxuD6mmHQ72hLJudkTf4sY-ZfQry5-c_22mpKugiI05bDqt13hAcIAZVlKzeF2xUKOj1D1r1FB0r9vpyHTa8a3GR29mhfi8PY18xdttogKCeKg8IuMpPCHHi5tfChkABXlPk4RPLOHuIFsUeCb8-O8l3R3TBrPfAkCXcltLXF9_KSBkn3FNlYKvB3FfaAVVUdbq4EJzpPpCpLqozTc6Hw4PxiAMMytN4xwj69lMN_aIdHoRX4_IeJJ1K07_-dJ0AvavTM6XrWWeDSjxy9aMhkenwTRZ16gizJ_d3l6BmVzSzBXzPtyGdLjkp3NF42afHCXx0c0SqiyHU31aotIxNiFERN9K6iklSvIFG4hgBhJCRjE**378ddd94455fb2f3290b8fecbf38770dd24fe23719252658ff1b4a8f9f071123*uT_aDsgw2Dm8ke4rPk8_TK-ZR8--O2jRZ_w9D9p_AGY';
 
+app.clientSignupPayload = { 
+        contactName: 'Huw Davies', 
+        email: 'me@me.com',
+        contactNumber: '08372974723',
+        companySector: 'Finance',
+        companyName: 'Facebook Ltd.',
+        companyDescription: 'Social media application',
+        companySize: '500+',
+        website: 'http://facebook.com',
+        twitter: '@facebook',
+        facebook: 'www.facebook.com',
+        linkedin: 'wwww.linkedin.com',
+        logo_url: 'http:www.big_cheese.com'
+    };
+
+app.agencySignupPayload = { 
+        contactName: 'Joe Bloggs',
+        companyName: 'Sailix',
+        contactNumber:'0823748237',
+        email: 'fac@hotmail.com',
+        companySize: '50-200', 
+        agencySpecialism: 'Creative' 
+    };
+
+app.vidPayload = {
+    jobTitle: 'Tester',
+    jobDescription: 'testing everything',
+    jobCategory: 'test',
+    teamCulture: 'Fun',
+    typesOfProjects: 'tests',
+    teamSize: 5,
+    skillOne: 'test',
+    skillTwo: 'test again',
+    skillThree: 'test more',
+    personality: 'persistant',
+    salary: 100000,
+    searchProgress: 'slow',
+    searchDeadline: '12\/12\/2016',
+    clientId: 'TESTCLIENTID',
+    vid:'test-vid',
+    companyName:' Google'
+};
+
+ap.agencyPayload = { 
+        agencyId:'testAgencyId', 
+        contactName: 'Joe Bloggs',
+        companyName: 'Sailix',
+        contactNumber: '0823748237',
+        email: 'fac@hotmail.com',
+        companySize: '50-200',
+        agencySpecialism: 'Creative'
+    };
+
+app.clientPayload = {
+    contactName: 'Huw Davies',
+    email: 'me@me.com',
+    contactNumber: '08372974723',
+    companyName: 'Facebook Ltd.',
+    companyDescription: 'Social media application',
+    companySize: '500+',
+    website: 'http://facebook.com',
+    twitter: '@facebook',
+    clientId: 'iIkUSpzijO'
+};
+
+
+
+app.jobFormPayload = {
+    jobTitle: 'Tester',
+    jobDescription: 'testing everything',
+    jobCategory: 'test',
+    teamCulture: 'Fun',
+    typesOfProjects: 'tests',
+    teamSize: 5,
+    skillOne: 'test',
+    skillTwo: 'test again',
+    skillThree: 'test more',
+    personality: 'persistant',
+    salary: 10000,
+    package:'health insurance',
+    searchProgress: 'slow',
+    searchDeadline: '12\/12\/2016'
+};
+
+app.candidatePayload = {
+    candidateName: 'Johnny Rotten',
+    jobTitle: 'muppet',
+    company:'Test LTD',
+    jobCategory:'UX',
+    email: 'tormodsmith@gmail.com',
+    contactNumber: '0823748237',
+    salary:'£30000',
+    contractType :'permanent' ,
+    location:'Glasgow',
+    linkedInProfile: 'https://linkedin',
+    file_name: 'testcv.doc',
+    file_url: 'https://torhuw-hrns.s3.amazonaws.com/testcv.doc'
+};
+
+app.cvPayload = {
+    cvid: 'testCvid',
+    candidateName: 'Johnny Rotten',
+    jobTitle: 'muppet',
+    company:'Go Getters',
+    jobCategory:'UX,UI, design',
+    email: 'tormodsmith@gmail.com',
+    contactNumber: '0823748237',
+    salary: '30000',
+    contractType:'contract',
+    location:'Memphis',
+    linkedInProfile: 'https://linkedin',
+    file_name: 'testcv.doc',
+    file_url: 'https://torhuw-hrns.s3.amazonaws.com/testcv.doc',
+    agencyName: 'Sailix',
+    agencyId: 'agencyTestId'
+};
+
+
+
+ app.jobPayload = {
+    vid: 'test3Vid',
+    clientId: 'clientId',
+    clientEmail: 'tormodsmith@gmail.com',
+    jobTitle: 'Tester',
+    jobDescription: 'testing everything',
+    jobCategory: 'test',
+    teamCulture: 'Startup',
+    typesOfProjects: 'tests',
+    teamSize: 5,
+    skillOne: 'test',
+    skillTwo: 'test again',
+    skillThree: 'test more',
+    personality: 'persistant',
+    salary: 100000,
+    searchProgress: 'slow',
+    searchDeadline: '12\/12\/2016',
+    companyName: 'Google',
+    clientContactName: 'Tormod Smith',
+    logo_url: '/public/assets/images/default-logo.png'
+};
+
+app.ratingPayload = {
+     agencyEmail: 'test@test.com',
+     rating: 'gold', 
+     cvid: '112312143cvid', 
+     vid: '121312414vid' 
+ };
+
+app.interviewPayload = {
+    candidateName: 'Tormod Smith',
+    cvid : 'testcvid',
+    vid : 'testvid',
+    agencyId : 'agencyTestId',
+    firstIntDate: 'Friday 22 July 2016',
+    firstIntTime: '2:22',
+    secondIntDate: '23/05/2016',
+    secondIntTime: '09:09',
+    thirdIntDate: '23/05/2016',
+    thirdIntTime: '10:10',
+    jobTitle : 'Tester',
+    jobLocation : 'Leeds',
+    salary : '1000' ,
+    contractType : 'Both',
+    interviewAddress :'Glasgow' ,
+    jobDescription_url :' https://Fharnesscvbucket.s3.amazonaws.com/F041d8e90-CV.docx',
+    additionalComments : 'Bring your A game'
+};
+
 app.testEndPoint = (server, endpoint, method, statusCode, message, COOKIE, payload, credentialsid) => {
 
         test(method + ' ' + endpoint + ' ' + 'returns status code ' + statusCode, (t) => {

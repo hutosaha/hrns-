@@ -11,31 +11,10 @@ const adminCookie = require('./utils/utils.js').adminCookie;
 const clientCookie = require('./utils/utils.js').clientCookie;
 const notAdminCookie = require('./utils/utils.js').notAdminCookie;
 
-const ratingPayload = { agencyEmail: 'test@test.com', rating: 'gold', cvid: '112312143cvid', vid: '121312414vid' };
-const jobPayload = {
-    vid: 'test3Vid',
-    clientId: 'clientId',
-    clientEmail: 'tormodsmith@gmail.com',
-    jobTitle: 'Tester',
-    jobDescription: 'testing everything',
-    jobCategory: 'test',
-    teamCulture: 'Startup',
-    typesOfProjects: 'tests',
-    teamSize: 5,
-    skillOne: 'test',
-    skillTwo: 'test again',
-    skillThree: 'test more',
-    personality: 'persistant',
-    salary: 100000,
-    searchProgress: 'slow',
-    searchDeadline: '12\/12\/2016',
-    companyName: 'Google',
-    clientContactName: 'Tormod Smith',
-    logo_url: '/public/assets/images/default-logo.png'
-};
+const cvPayload =  require('./utils/utils.js').cvPayload;
+const ratingPayload =  require('./utils/utils.js').ratingPayload;
 
-
-const cvPayload = { cvid: 'testCvid', candidateName: 'Johnny Rotten', jobTitle: 'muppet', email: 'test@test.com', contactNumber: '0823748237', salary: '30000', linkedInProfile: 'https://linkedin', file_name: 'testcv.doc', file_url: 'https://torhuw-hrns.s3.amazonaws.com/testcv.doc', agencyName: 'Sailix' };
+const jobPayload =require('./utils/utils.js').jobPayload;
 
 const vid = 'test3Vid';
 const cvid = 'testCvid'
