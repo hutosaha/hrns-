@@ -8,7 +8,7 @@ $(function() {
         $('.ui.small.modal.save-modal').modal('show');
         $('.ui.positive.right.labeled.icon.button').click(function(){
             console.log('cvid', cvid);
-            var url = '/harnesstalent/accpeted/'+cvid;
+            var url = '/harnesstalent/accepted/'+cvid;
             $.ajax({
                 url: url,
                 async: true,

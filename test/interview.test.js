@@ -18,7 +18,7 @@ const jobPayload = {
     jobTitle: 'Tester',
     jobDescription: 'testing everything',
     jobCategory: 'test',
-    teamCulture: 'anal',
+    teamCulture: 'Vibrant',
     typesOfProjects: 'tests',
     teamSize: 5,
     skillOne: 'test',
@@ -40,7 +40,7 @@ const interviewPayload = {
     agencyEmail:'tormodsmith@gmail.com',
     clientEmail:'tormodsmith@gmail.com',
     candidateName: 'John Wayne',
-    jobTitle: 'porn star',
+    jobTitle: 'Movie Star',
     vid: 'test-vid',
     firstIntDate: '23/05/2016',
     firstIntTime: '12:12',
@@ -59,7 +59,7 @@ const interviewPayloadHT = {
     agencyEmail:'tormodsmith@gmail.com',
     clientEmail: 'tormodsmith@gmail.com',
     candidateName: 'John Wayne',
-    jobTitle: 'porn star',
+    jobTitle: 'Movie star',
     vid: 'test-vid',
     firstIntDate: '23/05/2016',
     firstIntTime: '12:12',
@@ -118,7 +118,7 @@ server.init(0, (err, server) => {
                 testEndPoint(server, '/interview/proposed', 'POST', 200, 'serves 200', clientCookie, newTimes);
                 testEndPoint(server, '/interview/email/test2interviewId', 'GET', 200, 'authed GET responds with 200', clientCookie);
                 testEndPoint(server, '/interview/email/dummyinterviewId', 'GET', 200, 'authed GET responds with 200', clientCookie);
-                //testEndPoint(server, '/change/interview', 'POST', 200, 'authed GET responds with 200', clientCookie, interviewPayload);
+                testEndPoint(server, '/change/interview', 'POST', 200, 'authed GET responds with 200', clientCookie, interviewPayload);
                 let query = qs.stringify(confirmedTime);                
                 testEndPoint(server, '/interview/confirmed?'+query, 'GET', 200, 'authed GET responds with 200', clientCookie);           
                 
