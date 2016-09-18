@@ -58,7 +58,7 @@ app.vidPayload = {
     companyName:' Google'
 };
 
-ap.agencyPayload = { 
+app.agencyPayload = { 
         agencyId:'testAgencyId', 
         contactName: 'Joe Bloggs',
         companyName: 'Sailix',

@@ -27,24 +27,6 @@ test('formatEmailToAdminForGenericCV correctly renders HTML', (t) => {
     t.end();
 });
 
-test('emailAdminForGenericCV callbacks as expected', (t) => {
-
-  emailAdminForGenericCV(undefined, '', (res) => {
-    let expected = false;
-    let actual = res;
-    t.equal(actual, expected, 'handles failure');
-    t.end();
-  });
-
-  //  fix this, see #93 (HUW)
-
-  // emailAdminForGenericCV({ file_url: 'http://google.com', candidateName: 'foo' }, 'candidate', (res) => {
-  //   let expected = true;
-  //   let actual = res;
-  //   t.equal(actual, expected, 'emailAdmin with Generic CV works!');
-  // });
-});
-
 test('clean payload deletes undefined strings or values in an object', (t) => {
     let payload = { name: 'Joe Bloggs', age: 10, food: 'undefined', sport: 'undefined' };
     let expected = { name: 'Joe Bloggs', age: 10 };
