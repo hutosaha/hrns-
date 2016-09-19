@@ -80,10 +80,10 @@ app.clientPayload = {
     clientId: 'iIkUSpzijO'
 };
 
-app.jobFormPayload = {
+app.submitJobPayload = {
     jobTitle: 'Tester',
     jobDescription: 'testing everything',
-    jobCategory: 'test',
+    jobCategory: 'UX',
     teamCulture: 'Fun',
     typesOfProjects: 'tests',
     teamSize: 5,
@@ -91,10 +91,10 @@ app.jobFormPayload = {
     skillTwo: 'test again',
     skillThree: 'test more',
     personality: 'persistant',
-    salary: 10000,
+    salary: '43000',
     package:'health insurance',
     searchProgress: 'slow',
-    searchDeadline: '12\/12\/2016'
+    searchDeadline: 'Wednesday, 7 September, 2016'
 };
 
 app.candidatePayload = {
