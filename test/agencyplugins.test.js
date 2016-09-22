@@ -46,8 +46,6 @@ server.init(0, (err, server) => {
                 console.log('ERROR with agency plugin tests')
             })    
     ///testEndPoint(server, '/submitvacancycv/12133123vid', 'POST', 200, 'submitCV against vacancy', agencyCookie, cvPayload);
-
-});
-
+    });
     server.stop();
 });

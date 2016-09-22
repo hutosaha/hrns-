@@ -34,7 +34,7 @@ app.agencySignupPayload = {
         contactName: 'Joe Bloggs',
         companyName: 'Sailix',
         contactNumber:'0823748237',
-        email: 'fac@hotmail.com',
+        email: 'tormodsmith@gmail.com',
         companySize: '50-200', 
         agencySpecialism: 'Creative' 
     };
@@ -59,25 +59,25 @@ app.vidPayload = {
 };
 
 app.agencyPayload = { 
-        agencyId:'testAgencyId', 
+        id:'testAgencyId', 
         contactName: 'Joe Bloggs',
         companyName: 'Sailix',
         contactNumber: '0823748237',
-        email: 'fac@hotmail.com',
+        email: 'tormodsmith@gmail.com',
         companySize: '50-200',
         agencySpecialism: 'Creative'
     };
 
 app.clientPayload = {
     contactName: 'Huw Davies',
-    email: 'me@me.com',
+    email: 'tormodsmith@gmail.com',
     contactNumber: '08372974723',
     companyName: 'Facebook Ltd.',
     companyDescription: 'Social media application',
     companySize: '500+',
     website: 'http://facebook.com',
     twitter: '@facebook',
-    clientId: 'iIkUSpzijO'
+    id: 'clientId' //iIkUSpzijO'
 };
 
 app.submitJobPayload = {
@@ -160,23 +160,26 @@ app.ratingPayload = {
  };
 
 app.interviewPayload = {
-    candidateName: 'Tormod Smith',
-    cvid : 'testcvid',
-    vid : 'testvid',
-    agencyId : 'agencyTestId',
-    firstIntDate: 'Friday 22 July 2016',
-    firstIntTime: '2:22',
+    firstIntDate: '23/05/2016',
+    firstIntTime: '12:12',
     secondIntDate: '23/05/2016',
     secondIntTime: '09:09',
     thirdIntDate: '23/05/2016',
     thirdIntTime: '10:10',
-    jobTitle : 'Tester',
-    jobLocation : 'Leeds',
-    salary : '1000' ,
-    contractType : 'Both',
-    interviewAddress :'Glasgow' ,
-    jobDescription_url :' https://Fharnesscvbucket.s3.amazonaws.com/F041d8e90-CV.docx',
-    additionalComments : 'Bring your A game'
+    additionalComments: 'Meet under the clock',
+    interviewAddress: '12 Abbey Road',
+    agencyEmail:'tormodsmith@gmail.com',
+    agencyId: 'testAgencyId',//'7PP6QGWdXN',
+    stage: 'stageOne',
+    candidateName: 'John Wayne',
+    jobTitle: 'Movie Star',
+    companyName: 'Google',    
+    cvid: 'test-cvid',
+    vid: 'test-vid',
+    jobDescription_url: 'http://www.jobDescription_url.com',
+    salary: '30000',
+    jobLocation: 'Glasgow',
+    contractType: 'Permanent'
 };
 
 app.testEndPoint = (server, endpoint, method, statusCode, message, COOKIE, payload, credentialsid) => {

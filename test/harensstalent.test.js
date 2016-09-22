@@ -12,10 +12,10 @@ const agencyCookie    = require('./utils/utils.js').agencyCookie;
 const clientCookie = require('./utils/utils.js').clientCookie;
 const adminCookie = require('./utils/utils.js').adminCookie;
 //const nonExistingUserCookie = require('./utils/utils.js').nonExistingUserCookie;
-const agencyPayload = require('utils/utils.js').agencyPayload;
-const clientPayload = require('utils/utils.js').clientPayload;
-const cvPayload = require('utils/utils.js').cvPayload;
-const interviewPayload = require('utils/utils.js').interviewPayload;
+const agencyPayload = require('./utils/utils.js').agencyPayload;
+const clientPayload = require('./utils/utils.js').clientPayload;
+const cvPayload = require('./utils/utils.js').cvPayload;
+const interviewPayload = require('./utils/utils.js').interviewPayload;
 
 const candidate1Payload = {
     candidateName: 'Joe Bloggs',
