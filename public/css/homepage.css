@@ -103,9 +103,20 @@ video {
 }
 
 
-#aboutUs h3, #products h3 , #whyHarness h3{
+#aboutUs h3, #howItWorks h3, #products h3 , #whyHarness h3{
   color: grey;
   font-weight: lighter;
+}
+
+#howItWorks {
+  background-color: black;
+}
+.ui.small.circular.image.hiw{
+  margin: 0 auto;
+}
+
+.hiw.header{
+  color:white;
 }
 
 .aboutUs h4 , .aboutUs p {
