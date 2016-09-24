@@ -78,21 +78,22 @@ server.init(0, (err, server) => {
               client.hmsetAsync('clientId', clientPayload)
               client.hmsetAsync('test2interviewId', interviewPayload)
               client.hmsetAsync('testHTinterviewId' , interviewPayloadHT)
-              interviewPayload.interviewId = 'testInterviewId';
-              client.hmsetAsync('testInterviewId', interviewPayload);
+              client.hmsetAsync('testInterviewId', interviewPayload)
             })
             .then(() => {
-                testEndPoint(server, '/interview/proposed', 'POST', 200, 'serves 200', clientCookie, interviewPayload);
+                //testEndPoint(server, '/interview/proposed', 'POST', 200, 'serves 200', clientCookie, interviewPayload);
                 testEndPoint(server, '/interview/email/test2interviewId', 'GET', 200, 'authed GET responds with 200', clientCookie);
                 testEndPoint(server, '/interview/email/dummyinterviewId', 'GET', 200, 'authed GET responds with 200', clientCookie);
-                
+            })
+            .then(()=>{
+                client.hmsetAsync('testInterviewId', 'interviewId', 'testInterviewId');
+            })
+            .then(()=>{
                 testEndPoint(server, '/change/interview', 'POST', 200, 'authed GET responds with 200', clientCookie, newTimes);
                 let query = qs.stringify(confirmedTime);                
-                testEndPoint(server, '/interview/confirmed?'+query, 'GET', 200, 'authed GET responds with 200', clientCookie);           
-                
+                testEndPoint(server, '/interview/confirmed?'+query, 'GET', 200, 'authed GET responds with 200', clientCookie);                           
                 query = qs.stringify(confirmedTimeHT);
                 testEndPoint(server, '/interview/confirmed?'+query, 'GET', 200, 'authed GET responds with 200 HarnessTalent', clientCookie);
-
             })
             .catch(() =>{
                 console.log('Error with interview tests')

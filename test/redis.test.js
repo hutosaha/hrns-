@@ -396,10 +396,9 @@ client.select(3, () => {
                 let result = 1;
                 t.equal(result, 1, 'we have a passed')
                 t.end()
-                client.quit();
-               /* setTimeout(() => {
+                setTimeout(() => {
                     //client.flushdb();
                     client.quit();
-                }, 3000);*/
+                }, 5000);
             })
         });
