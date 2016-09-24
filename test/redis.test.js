@@ -306,30 +306,6 @@ client.select(3, () => {
                         });
                     })
             });
-
-            /*test('cleanupset removes hashes in set that no longer exist in the db', (t) => {
-                let set = 'testset';
-                let hash = { keyName: 'value' }
-                let hashKey = 'testhash';
-                let dummyHash = 'dummyHash';
-
-                client.hmsetAsync(hashKey, hash)
-                    .then(() => {
-                        client.saddAsync(set, hash, dummyHash)
-                    })
-                    .then(() => {
-                        redis.cleanUpSet(set, (err, reply) => {
-                            client.exists(dummyHash, (err, reply) => {
-                                t.equal(reply, 0, 'check hash doesn\'t exists in db')
-                            })
-                            client.sismember(set, dummyHash, (err, reply) => {
-                                t.equal(reply, 1, 'check that dummy hash isn\'t in set')
-                                t.end();
-                            })
-                        });
-                    })
-            })
-            */
             test('setHashKeyValue set the key value within in a hash and callsback true or false', (t) => {
                 let hash = 'testset';
                 let expected = { keyName: 'value' }
@@ -374,24 +350,6 @@ client.select(3, () => {
                     });
                 });
             });
-/*
-            test('addCvToHarnessTalent add to agencyId harness talentList HarnessTalenAdmin, creates cvid hash', (t) => {
-                let agencyId = 'agencyId';
-                let cvid = 'testcvid';
-                jobPayload.agencyId = agencyId;
-
-                redis.addCvToHarnessTalent(cvid, jobPayload, (res) => {
-                    client.sismember(agencyId + 'HarnessTalentShortList', cvid, (err, reply) => {
-                        t.equal(reply, 1, 'cvid has been added to agencyId harness talent set');
-                    })
-                    client.sismember(agencyId + 'HarnessTalentShortList', cvid, (err, reply) => {
-                        t.equal(reply, 1, 'cvid has been added to harness talent adminshortlist ');
-                        t.end();
-                    })
-                })
-
-            })*/
-
             test('trying to stop tests', (t) => {
                 let result = 1;
                 t.equal(result, 1, 'we have a passed')

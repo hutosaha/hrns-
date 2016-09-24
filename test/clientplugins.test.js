@@ -57,15 +57,6 @@ server.init(0, (err, server) => {
                 console.log('ERROR with client plugin tests')
             })   
       });
-    //not passing validation joi schema check payload. 
-
-    // testEndPoint(server, '/client/download-file/https://harnesscvbucket.s3.amazonaws.com/a694ed00-1b6a-11e6-82e5-e1271374d0e5-ac09d1b0-15d9-11e6-976b-b5b20bd88088-Faces flat design (small).jpg', 'GET', 200, 'endpoint responds with:', clientCookie);
-    
-    // fix this
-       // client.hset('vid1-2-3', 'jobTitle', 'tester', () => {
-       //     testPayload(server, '/client/job/vid1-2-3', 'GET', 'Client\'s Job Page', 'payload contains view with:', clientCookie);
-    // });
-        //testEndPoint(server, '/client/clear-downloads', 'GET', 200, 'endpoint responds with:', clientCookie);  hangs tests and del dwonloads
 
     server.stop();
 });
