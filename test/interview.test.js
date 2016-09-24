@@ -23,8 +23,8 @@ const interviewPayload = require('./utils/utils.js').interviewPayload;
 const interviewPayloadHT = {
     cvid: 'testcvid',
     agencyId: '7PP6QGWdXN',
-    agencyEmail:'tormodsmith@gmail.com',
-    clientEmail: 'tormodsmith@gmail.com',
+    agencyEmail:process.env.TEST_EMAIL,
+    clientEmail: process.env.TEST_EMAIL,
     candidateName: 'John Wayne',
     jobTitle: 'Movie star',
     vid: 'test-vid',

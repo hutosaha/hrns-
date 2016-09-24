@@ -34,7 +34,7 @@ app.agencySignupPayload = {
         contactName: 'Joe Bloggs',
         companyName: 'Sailix',
         contactNumber:'0823748237',
-        email: 'tormodsmith@gmail.com',
+        email: process.env.TEST_EMAIL,
         companySize: '50-200', 
         agencySpecialism: 'Creative' 
     };
@@ -63,14 +63,14 @@ app.agencyPayload = {
         contactName: 'Joe Bloggs',
         companyName: 'Sailix',
         contactNumber: '0823748237',
-        email: 'tormodsmith@gmail.com',
+        email: process.env.TEST_EMAIL,
         companySize: '50-200',
         agencySpecialism: 'Creative'
     };
 
 app.clientPayload = {
     contactName: 'Huw Davies',
-    email: 'tormodsmith@gmail.com',
+    email: process.env.TEST_EMAIL,
     contactNumber: '08372974723',
     companyName: 'Facebook Ltd.',
     companyDescription: 'Social media application',
@@ -82,7 +82,7 @@ app.clientPayload = {
 
 app.interviewClientPayload = {
     contactName: 'Bob Sapp',
-    email: 'tormodsmith@gmail.com',
+    email: process.env.TEST_EMAIL,
     contactNumber: '08372974723',
     companyName: 'Facebook Ltd.',
     companyDescription: 'Social media application',
@@ -114,7 +114,7 @@ app.candidatePayload = {
     jobTitle: 'muppet',
     company:'Test LTD',
     jobCategory:'UX',
-    email: 'tormodsmith@gmail.com',
+    email: process.env.TEST_EMAIL,
     contactNumber: '0823748237',
     salary:'£30000',
     contractType :'permanent' ,
@@ -130,7 +130,7 @@ app.cvPayload = {
     jobTitle: 'muppet',
     company:'Go Getters',
     jobCategory:'UX,UI, design',
-    email: 'tormodsmith@gmail.com',
+    email: process.env.TEST_EMAIL,
     contactNumber: '0823748237',
     salary: '30000',
     contractType:'contract',
@@ -145,7 +145,7 @@ app.cvPayload = {
 app.jobPayload = {
     vid: 'test3Vid',
     clientId: 'clientId',
-    clientEmail: 'tormodsmith@gmail.com',
+    clientEmail: process.env.TEST_EMAIL,
     jobTitle: 'Tester',
     jobDescription: 'testing everything',
     jobCategory: 'test',
@@ -180,7 +180,7 @@ app.interviewPayload = {
     thirdIntTime: '10:10',
     additionalComments: 'Meet under the clock',
     interviewAddress: '12 Abbey Road',
-    agencyEmail:'tormodsmith@gmail.com',
+    agencyEmail:process.env.TEST_EMAIL,
     agencyId: 'testAgencyId',//'7PP6QGWdXN',
     stage: 'stageOne',
     candidateName: 'John Wayne',

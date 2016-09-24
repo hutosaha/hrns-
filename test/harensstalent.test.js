@@ -63,7 +63,7 @@ const newCandidatePayload = {
     jobCategory: 'UX',
     company: 'Ford',
     jobTitle: 'UX Designer',
-    email: 'tormodsmith@gmail.com',
+    email: process.env.TEST_EMAIL,
     contactNumber: '0230420492',
     contractType: 'permanent',
     location: 'London',

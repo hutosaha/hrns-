@@ -32,7 +32,7 @@ server.init(0, (err, server) => {
                 client.hmsetAsync('test-vid', vidPayload)
                 client.hmsetAsync('test-vid', vidPayload)
                 client.hmsetAsync('iIkUSpzijO', clientPayload)
-                client.saddAsync('agencyEmails', 'tormodsmith@gmail.com')
+                client.saddAsync('agencyEmails', process.env.TEST_EMAIL)
             })
             .then(() => {
                 testEndPoint(server, '/client/job/accept'+jobQuery, 'GET', 200, 'endpoint responds with:', clientCookie, jobPayload); //split responds with null
