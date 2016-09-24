@@ -53,8 +53,8 @@ app.vidPayload = {
     salary: 100000,
     searchProgress: 'slow',
     searchDeadline: '12\/12\/2016',
-    clientId: 'TESTCLIENTID',
-    vid:'test-vid',
+    clientId: 'clientIdInt',
+    vid:'test-vid-int',
     companyName:' Google'
 };
 
@@ -78,6 +78,18 @@ app.clientPayload = {
     website: 'http://facebook.com',
     twitter: '@facebook',
     id: 'clientId' //iIkUSpzijO'
+};
+
+app.interviewClientPayload = {
+    contactName: 'Bob Sapp',
+    email: 'tormodsmith@gmail.com',
+    contactNumber: '08372974723',
+    companyName: 'Facebook Ltd.',
+    companyDescription: 'Social media application',
+    companySize: '500+',
+    website: 'http://facebook.com',
+    twitter: '@facebook',
+    id: 'clientIdInt' //iIkUSpzijO'
 };
 
 app.submitJobPayload = {
@@ -175,7 +187,7 @@ app.interviewPayload = {
     jobTitle: 'Movie Star',
     companyName: 'Google',    
     cvid: 'test-cvid',
-    vid: 'test-vid',
+    vid: 'test-vid-Interview',
     jobDescription_url: 'http://www.jobDescription_url.com',
     salary: '30000',
     jobLocation: 'Glasgow',

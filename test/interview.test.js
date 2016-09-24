@@ -12,9 +12,11 @@ const clientCookie = require('./utils/utils.js').clientCookie;
 //const nonExistingUserCookie = require('./utils/utils.js').nonExistingUserCookie;
 
 const clientPayload = require('./utils/utils.js').clientPayload;
+const interviewClientPayload = require('./utils/utils.js').interviewClientPayload;
 const agencyPayload = require('./utils/utils.js').agencyPayload;
 
 const jobPayload = require('./utils/utils.js').jobPayload;
+const vidPayload = require('./utils/utils.js').vidPayload;
 
 const interviewPayload = require('./utils/utils.js').interviewPayload;
 
@@ -71,17 +73,16 @@ const confirmedTimeHT ={
 
 server.init(0, (err, server) => {
     client.select(3, () => {
-        console.log()
         client.hmsetAsync('test-vid', jobPayload)
             .then(() => {
               client.hmsetAsync('testAgencyId', agencyPayload)
-              client.hmsetAsync('clientId', clientPayload)
-              client.hmsetAsync('test2interviewId', interviewPayload)
+              client.hmsetAsync('clientIdInt', interviewClientPayload)
+              client.hmsetAsync('test-vid-Interview', vidPayload)
               client.hmsetAsync('testHTinterviewId' , interviewPayloadHT)
               client.hmsetAsync('testInterviewId', interviewPayload)
             })
             .then(() => {
-                //testEndPoint(server, '/interview/proposed', 'POST', 200, 'serves 200', clientCookie, interviewPayload);
+                testEndPoint(server, '/interview/proposed', 'POST', 200, 'serves 200', clientCookie, interviewPayload);
                 testEndPoint(server, '/interview/email/test2interviewId', 'GET', 200, 'authed GET responds with 200', clientCookie);
                 testEndPoint(server, '/interview/email/dummyinterviewId', 'GET', 200, 'authed GET responds with 200', clientCookie);
             })
