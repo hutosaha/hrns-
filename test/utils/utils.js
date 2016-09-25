@@ -191,7 +191,7 @@ app.interviewPayload = {
     jobDescription_url: 'http://www.jobDescription_url.com',
     salary: '30000',
     jobLocation: 'Glasgow',
-    contractType: 'Permanent'
+    contractType: 'Permanent'    
 };
 
 app.testEndPoint = (server, endpoint, method, statusCode, message, COOKIE, payload, credentialsid) => {
