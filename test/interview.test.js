@@ -87,7 +87,7 @@ server.init(0, (err, server) => {
               client.saddAsync('iIkUSpzijOInterviewsRequested','testInterviewid','testInterviewIdUnConfirmed')
             })
             .then(() => {
-                testEndPoint(server, '/interview/proposed', 'POST', 200, 'serves 200', clientCookie, interviewPayload);
+                //testEndPoint(server, '/interview/proposed', 'POST', 200, 'serves 200', clientCookie, interviewPayload);
                 testEndPoint(server, '/interview/email/testInterviewIdUnConfirmed', 'GET', 200, 'authed GET responds with 200', clientCookie);
                 testEndPoint(server, '/interview/email/dummyinterviewId', 'GET', 200, 'authed GET responds with 200', clientCookie);
             })
