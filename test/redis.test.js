@@ -231,7 +231,7 @@ client.select(3, () => {
                 }
                 redis.getInterviewDetails(newTimes, (res) => {
                     let resLength = Object.keys(res).length;
-                    t.equals(resLength, 24, 'newtimes agency and client details pulled together');
+                    t.equals(resLength, 19, 'newtimes agency and client details pulled together');
                     t.end();
                 });
             });
