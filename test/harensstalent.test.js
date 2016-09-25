@@ -111,12 +111,12 @@ server.init(0, (err, server) => {
                             client.sadd('HarnessTalentAdminShortList', 'candidate1id');
                             client.sadd('HarnessTalentAdminShortList', 'candidate2id');
                             client.sadd('HarnessTalentAdminShortList', 'candidate3id');
-                            client.sadd('agencyTestIdHarnessTalentShortlist', 'testcvid');
+                            client.sadd('agencyTestIdHarnessTalentShortlist', 'testCvid');
 
                         })
                         .then(() => {
                                 testEndPoint(server, '/harnesstalent/results?' + query, 'GET', 200, 'endpoint responds with', clientCookie);                          
-                                testEndPoint(server, '/harnesstalent/accepted/testcvid', 'GET', 200, 'accepted for harness talent returns',adminCookie);
+                                testEndPoint(server, '/harnesstalent/accepted/testCvid', 'GET', 200, 'accepted for harness talent returns',adminCookie);
                                 testEndPoint(server, '/harnesstalent/interview/proposed', 'POST', 200, ' ht proposed interview endpoint responds with', clientCookie, interviewPayload);
                                 testEndPoint(server, '/admin/newharnesstalent', 'GET', 200, ' gets into newharness talent endpoint', adminCookie);
                                 
@@ -124,7 +124,6 @@ server.init(0, (err, server) => {
                                 testEndPoint(server, '/agency/submitcandidate', 'POST', 200, 'Server responds with 200', agencyCookie, candidate1Payload );
                                 testEndPoint(server, '/agency/resubmitcandidate/testcvid', 'GET', 200, 'Server responds with 200', agencyCookie);
                                 
-                                //testEndPoint(server, '/agency/submitcandidate', 'POST', 200, 'Server responds with 200', agencyCookie, existingDiffAgencyCandidatePayload );
                                 testEndPoint(server, '/harnesstalent/accepted/testcvid', 'GET', 200, ' gets into accepted test endpoint', adminCookie);
                                 testEndPoint(server, '/harnesstalent/reject?cvid=testcvid', 'GET', 200, ' gets into rejected test endpoint', adminCookie);
 

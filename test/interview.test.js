@@ -103,7 +103,7 @@ server.init(0, (err, server) => {
                 testEndPoint(server, '/scheduling/pendinginterviews','GET', 200, 'responds with 200', clientCookie )
             })
             .catch(() =>{
-                console.log('Error with interview tests')
+                console.error('Error with interview tests',error);
             });
     });
     server.stop();
