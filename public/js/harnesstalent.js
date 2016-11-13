@@ -9,11 +9,12 @@ var $ = window.$;
             this.search();
             this.reset();
             this.interviewRequest()
+            this.dropdown();
         },
         queryObject: {
                     jobTitle: $('select[name=jobTitle]').val(),
                     company: $('select[name=company]').val(),
-                    jobCategory: $('select[name=jobCategory]').val(),
+                   // jobCategory: $('select[name=jobCategory]').val(),
                     location: $('select[name=location]').val(),
                     salaryMin: $('select[name=salaryMin]').val(),
                     salaryMax: $('select[name=salaryMax]').val(),
@@ -27,7 +28,6 @@ var $ = window.$;
                     if(response.array === false){
                         $('.ui.message').text('There is no talent');
                     }
-                    console.log('REPONSE', response);       
 
                     var filteredCandidates   = response.array;
                     var companies = response.companies;
@@ -53,7 +53,7 @@ var $ = window.$;
                 var queryObj = {
                     jobTitle: $('select[name=jobTitle]').val(),
                     company: $('select[name=company]').val(),
-                    jobCategory: $('select[name=jobCategory]').val(),
+                   // jobCategory: $('select[name=jobCategory]').val(),
                     location: $('select[name=location]').val(),
                     salaryMin: $('select[name=salaryMin]').val(),
                     salaryMax: $('select[name=salaryMax]').val(),
@@ -142,6 +142,11 @@ var $ = window.$;
         },
         datepicker: function(){
              $( ".datepicker" ).datepicker({dateFormat: 'DD, d MM, yy'});
+        },
+        dropdown: function(){
+            console.log('boom');
+            $(".ui.fluid.dropdown").dropdown({ allowLabels:true})
+            $('.ui.fluid.dropdown').dropdown({'set selected': 'All'});
         }
     };
     CANDIDATES.init();
