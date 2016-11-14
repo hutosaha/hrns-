@@ -119,6 +119,10 @@ video {
   color:white;
 }
 
+.ui.three.column.grid.hiw {
+  margin-bottom: 4em;
+}
+
 .aboutUs h4 , .aboutUs p {
   text-align: justify !important;
 }
