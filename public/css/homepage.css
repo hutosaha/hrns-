@@ -267,6 +267,14 @@ sup {
 
  }
 
+.admin {
+  display: block;
+  color:#1B1C1F;
+}
+.admin:hover {
+  background-color: pink;
+}
+
 @media only screen and (min-width:1000px){
   .productsWord {
       position: absolute;

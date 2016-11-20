@@ -144,7 +144,6 @@ var $ = window.$;
              $( ".datepicker" ).datepicker({dateFormat: 'DD, d MM, yy'});
         },
         dropdown: function(){
-            console.log('boom');
             $(".ui.fluid.dropdown").dropdown({ allowLabels:true})
             $('.ui.fluid.dropdown').dropdown({'set selected': 'All'});
         }
