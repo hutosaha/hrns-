@@ -17,8 +17,8 @@ const agencyPayload = require('./utils/utils.js').agencyPayload;
 const clientPayload = require('./utils/utils.js').clientPayload;
 const vidPayload    = require('./utils/utils.js').vidPayload;
 
-const jobQuery = '?jobTitle=Tester&jobDescription=testing%20everything&jobCategory=test&teamCulture=anal&typesOfProjects=tests&teamSize=5&skillOne=test&skillTwo=test%20again&skillThree=test%20more&personality=persistant&salary=100000&searchProgress=slow&searchDeadline=12/12/2016&vid=12345&agencyId=testAgencyId&email=tormodsmith@gmail.com&candidateName=Joe%20Bloggs';
-const query    = 'reason=Not%20enough%20experience&vid=test-vid&email=tormodsmith@gmail.com&cvid=test-cvid&list=testclientShortlist';
+const jobQuery = '?jobTitle=Tester&jobDescription=testing%20everything&jobCategory=test&teamCulture=anal&typesOfProjects=tests&teamSize=5&skillOne=test&skillTwo=test%20again&skillThree=test%20more&personality=persistant&salary=100000&searchProgress=slow&searchDeadline=12/12/2016&vid=12345&agencyId=testAgencyId&email=tsinseoul@gmail.com&candidateName=Joe%20Bloggs';
+const query    = 'reason=Not%20enough%20experience&vid=test-vid&email=tsinseoul@gmail.com&cvid=test-cvid&list=testclientShortlist';
 
 
 server.init(0, (err, server) => {
@@ -37,7 +37,7 @@ server.init(0, (err, server) => {
             .then(() => {
                 testEndPoint(server, '/client/job/accept'+jobQuery, 'GET', 200, 'endpoint responds with:', clientCookie, jobPayload); //split responds with null
                 testEndPoint(server, '/client/scheduling/reject?'+query, 'GET', 200, 'endpoint responds with', clientCookie);
-                testEndPoint(server, '/submitjob','POST', 200, 'endpoint responds with:', clientCookie, submitJobPayload, 'iIkUSpzijO'); 
+                testEndPoint(server, '/submitjob','POST', 200, 'endpoint responds with:', clientCookie, submitJobPayload, 'iIkUSpzijO');
                 testEndPoint(server, '/client', 'GET', 200, 'authed GET responds with 200', clientCookie);
                 testEndPoint(server, '/client/job/vid', 'GET', 200, 'authed GET responds with 200', clientCookie);
                 testPayload(server, '/client/job/randomvid', 'GET', 'Sorry, something went wrong', 'payload contains view with:', clientCookie);
@@ -47,15 +47,15 @@ server.init(0, (err, server) => {
                 testEndPoint(server, '/clientsignup', 'POST', 200, 'POST with correct payload responds with 200', clientCookie, clientSignupPayload);
                 testPayload(server, '/clientsignup', 'GET', 'Sign Up', 'payload response is:', nonExistingUserCookie);
                 testPayload(server, '/clientsignup', 'POST', 'We will let you know by email', 'correct client signup responds with correct message', clientCookie, clientSignupPayload);
-                testEndPoint(server, '/submitjob', 'GET', 200, 'endpoint responds with:', clientCookie); 
+                testEndPoint(server, '/submitjob', 'GET', 200, 'endpoint responds with:', clientCookie);
                 testEndPoint(server, '/client/job/remove/1233112vid', 'GET', 200, 'endpoint responds with:', clientCookie);
-                testEndPoint(server, '/client/file-exists?cvUrl=https://harnesscvbucket.s3.amazonaws.com/1212312332test.docx', 'GET', 200, 'endpoint responds with:', clientCookie);     
-                testEndPoint(server, '/client/scheduling/12345vid/testJob/testCompany', 'GET', 200, 'endpoint responds with:', clientCookie);         
+                testEndPoint(server, '/client/file-exists?cvUrl=https://harnesscvbucket.s3.amazonaws.com/1212312332test.docx', 'GET', 200, 'endpoint responds with:', clientCookie);
+                testEndPoint(server, '/client/scheduling/12345vid/testJob/testCompany', 'GET', 200, 'endpoint responds with:', clientCookie);
                 testEndPoint(server, '/harnesstalent', 'GET', 200, 'endpoint responds with', clientCookie);
             })
             .catch(()=>{
                 console.log('ERROR with client plugin tests')
-            })   
+            })
       });
 
     server.stop();

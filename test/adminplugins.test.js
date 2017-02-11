@@ -25,7 +25,7 @@ server.init(0, (err, server) => {
 
         client.hmsetAsync(vid, jobPayload)
             .then(() => {
-                client.sadd(vid + 'adminShortlist', vid)
+                client.sadd(vid + 'adminShortlist', vid);
                 client.hmset(cvid, cvPayload);
                 client.hmset(vid, jobPayload);
                 client.hmset('iIkUSpzijO', clientPayload);
@@ -41,12 +41,12 @@ server.init(0, (err, server) => {
                 testEndPoint(server, '/adminvacancies', 'GET', 200, 'admin viewing vacancies responds with 200', adminCookie);
                 testEndPoint(server, '/admin/job/test3Vid', 'GET', 200, 'admin gets 200 response', adminCookie);
                 testEndPoint(server, '/admin/job/dummyVid', 'GET', 200, 'admin gets 200 response', adminCookie);
-                testEndPoint(server, '/admin/job/' + vid + '/tormodsmith@gmail.com', 'GET', 200, 'server responds with new view', adminCookie);
-                testEndPoint(server, '/rating?agencyEmail=tormodsmith@gmail.com&rating=gold&cvid=' + cvid + '&vid=' + vid, 'GET', 200, 'server responds with redirect', adminCookie);
-                testEndPoint(server, '/admin/job/reject?agencyEmail=tormodsmith@gmail.com&cvid=' + cvid + '&vid=' + vid, 'GET', 200, 'server responds with true', adminCookie);
+                testEndPoint(server, '/admin/job/' + vid + '/tsinseoul@gmail.com', 'GET', 200, 'server responds with new view', adminCookie);
+                testEndPoint(server, '/rating?agencyEmail=tsinseoul@gmail.com&rating=gold&cvid=' + cvid + '&vid=' + vid, 'GET', 200, 'server responds with redirect', adminCookie);
+                testEndPoint(server, '/admin/job/reject?agencyEmail=tsinseoul@gmail.com&cvid=' + cvid + '&vid=' + vid, 'GET', 200, 'server responds with true', adminCookie);
                 testEndPoint(server, '/admin/job/123', 'GET', 403, 'nonAdmin gets 403 response', notAdminCookie);
-                testEndPoint(server, '/approveuser/approve/iIkUSpzijO/tormodsmith@gmail.com', 'GET', 200, 'server responds with new view', adminCookie);
-                testEndPoint(server, '/approveuser/reject/iIkUSpzijO/tormodsmith@gmail.com', 'GET', 200, 'server responds with new view', adminCookie);
+                testEndPoint(server, '/approveuser/approve/iIkUSpzijO/tsinseoul@gmail.com', 'GET', 200, 'server responds with new view', adminCookie);
+                testEndPoint(server, '/approveuser/reject/iIkUSpzijO/tsinseoul@gmail.com', 'GET', 200, 'server responds with new view', adminCookie);
                 testEndPoint(server, '/approveuser/approve/id/me@me.com', 'GET', 302, 'unauthed  redirected to login');
                 testEndPoint(server, '/approveusers', 'GET', 200, 'authed GET responds with 200', adminCookie);
                 testEndPoint(server, '/userinfo/client', 'GET', 200, 'endpoint responds with:', adminCookie);
