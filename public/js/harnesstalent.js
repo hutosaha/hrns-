@@ -8,7 +8,7 @@ var $ = window.$;
             this.fetch();
             this.search();
             this.reset();
-            this.interviewRequest()
+            this.interviewRequest();
             this.dropdown();
         },
         queryObject: {
@@ -32,7 +32,7 @@ var $ = window.$;
                     var filteredCandidates   = response.array;
                     var companies = response.companies;
                     var userType  = response.userType;
-                    if(userType === 'admin'){ 
+                    if(userType === 'admin'){
                         $('.client-menus').remove();
                     }
 
@@ -144,7 +144,7 @@ var $ = window.$;
              $( ".datepicker" ).datepicker({dateFormat: 'DD, d MM, yy'});
         },
         dropdown: function(){
-            $(".ui.fluid.dropdown").dropdown({ allowLabels:true})
+            $(".ui.fluid.dropdown").dropdown({ allowLabels:true});
             $('.ui.fluid.dropdown').dropdown({'set selected': 'All'});
         }
     };
