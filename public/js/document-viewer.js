@@ -8,7 +8,7 @@ var DOCUMENTVIEWER = {
     },
     clearDownloads: function() {
         $.ajax({
-            url: '/client/clear-downloads', // refactored to be used in cronjob. 
+            url: '/client/clear-downloads', // refactored to be used in cronjob.
             async: true,
             success: function(response) {
                 console.log(response);
@@ -32,10 +32,9 @@ var DOCUMENTVIEWER = {
             //var msDocumentTypes = ['doc', 'docx'];
 
             self.isFileAlreadyDownloaded(cvUrl, function(fileName){
-                var ext = cvUrl.substr(cvUrl.lastIndexOf('.') + 1);
-
+                var ext = cvUrl && cvUrl.substr(cvUrl.lastIndexOf('.') + 1);
+                if (!ext){ console.log('closing popup');}
                 if (fileName !== 'notFound') {
-
                     var pdf = "/public/assets/ViewerJS/#../downloads/" + fileName;
                     var word = "https://view.officeapps.live.com/op/embed.aspx?src=www.harnesstalent.com/public/assets/downloads/" + fileName;
                     ext === 'pdf' ? self.viewFile(fileName, relatedInfoObject, pdf) : self.viewFile(fileName, relatedInfoObject, word);
@@ -103,7 +102,7 @@ var DOCUMENTVIEWER = {
                 .modal('show');
 
             $('.modal-submit-acceptance-button').click(function() {
-                $('.first.coupled.modal.accept-modal').hide(); /// need the confirmation 
+                $('.first.coupled.modal.accept-modal').hide(); /// need the confirmation
                 $.ajax({
                     url: '/client/job/accept',
                     data: relatedInfoObject,
