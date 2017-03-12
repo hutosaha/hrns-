@@ -20,11 +20,11 @@ const jobPayload = require('./utils/utils.js').jobPayload;
 server.init(0, (err, server) => {
 
     client.select(3, ()=>{
-       
+
         client.hmsetAsync('test-vid',jobPayload)
             .then(()=>{
-                  client.hmsetAsync('testAgencyId', agencyPayload)
-                  client.hmsetAsync('test-vid-123', { jobTitle: 'developer' })
+                  client.hmsetAsync('testAgencyId', agencyPayload);
+                  client.hmsetAsync('test-vid-123', { jobTitle: 'developer' });
                   client.delAsync('liveJobs');
             })
             .then(()=> {
@@ -32,7 +32,7 @@ server.init(0, (err, server) => {
                   testEndPoint(server, '/agencysignup', 'POST', 400, 'POST without payload responds with 400 - bad request', agencyCookie);
                   testEndPoint(server, '/agencysignup', 'POST', 400, 'POST with incorrect payload responds with 400', agencyCookie, incorrectAgencySignupPayload);
                   testEndPoint(server, '/agencysignup', 'POST', 200, 'agency signup', agencyCookie, agencySignupPayload);
-                  testPayload(server, '/agency/job/wrong-vid', 'GET', 'Sorry, something went wrong', 'error handles incorrect vid', agencyCookie);
+                  testPayload(server, '/agency/job/wrong-vid', 'GET', 'This job no longer exists', 'error handles incorrect vid', agencyCookie);
                   testPayload(server, '/' + agencyLoginEndPoint, 'GET', 'Agency Login', 'correctly returns agency login view');
                   testEndPoint(server, '/agency/job/test-vid', 'GET', 403, 'unauthorised user viewing agency job responds with 403', candidateCookie);
                   testEndPoint(server, '/agency/job/test-vid', 'GET', 200, 'agency viewing agency job responds with 200', agencyCookie);
@@ -43,8 +43,8 @@ server.init(0, (err, server) => {
                   testPayload(server,  '/agency', 'GET', 'There are no vacancies', 'agency homepage apologies with no vacancies', agencyCookie);
             })
             .catch(()=>{
-                console.log('ERROR with agency plugin tests')
-            })    
+                console.log('ERROR with agency plugin tests');
+            });
     });
     server.stop();
 });

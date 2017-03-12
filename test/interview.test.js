@@ -54,37 +54,37 @@ const newTimes = {
     additionalComments: 'Meet under the clock',
     interviewAddress: '12 Abbey Road',
     agencyId:'testAgencyId',
-    interviewId: 'testInterviewId'   
+    interviewId: 'testInterviewId'
 };
 
-const confirmedTime ={ 
+const confirmedTime ={
     confirmedIntTime: '12:12',
     confirmedIntDate: '12/12/2015',
     interviewAddress: '12 Abbey Road',
     interviewId:  'testInterviewIdUnConfirmed'
-}
+};
 
-const confirmedTimeHT ={ 
+const confirmedTimeHT ={
     confirmedIntTime: '12:12',
     confirmedIntDate: '12/12/2015',
     interviewAddress: '12 Abbey Road',
     interviewId:  'testHTinterviewId'
-}
+};
 
 server.init(0, (err, server) => {
     client.select(3, () => {
         client.hmsetAsync('test-vid', jobPayload)
             .then(() => {
-              client.hmsetAsync('testAgencyId', agencyPayload)
-              client.hmsetAsync('clientIdInt', interviewClientPayload)
-              client.hmsetAsync('test-vid-Interview', vidPayload)
+              client.hmsetAsync('testAgencyId', agencyPayload);
+              client.hmsetAsync('clientIdInt', interviewClientPayload);
+              client.hmsetAsync('test-vid-Interview', vidPayload);
               client.hmsetAsync('testInterviewId', interviewPayload);
               let interviewPayloadUnconfirmed = Object.assign({},interviewPayload);
               interviewPayloadUnconfirmed.confirmed = 'false';
               interviewPayloadUnconfirmed.clientEmail = process.env.TEST_EMAIL;
               client.hmsetAsync('testHTinterviewId', interviewPayloadHT );
-              client.hmsetAsync('testInterviewIdUnConfirmed' , interviewPayloadUnconfirmed)
-              client.saddAsync('iIkUSpzijOInterviewsRequested','testInterviewid','testInterviewIdUnConfirmed')
+              client.hmsetAsync('testInterviewIdUnConfirmed' , interviewPayloadUnconfirmed);
+              client.saddAsync('iIkUSpzijOInterviewsRequested','testInterviewid','testInterviewIdUnConfirmed');
             })
             .then(() => {
                 //testEndPoint(server, '/interview/proposed', 'POST', 200, 'serves 200', clientCookie, interviewPayload);
@@ -92,17 +92,17 @@ server.init(0, (err, server) => {
                 testEndPoint(server, '/interview/email/dummyinterviewId', 'GET', 200, 'authed GET responds with 200', clientCookie);
             })
             .then(()=>{
-                client.hmsetAsync('testInterviewId', 'interviewId', 'testInterviewId');          
+                client.hmsetAsync('testInterviewId', 'interviewId', 'testInterviewId');
             })
             .then(()=>{
-                testEndPoint(server, '/change/interview', 'POST', 200, 'authed GET responds with 200', clientCookie, newTimes);
-                let query = qs.stringify(confirmedTime);                
-                testEndPoint(server, '/interview/confirmed?'+query, 'GET', 200, 'authed GET responds with 200', clientCookie);                           
+                //testEndPoint(server, '/change/interview', 'POST', 200, 'authed GET responds with 200', clientCookie, newTimes);
+                let query = qs.stringify(confirmedTime);
+                testEndPoint(server, '/interview/confirmed?'+query, 'GET', 200, 'authed GET responds with 200', clientCookie);
                 query = qs.stringify(confirmedTimeHT);
                 testEndPoint(server, '/interview/confirmed?'+query, 'GET', 200, 'authed GET responds with 200 HarnessTalent', clientCookie);
-                testEndPoint(server, '/scheduling/pendinginterviews','GET', 200, 'responds with 200', clientCookie )
+                testEndPoint(server, '/scheduling/pendinginterviews','GET', 200, 'responds with 200', clientCookie );
             })
-            .catch(() =>{
+            .catch((error) =>{
                 console.error('Error with interview tests',error);
             });
     });

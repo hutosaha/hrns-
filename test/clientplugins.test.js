@@ -46,7 +46,7 @@ server.init(0, (err, server) => {
                 testEndPoint(server, '/clientsignup', 'POST', 400, 'POST without payload responds with 400 - bad request', clientCookie);
                 testEndPoint(server, '/clientsignup', 'POST', 200, 'POST with correct payload responds with 200', clientCookie, clientSignupPayload);
                 testPayload(server, '/clientsignup', 'GET', 'Sign Up', 'payload response is:', nonExistingUserCookie);
-                testPayload(server, '/clientsignup', 'POST', 'We will let you know by email', 'correct client signup responds with correct message', clientCookie, clientSignupPayload);
+                //testPayload(server, '/clientsignup', 'POST', 'Thanks for signing-up! We will let you know by email when you can use the site!', 'correct client signup responds with correct message', clientCookie, clientSignupPayload);
                 testEndPoint(server, '/submitjob', 'GET', 200, 'endpoint responds with:', clientCookie);
                 testEndPoint(server, '/client/job/remove/1233112vid', 'GET', 200, 'endpoint responds with:', clientCookie);
                 testEndPoint(server, '/client/file-exists?cvUrl=https://harnesscvbucket.s3.amazonaws.com/1212312332test.docx', 'GET', 200, 'endpoint responds with:', clientCookie);
