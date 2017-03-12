@@ -11,55 +11,22 @@ const qs = require('querystring');
 const clientCookie = require('./utils/utils.js').clientCookie;
 //const nonExistingUserCookie = require('./utils/utils.js').nonExistingUserCookie;
 
-const clientSignupPayload = { clientId: 'TESTCLIENTID', contactName: 'Huw Davies', email: 'me@me.com', contactNumber: '08372974723', companyName: 'Facebook Ltd.', companyDescription: 'Social media application', companySize: '500+', website: 'http://facebook.com', twitter: '@facebook' };
-const agencySignupPayload = { agencyId: 'TESTAGENCYID', contactName: 'Joe Bloggs', companyName: 'google', contactNumber: '0823748237', email: 'fac@hotmail.com', companySize: '50-200', agencySpecialism: 'Creative' };
+const clientPayload = require('./utils/utils.js').clientPayload;
+const interviewClientPayload = require('./utils/utils.js').interviewClientPayload;
+const agencyPayload = require('./utils/utils.js').agencyPayload;
 
-const jobPayload = {
-    jobTitle: 'Tester',
-    jobDescription: 'testing everything',
-    jobCategory: 'test',
-    teamCulture: 'anal',
-    typesOfProjects: 'tests',
-    teamSize: 5,
-    skillOne: 'test',
-    vid: 'test-vid',
-    skillTwo: 'test again',
-    skillThree: 'test more',
-    personality: 'persistant',
-    salary: 100000,
-    searchProgress: 'slow',
-    searchDeadline: '12\/12\/2016',
-    clientId: 'TESTCLIENTID'
-};
+const jobPayload = require('./utils/utils.js').jobPayload;
+const vidPayload = require('./utils/utils.js').vidPayload;
 
+const interviewPayload = require('./utils/utils.js').interviewPayload;
 
-const interviewPayload = {
-    cvid: 'testcvid',
-    stage: 'stageOne',
-    agencyId: '7PP6QGWdXN',
-    agencyEmail:'tormodsmith@gmail.com',
-    clientEmail:'tormodsmith@gmail.com',
-    candidateName: 'John Wayne',
-    jobTitle: 'porn star',
-    vid: 'test-vid',
-    firstIntDate: '23/05/2016',
-    firstIntTime: '12:12',
-    secondIntDate: '23/05/2016',
-    secondIntTime: '09:09',
-    thirdIntDate: '23/05/2016',
-    thirdIntTime: '10:10',
-    additionalComments: 'Meet under the clock',
-    interviewAddress: '12 Abbey Road',
-    confirmed: 'false',
-    interviewId: 'test2interviewId'
-};
 const interviewPayloadHT = {
     cvid: 'testcvid',
-    agencyId: '7PP6QGWdXN',
-    agencyEmail:'tormodsmith@gmail.com',
-    clientEmail: 'tormodsmith@gmail.com',
+    agencyId: 'testAgencyId',//7PP6QGWdXN',
+    agencyEmail:process.env.TEST_EMAIL,
+    clientEmail: process.env.TEST_EMAIL,
     candidateName: 'John Wayne',
-    jobTitle: 'porn star',
+    jobTitle: 'Movie star',
     vid: 'test-vid',
     firstIntDate: '23/05/2016',
     firstIntTime: '12:12',
@@ -86,49 +53,58 @@ const newTimes = {
     vid: 'test-vid',
     additionalComments: 'Meet under the clock',
     interviewAddress: '12 Abbey Road',
-    agencyId:'TESTAGENCYID',
-   
+    agencyId:'testAgencyId',
+    interviewId: 'testInterviewId'
 };
 
-const confirmedTime ={ 
+const confirmedTime ={
     confirmedIntTime: '12:12',
     confirmedIntDate: '12/12/2015',
     interviewAddress: '12 Abbey Road',
-    interviewId:  'test2interviewId'
-}
+    interviewId:  'testInterviewIdUnConfirmed'
+};
 
-const confirmedTimeHT ={ 
+const confirmedTimeHT ={
     confirmedIntTime: '12:12',
     confirmedIntDate: '12/12/2015',
     interviewAddress: '12 Abbey Road',
     interviewId:  'testHTinterviewId'
-}
+};
 
 server.init(0, (err, server) => {
-    client.select(2, () => {
-
+    client.select(3, () => {
         client.hmsetAsync('test-vid', jobPayload)
             .then(() => {
-                client.hmsetAsync('TESTAGENCYID', agencySignupPayload)
-                client.hmsetAsync('TESTCLIENTID', clientSignupPayload)
-                client.hmsetAsync('test2interviewId', interviewPayload)
-                client.hmsetAsync('testHTinterviewId' , interviewPayloadHT) ;
+              client.hmsetAsync('testAgencyId', agencyPayload);
+              client.hmsetAsync('clientIdInt', interviewClientPayload);
+              client.hmsetAsync('test-vid-Interview', vidPayload);
+              client.hmsetAsync('testInterviewId', interviewPayload);
+              let interviewPayloadUnconfirmed = Object.assign({},interviewPayload);
+              interviewPayloadUnconfirmed.confirmed = 'false';
+              interviewPayloadUnconfirmed.clientEmail = process.env.TEST_EMAIL;
+              client.hmsetAsync('testHTinterviewId', interviewPayloadHT );
+              client.hmsetAsync('testInterviewIdUnConfirmed' , interviewPayloadUnconfirmed);
+              client.saddAsync('iIkUSpzijOInterviewsRequested','testInterviewid','testInterviewIdUnConfirmed');
             })
             .then(() => {
-                testEndPoint(server, '/interview/proposed', 'POST', 200, 'serves 200', clientCookie, newTimes);
-                testEndPoint(server, '/interview/email/test2interviewId', 'GET', 200, 'authed GET responds with 200', clientCookie);
+                //testEndPoint(server, '/interview/proposed', 'POST', 200, 'serves 200', clientCookie, interviewPayload);
+                testEndPoint(server, '/interview/email/testInterviewIdUnConfirmed', 'GET', 200, 'authed GET responds with 200', clientCookie);
                 testEndPoint(server, '/interview/email/dummyinterviewId', 'GET', 200, 'authed GET responds with 200', clientCookie);
-                //testEndPoint(server, '/change/interview', 'POST', 200, 'authed GET responds with 200', clientCookie, interviewPayload);
-                let query = qs.stringify(confirmedTime);                
-                testEndPoint(server, '/interview/confirmed?'+query, 'GET', 200, 'authed GET responds with 200', clientCookie);           
-                
+            })
+            .then(()=>{
+                client.hmsetAsync('testInterviewId', 'interviewId', 'testInterviewId');
+            })
+            .then(()=>{
+                //testEndPoint(server, '/change/interview', 'POST', 200, 'authed GET responds with 200', clientCookie, newTimes);
+                let query = qs.stringify(confirmedTime);
+                testEndPoint(server, '/interview/confirmed?'+query, 'GET', 200, 'authed GET responds with 200', clientCookie);
                 query = qs.stringify(confirmedTimeHT);
                 testEndPoint(server, '/interview/confirmed?'+query, 'GET', 200, 'authed GET responds with 200 HarnessTalent', clientCookie);
-
+                testEndPoint(server, '/scheduling/pendinginterviews','GET', 200, 'responds with 200', clientCookie );
             })
-            .catch();
-
-
+            .catch((error) =>{
+                console.error('Error with interview tests',error);
+            });
     });
     server.stop();
 });

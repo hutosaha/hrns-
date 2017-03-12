@@ -7,10 +7,6 @@ const utils = require('../lib/plugins/utils/app.js');
 const rating                         = require('../public/views/helpers/rating.js');
 const sector                         = require('../public/views/helpers/sector.js');
 const stage                          = require('../public/views/helpers/stageconversion.js');
-// const stageOne                       = require('../public/views/helpers/stageOne.js');
-// const stageTwo                       = require('../public/views/helpers/stageTwo.js');
-// const stageThree                     = require('../public/views/helpers/stageThree.js');
-// const stageFour                      = require('../public/views/helpers/stageFour.js');
 const formatEmailToAdminForGenericCV = utils.formatEmailToAdminForGenericCV;
 const emailAdminForGenericCV         = utils.emailAdminForGenericCV;
 const formatCandidateKeys            = utils.formatCandidateKeys;
@@ -29,24 +25,6 @@ test('formatEmailToAdminForGenericCV correctly renders HTML', (t) => {
     let actual = formatEmailToAdminForGenericCV({ file_url: 'http://google.com', file_name: 'foo', candidateName: 'Joe', jobTitle: 'Dev' });
     t.equal(actual, expected, 'formats correctly!');
     t.end();
-});
-
-test('emailAdminForGenericCV callbacks as expected', (t) => {
-
-  emailAdminForGenericCV(undefined, '', (res) => {
-    let expected = false;
-    let actual = res;
-    t.equal(actual, expected, 'handles failure');
-    t.end();
-  });
-
-  //  fix this, see #93 (HUW)
-
-  // emailAdminForGenericCV({ file_url: 'http://google.com', candidateName: 'foo' }, 'candidate', (res) => {
-  //   let expected = true;
-  //   let actual = res;
-  //   t.equal(actual, expected, 'emailAdmin with Generic CV works!');
-  // });
 });
 
 test('clean payload deletes undefined strings or values in an object', (t) => {

@@ -25,9 +25,9 @@ templates['candidatesTemplate'] = template({"1":function(container,depth0,helper
     + alias4(((helper = (helper = helpers.jobTitle || (depth0 != null ? depth0.jobTitle : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"jobTitle","hash":{},"data":data}) : helper)))
     + "</p>\n        </div>\n        <div class=\"two wide column\">\n            <p>"
     + alias4(((helper = (helper = helpers.company || (depth0 != null ? depth0.company : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"company","hash":{},"data":data}) : helper)))
-    + "</p>\n        </div>\n        <div class=\"two wide column\">\n            <p>"
+/*    + "</p>\n        </div>\n        <div class=\"two wide column\">\n            <p>"
     + alias4(((helper = (helper = helpers.jobCategory || (depth0 != null ? depth0.jobCategory : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"jobCategory","hash":{},"data":data}) : helper)))
-    + "</p>\n        </div>\n        <div class=\"two wide column\">\n            <p>"
+*/    + "</p>\n        </div>\n        <div class=\"two wide column\">\n            <p>"
     + alias4(((helper = (helper = helpers.location || (depth0 != null ? depth0.location : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"location","hash":{},"data":data}) : helper)))
     + "</p>\n        </div>\n        <div class=\"two wide column\">\n            <p>"
     + alias4(((helper = (helper = helpers.salary || (depth0 != null ? depth0.salary : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"salary","hash":{},"data":data}) : helper)))

@@ -103,9 +103,24 @@ video {
 }
 
 
-#aboutUs h3, #products h3 , #whyHarness h3{
+#aboutUs h3, #howItWorks h3, #products h3 , #whyHarness h3{
   color: grey;
   font-weight: lighter;
+}
+
+#howItWorks {
+  background-color: black;
+}
+.ui.small.circular.image.hiw{
+  margin: 0 auto;
+}
+
+.hiw.header{
+  color:white;
+}
+
+.ui.three.column.grid.hiw {
+  margin-bottom: 4em;
 }
 
 .aboutUs h4 , .aboutUs p {
@@ -251,6 +266,14 @@ sup {
    text-align: center;
 
  }
+
+.admin {
+  display: block;
+  color:#1B1C1F;
+}
+.admin:hover {
+  background-color: pink;
+}
 
 @media only screen and (min-width:1000px){
   .productsWord {

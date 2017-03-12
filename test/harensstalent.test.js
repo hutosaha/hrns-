@@ -12,6 +12,11 @@ const agencyCookie    = require('./utils/utils.js').agencyCookie;
 const clientCookie = require('./utils/utils.js').clientCookie;
 const adminCookie = require('./utils/utils.js').adminCookie;
 //const nonExistingUserCookie = require('./utils/utils.js').nonExistingUserCookie;
+const agencyPayload = require('./utils/utils.js').agencyPayload;
+const clientPayload = require('./utils/utils.js').clientPayload;
+const cvPayload = require('./utils/utils.js').cvPayload;
+const interviewPayload = require('./utils/utils.js').interviewPayload;
+
 const candidate1Payload = {
     candidateName: 'Joe Bloggs',
     jobCategory: 'UX',
@@ -58,7 +63,7 @@ const newCandidatePayload = {
     jobCategory: 'UX',
     company: 'Ford',
     jobTitle: 'UX Designer',
-    email: 'test@test.com',
+    email: process.env.TEST_EMAIL,
     contactNumber: '0230420492',
     contractType: 'permanent',
     location: 'London',
@@ -82,45 +87,7 @@ const existingDiffAgencyCandidatePayload = {
      agencyId: 'agencyId2',
 }
 
-
-
-
-const agencyPayload = {
-    contactName: 'Joe Bloggs',
-    companyName: 'google',
-    contactNumber: '0823748237',
-    email: 'tormodsmith@gmail.com',
-    companySize: '50-200',
-    agencySpecialism: 'Creative',
-    agencyId: 'agencyTestId'
-};
-
-const clientPayload = {
-    contactName: 'Huw Davies',
-    email: 'me@me.com',
-    contactNumber: '08372974723',
-    companyName: 'Facebook Ltd.',
-    companyDescription: 'Social media application',
-    companySize: '500+',
-    website: 'http://facebook.com',
-    twitter: '@facebook',
-    clientId: 'iIkUSpzijO'
-};
-
-const cvPayload = {
-    candidateName: 'Johnny Rotten',
-    jobTitle: 'muppet',
-    email: 'test@test.com',
-    contactNumber: '0823748237',
-    salary: '30000',
-    linkedInProfile: 'https://linkedin',
-    file_name: 'testcv.doc',
-    file_url: 'https://torhuw-hrns.s3.amazonaws.com/testcv.doc',
-    cvid: 'testcvid',
-    agencyId: 'agencyTestId'
-};
-
-
+const query = 'salaryMin=20000&location=London&jobTitle=All&jobCategory=All&company=All&salaryMax=50000';
 
 server.init(0, (err, server) => {
 
@@ -133,9 +100,9 @@ server.init(0, (err, server) => {
                         .then(() => {
                             client.hmsetAsync('candidate2id', candidate2Payload);
                             client.hmsetAsync('candidate3id', candidate3Payload);
-                            client.hmsetAsync('agencyTestId', agencyPayload);
+                            client.hmsetAsync('testAgencyId', agencyPayload);
                             client.hmsetAsync('iIkUSpzijO', clientPayload);
-                            client.hmsetAsync('testcvid', cvPayload);
+                            client.hmsetAsync('testCvid', cvPayload);
                         })
                         .then(() => {
                             client.sadd('HarnessTalent', 'candidate2id');
@@ -144,44 +111,25 @@ server.init(0, (err, server) => {
                             client.sadd('HarnessTalentAdminShortList', 'candidate1id');
                             client.sadd('HarnessTalentAdminShortList', 'candidate2id');
                             client.sadd('HarnessTalentAdminShortList', 'candidate3id');
-                            client.sadd('agencyTestIdHarnessTalentShortlist', 'testcvid');
+                            client.sadd('agencyTestIdHarnessTalentShortlist', 'testCvid');
 
                         })
                         .then(() => {
-                                var query = 'salaryMin=20000&location=London&jobTitle=All&jobCategory=All&company=All&salaryMax=50000';
-                                testEndPoint(server, '/harnesstalent/results?' + query, 'GET', 200, 'endpoint responds with', clientCookie);
-
-                                var payload = {
-                                    candidateName: 'Tormod Smith',
-                                    cvid : 'testcvid',
-                                    vid : 'testvid',
-                                    agencyId : 'agencyTestId',
-                                    firstIntDate: 'Friday 22 July 2016',
-                                    firstIntTime: '2:22',
-                                    jobTitle : 'Tester',
-                                    jobLocation : 'Leeds',
-                                    salary : '1000' ,
-                                    contractType : 'Both',
-                                    interviewAddress :'Glasgow' ,
-                                    jobDescription_url :' https://Fharnesscvbucket.s3.amazonaws.com/F041d8e90-CV.docx',
-                                    additionalComments : 'Bring your  A  game '
-
-                                  };
-
-
-                                testEndPoint(server, '/harnesstalent/interview/proposed', 'POST', 200, ' ht proposed interview endpoint responds with', clientCookie, payload);
+                                testEndPoint(server, '/harnesstalent/results?' + query, 'GET', 200, 'endpoint responds with', clientCookie);                          
+                                testEndPoint(server, '/harnesstalent/accepted/testCvid', 'GET', 200, 'accepted for harness talent returns',adminCookie);
+                                testEndPoint(server, '/harnesstalent/interview/proposed', 'POST', 200, ' ht proposed interview endpoint responds with', clientCookie, interviewPayload);
                                 testEndPoint(server, '/admin/newharnesstalent', 'GET', 200, ' gets into newharness talent endpoint', adminCookie);
                                 
                                 testEndPoint(server, '/agency/submitcandidate', 'POST', 200, 'Server responds with 200', agencyCookie, newCandidatePayload );
                                 testEndPoint(server, '/agency/submitcandidate', 'POST', 200, 'Server responds with 200', agencyCookie, candidate1Payload );
-                                //testEndPoint(server, '/agency/submitcandidate', 'POST', 200, 'Server responds with 200', agencyCookie, existingDiffAgencyCandidatePayload );
                                 testEndPoint(server, '/agency/resubmitcandidate/testcvid', 'GET', 200, 'Server responds with 200', agencyCookie);
-                                // testEndPoint(server, '/harnesstalent/accpeted/testcvid', 'GET', 200, ' gets into naccepted test endpoint', adminCookie);
-                                // testEndPoint(server, '/harnesstalent/reject?cvid=testcvid', 'GET', 200, ' gets into rejected test endpoint', adminCookie);
+                                
+                                testEndPoint(server, '/harnesstalent/accepted/testcvid', 'GET', 200, ' gets into accepted test endpoint', adminCookie);
+                                testEndPoint(server, '/harnesstalent/reject?cvid=testcvid', 'GET', 200, ' gets into rejected test endpoint', adminCookie);
 
                         })
                         .catch();
-
+                            console.log('Error with harnesstalent Tests');
                         });
                 server.stop();
             });

@@ -1,0 +1,37 @@
+<div class="centerHome">
+    <h1 class="ui block header">Remove User</h1>
+    <div class="ui divider"></div>
+    <div class="ui search">
+      <div class="ui icon input">
+        <input class="prompt" type="text" placeholder="Search users...">
+        <i class="search icon"></i>
+      </div>
+      <div id="selectedUser"></div>
+      <div class="results"></div>
+    </div>
+    <div class="ui stackable grid listView">
+        <div class="ui six column row">
+            <div class="column text-overflow-element">
+                <h5 name="contactName"></h5>
+            </div>
+            <div class="column text-overflow-element">
+                <a href="mailto:{{email}}"><h5 name="email"></h5></a>
+            </div>
+            <div class="column text-overflow-element">
+                <a href="tel:{{contactNumber}}"><h5 name="contactNumber"></h5></a>
+            </div>
+            <div class="column text-overflow-element">
+                <h5 name="companyName"></h5>
+            </div>
+            <div class="column text-overflow-element">
+                <h5 name="type"></h5>
+            </div>
+            <div class="column text-overflow-element">
+                <h5 name="id"></h5>
+            </div>
+        </div>
+    </div>   
+    <div class="ui divider"></div>
+    <div class="buttonDiv"></div> 
+</div>
+<script type="text/javascript"  src="/public/js/removeuser.js"></script>
