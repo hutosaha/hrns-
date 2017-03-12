@@ -27,12 +27,12 @@ server.init(0, (err, server) => {
 
         client.hmsetAsync('test-vid',jobPayload)
             .then(()=> {
-                client.hmsetAsync('test-cvid', cvPayload)
-                client.hmsetAsync('testAgencyId', agencyPayload)
-                client.hmsetAsync('test-vid', vidPayload)
-                client.hmsetAsync('test-vid', vidPayload)
-                client.hmsetAsync('iIkUSpzijO', clientPayload)
-                client.saddAsync('agencyEmails', process.env.TEST_EMAIL)
+                client.hmsetAsync('test-cvid', cvPayload);
+                client.hmsetAsync('testAgencyId', agencyPayload);
+                client.hmsetAsync('test-vid', vidPayload);
+                client.hmsetAsync('test-vid', vidPayload);
+                client.hmsetAsync('iIkUSpzijO', clientPayload);
+                client.saddAsync('agencyEmails', process.env.TEST_EMAIL);
             })
             .then(() => {
                 testEndPoint(server, '/client/job/accept'+jobQuery, 'GET', 200, 'endpoint responds with:', clientCookie, jobPayload); //split responds with null
@@ -54,8 +54,8 @@ server.init(0, (err, server) => {
                 testEndPoint(server, '/harnesstalent', 'GET', 200, 'endpoint responds with', clientCookie);
             })
             .catch(()=>{
-                console.log('ERROR with client plugin tests')
-            })
+                console.log('ERROR with client plugin tests');
+            });
       });
 
     server.stop();
